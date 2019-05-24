@@ -1,12 +1,18 @@
 fileFormatVersion: 2
 guid: 019355d90503eaf449da0b4765ccec4b
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Forest_deco_covers(ice)_0
-    21300002: Forest_deco_covers(ice)_1
-    21300004: Forest_deco_covers(ice)_2
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Forest_deco_covers(ice)_0
+  - first:
+      213: 21300002
+    second: Forest_deco_covers(ice)_1
+  - first:
+      213: 21300004
+    second: Forest_deco_covers(ice)_2
   externalObjects: {}
-  serializedVersion: 5
+  serializedVersion: 10
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -24,6 +30,8 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -34,7 +42,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: -1
     aniso: -1
-    mipBias: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -111,6 +119,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 6174a4f4e6a64e6418f4f3f3c33b15c6
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -131,6 +140,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 97c15f7c3d9a2b04aa77448aaaab06ea
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []
@@ -151,6 +161,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: e48c1d1dc150bf64689591c60bc9ec84
+      internalID: 21300004
       vertices: []
       indices: 
       edges: []
@@ -159,11 +170,15 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 89ca6a7e58407ef47ad08850f1b3332a
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
+    secondaryTextures: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

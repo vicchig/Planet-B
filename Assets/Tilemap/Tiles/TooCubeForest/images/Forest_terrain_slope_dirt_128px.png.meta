@@ -1,13 +1,21 @@
 fileFormatVersion: 2
 guid: 53034c021f827d645aefda9c7c9a93e2
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Forest_terrain_slope_dirt_128px_0
-    21300002: Forest_terrain_slope_dirt_128px_1
-    21300004: Forest_terrain_slope_dirt_128px_2
-    21300006: Forest_terrain_slope_dirt_128px_3
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Forest_terrain_slope_dirt_128px_0
+  - first:
+      213: 21300002
+    second: Forest_terrain_slope_dirt_128px_1
+  - first:
+      213: 21300004
+    second: Forest_terrain_slope_dirt_128px_2
+  - first:
+      213: 21300006
+    second: Forest_terrain_slope_dirt_128px_3
   externalObjects: {}
-  serializedVersion: 5
+  serializedVersion: 10
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -25,6 +33,8 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -35,7 +45,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: -1
     aniso: -1
-    mipBias: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -112,6 +122,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: d169ecfc525ea33439f6bcbcd8402846
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -132,6 +143,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: d8d7ecf049a2b724c92b4a8f14d7eea0
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []
@@ -152,6 +164,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 5a9dcaaab5b4d154d9a18978b8ff2ec2
+      internalID: 21300004
       vertices: []
       indices: 
       edges: []
@@ -172,6 +185,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 5733a4e7062e68544ad8dd6e4a1431e5
+      internalID: 21300006
       vertices: []
       indices: 
       edges: []
@@ -180,11 +194,15 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: fd1d20869a737684c914e40ec541a3bf
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
+    secondaryTextures: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

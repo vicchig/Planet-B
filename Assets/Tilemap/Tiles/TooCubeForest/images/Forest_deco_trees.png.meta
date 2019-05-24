@@ -1,15 +1,27 @@
 fileFormatVersion: 2
 guid: 9a24dfc21c315a14786e932f86148da3
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Forest_deco_trees_0
-    21300002: Forest_deco_trees_1
-    21300004: Forest_deco_trees_2
-    21300006: Forest_deco_trees_3
-    21300008: Forest_deco_trees_4
-    21300010: Forest_deco_trees_5
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Forest_deco_trees_0
+  - first:
+      213: 21300002
+    second: Forest_deco_trees_1
+  - first:
+      213: 21300004
+    second: Forest_deco_trees_2
+  - first:
+      213: 21300006
+    second: Forest_deco_trees_3
+  - first:
+      213: 21300008
+    second: Forest_deco_trees_4
+  - first:
+      213: 21300010
+    second: Forest_deco_trees_5
   externalObjects: {}
-  serializedVersion: 5
+  serializedVersion: 10
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -27,6 +39,8 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -37,7 +51,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: -1
     aniso: -1
-    mipBias: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -114,6 +128,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 2717660e8ebda2b469df0f1f3d0704cc
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -134,6 +149,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: dc551d5b5844cc74381b0c5a9ab32b9a
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []
@@ -154,6 +170,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 2beb69c3aab4fa5449f5f45c889b218b
+      internalID: 21300004
       vertices: []
       indices: 
       edges: []
@@ -174,6 +191,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: c5b8d48b3d7077645aaeca1eed57accc
+      internalID: 21300006
       vertices: []
       indices: 
       edges: []
@@ -194,6 +212,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 9c5bdd2411a3e2b49b0dafb0a473977d
+      internalID: 21300008
       vertices: []
       indices: 
       edges: []
@@ -214,6 +233,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 70a4ecb2637aeb14a8b42c8d35db464d
+      internalID: 21300010
       vertices: []
       indices: 
       edges: []
@@ -222,11 +242,15 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 56f5cde3509834f448807040496edf1e
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
+    secondaryTextures: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

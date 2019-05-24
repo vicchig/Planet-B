@@ -1,13 +1,21 @@
 fileFormatVersion: 2
 guid: f1aa90219da0547419e1fbcd86a49f04
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Forest_deco_stones01_128px_0
-    21300002: Forest_deco_stones01_128px_1
-    21300004: Forest_deco_stones01_128px_2
-    21300006: Forest_deco_stones01_128px_3
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Forest_deco_stones01_128px_0
+  - first:
+      213: 21300002
+    second: Forest_deco_stones01_128px_1
+  - first:
+      213: 21300004
+    second: Forest_deco_stones01_128px_2
+  - first:
+      213: 21300006
+    second: Forest_deco_stones01_128px_3
   externalObjects: {}
-  serializedVersion: 5
+  serializedVersion: 10
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -25,6 +33,8 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -35,7 +45,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: -1
     aniso: -1
-    mipBias: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -112,6 +122,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 133f4712502839e48bce6f84b83d357a
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -132,6 +143,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 7996fb2533cc2bc4f91a98ec7215fa52
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []
@@ -152,6 +164,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: a82bbf21c4c92814288b64dd0bdb6b1a
+      internalID: 21300004
       vertices: []
       indices: 
       edges: []
@@ -172,6 +185,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: cc58c839a911ef240a576cbe897090d8
+      internalID: 21300006
       vertices: []
       indices: 
       edges: []
@@ -180,11 +194,15 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 8abd384dde0bc7b4b99ef87aaf04b3f0
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
+    secondaryTextures: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -1,15 +1,27 @@
 fileFormatVersion: 2
 guid: c3243c0bd9e831843b08e914337cc893
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Forest_terrain_dirt_grass(spring)_128px_0
-    21300002: Forest_terrain_dirt_grass(spring)_128px_1
-    21300004: Forest_terrain_dirt_grass(spring)_128px_2
-    21300006: Forest_terrain_dirt_grass(spring)_128px_3
-    21300008: Forest_terrain_dirt_grass(spring)_128px_4
-    21300010: Forest_terrain_dirt_grass(spring)_128px_5
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Forest_terrain_dirt_grass(spring)_128px_0
+  - first:
+      213: 21300002
+    second: Forest_terrain_dirt_grass(spring)_128px_1
+  - first:
+      213: 21300004
+    second: Forest_terrain_dirt_grass(spring)_128px_2
+  - first:
+      213: 21300006
+    second: Forest_terrain_dirt_grass(spring)_128px_3
+  - first:
+      213: 21300008
+    second: Forest_terrain_dirt_grass(spring)_128px_4
+  - first:
+      213: 21300010
+    second: Forest_terrain_dirt_grass(spring)_128px_5
   externalObjects: {}
-  serializedVersion: 5
+  serializedVersion: 10
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -27,6 +39,8 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -37,7 +51,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: -1
     aniso: -1
-    mipBias: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -114,6 +128,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 9d91e4833d0190249a4cebbb7ef230a5
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -134,6 +149,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: a5e44553b718bd04eb720bc060b6327a
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []
@@ -154,6 +170,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 61f4f3a510255404fba282f5c8e14e40
+      internalID: 21300004
       vertices: []
       indices: 
       edges: []
@@ -174,6 +191,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 44579e762e95cce41a2b89e304676604
+      internalID: 21300006
       vertices: []
       indices: 
       edges: []
@@ -194,6 +212,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: bb67c022e5e664f459242ae29fc285b9
+      internalID: 21300008
       vertices: []
       indices: 
       edges: []
@@ -214,6 +233,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 3e395831d164b62458b14804fee55fe2
+      internalID: 21300010
       vertices: []
       indices: 
       edges: []
@@ -222,11 +242,15 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: c0ac35c9b551dfb49ba2b2e9b9034818
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
+    secondaryTextures: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

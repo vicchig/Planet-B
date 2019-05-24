@@ -1,11 +1,15 @@
 fileFormatVersion: 2
 guid: a83798d6108e7a6478a1e167722f3907
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Forest_terrain_slope_gray_ice_128px_0
-    21300002: Forest_terrain_slope_gray_ice_128px_1
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Forest_terrain_slope_gray_ice_128px_0
+  - first:
+      213: 21300002
+    second: Forest_terrain_slope_gray_ice_128px_1
   externalObjects: {}
-  serializedVersion: 5
+  serializedVersion: 10
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -23,6 +27,8 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -33,7 +39,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: -1
     aniso: -1
-    mipBias: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -110,6 +116,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: d6ac716f5b2ee8745973bedd3568fb14
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -130,6 +137,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 486aaa6bb7ff5a14f952ca799523884a
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []
@@ -138,11 +146,15 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 55e98d5350b5d444f869834c2023eb26
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
+    secondaryTextures: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
