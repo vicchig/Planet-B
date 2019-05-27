@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
     int dir; //1 for right -1 for left
 
+
     private Vector2 collidedPlatformVelocity;
     private Vector3 collidedPlatformDir;
 
@@ -52,6 +53,8 @@ public class PlayerMovement : MonoBehaviour
         isOnPlatform = false;
 
         collidedPlatformVelocity = new Vector2(0,0);
+
+        
     }
 
     private void FixedUpdate() {
@@ -63,7 +66,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-
+        if (input.horizontalIn > 0)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        } else if (input.horizontalIn < 0)
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
     }
 
 
@@ -91,6 +100,7 @@ public class PlayerMovement : MonoBehaviour
         if (xVelocity * dir < 0)
         {
             flipPlayerDir();
+            
         }
 
         if (!isOnPlatform)
@@ -150,7 +160,7 @@ public class PlayerMovement : MonoBehaviour
         dir *= -1;
 
         Vector3 scale = transform.localScale;
-
+        
         scale.x = originalScaleX * dir;
         transform.localScale = scale;
     }
