@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4971094913838335597}
   - component: {fileID: 4971094913838335596}
-  m_Layer: 8
+  m_Layer: 4
   m_Name: WaterSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,6 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterPrefab: {fileID: 9107110324229235692, guid: effbcb73a99a4e442939d65bb3f02e06,
     type: 3}
-  waterScale: {x: 1, y: 1, z: 1}
   spawnDelay: 0.2
   spawnAmount: 20

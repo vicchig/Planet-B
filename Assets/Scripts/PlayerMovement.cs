@@ -189,6 +189,8 @@ public class PlayerMovement : MonoBehaviour
             transform.parent = col.transform;
             isOnPlatform = true;
         }
+
+        
     }
 
     //called while the object is colliding with something
@@ -209,4 +211,6 @@ public class PlayerMovement : MonoBehaviour
             isOnPlatform = false;
         }
     }
+
+    
 }

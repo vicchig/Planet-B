@@ -7,8 +7,7 @@ public class WaterSpawner : MonoBehaviour
 
     public GameObject waterPrefab;
 
-    [Header("Water Properties")]
-    public Vector3 waterScale;
+    [Header("Spawn Properties")]
     public float spawnDelay;
     public int spawnAmount;
 
@@ -17,11 +16,9 @@ public class WaterSpawner : MonoBehaviour
 
     private void Start()
     {
-        finalTime = 0;
-
-        waterPrefab.transform.localScale = waterScale;
-            
+        finalTime = 0;            
     }
+
     private void Update()
     {
         GameObject tempWaterObject;
