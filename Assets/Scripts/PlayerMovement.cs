@@ -18,10 +18,12 @@ public class PlayerMovement : MonoBehaviour
     public float footOffset = 0.4f;
     public float groundDistance = 0.2f; //distance at which the player is considered to be on the ground at
     public LayerMask groundLayer;
+    public LayerMask movingPlatLayer;
 
     [Header("Status Flags")]
     public bool isOnGround;
     public bool isJumping;
+    public bool isOnPlatform;
 
     PlayerInput input; //stores current inputs for the player
 
@@ -35,27 +37,31 @@ public class PlayerMovement : MonoBehaviour
 
     int dir; //1 for right -1 for left
 
+    private Vector2 collidedPlatformVelocity;
+    private Vector3 collidedPlatformDir;
 
 
 
-    void Start()
+    private void Start()
     {
         input = GetComponent<PlayerInput>();
         rBody = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
 
         originalScaleX = transform.localScale.x;
+        isOnPlatform = false;
 
+        collidedPlatformVelocity = new Vector2(0,0);
     }
 
-    void FixedUpdate() {
+    private void FixedUpdate() {
         physicsCheck();
 
         groundMovement();
         inAirMovement();
     }
 
-    void Update()
+    private void Update()
     {
 
     }
@@ -76,39 +82,56 @@ public class PlayerMovement : MonoBehaviour
         else {
             isOnGround = false;
         }
-
-
-
-
-
     }
 
     private void groundMovement() {
+        
         float xVelocity = speedX * input.horizontalIn;
 
-        if (xVelocity * dir < 0) {
+        if (xVelocity * dir < 0)
+        {
             flipPlayerDir();
         }
 
-        rBody.velocity = new Vector2(xVelocity, rBody.velocity.y);
-
-        if (isOnGround) {
-            jumpDelay = Time.time + jumpDelay;
+        if (!isOnPlatform)
+        {
+            rBody.velocity = new Vector2(xVelocity, rBody.velocity.y);
         }
+        //the player kept bouncing on the platform when going up until the cases for going up and down were not separated
+        else if (isOnPlatform && collidedPlatformVelocity.y* collidedPlatformDir.y > 0 ) {
+            rBody.velocity = new Vector2(xVelocity + collidedPlatformVelocity.x * collidedPlatformDir.x, collidedPlatformVelocity.y * collidedPlatformDir.y);
+        }
+        else {
+            rBody.velocity = new Vector2(xVelocity + collidedPlatformVelocity.x * collidedPlatformDir.x, rBody.velocity.y + collidedPlatformVelocity.y * collidedPlatformDir.y);
+
+        }
+
+        if (isOnGround)
+        {
+            jumpDelay = Time.time + jumpDelay;
+        } 
     }
 
     private void inAirMovement() {
-        //beginning of jump
-        if (input.jumpPressed && !isJumping && (isOnGround || jumpDelay > Time.time))
+
+        if (input.jumpPressed && !isJumping && (isOnPlatform || isOnGround || jumpDelay > Time.time))
         {
+            
+            //for some reason when on a platform and moving down, the jump was decreased, increasing jump force for that case fixed that
+            if (isOnPlatform && collidedPlatformVelocity.y * collidedPlatformDir.y < 0)
+            {
+                rBody.AddForce(new Vector2(0f, jumpForce * 1.3f), ForceMode2D.Impulse);
+            }
+            else {
+                rBody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+            }
+
             isOnGround = false;
             isJumping = true;
-
-            rBody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-
+            isOnPlatform = false;
             jumpTime = Time.time + 0.5f;
         }
-        else if (rBody.velocity.y != 0)
+        else if (rBody.velocity.y != 0 && !isOnPlatform)
         {
             isJumping = true;
         }
@@ -122,6 +145,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    //changes the direction of the player on the X axis
     private void flipPlayerDir() {
         dir *= -1;
 
@@ -142,16 +166,37 @@ public class PlayerMovement : MonoBehaviour
         Vector2 pos = transform.position;
 
         RaycastHit2D hit = Physics2D.Raycast(pos + offset, rayDir, length, mask);
-        Color color;
-        if (hit.collider != null)
-        {
-            color = Color.green;
-        }
-        else {
-            color = Color.red;
-        }
-        Debug.DrawRay(pos+offset, rayDir * length, color);
-
+        
         return hit;
+    }
+
+    
+    private void OnCollisionEnter2D(Collision2D col) {
+        RaycastHit2D leftFoot = raycast(new Vector2(-footOffset, 0f), Vector2.down, 1.0f, movingPlatLayer);
+        RaycastHit2D rightFoot = raycast(new Vector2(footOffset, 0f), Vector2.down, 1.0f, movingPlatLayer);
+
+        if (col.transform.tag == "MovingPlatform" && (leftFoot || rightFoot)) {
+            transform.parent = col.transform;
+            isOnPlatform = true;
+        }
+    }
+
+    //called while the object is colliding with something
+    private void OnCollisionStay2D(Collision2D col) {
+        if (col.transform.tag == "MovingPlatform") {
+            collidedPlatformVelocity.x = col.gameObject.GetComponent<PlatformMover>().platformSpeedX;
+            collidedPlatformVelocity.y = col.gameObject.GetComponent<PlatformMover>().platformSpeedY;
+            collidedPlatformDir.x = col.gameObject.GetComponent<PlatformMover>().direction.x;
+            collidedPlatformDir.y = col.gameObject.GetComponent<PlatformMover>().direction.y;
+        }
+        
+    }
+
+    private void OnCollisionExit2D(Collision2D col) {
+        if (col.transform.tag == "MovingPlatform")
+        {
+            transform.parent = null;
+            isOnPlatform = false;
+        }
     }
 }
