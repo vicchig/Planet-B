@@ -13,7 +13,7 @@ public class WaterSpawner : MonoBehaviour
     public int spawnAmount;
 
     private float finalTime;
-
+    private List<GameObject> waterBalls = new List<GameObject>();
 
     private void Start()
     {
@@ -24,13 +24,17 @@ public class WaterSpawner : MonoBehaviour
     }
     private void Update()
     {
+        GameObject tempWaterObject;
         if (spawnAmount > 0) {
             if (finalTime >= spawnDelay) {
-                Instantiate(waterPrefab, transform.position, Quaternion.identity, transform);
+                tempWaterObject = Instantiate(waterPrefab, transform.position, Quaternion.identity, transform);
+                tempWaterObject.GetComponent<Rigidbody2D>().velocity = new Vector2(20, 0); 
+                waterBalls.Add(tempWaterObject);
                 spawnAmount -= 1;
                 finalTime = 0;
             }
             finalTime += Time.deltaTime;
+            tempWaterObject = null;
         }
         
     }
