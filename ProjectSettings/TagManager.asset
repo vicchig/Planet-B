@@ -9,6 +9,8 @@ TagManager:
   - DynamicParticle
   - EvapArea
   - SpawnWaterArea
+  - Destructibles
+  - Platforms
   layers:
   - Default
   - TransparentFX
