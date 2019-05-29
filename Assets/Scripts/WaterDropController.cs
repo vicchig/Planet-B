@@ -12,7 +12,7 @@ public class WaterDropController : MonoBehaviour
     private void Start()
     {
         spawnWater = false;
-        spawnAmount = 3;
+        spawnAmount = 5;
     }
 
     private void Update()

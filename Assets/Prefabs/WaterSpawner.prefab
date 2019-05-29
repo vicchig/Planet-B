@@ -46,4 +46,4 @@ MonoBehaviour:
   waterPrefab: {fileID: 9107110324229235692, guid: effbcb73a99a4e442939d65bb3f02e06,
     type: 3}
   spawnDelay: 0.2
-  spawnAmount: 20
+  spawnAmount: 15

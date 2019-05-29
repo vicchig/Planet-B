@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 9107110324229235688}
   - component: {fileID: 9107110324229235689}
   - component: {fileID: 6193215625861082375}
-  - component: {fileID: -7053846462642997982}
   m_Layer: 4
   m_Name: waterDropSprite
   m_TagString: Untagged
@@ -134,16 +133,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterPrefab: {fileID: 9107110324229235692, guid: 113b80b6c478a114a962dde49aec9cf5,
     type: 3}
---- !u!114 &-7053846462642997982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9107110324229235692}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e22a5d22756b3624f8d0e4877dee5287, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  evaporationTemp: 100

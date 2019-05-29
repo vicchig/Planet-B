@@ -42,6 +42,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 collidedPlatformDir;
     private Animator animator;
 
+    private Vector2 defaultColliderSize;
+    private Vector2 jumpColliderSize;
 
     private void Start()
     {
@@ -55,6 +57,9 @@ public class PlayerMovement : MonoBehaviour
         collidedPlatformVelocity = new Vector2(0,0);
 
         animator = GetComponent<Animator>();
+
+        defaultColliderSize = boxCollider.size;
+        jumpColliderSize = new Vector2(defaultColliderSize.x, defaultColliderSize.y*0.75f);
     }
 
     private void FixedUpdate() {
@@ -128,6 +133,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void inAirMovement() {
 
+        if (isJumping)
+        {
+            boxCollider.size = jumpColliderSize;
+        }
+        else {
+            boxCollider.size = defaultColliderSize;
+        }
+
         if (input.jumpPressed && !isJumping && (isOnPlatform || isOnGround || jumpDelay > Time.time))
         {
             
@@ -166,13 +179,11 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("movingHorizontally", true);
             animator.SetBool("standing", false);
             animator.SetBool("jumping", false);
-            Debug.Log("running");
         }
         else if (isJumping)
         {
             animator.SetBool("jumping", true);
             animator.SetBool("movingHorizontally", false);
-            Debug.Log("jumping");
         }
         else if (input.horizontalIn == 0 && !isJumping && !Input.GetButtonDown("Fire1"))
         {
@@ -180,7 +191,6 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("movingHorizontally", false);
             animator.SetBool("jumping", false);
             animator.SetBool("shooting", false);
-            Debug.Log("standing");
         }
         else if (Input.GetButtonDown("Fire1") && input.horizontalIn == 0 && !isJumping) {
             animator.SetBool("standing", false);

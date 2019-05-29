@@ -24,7 +24,7 @@ public class WaterSpawner : MonoBehaviour
         GameObject tempWaterObject;
         if (spawnAmount > 0) {
             if (finalTime >= spawnDelay) {
-                tempWaterObject = Instantiate(waterPrefab, transform.position, Quaternion.identity, transform);
+                tempWaterObject = Instantiate(waterPrefab, transform.position, Quaternion.identity);
                 tempWaterObject.GetComponent<Rigidbody2D>().velocity = new Vector2(20, 0); 
                 waterBalls.Add(tempWaterObject);
                 spawnAmount -= 1;
