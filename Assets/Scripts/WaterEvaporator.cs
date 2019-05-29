@@ -6,7 +6,7 @@ public class WaterEvaporator : MonoBehaviour
 {
     private void Start()
     {
-        gameObject.GetComponent<ParticleSystem>().Play();
+        gameObject.GetComponent<ParticleSystem>().Stop();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -16,7 +16,7 @@ public class WaterEvaporator : MonoBehaviour
             GameObject evaporator = GameObject.Find("VapourController");
             
             for (int i = 0; i < evaporator.transform.childCount; i++) {
-                //evaporator.transform.GetChild(i).GetComponent<ParticleSystem>().Play();
+                evaporator.transform.GetChild(i).GetComponent<ParticleSystem>().Play();
             }
         }
     }

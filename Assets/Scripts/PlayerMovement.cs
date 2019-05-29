@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
 
         defaultColliderSize = boxCollider.size;
-        jumpColliderSize = new Vector2(defaultColliderSize.x, defaultColliderSize.y*0.75f);
+        jumpColliderSize = new Vector2(defaultColliderSize.x, defaultColliderSize.y*0.5f);
     }
 
     private void FixedUpdate() {
@@ -136,6 +136,7 @@ public class PlayerMovement : MonoBehaviour
         if (isJumping)
         {
             boxCollider.size = jumpColliderSize;
+            Debug.Log("Collider Size Changed");
         }
         else {
             boxCollider.size = defaultColliderSize;
@@ -223,7 +224,7 @@ public class PlayerMovement : MonoBehaviour
         return hit;
     }
 
-    
+
     private void OnCollisionEnter2D(Collision2D col) {
         RaycastHit2D leftFoot = raycast(new Vector2(-footOffset, 0f), Vector2.down, 1.0f, movingPlatLayer);
         RaycastHit2D rightFoot = raycast(new Vector2(footOffset, 0f), Vector2.down, 1.0f, movingPlatLayer);
@@ -232,7 +233,9 @@ public class PlayerMovement : MonoBehaviour
             transform.parent = col.transform;
             isOnPlatform = true;
         }
-
+        else if (col.transform.tag == "Spikes") {
+            transform.position = new Vector3(-2,1,0);
+        }
         
     }
 

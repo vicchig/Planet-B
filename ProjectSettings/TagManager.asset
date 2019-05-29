@@ -11,6 +11,7 @@ TagManager:
   - SpawnWaterArea
   - Destructibles
   - Platforms
+  - Spikes
   layers:
   - Default
   - TransparentFX
