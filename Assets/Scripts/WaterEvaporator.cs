@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class WaterEvaporator : MonoBehaviour
 {
-    private void Start()
-    {
-        gameObject.GetComponent<ParticleSystem>().Stop();
-    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
