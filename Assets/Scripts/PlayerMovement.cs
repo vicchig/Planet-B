@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 collidedPlatformVelocity;
     private Vector3 collidedPlatformDir;
-
+    private Animator animator;
 
 
     private void Start()
@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
 
         collidedPlatformVelocity = new Vector2(0,0);
 
-        
+        animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate() {
@@ -62,17 +62,12 @@ public class PlayerMovement : MonoBehaviour
 
         groundMovement();
         inAirMovement();
+        setAnimations();
     }
 
     private void Update()
     {
-        if (input.horizontalIn > 0)
-        {
-            transform.eulerAngles = new Vector3(0, 0, 0);
-        } else if (input.horizontalIn < 0)
-        {
-            transform.eulerAngles = new Vector3(0, 180, 0);
-        }
+        
     }
 
 
@@ -94,13 +89,22 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void groundMovement() {
-        
         float xVelocity = speedX * input.horizontalIn;
+
+        if (input.horizontalIn > 0)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+        else if (input.horizontalIn < 0)
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
+
+        
 
         if (xVelocity * dir < 0)
         {
             flipPlayerDir();
-            
         }
 
         if (!isOnPlatform)
@@ -152,6 +156,35 @@ public class PlayerMovement : MonoBehaviour
         //limit maximum falling speed
         if (rBody.velocity.y < maxFallSpeed) {
             rBody.velocity = new Vector2(rBody.velocity.x, maxFallSpeed);
+        }
+    }
+
+    private void setAnimations()
+    {
+        if (input.horizontalIn != 0 && !isJumping)
+        {
+            animator.SetBool("movingHorizontally", true);
+            animator.SetBool("standing", false);
+            animator.SetBool("jumping", false);
+            Debug.Log("running");
+        }
+        else if (isJumping)
+        {
+            animator.SetBool("jumping", true);
+            animator.SetBool("movingHorizontally", false);
+            Debug.Log("jumping");
+        }
+        else if (input.horizontalIn == 0 && !isJumping && !Input.GetButtonDown("Fire1"))
+        {
+            animator.SetBool("standing", true);
+            animator.SetBool("movingHorizontally", false);
+            animator.SetBool("jumping", false);
+            animator.SetBool("shooting", false);
+            Debug.Log("standing");
+        }
+        else if (Input.GetButtonDown("Fire1") && input.horizontalIn == 0 && !isJumping) {
+            animator.SetBool("standing", false);
+            animator.SetBool("shooting", true);
         }
     }
 
