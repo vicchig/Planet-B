@@ -15,7 +15,16 @@ public class Bullet : MonoBehaviour
     {
         Destroy(gameObject, 5.0f);
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = speed * transform.right;
+        if (Input.GetAxisRaw("Vertical") < 0)
+        {
+            rb.velocity = -1 * speed * transform.up;
+        } else if (Input.GetAxisRaw("Vertical") > 0)
+        {
+            rb.velocity = speed * transform.up;
+        } else
+        {
+            rb.velocity = speed * transform.right;
+        }
         // if (tilemapGameObject != null)
         //{
         //    tilemap = tilemapGameObject.GetComponent<Tilemap>();

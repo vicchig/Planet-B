@@ -26,6 +26,5 @@ public class Weapon : MonoBehaviour
     {
         Bullet bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         //bullet.tilemapGameObject = tilemapGameObject;
-        
     }
 }
