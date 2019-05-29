@@ -8,12 +8,13 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     Rigidbody2D rb;
     public float speed = 20f;
+    public float despawnTime = 10.0f;
     //public GameObject tilemapGameObject;
     //Tilemap tilemap;
     
     void Start()
     {
-        Destroy(gameObject, 5.0f);
+        Destroy(gameObject, despawnTime);
         rb = GetComponent<Rigidbody2D>();
         if (Input.GetAxisRaw("Vertical") < 0)
         {
@@ -37,12 +38,11 @@ public class Bullet : MonoBehaviour
     {
         if (collision.CompareTag("Destructibles"))
         {
-
-
             Vector2 hitPosition = transform.position;
             //Debug.Log(hitPosition);
             Tilemap tilemap = collision.GetComponent<Tilemap>();
             tilemap.SetTile(tilemap.WorldToCell(hitPosition), null);
+            Debug.Log(hitPosition);
             Destroy(gameObject);
         } else if (collision.CompareTag("Platforms"))
         {
