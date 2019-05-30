@@ -25,10 +25,14 @@ public class PlayerMovement : MonoBehaviour
     public bool isJumping;
     public bool isOnPlatform;
 
+    [Header("Weapon Components")]
+    public Transform firePoint;
+    public Bullet bulletPrefab;
+
     PlayerInput input; //stores current inputs for the player
 
     //store the respective component of the player object
-    BoxCollider2D boxCollider;
+    CapsuleCollider2D boxCollider;
     Rigidbody2D rBody;
 
     float jumpTime; //how long the jump lasts
@@ -49,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
     {
         input = GetComponent<PlayerInput>();
         rBody = GetComponent<Rigidbody2D>();
-        boxCollider = GetComponent<BoxCollider2D>();
+        boxCollider = GetComponent<CapsuleCollider2D>();
 
         originalScaleX = transform.localScale.x;
         isOnPlatform = false;
@@ -70,9 +74,19 @@ public class PlayerMovement : MonoBehaviour
         setAnimations();
     }
 
-    private void Update()
+     void Update()
     {
-        
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Shoot();
+        }
+    }
+
+    void Shoot()
+    {
+        Bullet bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        //Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        //bullet.tilemapGameObject = tilemapGameObject;
     }
 
 
@@ -229,7 +243,7 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D leftFoot = raycast(new Vector2(-footOffset, 0f), Vector2.down, 1.0f, movingPlatLayer);
         RaycastHit2D rightFoot = raycast(new Vector2(footOffset, 0f), Vector2.down, 1.0f, movingPlatLayer);
 
-        if (col.transform.tag == "MovingPlatform" && (leftFoot || rightFoot)) {
+        if (col.transform.CompareTag("MovingPlatform") && (leftFoot || rightFoot)) {
             transform.parent = col.transform;
             isOnPlatform = true;
         }

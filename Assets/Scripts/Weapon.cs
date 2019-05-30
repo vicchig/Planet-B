@@ -24,7 +24,7 @@ public class Weapon : MonoBehaviour
 
     void Shoot()
     {
-        Bullet bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Bullet bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         //bullet.tilemapGameObject = tilemapGameObject;
     }
 }
