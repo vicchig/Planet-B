@@ -93,18 +93,18 @@ public class DynamicParticle : MonoBehaviour
     // The effect for the particle to seem to fade away
     void ScaleDown()
     {
-        float scaleValue = 1.0f - ((Time.time - startTime) / particleLifeTime);
-        Vector2 particleScale = Vector2.one;
-        if (scaleValue <= 0)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            particleScale.x = scaleValue;
-            particleScale.y = scaleValue;
-            transform.localScale = particleScale;
-        }
+       // float scaleValue = 1.0f - ((Time.time - startTime) / particleLifeTime);
+       // Vector2 particleScale = Vector2.one;
+       // if (scaleValue <= 0)
+        //{
+        //    Destroy(gameObject);
+       // }
+       // else
+       // {
+        //    particleScale.x = scaleValue;
+        //    particleScale.y = scaleValue;
+        //    transform.localScale = particleScale;
+        //}
     }
 
     // To change particles lifetime externally (like the particle generator)

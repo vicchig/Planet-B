@@ -64,3 +64,6 @@ TagManager:
   - name: PickupObjects
     uniqueID: 1582176671
     locked: 0
+  - name: Water
+    uniqueID: 2803956531
+    locked: 0
