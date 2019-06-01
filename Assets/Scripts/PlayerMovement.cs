@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Enviro Check Properties")]
     public float footOffset = 0.4f;
     public float groundDistance = 0.2f; //distance at which the player is considered to be on the ground at
+    public float wallGrabDistance = 0.4f; //distance between player and wall within which player can grab it
+    public float wallGrabOffset = 0.5f;//vertical offset for where to draw raycasts for wall grab check
     public LayerMask groundLayer;
     public LayerMask movingPlatLayer;
 
@@ -24,46 +26,51 @@ public class PlayerMovement : MonoBehaviour
     public bool isOnGround;
     public bool isJumping;
     public bool isOnPlatform;
+    public bool isHanging;
 
     [Header("Weapon Components")]
     public Transform firePoint;
     public Bullet bulletPrefab;
 
-    PlayerInput input; //stores current inputs for the player
 
     //store the respective component of the player object
-    CapsuleCollider2D boxCollider;
-    Rigidbody2D rBody;
-
-    float jumpTime; //how long the jump lasts
-    float jumpDelay; //holds the inspector jump delay
-    float originalScaleX;
-
-    int dir; //1 for right -1 for left
-
-
-    private Vector2 collidedPlatformVelocity;
-    private Vector3 collidedPlatformDir;
+    private CapsuleCollider2D boxCollider;
+    private Rigidbody2D rBody;
     private Animator animator;
 
-    private Vector2 defaultColliderSize;
+    /*Jump Attributes*/
+    private float jumpTime; //how long the jump lasts
+    private float jumpDelay; //holds the inspector jump delay
+    private float originalScaleX;
     private Vector2 jumpColliderSize;
+
+    /*Attributes of */
+    private Vector2 collidedPlatformVelocity;
+    private Vector3 collidedPlatformDir;
+
+
+    /*Misc*/
+    private int dir; //1 for right -1 for left
+    private Vector2 defaultColliderSize;
+    private bool facingRight;
+    public Transform wallCheckPoint; //point that determines if player can grab wall
+    private PlayerInput input; //stores current inputs for the player
 
     private void Start()
     {
         input = GetComponent<PlayerInput>();
         rBody = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<CapsuleCollider2D>();
-
-        originalScaleX = transform.localScale.x;
-        isOnPlatform = false;
-
-        collidedPlatformVelocity = new Vector2(0,0);
-
         animator = GetComponent<Animator>();
 
-        defaultColliderSize = boxCollider.size;
         jumpColliderSize = new Vector2(defaultColliderSize.x, defaultColliderSize.y*0.5f);
+        collidedPlatformVelocity = new Vector2(0, 0);
+
+        originalScaleX = transform.localScale.x;
+        defaultColliderSize = boxCollider.size;
+
+        facingRight = false;
+        isOnPlatform = false;
     }
 
     private void FixedUpdate() {
@@ -71,18 +78,19 @@ public class PlayerMovement : MonoBehaviour
 
         groundMovement();
         inAirMovement();
+        onWallMovement();
         setAnimations();
     }
 
-     void Update()
+     private void Update()
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            Shoot();
+            shoot();
         }
     }
 
-    void Shoot()
+    private void shoot()
     {
         Bullet bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         //Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition));
@@ -98,29 +106,41 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D leftFoot = raycast(new Vector2(-footOffset, 0f), Vector2.down, 1.0f, groundLayer);
         RaycastHit2D rightFoot = raycast(new Vector2(footOffset, 0f), Vector2.down, 1.0f, groundLayer);
 
+
         if (leftFoot || rightFoot)
         {
             isOnGround = true;
         }
         else {
             isOnGround = false;
+            isHanging = Physics2D.OverlapCircle(wallCheckPoint.position, 0.1f, groundLayer);
         }
+    }
+
+    private void onWallMovement() {
+        if (isHanging && !isOnPlatform && !isOnGround) {
+            rBody.velocity = new Vector2(0,-1);            
+        }
+    
     }
 
     private void groundMovement() {
         float xVelocity = speedX * input.horizontalIn;
 
+        //determining player sprite direction
         if (input.horizontalIn > 0)
         {
             transform.eulerAngles = new Vector3(0, 0, 0);
+            facingRight = true;
         }
         else if (input.horizontalIn < 0)
         {
             transform.eulerAngles = new Vector3(0, 180, 0);
+            facingRight = false;
         }
 
         
-
+        //movement
         if (xVelocity * dir < 0)
         {
             flipPlayerDir();
@@ -142,7 +162,8 @@ public class PlayerMovement : MonoBehaviour
         if (isOnGround)
         {
             jumpDelay = Time.time + jumpDelay;
-        } 
+        }
+
     }
 
     private void inAirMovement() {
@@ -150,30 +171,48 @@ public class PlayerMovement : MonoBehaviour
         if (isJumping)
         {
             boxCollider.size = jumpColliderSize;
-            Debug.Log("Collider Size Changed");
         }
         else {
             boxCollider.size = defaultColliderSize;
         }
 
-        if (input.jumpPressed && !isJumping && (isOnPlatform || isOnGround || jumpDelay > Time.time))
+        if (input.jumpPressed && !isJumping && (isOnPlatform || isOnGround || jumpDelay > Time.time || (isHanging && !isOnGround && !isOnPlatform)))
         {
-            
+
             //for some reason when on a platform and moving down, the jump was decreased, increasing jump force for that case fixed that
-            if (isOnPlatform && collidedPlatformVelocity.y * collidedPlatformDir.y < 0)
+            if (!isHanging)
             {
-                rBody.AddForce(new Vector2(0f, jumpForce * 1.3f), ForceMode2D.Impulse);
+                if (isOnPlatform && collidedPlatformVelocity.y * collidedPlatformDir.y < 0)
+                {
+                    rBody.AddForce(new Vector2(0f, jumpForce * 1.3f), ForceMode2D.Impulse);
+                }
+                else
+                {
+                    rBody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+                }
             }
             else {
-                rBody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+                isHanging = false;
+                if (facingRight)
+                {
+                    
+                    rBody.position = new Vector2(rBody.position.x - 0.5f, rBody.position.y);
+                }
+                else {
+                    rBody.position = new Vector2(rBody.position.x + 0.5f, rBody.position.y);
+                }
+                rBody.AddForce(new Vector2(0f, jumpForce * 1.3f), ForceMode2D.Impulse);
             }
+
+
+
 
             isOnGround = false;
             isJumping = true;
             isOnPlatform = false;
             jumpTime = Time.time + 0.5f;
         }
-        else if (rBody.velocity.y != 0 && !isOnPlatform)
+        else if (rBody.velocity.y != 0 && !isOnPlatform && !isHanging && !isOnGround)
         {
             isJumping = true;
         }
@@ -189,16 +228,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void setAnimations()
     {
-        if (input.horizontalIn != 0 && !isJumping)
+        if (input.horizontalIn != 0 && !isJumping && !isHanging)
         {
             animator.SetBool("movingHorizontally", true);
             animator.SetBool("standing", false);
             animator.SetBool("jumping", false);
+            animator.SetBool("hanging", false);
         }
         else if (isJumping)
         {
             animator.SetBool("jumping", true);
             animator.SetBool("movingHorizontally", false);
+            animator.SetBool("hanging", false);
         }
         else if (input.horizontalIn == 0 && !isJumping && !Input.GetButtonDown("Fire1"))
         {
@@ -206,10 +247,20 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("movingHorizontally", false);
             animator.SetBool("jumping", false);
             animator.SetBool("shooting", false);
+            animator.SetBool("hanging", false);
         }
         else if (Input.GetButtonDown("Fire1") && input.horizontalIn == 0 && !isJumping) {
             animator.SetBool("standing", false);
             animator.SetBool("shooting", true);
+            animator.SetBool("hanging", false);
+        }
+        else if (isHanging && !isJumping && !isOnGround && !isOnPlatform) {
+            animator.SetBool("hanging", true);
+            animator.SetBool("jumping", false);
+            animator.SetBool("standing", false);
+            animator.SetBool("shooting", false);
+            animator.SetBool("movingHorizontally", false);
+
         }
     }
 
