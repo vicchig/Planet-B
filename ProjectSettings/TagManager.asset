@@ -12,6 +12,8 @@ TagManager:
   - Destructibles
   - Platforms
   - Spikes
+  - Lava
+  - WaterDrop
   layers:
   - Default
   - TransparentFX
@@ -26,7 +28,7 @@ TagManager:
   - Background
   - MovingPlatforms
   - PickupObjects
-  - 
+  - EnviroHazards
   - 
   - 
   - 
@@ -60,6 +62,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2075511947
+    locked: 0
+  - name: EnviroHazards
+    uniqueID: 743712853
     locked: 0
   - name: PickupObjects
     uniqueID: 1582176671

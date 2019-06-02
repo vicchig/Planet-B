@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     public Transform wallGrabCheckPointTransform;
+    public Transform platCollideCheckPoint;
 
     PlayerInput input; //stores current inputs for the player
 
@@ -334,9 +335,19 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D rightFoot = raycast(new Vector2(footOffset, 0f), Vector2.down, 1.0f, movingPlatLayer);
 
         if (col.transform.CompareTag("MovingPlatform") && (leftFoot || rightFoot)) {
-            transform.parent = col.transform;
-            isOnPlatform = true;
-            isJumping = false;
+
+            //ensure the collision is detected only when the angle of the collision is less than 30
+            for (int i = 0; i < col.contactCount; i++) {
+                if (Vector3.Angle(col.contacts[i].normal, Vector3.up) <= 30)
+                {
+                    transform.parent = col.transform;
+                    isOnPlatform = true;
+                    isJumping = false;
+                    break;
+                }
+            }
+            
+            
         }
         else if (col.transform.tag == "Spikes") {
             transform.position = new Vector3(-2,1,0);
