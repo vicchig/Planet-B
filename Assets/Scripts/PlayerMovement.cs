@@ -153,7 +153,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isOnPlatform)
         {
-            platformMovement();
+            platformMovement(xVelocity);
         }
         else {
             rBody.velocity = new Vector2(xVelocity, rBody.velocity.y);
@@ -184,7 +184,7 @@ public class PlayerMovement : MonoBehaviour
             isOnPlatform = false;
             //jumpTime = Time.time + 0.5f;
         }
-        else if (rBody.velocity.y != 0 && !isOnPlatform && !isHanging)
+        else if (rBody.velocity.y != 0 && !isOnPlatform && !isHanging && !isOnGround)
         {
             isJumping = true;
         }
@@ -198,7 +198,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void platformMovement() {
+    private void platformMovement(float xVelocity) {
         if (input.horizontalIn == 0)
         {
             rBody.velocity = new Vector2(collidedPlatformVelocity.x * collidedPlatformDir.x, collidedPlatformVelocity.y * collidedPlatformDir.y);
@@ -210,13 +210,16 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void platformJump() {
-        if (collidedPlatformDir.y < 0)
+        if (collidedPlatformDir.y < 0 && collidedPlatformVelocity.y == 0)
         {
             rBody.AddForce(new Vector2(0f, jumpForce * 1.2f), ForceMode2D.Impulse);
         }
-        else if (collidedPlatformDir.y > 0)
+        else if (collidedPlatformDir.y > 0 && collidedPlatformVelocity.y == 0)
         {
             rBody.AddForce(new Vector2(0f, jumpForce * 0.9f), ForceMode2D.Impulse);
+        }
+        else {
+            rBody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         }
     }
 
@@ -229,7 +232,6 @@ public class PlayerMovement : MonoBehaviour
         {
             rBody.transform.position = new Vector2(rBody.transform.position.x + 0.5f, rBody.transform.position.y);
         }
-        isHanging = false;
         rBody.AddForce(new Vector2(0f, jumpForce * 1.3f), ForceMode2D.Impulse);
     }
 
@@ -269,7 +271,6 @@ public class PlayerMovement : MonoBehaviour
             hanging = false;
         }
         else if (isHanging) {
-            Debug.Log("Should be hanging");
             hanging = true;
             shootingWhileStanding = false;
             standing = false;
@@ -335,6 +336,7 @@ public class PlayerMovement : MonoBehaviour
         if (col.transform.CompareTag("MovingPlatform") && (leftFoot || rightFoot)) {
             transform.parent = col.transform;
             isOnPlatform = true;
+            isJumping = false;
         }
         else if (col.transform.tag == "Spikes") {
             transform.position = new Vector3(-2,1,0);
