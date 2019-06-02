@@ -346,13 +346,9 @@ public class PlayerMovement : MonoBehaviour
                     break;
                 }
             }
-            
-            
+
+
         }
-        else if (col.transform.tag == "Spikes") {
-            transform.position = new Vector3(-2,1,0);
-        }
-        
     }
 
     //called while the object is colliding with something

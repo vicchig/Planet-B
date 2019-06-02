@@ -10,7 +10,6 @@ public class WaterDropletController : MonoBehaviour
     public float bounceDistance;
     public float floatSpeed;
 
-    private float distanceMoved;
     private Vector2 originalPos;
     private Rigidbody2D rb;
     private int dir;
@@ -18,7 +17,6 @@ public class WaterDropletController : MonoBehaviour
     private void Start()
     {
         originalPos = new Vector2(transform.position.x, transform.position.y);
-        distanceMoved = 0.0f;
         rb = GetComponent<Rigidbody2D>();
         dir = 1;
     }
@@ -36,4 +34,6 @@ public class WaterDropletController : MonoBehaviour
             originalPos = new Vector2(rb.position.x, rb.position.y);
         }
     }
+
+   
 }
