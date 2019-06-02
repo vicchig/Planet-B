@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class PlatformMover : MonoBehaviour
 {
-    [SerializeField]
-    Transform platform;
+    public Transform platform;
 
-    [SerializeField]
-    Transform StartTransform;
+    public Transform StartTransform;
 
-    [SerializeField]
-    Transform EndTransform;
+    public Transform EndTransform;
 
     public float platformSpeedX;
     public float platformSpeedY;
@@ -20,8 +17,7 @@ public class PlatformMover : MonoBehaviour
 
     Transform destination;
 
-    [SerializeField]
-    bool moveVertically;
+    public bool moveVertically;
 
     [HideInInspector]
     public Vector3 direction;//direction that the platform is moving in

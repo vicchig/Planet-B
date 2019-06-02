@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
-  m_Layer: 8
+  m_Layer: 4
   m_Name: ParticleImage_C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 400002}
   - component: {fileID: 3300002}
   - component: {fileID: 2300002}
-  m_Layer: 8
+  m_Layer: 4
   m_Name: ParticleImage_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 400004}
   - component: {fileID: 3300004}
   - component: {fileID: 2300004}
-  m_Layer: 8
+  m_Layer: 4
   m_Name: ParticleImage_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 11400002}
   - component: {fileID: 5800000}
   - component: {fileID: 5000000}
-  m_Layer: 8
+  m_Layer: 4
   m_Name: DynamicParticle
   m_TagString: DynamicParticle
   m_Icon: {fileID: 0}
