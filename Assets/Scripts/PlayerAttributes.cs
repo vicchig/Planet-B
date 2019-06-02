@@ -14,15 +14,15 @@ public class PlayerAttributes : MonoBehaviour
 
     private int currentAir;
     private int currentHealth;
-    private float lavaCollisionStartTime;
     private float lavaColisionDuration;
     private bool collidingWithLava;
+
+    private float airDepletionTimer;
 
     private void Start()
     {
         currentAir = totalAir;
         currentHealth = totalHealth;
-        lavaCollisionStartTime = 0;
         collidingWithLava = false;
     }
 
@@ -46,6 +46,11 @@ public class PlayerAttributes : MonoBehaviour
             lavaColisionDuration = 0;
             currentHealth -= 2;
         }
+        airDepletionTimer += Time.deltaTime;
+        if (airDepletionTimer >= 2) {
+            currentAir -= 1;
+            airDepletionTimer = 0;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -54,7 +59,10 @@ public class PlayerAttributes : MonoBehaviour
             Destroy(collision.gameObject);
             waterCollected += 1;
         }
-        
+        if (collision.transform.tag == "AirSource") {
+            Destroy(collision.gameObject);
+            currentAir += 10;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -70,7 +78,6 @@ public class PlayerAttributes : MonoBehaviour
         {
             collidingWithLava = false;
             lavaColisionDuration = 0f;
-            lavaCollisionStartTime = 0f;
         }
     }
 }
