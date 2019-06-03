@@ -80,16 +80,21 @@ public class PlayerMovement : MonoBehaviour
 
         
 
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Shoot();
-        }
+        
 
         horizontalMovement();
         inAirMovement();
         wallHangMovement();
         
         setAnimations();
+    }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Shoot();
+        }
     }
 
     void Shoot()
