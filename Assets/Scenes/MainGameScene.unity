@@ -626,7 +626,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.019772232, y: -0.19772482}
+  m_Offset: {x: -0.01977223, y: -0.19772482}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -97569,6 +97569,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 980698715}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1724776092
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1724776093}
+  m_Layer: 9
+  m_Name: FeetCheckPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1724776093
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724776092}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.72, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 560990074}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1763489180
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -99280,7 +99310,7 @@ PrefabInstance:
         type: 3}
       propertyPath: platCollideCheckPoint
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1724776093}
     - target: {fileID: 2744118175905340514, guid: 5841e2894e0701f4c910647647c23e7a,
         type: 3}
       propertyPath: m_Offset.y
@@ -99295,6 +99325,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3190657252594298938, guid: 5841e2894e0701f4c910647647c23e7a,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5841e2894e0701f4c910647647c23e7a, type: 3}

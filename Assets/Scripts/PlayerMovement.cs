@@ -106,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     private void physicsCheck() {
-        if (isJumping)
+        if (isJumping || isHanging)
         {
             boxCollider.size = jumpColliderSize;
         }
@@ -116,13 +116,16 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
+
         /*Determine whether the player is on the ground or not*/
 
         //raycasts to check if the feet are touchingthe ground
         RaycastHit2D leftFoot = raycast(new Vector2(-footOffset, 0f), Vector2.down, 1.0f, groundLayer);
         RaycastHit2D rightFoot = raycast(new Vector2(footOffset, 0f), Vector2.down, 1.0f, groundLayer);
 
-        if ((leftFoot || rightFoot) && !isHanging)
+        // if ((leftFoot || rightFoot) && !isHanging)
+        //if ((leftFoot || rightFoot))
+        if (Physics2D.OverlapCircle(platCollideCheckPoint.position, 0.1f, groundLayer))
         {
             isOnGround = true;
             isHanging = false;
@@ -131,14 +134,14 @@ public class PlayerMovement : MonoBehaviour
             isOnGround = false;
         }
 
-        if (isHanging)
+        if (isHanging && !Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer))
         {
             boxCollider.enabled = false;
             capsuleCollider.enabled = true;
         }
         else {
-            boxCollider.enabled = true;
             capsuleCollider.enabled = false;
+            boxCollider.enabled = true;
         }
     }
 
@@ -167,8 +170,13 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void inAirMovement() {
-        if (input.jumpPressed && !isJumping && (isOnPlatform || isOnGround || jumpDelayTime > Time.time || (isHanging && !isOnGround && !isOnPlatform)))
+        if (input.jumpPressed && !isJumping && (isOnPlatform || isOnGround || jumpDelayTime > Time.time || (isHanging && !isOnGround && !isOnPlatform) || (isHanging && isOnPlatform)))
         {
+
+            if (isHanging && isOnPlatform) {
+                transform.SetParent(null);
+                isOnPlatform = false;
+            }
 
             //jump is severely decreased on a platform that is moving down and increased for one that is moving up, so to balance that out, give a little boost when jumping on a platform that is moving down
             if (isOnPlatform)
@@ -233,10 +241,12 @@ public class PlayerMovement : MonoBehaviour
         if (dir > 0)
         {
             rBody.transform.position = new Vector2(rBody.transform.position.x - 0.5f, rBody.transform.position.y);
+            rBody.velocity = new Vector2(-15, rBody.velocity.y);
         }
         else
         {
             rBody.transform.position = new Vector2(rBody.transform.position.x + 0.5f, rBody.transform.position.y);
+            rBody.velocity = new Vector2(15, rBody.velocity.y);
         }
         rBody.AddForce(new Vector2(0f, jumpForce * 1.3f), ForceMode2D.Impulse);
     }
@@ -293,16 +303,17 @@ public class PlayerMovement : MonoBehaviour
 
 
     private void wallHangMovement() {
-        if (!isOnGround && !isOnPlatform && !Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer))
+        if (!isOnGround) //!Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer))
         {
-            isHanging = Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, groundLayer);
+            isHanging = Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, groundLayer) || Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer);
         }
 
         if (isHanging)
         {
             rBody.velocity = new Vector2(rBody.velocity.x, -1);
             if (Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer)) {
-                isHanging = false;
+                //isHanging = false;
+                isOnPlatform = false;
             }
         }
         else
@@ -339,23 +350,12 @@ public class PlayerMovement : MonoBehaviour
 
 
     private void OnCollisionEnter2D(Collision2D col) {
-        RaycastHit2D leftFoot = raycast(new Vector2(-footOffset, 0f), Vector2.down, 1.0f, movingPlatLayer);
-        RaycastHit2D rightFoot = raycast(new Vector2(footOffset, 0f), Vector2.down, 1.0f, movingPlatLayer);
-
-        if (col.transform.CompareTag("MovingPlatform") && (leftFoot || rightFoot)) {
-
-            //ensure the collision is detected only when the angle of the collision is less than 30
-            for (int i = 0; i < col.contactCount; i++) {
-                Debug.Log("Angle: " + Vector3.Angle(col.contacts[i].normal, Vector3.up));
-                if (Vector3.Angle(col.contacts[i].normal, Vector3.up) <= 30)
-                {
-                    transform.parent = col.transform;
-                    isOnPlatform = true;
-                    isJumping = false;
-                    break;
-                }
-            }
-
+        
+        if (col.transform.CompareTag("MovingPlatform") && Physics2D.OverlapCircle(platCollideCheckPoint.position, 0.1f, movingPlatLayer))
+        {
+            transform.parent = col.transform;
+            isOnPlatform = true;
+            isJumping = false;
 
         }
     }
@@ -367,6 +367,12 @@ public class PlayerMovement : MonoBehaviour
             collidedPlatformVelocity.y = col.gameObject.GetComponent<PlatformMover>().platformSpeedY;
             collidedPlatformDir.x = col.gameObject.GetComponent<PlatformMover>().direction.x;
             collidedPlatformDir.y = col.gameObject.GetComponent<PlatformMover>().direction.y;
+
+            if (Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer))
+            {
+                transform.SetParent(col.transform);
+                isOnPlatform = true;
+            }
         }
         
     }
