@@ -9,6 +9,7 @@ public class WaterDropletController : MonoBehaviour
     [Header("Attributes")]
     public float bounceDistance;
     public float floatSpeed;
+    public int waterAdded = 1;
 
     private Vector2 originalPos;
     private Rigidbody2D rb;
@@ -35,5 +36,13 @@ public class WaterDropletController : MonoBehaviour
         }
     }
 
-   
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player") {
+            Transform player = GameObject.Find("Player2").transform;
+            player.GetComponent<PlayerAttributes>().SetCurrentWater(player.GetComponent<PlayerAttributes>().GetCurrentWater() + waterAdded);
+            Destroy(gameObject);
+        }
+    }
+
 }

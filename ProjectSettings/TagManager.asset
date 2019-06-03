@@ -15,6 +15,7 @@ TagManager:
   - Lava
   - WaterDrop
   - AirSource
+  - FallingRocks
   layers:
   - Default
   - TransparentFX

@@ -9,6 +9,16 @@ public class PlayerAttributes : MonoBehaviour
     public int waterCollected = 0;
     public int totalAir = 100;
 
+    [Header("Attribute Timers")]
+    public float airDepletionTime = 2f;
+    public float lavaCollisionTime = 0.2f;
+    public float outOfAirHealthDecrementTime = 0.5f;
+
+    [Header("Attribute Decrement Rates")]
+    public int healthDecrementOutOfAir = 1;
+    public int healthDecrementLava = 2;
+    public int airDecrement = 1;
+
     [Header("HUD Object")]
     public GameObject hudObject;
 
@@ -18,6 +28,7 @@ public class PlayerAttributes : MonoBehaviour
     private bool collidingWithLava;
 
     private float airDepletionTimer;
+    private float outOfAirHealthDepletionTimer;
 
     private void Start()
     {
@@ -31,38 +42,54 @@ public class PlayerAttributes : MonoBehaviour
         hudObject.GetComponent<UIManager>().setWaterCount(waterCollected);
         hudObject.GetComponent<UIManager>().setHealth(currentHealth);
         hudObject.GetComponent<UIManager>().setAir(currentAir);
-
-        Debug.Log(lavaColisionDuration);
-
     }
 
     private void FixedUpdate()
     {
+        //lava timer 
         if (collidingWithLava) {
             lavaColisionDuration += Time.deltaTime;
         }
 
-        if (lavaColisionDuration >= 0.2f) {
+        //lava timed health decrement
+        if (lavaColisionDuration >= lavaCollisionTime) {
             lavaColisionDuration = 0;
-            currentHealth -= 2;
+            currentHealth -= healthDecrementLava;
         }
-        airDepletionTimer += Time.deltaTime;
-        if (airDepletionTimer >= 2) {
-            currentAir -= 1;
+
+        //air timer
+        if (airDepletionTimer >= airDepletionTime) {
+            currentAir -= airDecrement;
             airDepletionTimer = 0;
         }
+
+        //Attribute bounds and air health decrement
+        if (currentAir < 0) {
+            currentAir = 0;
+        }
+        else if (currentAir == 0 && outOfAirHealthDepletionTimer >= airDepletionTime) {
+            currentHealth -= healthDecrementOutOfAir;
+            outOfAirHealthDepletionTimer = 0;
+        }
+        else if (currentAir > totalAir) {
+            currentAir = totalAir;
+        }
+
+        if (currentHealth <= 0) {
+            currentHealth = 0;
+        }
+        else if (currentHealth >= totalHealth) {
+            currentHealth = totalHealth;
+        }
+
+
+        outOfAirHealthDepletionTimer += Time.deltaTime;
+        airDepletionTimer += Time.deltaTime;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.tag == "WaterDrop") {
-            Destroy(collision.gameObject);
-            waterCollected += 1;
-        }
-        if (collision.transform.tag == "AirSource") {
-            Destroy(collision.gameObject);
-            currentAir += 10;
-        }
+        
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -79,5 +106,29 @@ public class PlayerAttributes : MonoBehaviour
             collidingWithLava = false;
             lavaColisionDuration = 0f;
         }
+    }
+
+    public void SetCurrentHealth(int health) {
+        currentHealth = health;
+    }
+
+    public int GetCurrentHealth() {
+        return currentHealth;
+    }
+
+    public int GetCurrentAir() {
+        return currentAir;
+    }
+
+    public void SetCurrentAir(int air) {
+        currentAir = air;
+    }
+
+    public void SetCurrentWater(int water) {
+        waterCollected = water;
+    }
+
+    public int GetCurrentWater() {
+        return waterCollected;
     }
 }
