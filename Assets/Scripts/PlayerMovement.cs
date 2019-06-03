@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
     float jumpDelayTime; //holds the inspector jump delay
     float originalScaleX;
 
-    int dir; //1 for right -1 for left
+    public int dir; //1 for right -1 for left
 
 
     private Vector2 collidedPlatformVelocity;
