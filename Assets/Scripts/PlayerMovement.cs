@@ -301,6 +301,9 @@ public class PlayerMovement : MonoBehaviour
         if (isHanging)
         {
             rBody.velocity = new Vector2(rBody.velocity.x, -1);
+            if (Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer)) {
+                isHanging = false;
+            }
         }
         else
         {
@@ -343,6 +346,7 @@ public class PlayerMovement : MonoBehaviour
 
             //ensure the collision is detected only when the angle of the collision is less than 30
             for (int i = 0; i < col.contactCount; i++) {
+                Debug.Log("Angle: " + Vector3.Angle(col.contacts[i].normal, Vector3.up));
                 if (Vector3.Angle(col.contacts[i].normal, Vector3.up) <= 30)
                 {
                     transform.parent = col.transform;
