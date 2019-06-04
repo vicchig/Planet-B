@@ -16,6 +16,8 @@ TagManager:
   - WaterDrop
   - AirSource
   - FallingRocks
+  - AirSourceTextArea
+  - WaterTextArea
   layers:
   - Default
   - TransparentFX

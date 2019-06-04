@@ -5,6 +5,7 @@ using TMPro;
 
 public class GameManagerScript : MonoBehaviour
 {
+    /*
     public GameObject meshContainer;
     public static TextMeshProUGUI uiTextMesh;
 
@@ -30,7 +31,7 @@ public class GameManagerScript : MonoBehaviour
     }
 
     public static void displayTextWaterDroplet() { }
-
+    */
 
 
 

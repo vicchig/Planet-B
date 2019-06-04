@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TextDisplayDetectorController : MonoBehaviour
 {
+    /*
     public string textToDisplay;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -13,5 +14,5 @@ public class TextDisplayDetectorController : MonoBehaviour
                 GameManagerScript.displayTextAirSource();
             }
         }
-    }
+    }*/
 }
