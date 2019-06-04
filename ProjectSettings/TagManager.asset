@@ -18,6 +18,7 @@ TagManager:
   - FallingRocks
   - AirSourceTextArea
   - WaterTextArea
+  - DestructibleTextArea
   layers:
   - Default
   - TransparentFX

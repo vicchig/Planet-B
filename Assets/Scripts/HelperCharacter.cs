@@ -88,37 +88,45 @@ public class HelperCharacter : MonoBehaviour
             }
         }
 
+        Debug.Log("Air: " + airSourceTxt.isShowText());
+        Debug.Log("Water: " + waterDropTxt.isShowText());
+        Debug.Log("Destructible: " + destructibleTxt.isShowText());
 
         //in-game object descriptions
-        if (textTimer < textDuration && !isBusy) {
-            if (airSourceTxt.isShowText())
-            {
-                
-                airSourceTxt.setTextShows(airSourceTxt.getTextShows() + 1);
-                uiTextMesh.text = airSourceTxt.getText();
-                
-                isBusy = true;
-            }
-            else if (waterDropTxt.isShowText())
-            {
-                waterDropTxt.setTextShows(waterDropTxt.getTextShows() + 1);
-                uiTextMesh.text = waterDropTxt.getText();
-                
-                isBusy = true;
-            }
-            else if (destructibleTxt.isShowText())
-            {
-                destructibleTxt.setTextShows(destructibleTxt.getTextShows() + 1);
-                uiTextMesh.text = destructibleTxt.getText();
-            }
-            else
-            {
-                airSourceTxt.setShowText(false);
-                waterDropTxt.setShowText(false);
-                destructibleTxt.setShowText(false);
-                isBusy = false;
+        if (textTimer < textDuration) {
+            if (!isBusy) {
+                if (airSourceTxt.isShowText())
+                {
+
+                    airSourceTxt.setTextShows(airSourceTxt.getTextShows() + 1);
+                    uiTextMesh.text = airSourceTxt.getText();
+
+                    isBusy = true;
+                }
+                else if (waterDropTxt.isShowText())
+                {
+                    waterDropTxt.setTextShows(waterDropTxt.getTextShows() + 1);
+                    uiTextMesh.text = waterDropTxt.getText();
+
+                    isBusy = true;
+                }
+                else if (destructibleTxt.isShowText())
+                {
+                    destructibleTxt.setTextShows(destructibleTxt.getTextShows() + 1);
+                    uiTextMesh.text = destructibleTxt.getText();
+
+                    isBusy = true;
+                }
             }
         }
+        else
+        {
+            airSourceTxt.setShowText(false);
+            waterDropTxt.setShowText(false);
+            destructibleTxt.setShowText(false);
+            isBusy = false;
+        }
+
 
         if (!airSourceTxt.isShowText() && !waterDropTxt.isShowText() && !destructibleTxt.isShowText() && !showIntro )
         {
@@ -150,6 +158,10 @@ public class HelperCharacter : MonoBehaviour
         }
         else if (collision.tag == "WaterTextArea" && waterDropTxt.getTextShows() < 1) {
             waterDropTxt.setShowText(true);
+        }
+        else if (collision.tag == "DestructibleTextArea" && destructibleTxt.getTextShows() < 2) {
+            destructibleTxt.setShowText(true);
+            collision.GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 
