@@ -58,6 +58,8 @@ public class HelperCharacter : MonoBehaviour
         if (level == 1) {
             if (showIntro && cycle == 1)
             {
+                textDuration = AudioManager.intro1.length;
+                AudioManager.playIntro1();
                 uiTextMesh.text = intro;
                 if (textTimer >= textDuration)
                 {
@@ -85,12 +87,9 @@ public class HelperCharacter : MonoBehaviour
             }
             else {
                 showIntro = false;
+                AudioManager.stopPlaying();
             }
         }
-
-        Debug.Log("Air: " + airSourceTxt.isShowText());
-        Debug.Log("Water: " + waterDropTxt.isShowText());
-        Debug.Log("Destructible: " + destructibleTxt.isShowText());
 
         //in-game object descriptions
         if (textTimer < textDuration) {
