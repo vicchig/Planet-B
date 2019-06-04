@@ -15,8 +15,9 @@ public class AudioManager : MonoBehaviour
     }
 
     public static void playIntro1(AudioClip clip) {
-        source.clip = clip;
-        source.Play();
+        if (!source.isPlaying) {
+            source.PlayOneShot(clip);
+        }
     }
     public static void playIntro2(AudioClip clip) {
         source.clip = clip;

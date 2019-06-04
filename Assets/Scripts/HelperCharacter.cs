@@ -17,6 +17,11 @@ public class HelperCharacter : MonoBehaviour
 
     [Header("Sounds")]
     public AudioClip intro1;
+    public AudioClip intro2;
+    public AudioClip intro3;
+    public AudioClip airFound;
+    public AudioClip waterFound;
+    public AudioClip destructibleFound;
 
     //text mesh where the text will be displayed
     private TextMeshProUGUI uiTextMesh;
@@ -27,7 +32,7 @@ public class HelperCharacter : MonoBehaviour
     //Begin Game
     private string intro = "Hello, I am Echo, the built-in A.I. of your suit. I hope we can get along. If not, please remember that I control your suit's life support systems.";
     private string objectiveLevel1_0 = "This planet looks nice. Unfortunately, the water cycle is completely non-existant. If we want to colonize it, you will have to fix the water cycle.";
-    private string objectiveLevel1_1 = "The first would be to evaporate some water into the atmosphere using heat energy. There does not seem to be any water on the surface. Maybe we should investigate the cave system below us.";
+    private string objectiveLevel1_1 = "The first step would be to evaporate some water into the atmosphere using heat energy. There does not seem to be any water on the surface. Maybe we should investigate the cave system below us.";
     private int cycle;
     private bool showIntro;
 
@@ -64,7 +69,7 @@ public class HelperCharacter : MonoBehaviour
                 textDuration = intro1.length;
                 AudioManager.playIntro1(intro1);
                 uiTextMesh.text = intro;
-                if (textTimer >= textDuration)
+                if (textTimer + 1.9 >= textDuration)
                 {
                     cycle++;
                     textTimer = 0;
@@ -73,7 +78,9 @@ public class HelperCharacter : MonoBehaviour
             else if (showIntro && cycle == 2)
             {
                 uiTextMesh.text = objectiveLevel1_0;
-                if (textTimer >= textDuration)
+                textDuration = intro2.length;
+                AudioManager.playIntro1(intro2);
+                if (textTimer + 1.9 >= textDuration)
                 {
                     cycle++;
                     textTimer = 0;
@@ -82,7 +89,9 @@ public class HelperCharacter : MonoBehaviour
             else if (showIntro && cycle == 3)
             {
                 uiTextMesh.text = objectiveLevel1_1;
-                if (textTimer >= textDuration)
+                textDuration = intro3.length;
+                AudioManager.playIntro1(intro3);
+                if (textTimer + 1.9  >= textDuration)
                 {
                     cycle++;
                     textTimer = 0;
@@ -90,18 +99,21 @@ public class HelperCharacter : MonoBehaviour
             }
             else {
                 showIntro = false;
+                AudioManager.source.Stop();
                 textDuration = 4;
             }
         }
 
         //in-game object descriptions
-        if (textTimer < textDuration) {
+        if (textTimer + 1.9 <= textDuration) {
             if (!isBusy) {
                 if (airSourceTxt.isShowText())
                 {
 
                     airSourceTxt.setTextShows(airSourceTxt.getTextShows() + 1);
                     uiTextMesh.text = airSourceTxt.getText();
+                    textDuration = airFound.length;
+                    AudioManager.playIntro1(airFound);
 
                     isBusy = true;
                 }
@@ -109,14 +121,16 @@ public class HelperCharacter : MonoBehaviour
                 {
                     waterDropTxt.setTextShows(waterDropTxt.getTextShows() + 1);
                     uiTextMesh.text = waterDropTxt.getText();
-
+                    textDuration = waterFound.length;
+                    AudioManager.playIntro1(waterFound);
                     isBusy = true;
                 }
                 else if (destructibleTxt.isShowText())
                 {
                     destructibleTxt.setTextShows(destructibleTxt.getTextShows() + 1);
                     uiTextMesh.text = destructibleTxt.getText();
-
+                    textDuration = destructibleFound.length;
+                    AudioManager.playIntro1(destructibleFound);
                     isBusy = true;
                 }
             }

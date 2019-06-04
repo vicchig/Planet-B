@@ -57626,6 +57626,11 @@ MonoBehaviour:
   textDuration: 4
   level: 1
   intro1: {fileID: 8300000, guid: ebec2f3ff0259d7498a4cc17e78c2869, type: 3}
+  intro2: {fileID: 0}
+  intro3: {fileID: 0}
+  airFound: {fileID: 0}
+  waterFound: {fileID: 0}
+  destructibleFound: {fileID: 0}
 --- !u!1 &1351122760
 GameObject:
   m_ObjectHideFlags: 0
@@ -100694,7 +100699,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
