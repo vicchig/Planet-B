@@ -12,7 +12,6 @@ public class FallingRockController : MonoBehaviour
         if (collision.transform.CompareTag("Player")) {
             Transform player = GameObject.Find("Player2").transform;
             player.GetComponent<PlayerAttributes>().SetCurrentHealth(player.GetComponent<PlayerAttributes>().GetCurrentHealth() - rockDamage);
-            Debug.Log(player.GetComponent<PlayerAttributes>().GetCurrentHealth());
             Destroy(gameObject);
         }
         else if (collision.transform.CompareTag("Platforms"))
