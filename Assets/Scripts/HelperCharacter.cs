@@ -31,7 +31,7 @@ public class HelperCharacter : MonoBehaviour
 
     //Begin Game
     private string intro = "Hello, I am Echo, the built-in A.I. of your suit. I hope we can get along. If not, please remember that I control your suit's life support systems.";
-    private string objectiveLevel1_0 = "This planet looks nice. Unfortunately, the water cycle is completely non-existant. If we want to colonize it, you will have to fix the water cycle.";
+    private string objectiveLevel1_0 = "This planet looks nice. Unfortunately, the water cycle is completely non-existent. If we want to colonize it, you will have to fix the water cycle.";
     private string objectiveLevel1_1 = "The first step would be to evaporate some water into the atmosphere using heat energy. There does not seem to be any water on the surface. Maybe we should investigate the cave system below us.";
     private int cycle;
     private bool showIntro;
@@ -64,6 +64,7 @@ public class HelperCharacter : MonoBehaviour
     {
         //hint text and intros
         if (level == 1) {
+            isBusy = true;
             if (showIntro && cycle == 1)
             {
                 textDuration = intro1.length;
@@ -100,6 +101,7 @@ public class HelperCharacter : MonoBehaviour
             else {
                 showIntro = false;
                 AudioManager.source.Stop();
+                isBusy = false;
                 textDuration = 4;
             }
         }
@@ -169,16 +171,22 @@ public class HelperCharacter : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "AirSourceTextArea" && airSourceTxt.getTextShows() < 1) {
-            airSourceTxt.setShowText(true);
+        if (!isBusy) {
+            if (collision.tag == "AirSourceTextArea" && airSourceTxt.getTextShows() < 1)
+            {
+                airSourceTxt.setShowText(true);
+            }
+            else if (collision.tag == "WaterTextArea" && waterDropTxt.getTextShows() < 1)
+            {
+                waterDropTxt.setShowText(true);
+            }
+            else if (collision.tag == "DestructibleTextArea" && destructibleTxt.getTextShows() < 2)
+            {
+                destructibleTxt.setShowText(true);
+                collision.GetComponent<BoxCollider2D>().enabled = false;
+            }
         }
-        else if (collision.tag == "WaterTextArea" && waterDropTxt.getTextShows() < 1) {
-            waterDropTxt.setShowText(true);
-        }
-        else if (collision.tag == "DestructibleTextArea" && destructibleTxt.getTextShows() < 2) {
-            destructibleTxt.setShowText(true);
-            collision.GetComponent<BoxCollider2D>().enabled = false;
-        }
+        
     }
 
     private class ObjectText {
