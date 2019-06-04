@@ -15,6 +15,9 @@ public class HelperCharacter : MonoBehaviour
     public float textDuration = 4.0f; //for how long the text is displayed
     public int level = 1;
 
+    [Header("Sounds")]
+    public AudioClip intro1;
+
     //text mesh where the text will be displayed
     private TextMeshProUGUI uiTextMesh;
 
@@ -58,8 +61,8 @@ public class HelperCharacter : MonoBehaviour
         if (level == 1) {
             if (showIntro && cycle == 1)
             {
-                textDuration = AudioManager.intro1.length;
-                AudioManager.playIntro1();
+                textDuration = intro1.length;
+                AudioManager.playIntro1(intro1);
                 uiTextMesh.text = intro;
                 if (textTimer >= textDuration)
                 {
@@ -87,6 +90,7 @@ public class HelperCharacter : MonoBehaviour
             }
             else {
                 showIntro = false;
+                textDuration = 4;
             }
         }
 

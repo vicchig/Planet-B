@@ -57625,6 +57625,7 @@ MonoBehaviour:
   portraitObj: {fileID: 897589204}
   textDuration: 4
   level: 1
+  intro1: {fileID: 8300000, guid: ebec2f3ff0259d7498a4cc17e78c2869, type: 3}
 --- !u!1 &1351122760
 GameObject:
   m_ObjectHideFlags: 0
@@ -100805,13 +100806,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1991423188}
-  intro1Sound: {fileID: 8300000, guid: ebec2f3ff0259d7498a4cc17e78c2869, type: 3}
-  intro2Sound: {fileID: 8300000, guid: ebec2f3ff0259d7498a4cc17e78c2869, type: 3}
-  intro3Sound: {fileID: 8300000, guid: ebec2f3ff0259d7498a4cc17e78c2869, type: 3}
-  waterFoundSound: {fileID: 8300000, guid: ebec2f3ff0259d7498a4cc17e78c2869, type: 3}
-  airSourceFoundSound: {fileID: 8300000, guid: ebec2f3ff0259d7498a4cc17e78c2869, type: 3}
-  destructibleAreaFoundSound: {fileID: 8300000, guid: ebec2f3ff0259d7498a4cc17e78c2869,
-    type: 3}
 --- !u!4 &2011016523 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 7c9fb993626aaf8488be64eb9feadbbc,
