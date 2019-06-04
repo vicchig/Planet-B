@@ -68,7 +68,7 @@ public class HelperCharacter : MonoBehaviour
             if (showIntro && cycle == 1)
             {
                 textDuration = intro1.length;
-                AudioManager.playIntro1(intro1);
+                AudioManager.playClip(intro1);
                 uiTextMesh.text = intro;
                 if (textTimer + 1.9 >= textDuration)
                 {
@@ -80,8 +80,8 @@ public class HelperCharacter : MonoBehaviour
             {
                 uiTextMesh.text = objectiveLevel1_0;
                 textDuration = intro2.length;
-                AudioManager.playIntro1(intro2);
-                if (textTimer + 1.9 >= textDuration)
+                AudioManager.playClip(intro2);
+                if (textTimer - 0.3 >= textDuration)
                 {
                     cycle++;
                     textTimer = 0;
@@ -91,8 +91,8 @@ public class HelperCharacter : MonoBehaviour
             {
                 uiTextMesh.text = objectiveLevel1_1;
                 textDuration = intro3.length;
-                AudioManager.playIntro1(intro3);
-                if (textTimer + 1.9  >= textDuration)
+                AudioManager.playClip(intro3);
+                if (textTimer   >= textDuration)
                 {
                     cycle++;
                     textTimer = 0;
@@ -100,14 +100,13 @@ public class HelperCharacter : MonoBehaviour
             }
             else {
                 showIntro = false;
-                AudioManager.source.Stop();
                 isBusy = false;
                 textDuration = 4;
             }
         }
 
         //in-game object descriptions
-        if (textTimer + 1.9 <= textDuration) {
+        if (textTimer + 1 <= textDuration) {
             if (!isBusy) {
                 if (airSourceTxt.isShowText())
                 {
@@ -115,7 +114,7 @@ public class HelperCharacter : MonoBehaviour
                     airSourceTxt.setTextShows(airSourceTxt.getTextShows() + 1);
                     uiTextMesh.text = airSourceTxt.getText();
                     textDuration = airFound.length;
-                    AudioManager.playIntro1(airFound);
+                    AudioManager.playClip(airFound);
 
                     isBusy = true;
                 }
@@ -124,7 +123,7 @@ public class HelperCharacter : MonoBehaviour
                     waterDropTxt.setTextShows(waterDropTxt.getTextShows() + 1);
                     uiTextMesh.text = waterDropTxt.getText();
                     textDuration = waterFound.length;
-                    AudioManager.playIntro1(waterFound);
+                    AudioManager.playClip(waterFound);
                     isBusy = true;
                 }
                 else if (destructibleTxt.isShowText())
@@ -132,7 +131,7 @@ public class HelperCharacter : MonoBehaviour
                     destructibleTxt.setTextShows(destructibleTxt.getTextShows() + 1);
                     uiTextMesh.text = destructibleTxt.getText();
                     textDuration = destructibleFound.length;
-                    AudioManager.playIntro1(destructibleFound);
+                    AudioManager.playClip(destructibleFound);
                     isBusy = true;
                 }
             }

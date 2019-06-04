@@ -14,33 +14,9 @@ public class AudioManager : MonoBehaviour
         source = audioSource;
     }
 
-    public static void playIntro1(AudioClip clip) {
-        if (!source.isPlaying) {
-            source.PlayOneShot(clip);
-        }
-    }
-    public static void playIntro2(AudioClip clip) {
-        source.clip = clip;
-        source.Play();
-    }
-    public static void playIntro3(AudioClip clip) {
-        source.clip = clip;
-        source.Play();
-    }
-    public static void playWaterFound(AudioClip clip) {
-        source.clip = clip;
-        source.Play();
-    }
-    public static void playAirSourceFound(AudioClip clip) {
-        source.clip = clip;
-        source.Play();
-    }
-    public static void playDestructibleArea(AudioClip clip) {
-        source.clip = clip;
-        source.Play();
-    }
-
-    public static void stopPlaying() {
-        source.Stop();
+    public static void playClip(AudioClip clip) {
+	if(!source.isPlaying){
+		source.PlayOneShot(clip);
+	} 
     }
 }

@@ -57626,11 +57626,11 @@ MonoBehaviour:
   textDuration: 4
   level: 1
   intro1: {fileID: 8300000, guid: ebec2f3ff0259d7498a4cc17e78c2869, type: 3}
-  intro2: {fileID: 0}
-  intro3: {fileID: 0}
-  airFound: {fileID: 0}
-  waterFound: {fileID: 0}
-  destructibleFound: {fileID: 0}
+  intro2: {fileID: 8300000, guid: e2fedd8927975024980e8d0fd3a7cf94, type: 3}
+  intro3: {fileID: 8300000, guid: 7db1e4ab6521b3440ba3fc7d142052ad, type: 3}
+  airFound: {fileID: 8300000, guid: 81061429b18574149ab8f87f7d718a1f, type: 3}
+  waterFound: {fileID: 8300000, guid: 0511411ce0fba384ebc26a67439c80bd, type: 3}
+  destructibleFound: {fileID: 8300000, guid: f11c7e213e6d40f4fa06c4bd6f7f0cb9, type: 3}
 --- !u!1 &1351122760
 GameObject:
   m_ObjectHideFlags: 0
