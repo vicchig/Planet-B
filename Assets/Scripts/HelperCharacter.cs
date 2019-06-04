@@ -87,7 +87,6 @@ public class HelperCharacter : MonoBehaviour
             }
             else {
                 showIntro = false;
-                AudioManager.stopPlaying();
             }
         }
 
