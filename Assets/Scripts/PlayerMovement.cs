@@ -75,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
         dir = 1;
     }
 
+
     private void FixedUpdate() {
         physicsCheck();
 
@@ -91,17 +92,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (isHanging)
         {
-            Shoot();
+            firePoint.transform.localPosition = new Vector3(-0.454f, -0.133f, 0f);
         }
-    }
-
-    void Shoot()
-    {
-        Bullet bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        //Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-        //bullet.tilemapGameObject = tilemapGameObject;
+        else
+        {
+            firePoint.transform.localScale = new Vector3(0.454f, -0.133f, 0f);
+        }
     }
 
 
