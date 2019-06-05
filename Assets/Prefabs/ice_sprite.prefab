@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &261581021112287293
+--- !u!1 &6510090943322205018
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4130042745064201468}
-  - component: {fileID: 3424714408812239481}
-  - component: {fileID: 2151307617974638938}
-  - component: {fileID: 8418363905010383919}
-  - component: {fileID: 5682086701188080055}
-  m_Layer: 4
-  m_Name: bullet2
-  m_TagString: bullet2
+  - component: {fileID: 6474269337781637427}
+  - component: {fileID: 253783655012833842}
+  - component: {fileID: 3374155104830705872}
+  - component: {fileID: 3796358121217858655}
+  - component: {fileID: 4301746465132519639}
+  m_Layer: 0
+  m_Name: ice_sprite
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4130042745064201468
+--- !u!4 &6474269337781637427
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 261581021112287293}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.7399936, y: 0.8407249, z: 0}
+  m_GameObject: {fileID: 6510090943322205018}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -5.69, y: 0.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3424714408812239481
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!212 &253783655012833842
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 261581021112287293}
+  m_GameObject: {fileID: 6510090943322205018}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b0644a7b5559ea14f898206d86e824b1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4e25b21ae64b5a349a0088245a006f78, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -82,28 +82,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2151307617974638938
+--- !u!114 &3374155104830705872
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 261581021112287293}
+  m_GameObject: {fileID: 6510090943322205018}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6858afda2669684fbf80c645973709e, type: 3}
+  m_Script: {fileID: 11500000, guid: 25c31900a2e174643a62bd15d5729fea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
-  despawnTime: 2
---- !u!50 &8418363905010383919
+--- !u!50 &3796358121217858655
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 261581021112287293}
+  m_GameObject: {fileID: 6510090943322205018}
   m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -111,25 +109,25 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!70 &5682086701188080055
+--- !u!70 &4301746465132519639
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 261581021112287293}
+  m_GameObject: {fileID: 6510090943322205018}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.01, y: 0}
-  m_Size: {x: 0.35, y: 0.2}
-  m_Direction: 1
+  m_Offset: {x: -0, y: 0}
+  m_Size: {x: 0.42, y: 0.3}
+  m_Direction: 0

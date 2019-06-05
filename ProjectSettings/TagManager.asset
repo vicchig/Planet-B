@@ -19,6 +19,7 @@ TagManager:
   - AirSourceTextArea
   - WaterTextArea
   - DestructibleTextArea
+  - bullet2
   layers:
   - Default
   - TransparentFX

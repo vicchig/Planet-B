@@ -19,17 +19,20 @@ public class DynamicParticle : MonoBehaviour
     public GameObject[] particleImages; //We need multiple particle images to reduce drawcalls
     float GAS_FLOATABILITY = 7.0f; //How fast does the gas goes up?
     float particleLifeTime = 3.0f, startTime;//How much time before the particle scalesdown and dies
-    public ParticleSystem ps;
+    [Header ("Steam")]
+    public GameObject ps;
+    bool isSteaming = false;
 
     private void Start()
     {
+        //ps.enableEmission = true;
     }
 
     void Awake()
     {
         if (currentState == STATES.NONE)
             SetState(STATES.WATER);
-        ps.Play();
+        //ps.Play();
     }
 
     //The definitios to each state
@@ -67,7 +70,7 @@ public class DynamicParticle : MonoBehaviour
     }
     void Update()
     {
-        ps.Play();
+        //ps.Play();
         switch (currentState)
         {
             case STATES.WATER: //Water and lava got the same behaviour
@@ -120,7 +123,7 @@ public class DynamicParticle : MonoBehaviour
         particleLifeTime = time;
     }
     // Here we handle the collision events with another particles, in this example water+lava= water-> gas
-    void OnCollisionEnter2D(Collision2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         //if (currentState == STATES.WATER && other.gameObject.tag == "DynamicParticle")
         //{
@@ -130,8 +133,17 @@ public class DynamicParticle : MonoBehaviour
         //    }
         //}
 
-        ps.Play();
+        //ps.Play();
+        if (other.gameObject.CompareTag("bullet2") && !isSteaming)
+        {
+            Debug.Log("hey");
+            GameObject psChild = Instantiate(ps);
+            psChild.transform.position = gameObject.transform.position;
+            psChild.transform.SetParent(gameObject.transform);
+            Destroy(gameObject, 7f);
 
+            isSteaming = true;
+        }
     }
 
 }

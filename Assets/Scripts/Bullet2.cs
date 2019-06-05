@@ -8,6 +8,7 @@ public class Bullet2 : Bullet
     //public Transform firePoint2;
     protected override void Start()
     {
+        Destroy(gameObject, despawnTime); // despawner
         rb = GetComponent<Rigidbody2D>();
         //shootDirection = firePoint2.position - firePoint.position;
         shootDirection = transform.right;
@@ -30,11 +31,9 @@ public class Bullet2 : Bullet
             if (collision.CompareTag("DynamicParticle"))
             {
                 DynamicParticle particle = collision.gameObject.GetComponent<DynamicParticle>();
-                particle.ps.Play();
+                //particle.ps.Play();
                 Destroy(gameObject);
             }
-            Debug.Log(collision.transform.position);
-            Debug.Log(collision.tag);
             
         }
     }
