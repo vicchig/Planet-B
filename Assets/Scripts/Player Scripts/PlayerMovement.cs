@@ -236,17 +236,21 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void wallJump() {
-        if (dir > 0)
-        {
-            rBody.transform.position = new Vector2(rBody.transform.position.x - 0.5f, rBody.transform.position.y);
-            rBody.velocity = new Vector2(-15, rBody.velocity.y);
+        if (input.horizontalIn == 0) {
+            if (dir > 0)
+            {
+                rBody.transform.position = new Vector2(rBody.transform.position.x - 0.5f, rBody.transform.position.y);
+                rBody.velocity = new Vector2(-15, rBody.velocity.y);
+            }
+            else
+            {
+                rBody.transform.position = new Vector2(rBody.transform.position.x + 0.5f, rBody.transform.position.y);
+                rBody.velocity = new Vector2(15, rBody.velocity.y);
+            }
+            rBody.AddForce(new Vector2(0f, jumpForce * 1.3f), ForceMode2D.Impulse);
+
         }
-        else
-        {
-            rBody.transform.position = new Vector2(rBody.transform.position.x + 0.5f, rBody.transform.position.y);
-            rBody.velocity = new Vector2(15, rBody.velocity.y);
-        }
-        rBody.AddForce(new Vector2(0f, jumpForce * 1.3f), ForceMode2D.Impulse);
+      
     }
 
 
