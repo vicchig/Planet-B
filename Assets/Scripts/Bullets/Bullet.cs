@@ -13,6 +13,8 @@ public class Bullet : MonoBehaviour
     Vector2 currentPosition;
     Vector2 bulletVelocity;
     CircleCollider2D cc;
+
+    public int playerDir;
     
     protected virtual void Start()
     {

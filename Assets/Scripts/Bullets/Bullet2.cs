@@ -11,7 +11,7 @@ public class Bullet2 : Bullet
         Destroy(gameObject, despawnTime); // despawner
         rb = GetComponent<Rigidbody2D>();
         //shootDirection = firePoint2.position - firePoint.position;
-        shootDirection = transform.right;
+        shootDirection = transform.right * playerDir;
         shootDirection.y = -1f;
         rb.velocity = shootDirection.normalized * speed;
         //Debug.Log(rb.velocity);

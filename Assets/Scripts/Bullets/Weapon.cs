@@ -68,7 +68,9 @@ public class Weapon : MonoBehaviour
             {
                 ps.Play();
             }
+            PlayerMovement player = GameObject.Find("Player2").GetComponent<PlayerMovement>();
             Bullet bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            bullet.playerDir = player.dir;
         } else
         {
             Bullet bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);

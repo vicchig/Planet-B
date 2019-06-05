@@ -1237,7 +1237,7 @@ MonoBehaviour:
   bullet1: {fileID: -6467515310324970172, guid: 5a96f9a2f0367a143abe360ec59bf64d,
     type: 3}
   bullet2: {fileID: 2151307617974638938, guid: b60053369c727e248bfc6336665dc2df, type: 3}
-  bullet3: {fileID: 0}
+  bullet3: {fileID: 3374155104830705872, guid: 42ef182fcd503924288ba4a61a34b2d1, type: 3}
   flameThrower: {fileID: 1314271980}
 --- !u!114 &154046002
 MonoBehaviour:
@@ -1554,10 +1554,9 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 3.389803
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3300000, guid: 7c9fb993626aaf8488be64eb9feadbbc, type: 3}
-    - {fileID: 2300000, guid: 7c9fb993626aaf8488be64eb9feadbbc, type: 3}
-    - {fileID: 11400000, guid: 7c9fb993626aaf8488be64eb9feadbbc, type: 3}
+    m_RemovedComponents: [{fileID: 3300000, guid: 7c9fb993626aaf8488be64eb9feadbbc,
+        type: 3}, {fileID: 2300000, guid: 7c9fb993626aaf8488be64eb9feadbbc, type: 3},
+      {fileID: 11400000, guid: 7c9fb993626aaf8488be64eb9feadbbc, type: 3}]
   m_SourcePrefab: {fileID: 100100000, guid: 7c9fb993626aaf8488be64eb9feadbbc, type: 3}
 --- !u!1 &203406777
 GameObject:
@@ -106692,16 +106691,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3190657252594298939, guid: 5841e2894e0701f4c910647647c23e7a,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 3190657252594298939, guid: 5841e2894e0701f4c910647647c23e7a,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.64
-      objectReference: {fileID: 0}
     - target: {fileID: 3190657251732207760, guid: 5841e2894e0701f4c910647647c23e7a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -106801,6 +106790,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Icon
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3190657252594298939, guid: 5841e2894e0701f4c910647647c23e7a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 3190657252594298939, guid: 5841e2894e0701f4c910647647c23e7a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5841e2894e0701f4c910647647c23e7a, type: 3}
