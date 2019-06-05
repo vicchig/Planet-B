@@ -19,7 +19,7 @@ public class ParticleGenerator : MonoBehaviour
     public Vector3 particleForce; //Is there a initial force particles should have?
     public DynamicParticle.STATES particlesState = DynamicParticle.STATES.WATER; // The state of the particles spawned
     public Transform particlesParent; // Where will the spawned particles will be parented (To avoid covering the whole inspector with them)
-
+    public ParticleSystem ps;
     void Start() { }
 
     void Update()
@@ -30,6 +30,7 @@ public class ParticleGenerator : MonoBehaviour
             newLiquidParticle.GetComponent<Rigidbody2D>().AddForce(particleForce); //Add our custom force
             DynamicParticle particleScript = newLiquidParticle.GetComponent<DynamicParticle>(); // Get the particle script
                                                                                                 //particleScript.SetLifeTime(PARTICLE_LIFETIME); //Set each particle lifetime
+            particleScript.ps = ps;
             particleScript.SetState(particlesState); //Set the particle State
             newLiquidParticle.transform.position = transform.position;// Relocate to the spawner position
             newLiquidParticle.transform.parent = particlesParent;// Add the particle to the parent container			

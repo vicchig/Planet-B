@@ -29,7 +29,8 @@ public class Bullet2 : Bullet
         {
             if (collision.CompareTag("DynamicParticle"))
             {
-                Destroy(collision.gameObject);
+                DynamicParticle particle = collision.gameObject.GetComponent<DynamicParticle>();
+                particle.ps.Play();
                 Destroy(gameObject);
             }
             Debug.Log(collision.transform.position);

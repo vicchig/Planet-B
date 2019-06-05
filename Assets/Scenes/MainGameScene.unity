@@ -795,7 +795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalHealth: 100
-  waterCollected: 0
+  waterCollected: 7
   totalAir: 100
   airDepletionTime: 2
   lavaCollisionTime: 0.2
@@ -4468,7 +4468,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4693653493845900, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 4693653493845900, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -57663,6 +57663,11 @@ PrefabInstance:
       propertyPath: particleForce.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9520b4773cd4be247b979318eae6c1da, type: 3}
+      propertyPath: ps
+      value: 
+      objectReference: {fileID: 198603562046773920, guid: 378b2c30ef426554495292cb902cb8f4,
+        type: 3}
     - target: {fileID: 21200000, guid: 9520b4773cd4be247b979318eae6c1da, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -101065,7 +101070,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1991423190
 MonoBehaviour:
