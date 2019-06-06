@@ -131,4 +131,13 @@ public class PlayerAttributes : MonoBehaviour
     public int GetCurrentWater() {
         return waterCollected;
     }
+
+    public int GetMaxHealth() {
+        return totalHealth;
+    }
+
+    public int GetMaxAir()
+    {
+        return totalAir;
+    }
 }

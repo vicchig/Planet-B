@@ -20,6 +20,8 @@ TagManager:
   - WaterTextArea
   - DestructibleTextArea
   - bullet2
+  - FireflyArea
+  - ExploreAreaEastLevel1
   layers:
   - Default
   - TransparentFX
