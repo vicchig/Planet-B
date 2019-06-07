@@ -23,6 +23,7 @@ TagManager:
   - FireflyArea
   - ExploreAreaEastLevel1
   - WaterPoolCollisionArea
+  - FallingRockArea
   layers:
   - Default
   - TransparentFX

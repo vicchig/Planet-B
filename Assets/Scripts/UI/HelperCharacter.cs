@@ -125,7 +125,7 @@ public class HelperCharacter : MonoBehaviour
         dontWasteWaterReminderTxt = new ObjectText("Make sure you do not waste it. If you do, check the cave for some more water. If you waste all of it, we will have to restart.", false, dontWasteWaterReminderClip.length + 0.5f, dontWasteWaterReminderClip, 1);
 
         butterlfyCommentTxt = new ObjectText("Wow. Aren't these beautiful!", false, butterlfyCommentClip.length + 0.5f, butterlfyCommentClip, 1);
-        rockWarningTxt = new ObjectText("The ceiling of the cave in this area is prone to collapse. Watch your head!", false, rockWarningClip.length + 0.5f, rockWarningClip, 1000);
+        rockWarningTxt = new ObjectText("The ceiling of the cave in this area is prone to collapse. Watch your head!", false, rockWarningClip.length + 0.5f, rockWarningClip, 4);
         aboutToDieTxt = new ObjectText("Warning: operator sustaining critical damage.", false, aboutToDieClip.length +0.5f, aboutToDieClip, 1000);
         airCritical = new ObjectText("Warning: Air supply at critical level.", false, airCriticalClip.length + 0.5f, airCriticalClip, 1000);
         lavaCommentTxt = new ObjectText("It burns! It burns! Make it stop! Just kidding, I cannot feel a thing.", false, lavaCommentClip.length + 0.5f, lavaCommentClip, 1);
@@ -267,10 +267,7 @@ public class HelperCharacter : MonoBehaviour
         {
             sounds.Enqueue(butterlfyCommentTxt);
         }
-        if (collision.tag == "Lava" && lavaCommentTxt.getTextShows() < lavaCommentTxt.getMaxTextShows())
-        {
-            sounds.Enqueue(lavaCommentTxt);
-        }
+
         if (collision.tag == "ExploreAreaEastLevel1" && attributes.GetCurrentWater() >= 9 && waterPoolFoundTxt.getTextShows() < waterPoolFoundTxt.getMaxTextShows())
         {
             sounds.Enqueue(objectiveLevelTxt1_4);
@@ -281,11 +278,17 @@ public class HelperCharacter : MonoBehaviour
                 sounds.Enqueue(waterPoolFoundTxt);
             }       
         }
+        if (collision.tag == "FallingRockArea" && rockWarningTxt.getTextShows() < rockWarningTxt.getMaxTextShows() && !isBusy) {
+            sounds.Enqueue(rockWarningTxt);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        
+        if (collision.tag == "Lava" && lavaCommentTxt.getTextShows() < lavaCommentTxt.getMaxTextShows() && !isBusy)
+        {
+            sounds.Enqueue(lavaCommentTxt);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
