@@ -8,6 +8,7 @@ public class PlayerAttributes : MonoBehaviour
     public int totalHealth = 100;
     public int waterCollected = 0;
     public int totalAir = 100;
+    public int heat = 0;
 
     [Header("Attribute Timers")]
     public float airDepletionTime = 2f;
@@ -92,6 +93,11 @@ public class PlayerAttributes : MonoBehaviour
         if (collision.transform.tag == "Lava")
         {
             collidingWithLava = true;
+        }
+        if (collision.CompareTag("Sun Ray"))
+        {
+            heat += 1;
+            Destroy(collision.gameObject);
         }
     }
 
