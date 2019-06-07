@@ -47,8 +47,8 @@ public class DynamicParticle : MonoBehaviour
                     break;
                 case STATES.GAS:
                     particleLifeTime = particleLifeTime / 2.0f; // Gas lives the time the other particles
-                    GetComponent<Rigidbody2D>().gravityScale = 0.0f;// To simulate Gas density
-                    gameObject.layer = LayerMask.NameToLayer("Gas");// To have a different collision layer than the other particles (so gas doesnt rises up the lava but still collides with the wolrd)
+                    GetComponent<Rigidbody2D>().gravityScale = 0.0f;  // To simulate Gas density
+                    gameObject.layer = LayerMask.NameToLayer("Gas");  // To have a different collision layer than the other particles (so gas doesnt rises up the lava but still collides with the wolrd)
                     break;
                 case STATES.LAVA:
                     GetComponent<Rigidbody2D>().gravityScale = 0.3f; // To simulate the lava density

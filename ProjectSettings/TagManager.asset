@@ -24,6 +24,7 @@ TagManager:
   - ExploreAreaEastLevel1
   - WaterPoolCollisionArea
   - FallingRockArea
+  - Sun Ray
   layers:
   - Default
   - TransparentFX

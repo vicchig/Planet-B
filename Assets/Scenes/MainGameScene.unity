@@ -1390,6 +1390,7 @@ MonoBehaviour:
   totalHealth: 100
   waterCollected: 0
   totalAir: 70
+  heat: 0
   airDepletionTime: 2
   lavaCollisionTime: 0.2
   outOfAirHealthDecrementTime: 0.5
@@ -10556,7 +10557,6 @@ CompositeCollider2D:
       - {x: 48, y: -10.984375}
       - {x: 48.015625, y: -11}
   m_VertexDistance: 0.0005
-  m_OffsetDistance: 0.000005
 --- !u!50 &1129070902
 Rigidbody2D:
   serializedVersion: 4
@@ -10593,7 +10593,6 @@ TilemapCollider2D:
   m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
-  m_ExtrusionFactor: 0.00001
 --- !u!4 &1129367122 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4394396899019480, guid: ea309e8646148c24ab067d84d5d22697,
@@ -61425,10 +61424,10 @@ CompositeCollider2D:
       - {x: 54.000008, y: -27.992123}
       - {x: 54.00036, y: -27.984726}
       - {x: 54.01526, y: -27.99963}
-    - - {x: 55.99255, y: -27.99963}
-      - {x: 56.000008, y: -27.992123}
-      - {x: 56.00036, y: -27.984726}
-      - {x: 56.01526, y: -27.99963}
+    - - {x: 12.992546, y: -5.9996343}
+      - {x: 13.000004, y: -5.992121}
+      - {x: 13.000354, y: -5.98472}
+      - {x: 13.0152645, y: -5.9996343}
     - - {x: 56.99255, y: -27.99963}
       - {x: 57.000008, y: -27.992123}
       - {x: 57.00036, y: -27.984726}
@@ -64302,7 +64301,6 @@ CompositeCollider2D:
       - {x: 82.00036, y: -43.984726}
       - {x: 82.01526, y: -43.99963}
   m_VertexDistance: 0.0005
-  m_OffsetDistance: 0.000005
 --- !u!50 &1227831412
 Rigidbody2D:
   serializedVersion: 4
@@ -64339,7 +64337,6 @@ TilemapCollider2D:
   m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
-  m_ExtrusionFactor: 0.00001
 --- !u!1001 &1228923612
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -110993,7 +110990,6 @@ CompositeCollider2D:
   m_CompositePaths:
     m_Paths: []
   m_VertexDistance: 0.0005
-  m_OffsetDistance: 0.000005
 --- !u!50 &2052754293
 Rigidbody2D:
   serializedVersion: 4
@@ -111030,7 +111026,6 @@ TilemapCollider2D:
   m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
-  m_ExtrusionFactor: 0.00001
 --- !u!483693784 &2052754295
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -111179,6 +111174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2077491453}
   - component: {fileID: 2077491452}
+  - component: {fileID: 2077491454}
   m_Layer: 0
   m_Name: sun2
   m_TagString: Untagged
@@ -111242,12 +111238,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2077491451}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 64.86, y: 7.07, z: 0}
-  m_LocalScale: {x: 3.1232808, y: 3.1232808, z: 3.1232808}
+  m_LocalPosition: {x: 5.81, y: 6.58, z: 0}
+  m_LocalScale: {x: 1.2109584, y: 1.2109584, z: 1.2109584}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2077491454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077491451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76dc8cf4b2a9e60408b879cfa3b6e47e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sunRay: {fileID: 5623311156595909343, guid: 601b301bc455dd541bfad32d7718ed0f, type: 3}
+  timer: 1
+  timeInterval: 0.75
 --- !u!1001 &2078306189
 PrefabInstance:
   m_ObjectHideFlags: 0
