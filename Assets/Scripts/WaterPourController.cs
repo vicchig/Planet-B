@@ -60,4 +60,8 @@ public class WaterPourController : MonoBehaviour
         }
     }
 
+    public bool getFPressed() {
+        return fPressed;
+    }
+
 }

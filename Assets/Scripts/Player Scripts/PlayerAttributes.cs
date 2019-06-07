@@ -89,7 +89,10 @@ public class PlayerAttributes : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.transform.tag == "Lava")
+        {
+            collidingWithLava = true;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)

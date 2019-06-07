@@ -24,6 +24,7 @@ public class HelperCharacter : MonoBehaviour
     public AudioClip objectiveLevelClip1_4;
     public AudioClip objectiveLevelClip1_5;
     public AudioClip objectiveLevelClip1_6;
+    public AudioClip objectiveLevelClip1_7;
     public AudioClip airFound;
     public AudioClip waterFound;
     public AudioClip destructibleFound;
@@ -33,6 +34,7 @@ public class HelperCharacter : MonoBehaviour
     public AudioClip aboutToDieClip;
     public AudioClip lavaCommentClip;
     public AudioClip airCriticalClip;
+    public AudioClip dontWasteWaterReminderClip;
 
     [Header("Audio Play Conditions")]
     public int critHealthThreshold; //the percentage of health under which the critical damage sound will be played
@@ -62,8 +64,10 @@ public class HelperCharacter : MonoBehaviour
     ObjectText objectiveLevelTxt1_4;
     ObjectText objectiveLevelTxt1_5;
     ObjectText objectiveLevelTxt1_6;
+    ObjectText objectiveLevelTxt1_7;
 
     ObjectText waterPoolFoundTxt;
+    ObjectText dontWasteWaterReminderTxt;
 
     ObjectText butterlfyCommentTxt;
     ObjectText rockWarningTxt;
@@ -81,6 +85,9 @@ public class HelperCharacter : MonoBehaviour
     private bool healthWarningTimerEnable;
     private float airWarningTimer;
     private bool airWarningTimerEnable;
+    private int waterInPool;
+    private bool inPoolArea;
+    private float pourTimer;
 
     private void Start()
     {
@@ -92,8 +99,11 @@ public class HelperCharacter : MonoBehaviour
         cycle = 1;
         showIntro = true;
         healthWarningTimerEnable = false;
+        inPoolArea = false;
         healthWarningTimer = 0;
         airWarningTimer = 0;
+        waterInPool = 0;
+        pourTimer = 0;
         airWarningTimerEnable = false;
         attributes = GameObject.Find("Player2").GetComponent<PlayerAttributes>();
 
@@ -104,23 +114,25 @@ public class HelperCharacter : MonoBehaviour
         introTxt = new ObjectText("Hello, I am Echo, your suit's built-in A.I. I hope we can get along, if not, please remember that I control your suit's life support systems.", false, introClip.length + 0.5f, introClip, 1);
         objectiveLevelTxt1_0 = new ObjectText("This planet looks nice. Unfortunately, its water cycle is not functioning. If we want to colonize it, we will have to fix that first.", false, objectiveLevelClip1_0.length + 0.5f, objectiveLevelClip1_0, 1);
         objectiveLevelTxt1_1 = new ObjectText("The first step would be to evaporate some water into the atmosphere. However, there does not seem to be any water on the surface. Maybe we should check if we can release some groundwater in the caves below us.", false, objectiveLevelClip1_1.length + 0.5f, objectiveLevelClip1_1, 1);
-        objectiveLevelTxt1_2 = new ObjectText("By my calculations we will need about 9 of these to have enough water to evaporate.", false, objectiveLevelClip1_2.length + 0.5f, objectiveLevelClip1_2, 1);
+        objectiveLevelTxt1_2 = new ObjectText("By my calculations we will need about 12 of these to have enough water to evaporate.", false, objectiveLevelClip1_2.length + 0.5f, objectiveLevelClip1_2, 1);
         objectiveLevelTxt1_3 = new ObjectText("We should have enough water now. Head back to the surface and see if there is somewhere where we can create an artificial lake.", false, objectiveLevelClip1_3.length + 0.5f, objectiveLevelClip1_3, 1);
         objectiveLevelTxt1_4 = new ObjectText("We should probably explore some more to the east.", false, objectiveLevelClip1_4.length + 0.5f, objectiveLevelClip1_4, 1);
         objectiveLevelTxt1_5 = new ObjectText("This should be enough. Now we just need to evaporate it. Unfortunately, this planet's Sun is too weak to do that. We will have to amplify it's heat.", false, objectiveLevelClip1_5.length + 0.5f, objectiveLevelClip1_5, 1);
         objectiveLevelTxt1_6 = new ObjectText("Remember that your weapon mode 2 amplifies heat energy.", false, objectiveLevelClip1_6.length, objectiveLevelClip1_6, 1);
+        objectiveLevelTxt1_7 = new ObjectText("Congratulations! We have fixed the first stage of the water cycle -- evaporation. Now we will go up into the atmosphere and see if we can get precipitation to work as well.", false, objectiveLevelClip1_7.length + 0.5f, objectiveLevelClip1_7, 1);
 
-        waterPoolFoundTxt = new ObjectText("This looks like a good spot to release our water. Remember, you can do that by holding down F.", false, waterPoolFoundClip.length + 0.5f, waterPoolFoundClip, 1);
+        waterPoolFoundTxt = new ObjectText("This looks like a good spot to release our water. Remember, you can do that by holding down F. I will let you know when we have enough water in the pool.", false, waterPoolFoundClip.length + 0.5f, waterPoolFoundClip, 1);
+        dontWasteWaterReminderTxt = new ObjectText("Make sure you do not waste it. If you do, check the cave for some more water. If you waste all of it, we will have to restart.", false, dontWasteWaterReminderClip.length + 0.5f, dontWasteWaterReminderClip, 1);
 
         butterlfyCommentTxt = new ObjectText("Wow. Aren't these beautiful!", false, butterlfyCommentClip.length + 0.5f, butterlfyCommentClip, 1);
         rockWarningTxt = new ObjectText("The ceiling of the cave in this area is prone to collapse. Watch your head!", false, rockWarningClip.length + 0.5f, rockWarningClip, 1000);
         aboutToDieTxt = new ObjectText("Warning: operator sustaining critical damage.", false, aboutToDieClip.length +0.5f, aboutToDieClip, 1000);
         airCritical = new ObjectText("Warning: Air supply at critical level.", false, airCriticalClip.length + 0.5f, airCriticalClip, 1000);
-        lavaCommentTxt = new ObjectText("Better not stay in here for too long, your suit won't be able to take this much heat.", false, lavaCommentClip.length + 0.5f, lavaCommentClip, 1);
+        lavaCommentTxt = new ObjectText("It burns! It burns! Make it stop! Just kidding, I cannot feel a thing.", false, lavaCommentClip.length + 0.5f, lavaCommentClip, 1);
 
         sounds = new Queue<ObjectText>();
-        //sounds.Enqueue(objectiveLevelTxt1_0);
-        //sounds.Enqueue(objectiveLevelTxt1_1);
+        sounds.Enqueue(objectiveLevelTxt1_0);
+        sounds.Enqueue(objectiveLevelTxt1_1);
     }
 
     private void Update()
@@ -140,8 +152,7 @@ public class HelperCharacter : MonoBehaviour
             }
         }
 
-        //enqueuing new sounds
-
+        //ENQUEUING SOUNDS
         //health warning
         if (attributes.GetCurrentHealth() * 100 / attributes.GetMaxHealth() < critHealthThreshold && healthWarningTimer <= 0) { 
             sounds.Enqueue(aboutToDieTxt);
@@ -150,8 +161,9 @@ public class HelperCharacter : MonoBehaviour
         }
 
         //objectiveLevel1_2
-        if (attributes.GetCurrentWater() >= 9) { 
+        if (attributes.GetCurrentWater() >= 9 && !isBusy && objectiveLevelTxt1_3.getTextShows() < objectiveLevelTxt1_3.getMaxTextShows()) { 
             sounds.Enqueue(objectiveLevelTxt1_3);
+            sounds.Enqueue(dontWasteWaterReminderTxt);
         }
 
         //air warning
@@ -160,6 +172,17 @@ public class HelperCharacter : MonoBehaviour
             airWarningTimerEnable = true;
             airWarningTimer = airWarningDelay;
         }
+
+        //enough water in pool
+        if (waterInPool >= 12 && !sounds.Contains(objectiveLevelTxt1_5)) {
+            sounds.Enqueue(objectiveLevelTxt1_5);
+            sounds.Enqueue(objectiveLevelTxt1_6);
+        }
+
+
+
+
+
 
         //reseting the text mesh
         if (!isBusy)
@@ -192,7 +215,7 @@ public class HelperCharacter : MonoBehaviour
         {
             healthWarningTimer -= Time.deltaTime;
         }
-        else if(healthWarningTimer <= 0){
+        else if (healthWarningTimer <= 0) {
             healthWarningTimer = 0;
             healthWarningTimerEnable = false;
         }
@@ -202,36 +225,74 @@ public class HelperCharacter : MonoBehaviour
         {
             airWarningTimer -= Time.deltaTime;
         }
-        else if(airWarningTimer <= 0){
+        else if (airWarningTimer <= 0) {
             airWarningTimer = 0;
             airWarningTimerEnable = false;
+        }
+
+        //pouring water into the pool checks
+        if (inPoolArea && GameObject.Find("Player2").GetComponent<PlayerMovement>().dir == 1 && GameObject.Find("Player2").GetComponent<WaterPourController>().getFPressed() && attributes.GetCurrentWater() > 0)
+        {
+            pourTimer += Time.deltaTime;
+            if (pourTimer >= GameObject.Find("Player2").GetComponent<WaterPourController>().decrementTime)
+            {
+                waterInPool++;
+                pourTimer = 0;
+            }
+        }
+
+        if (pourTimer > GameObject.Find("Player2").GetComponent<WaterPourController>().decrementTime) {
+            pourTimer = 0;
+        }
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "AirSourceTextArea" && airSourceTxt.getTextShows() < airSourceTxt.getMaxTextShows())
+        {
+            sounds.Enqueue(airSourceTxt);
+        }
+        if (collision.tag == "WaterTextArea" && waterDropTxt.getTextShows() < waterDropTxt.getMaxTextShows())
+        {
+            sounds.Enqueue(waterDropTxt);
+            sounds.Enqueue(objectiveLevelTxt1_2);
+        }
+        if (collision.tag == "DestructibleTextArea" && !isBusy)
+        {
+            sounds.Enqueue(destructibleTxt);
+            collision.GetComponent<BoxCollider2D>().enabled = false;
+        }
+        if (collision.tag == "FireflyArea")
+        {
+            sounds.Enqueue(butterlfyCommentTxt);
+        }
+        if (collision.tag == "Lava" && lavaCommentTxt.getTextShows() < lavaCommentTxt.getMaxTextShows())
+        {
+            sounds.Enqueue(lavaCommentTxt);
+        }
+        if (collision.tag == "ExploreAreaEastLevel1" && attributes.GetCurrentWater() >= 9 && waterPoolFoundTxt.getTextShows() < waterPoolFoundTxt.getMaxTextShows())
+        {
+            sounds.Enqueue(objectiveLevelTxt1_4);
+        }
+        if (collision.tag == "WaterPoolCollisionArea") {
+            inPoolArea = true;
+            if (waterPoolFoundTxt.getTextShows() < waterPoolFoundTxt.getMaxTextShows() && attributes.GetCurrentWater() >= 9) {
+                sounds.Enqueue(waterPoolFoundTxt);
+            }       
         }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "AirSourceTextArea" && !isBusy)
+        
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "WaterPoolCollisionArea")
         {
-            sounds.Enqueue(airSourceTxt);
-        }
-        else if (collision.tag == "WaterTextArea")
-        {
-            sounds.Enqueue(waterDropTxt);
-            sounds.Enqueue(objectiveLevelTxt1_2);
-        }
-        else if (collision.tag == "DestructibleTextArea" && !isBusy)
-        {
-            sounds.Enqueue(destructibleTxt);
-            collision.GetComponent<BoxCollider2D>().enabled = false;
-        }
-        else if (collision.tag == "FireflyArea") {
-            sounds.Enqueue(butterlfyCommentTxt);
-        }
-        else if (collision.tag == "Lava") {
-            Debug.Log("LAAAVA");
-        }
-        else if (collision.tag == "ExploreAreaEastLevel1" && attributes.GetCurrentWater() >= 9) {
-            sounds.Enqueue(objectiveLevelTxt1_4);
+            inPoolArea = false;
         }
     }
 

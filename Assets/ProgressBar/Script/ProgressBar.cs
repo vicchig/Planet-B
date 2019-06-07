@@ -76,7 +76,7 @@ public class ProgressBar : MonoBehaviour
     void UpdateValue(float val)
     {
         bar.fillAmount = val / maxValue;
-        txtTitle.text = Title + " " + val /maxValue * 100 + "%";
+        txtTitle.text = Title + " " + Mathf.RoundToInt(val /maxValue * 100) + "%";
 
         if (Alert >= val)
         {

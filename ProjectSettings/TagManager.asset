@@ -22,6 +22,7 @@ TagManager:
   - bullet2
   - FireflyArea
   - ExploreAreaEastLevel1
+  - WaterPoolCollisionArea
   layers:
   - Default
   - TransparentFX
