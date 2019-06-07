@@ -119,8 +119,9 @@ public class HelperCharacter : MonoBehaviour
         lavaCommentTxt = new ObjectText("Better not stay in here for too long, your suit won't be able to take this much heat.", false, lavaCommentClip.length + 0.5f, lavaCommentClip, 1);
 
         sounds = new Queue<ObjectText>();
-        //sounds.Enqueue(objectiveLevelTxt1_0);
-       // sounds.Enqueue(objectiveLevelTxt1_1);
+        sounds.Enqueue(introTxt);
+        sounds.Enqueue(objectiveLevelTxt1_0);
+        sounds.Enqueue(objectiveLevelTxt1_1);
     }
 
     private void Update()
