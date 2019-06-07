@@ -24,9 +24,10 @@ public class Bullet : MonoBehaviour
 
         Destroy(gameObject, despawnTime); // despawner
 
-        shootDirection = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, cam.transform.position.z)) - transform.position;
 
-        rb.velocity = -shootDirection.normalized * speed;
+        shootDirection = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -cam.transform.position.z)) - transform.position;
+
+        rb.velocity = shootDirection.normalized * speed;
     }
     protected virtual void OnTriggerEnter2D(Collider2D collision) 
     {
