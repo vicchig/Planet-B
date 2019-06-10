@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Bullet2 : Bullet
 {
-
     protected override void Start()
     {
         Destroy(gameObject, despawnTime); // despawner
@@ -27,9 +26,5 @@ public class Bullet2 : Bullet
                 rsm.EnableSteam();
             }
         }
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        
     }
 }

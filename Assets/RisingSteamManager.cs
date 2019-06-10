@@ -6,13 +6,19 @@ public class RisingSteamManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject[] steam;
-
+    public GameManagerScript gameManager;
+    public int waterThreshold = 20;
     private void Start()
     {
-        for (int i = 0; i < steam.Length; i++)
+        DisableSteam();
+    }
+
+    private void Update()
+    {
+        Debug.Log(gameManager.getAmountOfWaterInPool());
+        if(gameManager.getAmountOfWaterInPool() < waterThreshold)
         {
-            ParticleSystem ps = steam[i].GetComponent<ParticleSystem>();
-            ps.Stop();
+            DisableSteam();
         }
     }
 
@@ -22,6 +28,14 @@ public class RisingSteamManager : MonoBehaviour
         {
             ParticleSystem ps = steam[i].GetComponent<ParticleSystem>();
             ps.Play();
+        }
+    }
+    public void DisableSteam()
+    {
+        for (int i = 0; i < steam.Length; i++)
+        {
+            ParticleSystem ps = steam[i].GetComponent<ParticleSystem>();
+            ps.Stop();
         }
     }
 }

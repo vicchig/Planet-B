@@ -24,11 +24,14 @@ public class DynamicParticle : MonoBehaviour
     bool isSteaming = false;
 
     private GameObject manager;
+    private GameManagerScript managerScript;
     private bool destroyObject;
+    private bool inPool = false;
     private void Start()
     {
         gameObject.transform.SetParent(GameObject.Find("WaterParent").transform);
         manager = GameObject.Find("GameManager");
+        managerScript = manager.GetComponent<GameManagerScript>();
 
         if (GameObject.Find("WaterParent").transform.childCount > GameObject.Find("HelperCharacter").GetComponent<HelperCharacter>().waterNeededInPool)
         {
@@ -163,13 +166,26 @@ public class DynamicParticle : MonoBehaviour
 
         if (other.tag == "WaterPool")
         {
-            //Debug.Log(manager.GetComponent<GameManagerScript>().getAmountOfWaterInPool() + 1);
             manager.GetComponent<GameManagerScript>().setAmountOfWaterInPool(manager.GetComponent<GameManagerScript>().getAmountOfWaterInPool() + 1);
+            inPool = true;
         }
         if (other.tag != "WaterPool" && other.tag != "WaterDisappear" && other.tag != "WaterPoolCollisionArea") {
             destroyObject = true;
         }
     }
-
-
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("WaterPool"))
+        {
+            managerScript.setAmountOfWaterInPool(managerScript.getAmountOfWaterInPool() - 1);
+            inPool = false;
+        }
+    }
+    private void OnDestroy()
+    {
+        if (inPool)
+        {
+            managerScript.setAmountOfWaterInPool(managerScript.getAmountOfWaterInPool() - 1);
+        }
+    }
 }
