@@ -27,6 +27,8 @@ TagManager:
   - Sun Ray
   - WaterPool
   - WaterDisappear
+  - DestructibleAreaTutorial
+  - WallClimbTextArea
   layers:
   - Default
   - TransparentFX
