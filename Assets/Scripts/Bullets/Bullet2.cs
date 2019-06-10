@@ -4,25 +4,15 @@ using UnityEngine;
 
 public class Bullet2 : Bullet
 {
-    //public Transform firePoint;
-    //public Transform firePoint2;
+
     protected override void Start()
     {
         Destroy(gameObject, despawnTime); // despawner
         rb = GetComponent<Rigidbody2D>();
-        //shootDirection = firePoint2.position - firePoint.position;
         shootDirection = transform.right * playerDir;
         shootDirection.y = -1f;
         rb.velocity = shootDirection.normalized * speed;
-        //Debug.Log(rb.velocity);
     }
-
-    //private void LateUpdate()
-    //{
-    //    shootDirection = firePoint2.position - firePoint.position;
-
-    //    rb.velocity = -shootDirection.normalized * speed;
-    //}
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
 
@@ -30,11 +20,15 @@ public class Bullet2 : Bullet
         {
             if (collision.CompareTag("DynamicParticle"))
             {
-                DynamicParticle particle = collision.gameObject.GetComponent<DynamicParticle>();
-                //particle.ps.Play();
-                Destroy(gameObject);
+                GameObject steam = GameObject.Find("Rising Steam");
+                RisingSteamManager rsm = steam.GetComponent<RisingSteamManager>();
+                rsm.EnableSteam();
             }
             
         }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
     }
 }

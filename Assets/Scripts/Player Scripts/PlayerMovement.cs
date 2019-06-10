@@ -98,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            firePoint.transform.localScale = new Vector3(0.454f, -0.133f, 0f);
+            firePoint.transform.localPosition = new Vector3(0.454f, -0.133f, 0f);
         }
     }
 
