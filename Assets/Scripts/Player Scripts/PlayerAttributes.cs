@@ -6,10 +6,10 @@ using UnityEngine;
 public class PlayerAttributes : MonoBehaviour
 {
     [Header("Player Atrtributes")]
-    public int totalHealth = 100;
+    public int maxHealth = 100;
     public int waterCollected = 0;
-    public int totalAir = 100;
-    public int heat = 0;
+    public int maxAir = 100;
+    public int maxHeat = 0;
 
     [Header("Attribute Timers")]
     public float airDepletionTime = 2f;
@@ -34,13 +34,15 @@ public class PlayerAttributes : MonoBehaviour
     private float airDepletionTimer;
     private float outOfAirHealthDepletionTimer;
     private float healthRegenTimer;
+    private int currentHeat;
 
     private void Start()
     {
-        currentAir = totalAir;
-        currentHealth = totalHealth;
+        currentAir = maxAir;
+        currentHealth = maxHealth;
         collidingWithLava = false;
         healthRegenTimer = healthRegenTime;
+        currentHeat = 0;
     }
 
     private void Update()
@@ -54,7 +56,7 @@ public class PlayerAttributes : MonoBehaviour
         hudObject.GetComponent<UIManager>().setWaterCount(waterCollected);
         hudObject.GetComponent<UIManager>().setHealth(currentHealth);
         hudObject.GetComponent<UIManager>().setAir(currentAir);
-        hudObject.GetComponent<UIManager>().setHeat(heat);
+        hudObject.GetComponent<UIManager>().setHeat(currentHeat);
     }
 
     private void FixedUpdate()
@@ -77,6 +79,7 @@ public class PlayerAttributes : MonoBehaviour
         }
 
         //Attribute bounds and air health decrement
+        //Air
         if (currentAir < 0) {
             currentAir = 0;
         }
@@ -84,18 +87,28 @@ public class PlayerAttributes : MonoBehaviour
             currentHealth -= healthDecrementOutOfAir;
             outOfAirHealthDepletionTimer = 0;
         }
-        else if (currentAir > totalAir) {
-            currentAir = totalAir;
+        else if (currentAir > maxAir) {
+            currentAir = maxAir;
         }
 
+        //Health
         if (currentHealth <= 0) {
             currentHealth = 0;
         }
-        else if (currentHealth >= totalHealth) {
-            currentHealth = totalHealth;
+        else if (currentHealth >= maxHealth) {
+            currentHealth = maxHealth;
         }
 
+        //Heat Energy
+        if (currentHeat < 0)
+        {
+            currentHeat = 0;
+        }
+        else if(currentHeat > maxHeat){
+            currentHeat = maxHeat;
+        }
 
+        //health regen
         if (healthRegenTimer < healthRegenTime)
         {
             healthRegenTimer = 0;
@@ -123,7 +136,7 @@ public class PlayerAttributes : MonoBehaviour
         }
         if (collision.CompareTag("Sun Ray"))
         {
-            heat += 1;
+            currentHeat += 1;
             Destroy(collision.gameObject);
         }
     }
@@ -169,11 +182,23 @@ public class PlayerAttributes : MonoBehaviour
     }
 
     public int GetMaxHealth() {
-        return totalHealth;
+        return maxHealth;
     }
 
     public int GetMaxAir()
     {
-        return totalAir;
+        return maxAir;
+    }
+
+    public int GetMaxHeat() {
+        return maxHeat;
+    }
+
+    public int getCurrentHeat() {
+        return currentHeat;
+    }
+
+    public void SetCurrentHeat(int heat) {
+        currentHeat = heat;
     }
 }

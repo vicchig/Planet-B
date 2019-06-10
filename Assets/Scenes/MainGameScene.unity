@@ -1360,10 +1360,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d21b76328b64f6499f6667e3a6c7af3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHealth: 100
+  maxHealth: 100
   waterCollected: 100
-  totalAir: 70
-  heat: 0
+  maxAir: 100
+  maxHeat: 50
   airDepletionTime: 2
   lavaCollisionTime: 0.2
   outOfAirHealthDecrementTime: 0.5
@@ -1956,6 +1956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6314e9affbd67d04ba76efba5ccd41a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 154045993}
 --- !u!1001 &220539853
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5769,7 +5770,7 @@ PrefabInstance:
     - target: {fileID: 224763426186284840, guid: 5eefba205a58c8c4a937c97b87c185a3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -418
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 224763426186284840, guid: 5eefba205a58c8c4a937c97b87c185a3,
         type: 3}
