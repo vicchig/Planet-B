@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Bullet2 : Bullet
 {
+    private GameObject manager;
+    private GameManagerScript managerScript;
     protected override void Start()
     {
         Destroy(gameObject, despawnTime); // despawner
@@ -11,6 +13,9 @@ public class Bullet2 : Bullet
         shootDirection = transform.right * playerDir;
         shootDirection.y = -1f;
         rb.velocity = shootDirection.normalized * speed;
+
+        manager = GameObject.Find("GameManager");
+        managerScript = manager.GetComponent<GameManagerScript>();
     }
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
@@ -20,10 +25,10 @@ public class Bullet2 : Bullet
             if (collision.gameObject.CompareTag("DynamicParticle"))
             {
                 GameObject steam = GameObject.Find("RisingSteam");
-                Debug.Log(steam);
                 RisingSteamManager rsm = steam.GetComponent<RisingSteamManager>();
-                Debug.Log(rsm);
                 rsm.EnableSteam();
+                managerScript.setEvaporated(managerScript.getEvaporated() + 1);
+                Destroy(gameObject);
             }
         }
     }

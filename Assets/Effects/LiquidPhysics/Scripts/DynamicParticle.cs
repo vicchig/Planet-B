@@ -186,6 +186,7 @@ public class DynamicParticle : MonoBehaviour
         if (inPool)
         {
             managerScript.setAmountOfWaterInPool(managerScript.getAmountOfWaterInPool() - 1);
+            
         }
     }
 }

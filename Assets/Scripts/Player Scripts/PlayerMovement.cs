@@ -28,8 +28,6 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Weapon Components")]
     public Transform firePoint;
-    public Bullet bulletPrefab;
-
 
     public Transform wallGrabCheckPointTransform;
     public Transform platCollideCheckPoint;
