@@ -17,6 +17,9 @@ public class UIManager : MonoBehaviour
         //WaterCount - child 2
         this.transform.GetChild(2).GetComponent<Text>().text = ":" + GameObject.Find("Player2").GetComponent<PlayerAttributes>().waterCollected;
 
+        //HeatBar - child 3
+        this.transform.GetChild(3).GetComponent<ProgressBar>().maxValue = GameObject.Find("Player2").GetComponent<PlayerAttributes>().heat;
+        this.transform.GetChild(3).GetComponent<ProgressBar>().BarValue = GameObject.Find("Player2").GetComponent<PlayerAttributes>().heat;
     }
 
 
@@ -31,5 +34,10 @@ public class UIManager : MonoBehaviour
     public void setWaterCount(int newWaterCount) {
         this.transform.GetChild(2).GetComponent<Text>().text = ":" + newWaterCount;
     }
-    
+
+    public void setHeat(int newHeat)
+    {
+        this.transform.GetChild(3).GetComponent<ProgressBar>().BarValue = newHeat;
+    }
+
 }

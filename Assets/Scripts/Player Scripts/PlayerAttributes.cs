@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerAttributes : MonoBehaviour
@@ -14,11 +15,13 @@ public class PlayerAttributes : MonoBehaviour
     public float airDepletionTime = 2f;
     public float lavaCollisionTime = 0.2f;
     public float outOfAirHealthDecrementTime = 0.5f;
+    public float healthRegenTime = 3f;
 
     [Header("Attribute Decrement Rates")]
     public int healthDecrementOutOfAir = 1;
     public int healthDecrementLava = 2;
     public int airDecrement = 1;
+    public int healthRegenRate = 1;
 
     [Header("HUD Object")]
     public GameObject hudObject;
@@ -30,19 +33,28 @@ public class PlayerAttributes : MonoBehaviour
 
     private float airDepletionTimer;
     private float outOfAirHealthDepletionTimer;
+    private float healthRegenTimer;
 
     private void Start()
     {
         currentAir = totalAir;
         currentHealth = totalHealth;
         collidingWithLava = false;
+        healthRegenTimer = healthRegenTime;
     }
 
     private void Update()
     {
+        if (currentHealth == 0)
+        {
+            Scene scene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(scene.name);
+        }
+        
         hudObject.GetComponent<UIManager>().setWaterCount(waterCollected);
         hudObject.GetComponent<UIManager>().setHealth(currentHealth);
         hudObject.GetComponent<UIManager>().setAir(currentAir);
+        hudObject.GetComponent<UIManager>().setHeat(heat);
     }
 
     private void FixedUpdate()
@@ -82,8 +94,23 @@ public class PlayerAttributes : MonoBehaviour
         else if (currentHealth >= totalHealth) {
             currentHealth = totalHealth;
         }
+        Debug.Log(healthRegenTimer);
 
+        if (healthRegenTimer < healthRegenTime)
+        {
+            healthRegenTimer = 0;
+            
+            if (GetMaxHealth() - currentHealth >= healthRegenRate)
+            {
+                currentHealth += healthRegenRate;
+            }
+            else
+            {
+                currentHealth = GetMaxHealth();
+            }
+        }
 
+        healthRegenTimer += Time.deltaTime;
         outOfAirHealthDepletionTimer += Time.deltaTime;
         airDepletionTimer += Time.deltaTime;
     }
