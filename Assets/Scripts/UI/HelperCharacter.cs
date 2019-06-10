@@ -179,11 +179,6 @@ public class HelperCharacter : MonoBehaviour
             sounds.Enqueue(objectiveLevelTxt1_6);
         }
 
-
-
-
-
-
         //reseting the text mesh
         if (!isBusy)
         {
@@ -268,13 +263,13 @@ public class HelperCharacter : MonoBehaviour
             sounds.Enqueue(butterlfyCommentTxt);
         }
 
-        if (collision.tag == "ExploreAreaEastLevel1" && attributes.GetCurrentWater() >= 9 && waterPoolFoundTxt.getTextShows() < waterPoolFoundTxt.getMaxTextShows())
+        if (collision.tag == "ExploreAreaEastLevel1" && attributes.GetCurrentWater() >= 12 && waterPoolFoundTxt.getTextShows() < waterPoolFoundTxt.getMaxTextShows())
         {
             sounds.Enqueue(objectiveLevelTxt1_4);
         }
         if (collision.tag == "WaterPoolCollisionArea") {
             inPoolArea = true;
-            if (waterPoolFoundTxt.getTextShows() < waterPoolFoundTxt.getMaxTextShows() && attributes.GetCurrentWater() >= 9) {
+            if (waterPoolFoundTxt.getTextShows() < waterPoolFoundTxt.getMaxTextShows() && attributes.GetCurrentWater() >= 12) {
                 sounds.Enqueue(waterPoolFoundTxt);
             }       
         }
