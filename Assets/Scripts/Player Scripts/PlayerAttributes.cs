@@ -21,7 +21,10 @@ public class PlayerAttributes : MonoBehaviour
     public int healthDecrementOutOfAir = 1;
     public int healthDecrementLava = 2;
     public int airDecrement = 1;
+
+    [Header("Attribute Increment Rates")]
     public int healthRegenRate = 1;
+    public int sunRayValue = 15;
 
     [Header("HUD Object")]
     public GameObject hudObject;
@@ -136,7 +139,7 @@ public class PlayerAttributes : MonoBehaviour
         }
         if (collision.CompareTag("Sun Ray"))
         {
-            currentHeat += 1;
+            currentHeat += sunRayValue;
             Destroy(collision.gameObject);
         }
     }

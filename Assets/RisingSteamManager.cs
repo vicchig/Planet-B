@@ -15,7 +15,6 @@ public class RisingSteamManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(gameManager.getAmountOfWaterInPool());
         if(gameManager.getAmountOfWaterInPool() < waterThreshold)
         {
             DisableSteam();

@@ -15,12 +15,14 @@ public class Weapon : MonoBehaviour
     ParticleSystem ps;
 
     bool isBullet2 = false;
+    private PlayerAttributes playerStats;
     // Start is called before the first frame update
     void Start()
     {
         ps = flameThrower.GetComponent<ParticleSystem>();
         ps.Stop();
         bulletPrefab = bullet1;
+        playerStats = gameObject.GetComponent<PlayerAttributes>();
     }
 
     // Update is called once per frame
@@ -64,13 +66,20 @@ public class Weapon : MonoBehaviour
     {
         if (isBullet2)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (playerStats.getCurrentHeat() > 0)
             {
-                ps.Play();
+                if (Input.GetButtonDown("Fire1"))
+                {
+                    ps.Play();
+                }
+                PlayerMovement player = GameObject.Find("Player2").GetComponent<PlayerMovement>();
+                Bullet bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                bullet.playerDir = player.dir;
+                playerStats.SetCurrentHeat(playerStats.getCurrentHeat() - 1);
+            } else
+            {
+                ps.Stop();
             }
-            PlayerMovement player = GameObject.Find("Player2").GetComponent<PlayerMovement>();
-            Bullet bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            bullet.playerDir = player.dir;
         } else
         {
             Bullet bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
