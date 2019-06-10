@@ -163,6 +163,10 @@ public class PlayerMovement : MonoBehaviour
         else {
             rBody.velocity = new Vector2(xVelocity, rBody.velocity.y);
         }
+
+        if (input.horizontalIn != 0 && (isOnGround || isOnPlatform) && !isHanging) {
+            AudioManager.playFootstepSound();
+        }
     }
 
     private void inAirMovement() {

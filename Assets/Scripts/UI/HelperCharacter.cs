@@ -11,6 +11,7 @@ public class HelperCharacter : MonoBehaviour
     public GameObject managerObj;
     public GameObject player;
     public GameObject waterDropParent;
+    
 
     [Header("UI Objects")]
     public GameObject txtMeshContainer;
@@ -204,7 +205,7 @@ public class HelperCharacter : MonoBehaviour
                 textDuration = currText.getDuration();
                 currText.setTextShows(currText.getTextShows() + 1);
                 uiTextMesh.text = currText.getText();
-                AudioManager.playClip(currText.getClip());
+                AudioManager.playVoiceClip(currText.getClip());
             }
         }
 
