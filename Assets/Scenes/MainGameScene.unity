@@ -497,12 +497,12 @@ PrefabInstance:
     - target: {fileID: 3546228992207641018, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
       propertyPath: m_Offset.x
-      value: -1.3348923
+      value: 3.7943249
       objectReference: {fileID: 0}
     - target: {fileID: 3546228992207641018, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
       propertyPath: m_Size.x
-      value: 8.047127
+      value: 18.305561
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 808ad436350ed3946bee4bb8377e7cc3, type: 3}
@@ -11011,6 +11011,7 @@ CompositeCollider2D:
       - {x: 48, y: -10.984375}
       - {x: 48.015625, y: -11}
   m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.000005
 --- !u!50 &1129070902
 Rigidbody2D:
   serializedVersion: 4
@@ -11047,6 +11048,7 @@ TilemapCollider2D:
   m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!4 &1129367122 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4394396899019480, guid: ea309e8646148c24ab067d84d5d22697,
@@ -64761,6 +64763,7 @@ CompositeCollider2D:
       - {x: 82.00036, y: -43.984726}
       - {x: 82.01526, y: -43.99963}
   m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.000005
 --- !u!50 &1227831412
 Rigidbody2D:
   serializedVersion: 4
@@ -64797,6 +64800,7 @@ TilemapCollider2D:
   m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!1001 &1228923612
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -111682,6 +111686,7 @@ CompositeCollider2D:
   m_CompositePaths:
     m_Paths: []
   m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.000005
 --- !u!50 &2052754293
 Rigidbody2D:
   serializedVersion: 4
@@ -111718,6 +111723,7 @@ TilemapCollider2D:
   m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!483693784 &2052754295
 TilemapRenderer:
   m_ObjectHideFlags: 0

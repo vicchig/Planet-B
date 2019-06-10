@@ -136,7 +136,6 @@ public class DynamicParticle : MonoBehaviour
         //ps.Play();
         if (other.gameObject.CompareTag("bullet2") && !isSteaming)
         {
-            Debug.Log("hey");
             GameObject psChild = Instantiate(ps);
             psChild.transform.position = gameObject.transform.position;
             psChild.transform.SetParent(gameObject.transform);

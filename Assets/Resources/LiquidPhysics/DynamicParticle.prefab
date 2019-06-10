@@ -284,7 +284,7 @@ MonoBehaviour:
   - {fileID: 100004}
   - {fileID: 100002}
   - {fileID: 100000}
-  ps: {fileID: 1735024089641582, guid: 378b2c30ef426554495292cb902cb8f4, type: 3}
+  ps: {fileID: 1475368415682648, guid: efe021d4c307b5449b8121d46791cf95, type: 3}
 --- !u!58 &5800000
 CircleCollider2D:
   m_ObjectHideFlags: 0
