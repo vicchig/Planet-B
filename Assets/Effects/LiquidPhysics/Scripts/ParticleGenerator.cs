@@ -30,10 +30,12 @@ public class ParticleGenerator : MonoBehaviour
             newLiquidParticle.GetComponent<Rigidbody2D>().AddForce(particleForce); //Add our custom force
             DynamicParticle particleScript = newLiquidParticle.GetComponent<DynamicParticle>(); // Get the particle script
                                                                                                 //particleScript.SetLifeTime(PARTICLE_LIFETIME); //Set each particle lifetime
-            //particleScript.ps = ps;
+                                                                                                //particleScript.ps = ps;
+            
             particleScript.SetState(particlesState); //Set the particle State
             newLiquidParticle.transform.position = transform.position;// Relocate to the spawner position
-            newLiquidParticle.transform.parent = particlesParent;// Add the particle to the parent container			
+            newLiquidParticle.transform.parent = particlesParent;// Add the particle to the parent container
+            newLiquidParticle.transform.position = new Vector3(newLiquidParticle.transform.position.x, newLiquidParticle.transform.position.y, 0f);
             lastSpawnTime = Time.time; // Register the last spawnTime			
         }
     }
