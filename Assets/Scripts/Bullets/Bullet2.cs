@@ -18,13 +18,14 @@ public class Bullet2 : Bullet
 
         if (!collision.CompareTag("Player"))
         {
-            if (collision.CompareTag("DynamicParticle"))
+            if (collision.gameObject.CompareTag("DynamicParticle"))
             {
-                GameObject steam = GameObject.Find("Rising Steam");
+                GameObject steam = GameObject.Find("RisingSteam");
+                Debug.Log(steam);
                 RisingSteamManager rsm = steam.GetComponent<RisingSteamManager>();
+                Debug.Log(rsm);
                 rsm.EnableSteam();
             }
-            
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)

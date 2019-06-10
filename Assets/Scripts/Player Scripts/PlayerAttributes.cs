@@ -109,7 +109,7 @@ public class PlayerAttributes : MonoBehaviour
         }
 
         //health regen
-        if (healthRegenTimer < healthRegenTime)
+        if (healthRegenTimer > healthRegenTime)
         {
             healthRegenTimer = 0;
             
