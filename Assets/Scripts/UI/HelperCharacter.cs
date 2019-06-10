@@ -6,6 +6,11 @@ using UnityEngine.UI;
 
 public class HelperCharacter : MonoBehaviour
 {
+    [Header("Game Utilities")]
+    public GameObject managerObj;
+    public GameObject player;
+    public GameObject waterDropParent;
+
     [Header("UI Objects")]
     public GameObject txtMeshContainer;
     public GameObject txtBackground;
@@ -25,6 +30,8 @@ public class HelperCharacter : MonoBehaviour
     public AudioClip objectiveLevelClip1_5;
     public AudioClip objectiveLevelClip1_6;
     public AudioClip objectiveLevelClip1_7;
+    public AudioClip objectiveLevelClip1_8;
+    public AudioClip objectiveLevelClip1_9;
     public AudioClip airFound;
     public AudioClip waterFound;
     public AudioClip destructibleFound;
@@ -41,6 +48,7 @@ public class HelperCharacter : MonoBehaviour
     public float healthWarningDelay; //amount of time between health warning delays
     public int critAirThreshold; //percentage of air under which the air warning is played
     public float airWarningDelay; //amount of time between air warning delays
+    public int waterNeededInPool; //amount of water object collisions needed to fill the pool
 
     //text mesh where the text will be displayed
     private TextMeshProUGUI uiTextMesh;
@@ -65,6 +73,8 @@ public class HelperCharacter : MonoBehaviour
     ObjectText objectiveLevelTxt1_5;
     ObjectText objectiveLevelTxt1_6;
     ObjectText objectiveLevelTxt1_7;
+    ObjectText objectiveLevelTxt1_8;
+    ObjectText objectiveLevelTxt1_9;
 
     ObjectText waterPoolFoundTxt;
     ObjectText dontWasteWaterReminderTxt;
@@ -88,6 +98,8 @@ public class HelperCharacter : MonoBehaviour
     private int waterInPool;
     private bool inPoolArea;
     private float pourTimer;
+    private GameManagerScript manager;
+    private WaterPourController playerWaterPourController;
 
     private void Start()
     {
@@ -105,7 +117,9 @@ public class HelperCharacter : MonoBehaviour
         waterInPool = 0;
         pourTimer = 0;
         airWarningTimerEnable = false;
-        attributes = GameObject.Find("Player2").GetComponent<PlayerAttributes>();
+        manager = managerObj.GetComponent<GameManagerScript>();
+        attributes = player.GetComponent<PlayerAttributes>();
+        playerWaterPourController = player.GetComponent<WaterPourController>();
 
         airSourceTxt = new ObjectText("This weird orb seems to be the only source of breathable air in this cave. Better grab it to replenish the air supply.", false, airFound.length + 0.5f, airFound, 1);
         waterDropTxt = new ObjectText("Look! We seem to have found some water. Better collect it.", false, waterFound.length + 0.5f, waterFound, 1);
@@ -120,6 +134,9 @@ public class HelperCharacter : MonoBehaviour
         objectiveLevelTxt1_5 = new ObjectText("This should be enough. Now we just need to evaporate it. Unfortunately, this planet's Sun is too weak to do that. We will have to amplify it's heat.", false, objectiveLevelClip1_5.length + 0.5f, objectiveLevelClip1_5, 1);
         objectiveLevelTxt1_6 = new ObjectText("Remember that your weapon mode 2 amplifies heat energy.", false, objectiveLevelClip1_6.length, objectiveLevelClip1_6, 1);
         objectiveLevelTxt1_7 = new ObjectText("Congratulations! We have fixed the first stage of the water cycle -- evaporation. Now we will go up into the atmosphere and see if we can get precipitation to work as well.", false, objectiveLevelClip1_7.length + 0.5f, objectiveLevelClip1_7, 1);
+        objectiveLevelTxt1_8 = new ObjectText("There is not enough water in the pool yet. We need some more.", false, objectiveLevelClip1_8.length + 0.5f, objectiveLevelClip1_8, 1);
+        objectiveLevelTxt1_9 = new ObjectText("There is not enough water left in the caves for us to fill the pool. We should probably restart.", false, objectiveLevelClip1_9.length + 0.5f, objectiveLevelClip1_9, 1);
+
 
         waterPoolFoundTxt = new ObjectText("This looks like a good spot to release our water. Remember, you can do that by holding down F. I will let you know when we have enough water in the pool.", false, waterPoolFoundClip.length + 0.5f, waterPoolFoundClip, 1);
         dontWasteWaterReminderTxt = new ObjectText("Make sure you do not waste it. If you do, check the cave for some more water. If you waste all of it, we will have to restart.", false, dontWasteWaterReminderClip.length + 0.5f, dontWasteWaterReminderClip, 1);
@@ -131,8 +148,8 @@ public class HelperCharacter : MonoBehaviour
         lavaCommentTxt = new ObjectText("It burns! It burns! Make it stop! Just kidding, I cannot feel a thing.", false, lavaCommentClip.length + 0.5f, lavaCommentClip, 1);
 
         sounds = new Queue<ObjectText>();
-        sounds.Enqueue(objectiveLevelTxt1_0);
-        sounds.Enqueue(objectiveLevelTxt1_1);
+        //sounds.Enqueue(objectiveLevelTxt1_0);
+        //sounds.Enqueue(objectiveLevelTxt1_1);
     }
 
     private void Update()
@@ -161,7 +178,7 @@ public class HelperCharacter : MonoBehaviour
         }
 
         //objectiveLevel1_2
-        if (attributes.GetCurrentWater() >= 9 && !isBusy && objectiveLevelTxt1_3.getTextShows() < objectiveLevelTxt1_3.getMaxTextShows()) { 
+        if (attributes.GetCurrentWater() >= waterNeededInPool / 4 && !isBusy && objectiveLevelTxt1_3.getTextShows() < objectiveLevelTxt1_3.getMaxTextShows()) { 
             sounds.Enqueue(objectiveLevelTxt1_3);
             sounds.Enqueue(dontWasteWaterReminderTxt);
         }
@@ -174,9 +191,19 @@ public class HelperCharacter : MonoBehaviour
         }
 
         //enough water in pool
-        if (waterInPool >= 12 && !sounds.Contains(objectiveLevelTxt1_5)) {
+        if (manager.getAmountOfWaterInPool() >= waterNeededInPool) {
             sounds.Enqueue(objectiveLevelTxt1_5);
             sounds.Enqueue(objectiveLevelTxt1_6);
+        }
+
+        //player did not get enough water in the pool
+        if (inPoolArea && manager.getAmountOfWaterInPool() < waterNeededInPool && attributes.GetCurrentWater() == 0 && playerWaterPourController.getFPressed()) {
+            sounds.Enqueue(objectiveLevelTxt1_8);
+        }
+
+        //not enough water left on the level 1 Water Drop = 4 WaterParticles
+        if ((attributes.GetCurrentWater() +  waterDropParent.transform.childCount) * 4 < waterNeededInPool - manager.getAmountOfWaterInPool()) {
+            sounds.Enqueue(objectiveLevelTxt1_9);
         }
 
         //reseting the text mesh
@@ -224,21 +251,6 @@ public class HelperCharacter : MonoBehaviour
             airWarningTimer = 0;
             airWarningTimerEnable = false;
         }
-
-        //pouring water into the pool checks
-        if (inPoolArea && GameObject.Find("Player2").GetComponent<PlayerMovement>().dir == 1 && GameObject.Find("Player2").GetComponent<WaterPourController>().getFPressed() && attributes.GetCurrentWater() > 0)
-        {
-            pourTimer += Time.deltaTime;
-            if (pourTimer >= GameObject.Find("Player2").GetComponent<WaterPourController>().decrementTime)
-            {
-                waterInPool++;
-                pourTimer = 0;
-            }
-        }
-
-        if (pourTimer > GameObject.Find("Player2").GetComponent<WaterPourController>().decrementTime) {
-            pourTimer = 0;
-        }
     }
 
 
@@ -263,13 +275,13 @@ public class HelperCharacter : MonoBehaviour
             sounds.Enqueue(butterlfyCommentTxt);
         }
 
-        if (collision.tag == "ExploreAreaEastLevel1" && attributes.GetCurrentWater() >= 12 && waterPoolFoundTxt.getTextShows() < waterPoolFoundTxt.getMaxTextShows())
+        if (collision.tag == "ExploreAreaEastLevel1" && attributes.GetCurrentWater() >= waterNeededInPool / 4  && waterPoolFoundTxt.getTextShows() < waterPoolFoundTxt.getMaxTextShows())
         {
             sounds.Enqueue(objectiveLevelTxt1_4);
         }
         if (collision.tag == "WaterPoolCollisionArea") {
             inPoolArea = true;
-            if (waterPoolFoundTxt.getTextShows() < waterPoolFoundTxt.getMaxTextShows() && attributes.GetCurrentWater() >= 12) {
+            if (waterPoolFoundTxt.getTextShows() < waterPoolFoundTxt.getMaxTextShows() && attributes.GetCurrentWater() >= waterNeededInPool / 4) {
                 sounds.Enqueue(waterPoolFoundTxt);
             }       
         }

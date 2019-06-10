@@ -94,7 +94,7 @@ public class PlayerAttributes : MonoBehaviour
         else if (currentHealth >= totalHealth) {
             currentHealth = totalHealth;
         }
-        Debug.Log(healthRegenTimer);
+
 
         if (healthRegenTimer < healthRegenTime)
         {

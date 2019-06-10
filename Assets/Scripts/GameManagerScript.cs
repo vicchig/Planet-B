@@ -1,39 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class GameManagerScript : MonoBehaviour
 {
-    /*
-    public GameObject meshContainer;
-    public static TextMeshProUGUI uiTextMesh;
-
-    private static bool showAirSourceText, showWaterDropletText;
     
+
+
+    //Level 1 Vars
+    private int amountOfWaterInPool;
+
+
     private void Start()
     {
-        showAirSourceText = true;
-        showWaterDropletText = true;
-        uiTextMesh = meshContainer.GetComponent<TextMeshProUGUI>();
+        amountOfWaterInPool = 0;
     }
 
-    private void Update()
+
+    public int getAmountOfWaterInPool()
     {
-        
+        return amountOfWaterInPool;
+
     }
 
-    public static void displayTextAirSource() {
-        if (showAirSourceText) {
-            uiTextMesh.text = "Hello";
-            showAirSourceText = false;
-        }
+
+    public void setAmountOfWaterInPool(int amount)
+    {
+        amountOfWaterInPool = amount;
     }
-
-    public static void displayTextWaterDroplet() { }
-    */
-
-
-
-
 }

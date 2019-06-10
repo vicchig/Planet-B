@@ -25,6 +25,8 @@ TagManager:
   - WaterPoolCollisionArea
   - FallingRockArea
   - Sun Ray
+  - WaterPool
+  - WaterDisappear
   layers:
   - Default
   - TransparentFX

@@ -23,9 +23,20 @@ public class DynamicParticle : MonoBehaviour
     public GameObject ps;
     bool isSteaming = false;
 
+    private GameObject manager;
+    private bool destroyObject;
     private void Start()
     {
-        //ps.enableEmission = true;
+        gameObject.transform.SetParent(GameObject.Find("WaterParent").transform);
+        manager = GameObject.Find("GameManager");
+
+        if (GameObject.Find("WaterParent").transform.childCount > GameObject.Find("HelperCharacter").GetComponent<HelperCharacter>().waterNeededInPool)
+        {
+            destroyObject = true;
+        }
+        else {
+            destroyObject = false;
+        }
     }
 
     void Awake()
@@ -34,6 +45,7 @@ public class DynamicParticle : MonoBehaviour
             SetState(STATES.WATER);
         //ps.Play();
     }
+
 
     //The definitios to each state
     public void SetState(STATES newState)
@@ -90,6 +102,10 @@ public class DynamicParticle : MonoBehaviour
                 break;
 
         }
+
+        if (destroyObject) {
+            Destroy(gameObject, 3f);
+        }
     }
     // This scales the particle image acording to its velocity, so it looks like its deformable... but its not ;)
     void MovementAnimation()
@@ -134,6 +150,7 @@ public class DynamicParticle : MonoBehaviour
         //}
 
         //ps.Play();
+        /*
         if (other.gameObject.CompareTag("bullet2") && !isSteaming)
         {
             GameObject psChild = Instantiate(ps);
@@ -142,7 +159,17 @@ public class DynamicParticle : MonoBehaviour
             Destroy(gameObject, 7f);
 
             isSteaming = true;
+        }*/
+
+        if (other.tag == "WaterPool")
+        {
+            //Debug.Log(manager.GetComponent<GameManagerScript>().getAmountOfWaterInPool() + 1);
+            manager.GetComponent<GameManagerScript>().setAmountOfWaterInPool(manager.GetComponent<GameManagerScript>().getAmountOfWaterInPool() + 1);
+        }
+        if (other.tag != "WaterPool" && other.tag != "WaterDisappear" && other.tag != "WaterPoolCollisionArea") {
+            destroyObject = true;
         }
     }
+
 
 }
