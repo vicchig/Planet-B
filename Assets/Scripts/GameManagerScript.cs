@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
 {
-    //Level 1 Vars
+    [Header("Level 1 Vars")]
     private int amountOfWaterInPool;
     private int amountOfEvaporatedWater;
 
@@ -12,6 +12,7 @@ public class GameManagerScript : MonoBehaviour
     {
         amountOfWaterInPool = 0;
         amountOfEvaporatedWater = 0;
+
     }
 
     private void Update()

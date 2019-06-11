@@ -24,6 +24,7 @@ public class HelperCharacter : MonoBehaviour
 
     [Header("Sounds Tutorial")]
     public AudioClip introClip;
+    public AudioClip introClip2;
     public AudioClip controlExplanationClip;
     public AudioClip hudExplanationClip;
     public AudioClip destructibleExplanation;
@@ -73,6 +74,7 @@ public class HelperCharacter : MonoBehaviour
 
     //TUTORIAL 
     ObjectText introTxt;
+    ObjectText introTxt2;
     ObjectText controlExplanationTxt;
     ObjectText hudExplanationTxt;
     ObjectText destructibleExplanationTxt;
@@ -120,6 +122,7 @@ public class HelperCharacter : MonoBehaviour
     private float pourTimer;
     private GameManagerScript manager;
     private WaterPourController playerWaterPourController;
+    private bool startedTutorial;
 
     private void Start()
     {
@@ -144,6 +147,7 @@ public class HelperCharacter : MonoBehaviour
        
         //TUTORIAL
         introTxt = new ObjectText("Hello, I am Echo, your suit's built-in A.I. I hope we can get along, if not, please remember that I control your suit's life support systems.", false, introClip.length + 0.5f, introClip, 1);
+        introTxt2 = new ObjectText("Your mission is to terraform a planet's water cycle so that it may become inhabitable. Apparently, your species is dying out and needs another planet to live on. This suit and I were built for the purpose of helping you achieve this goal. We will now begin your training.", false, introClip2.length + 0.5f, introClip2, 1);
         controlExplanationTxt = new ObjectText("Use the A and D keys to move. Use W to jump.", false, controlExplanationClip.length + 0.5f, controlExplanationClip, 1);
         hudExplanationTxt = new ObjectText("Your suit has a built-in display at the top left of your screen. It tells you useful information about your resources and life support system state.", false, hudExplanationClip.length + 0.5f, hudExplanationClip, 1); ;
         destructibleExplanationTxt = new ObjectText("This material has weak physical properties and can be destroyed with your weapon.", false, destructibleExplanation.length + 0.5f, destructibleExplanation, 1); ;
@@ -187,8 +191,16 @@ public class HelperCharacter : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name == "TutorialLevel0") {
             sounds.Enqueue(introTxt);
+            sounds.Enqueue(introTxt2);
             sounds.Enqueue(controlExplanationTxt);
             sounds.Enqueue(hudExplanationTxt);
+        }
+
+
+        if (SceneManager.GetActiveScene().name == "TutorialLevel0")
+        {
+            player.GetComponent<PlayerMovement>().enabled = false;
+            startedTutorial = false;
         }
     }
 
@@ -253,7 +265,11 @@ public class HelperCharacter : MonoBehaviour
             }
         }
         else if (SceneManager.GetActiveScene().name == "TutorialLevel0") {
-
+            if (!startedTutorial && sounds.Count == 0)
+            {
+                player.GetComponent<PlayerMovement>().enabled = true;
+                startedTutorial = true;
+            }
         }
 
         //reseting the text mesh
@@ -338,6 +354,7 @@ public class HelperCharacter : MonoBehaviour
         if (collision.tag == "Lava" && healthRegenTxt.getTextShows() < healthRegenTxt.getMaxTextShows() && SceneManager.GetActiveScene().name == "TutorialLevel0") {
             sounds.Enqueue(healthRegenTxt);
         }
+
         //GENERAL
         if (collision.tag == "AirSourceTextArea" && airSourceTxt.getTextShows() < airSourceTxt.getMaxTextShows())
         {
@@ -357,10 +374,13 @@ public class HelperCharacter : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Lava" && lavaCommentTxt.getTextShows() < lavaCommentTxt.getMaxTextShows() && !isBusy)
-        {
-            sounds.Enqueue(lavaCommentTxt);
+        if (SceneManager.GetActiveScene().name != "TutorialLevel0") {
+            if (collision.tag == "Lava" && lavaCommentTxt.getTextShows() < lavaCommentTxt.getMaxTextShows() && !isBusy)
+            {
+                sounds.Enqueue(lavaCommentTxt);
+            }
         }
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
