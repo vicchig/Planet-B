@@ -5480,6 +5480,11 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 199982541912562440, guid: 007c57e2df8e9b144b99f471b84f3d56,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 198214374999220926, guid: 007c57e2df8e9b144b99f471b84f3d56,
         type: 3}
       propertyPath: playOnAwake

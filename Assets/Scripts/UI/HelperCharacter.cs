@@ -326,7 +326,7 @@ public class HelperCharacter : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //LEVEL 1
-        if (collision.tag == "FireflyArea")
+        if (collision.tag == "FireflyArea" && !isBusy && butterlfyCommentTxt.getTextShows() < butterlfyCommentTxt.getMaxTextShows())
         {
             sounds.Enqueue(butterlfyCommentTxt);
         }
