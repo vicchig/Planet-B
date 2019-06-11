@@ -12,6 +12,7 @@ public class AirSourceController : MonoBehaviour
         if (collision.tag == "Player") {
             Transform player = GameObject.Find("Player2").transform;
             player.GetComponent<PlayerAttributes>().SetCurrentAir(player.GetComponent<PlayerAttributes>().GetCurrentAir() + addedAir);
+            AudioManager.playAirSourcePop();
             Destroy(gameObject);
         }
     }

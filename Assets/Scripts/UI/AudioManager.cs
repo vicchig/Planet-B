@@ -8,7 +8,11 @@ public class AudioManager : MonoBehaviour
     static AudioManager current;
 
     [Header("Player Sounds")]
-    public AudioClip footstepsClip;
+    public AudioClip[] footstepsClips; //selection of footstep sounds
+
+    [Header("Object Sounds")]
+    public AudioClip airSourcePop; //played when air source is picked up
+    public AudioClip waterDropPop; //played when you pick up a water droplet
 
     [Header("Mixer Groups")]
     public AudioMixerGroup ambientGroup;//The ambient mixer group
@@ -73,8 +77,35 @@ public class AudioManager : MonoBehaviour
         {
             return;
         }
-        current.playerSource.clip = current.footstepsClip;
+
+        int rand = (int)Random.Range(0, 2);
+
+        current.playerSource.clip = current.footstepsClips[rand];
         current.playerSource.Play();
     }
 
+
+    public static void playAirSourcePop()
+    {
+        if (current == null || current.stingSource.isPlaying)
+        {
+            return;
+        }
+
+        Debug.Log("HERE");
+        current.stingSource.clip = current.airSourcePop;
+        current.stingSource.Play();
+    }
+
+    public static void playWaterDropPop()
+    {
+        if (current == null || current.stingSource.isPlaying)
+        {
+            return;
+        }
+
+        Debug.Log("HERE");
+        current.stingSource.clip = current.waterDropPop;
+        current.stingSource.Play();
+    }
 }

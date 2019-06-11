@@ -53,6 +53,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 defaultColliderSize;
     private Vector2 jumpColliderSize;
 
+    private bool landingSoundPlayed;
+
     private void Start()
     {
         input = GetComponent<PlayerInput>();
@@ -63,16 +65,17 @@ public class PlayerMovement : MonoBehaviour
         originalScaleX = transform.localScale.x;
         isOnPlatform = false;
 
-        collidedPlatformVelocity = new Vector2(0,0);
+        collidedPlatformVelocity = new Vector2(0, 0);
 
         animator = GetComponent<Animator>();
 
         defaultColliderSize = boxCollider.size;
-        jumpColliderSize = new Vector2(defaultColliderSize.x, defaultColliderSize.y*0.5f);
+        jumpColliderSize = new Vector2(defaultColliderSize.x, defaultColliderSize.y * 0.5f);
 
         dir = 1;
-    }
 
+        landingSoundPlayed = true;
+    }
 
     private void FixedUpdate() {
         physicsCheck();
@@ -97,6 +100,11 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             firePoint.transform.localPosition = new Vector3(0.454f, -0.133f, 0f);
+        }
+
+        if (!isJumping && isOnGround && !landingSoundPlayed) {
+            AudioManager.playFootstepSound();
+            landingSoundPlayed = true;
         }
     }
 
@@ -196,11 +204,13 @@ public class PlayerMovement : MonoBehaviour
             isHanging = false;
             isJumping = true;
             isOnPlatform = false;
+            landingSoundPlayed = false;
             //jumpTime = Time.time + 0.5f;
         }
         else if (rBody.velocity.y != 0 && !isOnPlatform && !isHanging && !isOnGround)
         {
             isJumping = true;
+            landingSoundPlayed = false;
         }
         else{
             isJumping = false;

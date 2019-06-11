@@ -41,6 +41,7 @@ public class WaterDropletController : MonoBehaviour
         if (collision.tag == "Player") {
             Transform player = GameObject.Find("Player2").transform;
             player.GetComponent<PlayerAttributes>().SetCurrentWater(player.GetComponent<PlayerAttributes>().GetCurrentWater() + waterAdded);
+            AudioManager.playWaterDropPop();
             Destroy(gameObject);
         }
     }

@@ -16,7 +16,7 @@ public class GameManagerScript : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(amountOfEvaporatedWater);
+
     }
 
     public int getAmountOfWaterInPool()
