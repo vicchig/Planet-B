@@ -29,6 +29,8 @@ TagManager:
   - WaterDisappear
   - DestructibleAreaTutorial
   - WallClimbTextArea
+  - EndTutorialArea
+  - RegenExplainArea
   layers:
   - Default
   - TransparentFX

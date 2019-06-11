@@ -31,6 +31,7 @@ public class HelperCharacter : MonoBehaviour
     public AudioClip wallClimbingExplanationClip;
     public AudioClip shootingExplanation;
     public AudioClip healthRegenExplanation;
+    public AudioClip endTutorialClip;
 
     [Header("Sounds Level 1")]
     public AudioClip objectiveLevelClip1_0;
@@ -81,6 +82,7 @@ public class HelperCharacter : MonoBehaviour
     ObjectText wallClimbingExplanationTxt;
     ObjectText shootingExplanationTxt;
     ObjectText healthRegenTxt;
+    ObjectText endTutorialTxt;
 
     //LEVEL 1
     ObjectText objectiveLevelTxt1_0;
@@ -154,6 +156,7 @@ public class HelperCharacter : MonoBehaviour
         wallClimbingExplanationTxt = new ObjectText("To wall climb, move close to a wall during your jump. To jump of the wall during your wall slide, release A and D and press W. Do not hold A or D if you want to jump off the wall. Once in the air, you can use A and D to move horizontally.", false, wallClimbingExplanationClip.length + 0.5f, wallClimbingExplanationClip, 1); ;
         shootingExplanationTxt = new ObjectText("Shoot using the left mouse button. You can use the 1, 2 and 3 keys to change weapon modes. Weapon 1 is your regular bullets. Weapon modes 2 and 3 use heat energy to respectively heat and cool down your environment.", false, shootingExplanation.length + 0.5f, shootingExplanation, 1); ;
         healthRegenTxt = new ObjectText("The planet we are going to will have many environmental hazards. Your suit will protect you from most of them. However, if your health reaches critical levels, the suit will passively regenerate your health.", false, healthRegenExplanation.length + 0.5f, healthRegenExplanation, 1);
+        endTutorialTxt = new ObjectText("Let's see what you have learned. Make your way to the marker on the other side of this lava pool to complete the level.", false, endTutorialClip.length + 0.5f, endTutorialClip, 1);
 
         //LEVEL 1
         objectiveLevelTxt1_0 = new ObjectText("This planet looks nice. Unfortunately, its water cycle is not functioning. If we want to colonize it, we will have to fix that first.", false, objectiveLevelClip1_0.length + 0.5f, objectiveLevelClip1_0, 1);
@@ -354,7 +357,9 @@ public class HelperCharacter : MonoBehaviour
         if (collision.tag == "Lava" && healthRegenTxt.getTextShows() < healthRegenTxt.getMaxTextShows() && SceneManager.GetActiveScene().name == "TutorialLevel0") {
             sounds.Enqueue(healthRegenTxt);
         }
-
+        if (collision.tag == "EndTutorialArea" && endTutorialTxt.getTextShows() < endTutorialTxt.getMaxTextShows()) {
+            sounds.Enqueue(endTutorialTxt);
+        }
         //GENERAL
         if (collision.tag == "AirSourceTextArea" && airSourceTxt.getTextShows() < airSourceTxt.getMaxTextShows())
         {
@@ -375,7 +380,7 @@ public class HelperCharacter : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (SceneManager.GetActiveScene().name != "TutorialLevel0") {
-            if (collision.tag == "Lava" && lavaCommentTxt.getTextShows() < lavaCommentTxt.getMaxTextShows() && !isBusy)
+            if (collision.tag == "RegenExplainArea" && lavaCommentTxt.getTextShows() < lavaCommentTxt.getMaxTextShows() && !isBusy)
             {
                 sounds.Enqueue(lavaCommentTxt);
             }

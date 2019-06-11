@@ -66876,6 +66876,7 @@ MonoBehaviour:
   shootingExplanation: {fileID: 8300000, guid: 746e93f08d24278458b917e434bed239, type: 3}
   healthRegenExplanation: {fileID: 8300000, guid: 0efd47b15d2df21489045186d7b9143d,
     type: 3}
+  endTutorialClip: {fileID: 8300000, guid: 94dc0a128db592f469980ccfeeab92d4, type: 3}
   objectiveLevelClip1_0: {fileID: 8300000, guid: 0c9c09ea075ce824ea8b9e648cc61fca,
     type: 3}
   objectiveLevelClip1_1: {fileID: 8300000, guid: beff1ed6344f4b64d8febdebda5a62c5,
