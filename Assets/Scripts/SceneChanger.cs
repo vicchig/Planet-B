@@ -9,8 +9,9 @@ public class SceneChanger : MonoBehaviour
     public string sceneName;
     public string sceneChangeTag;
 
-    public void LoadScene(string sceneName) {
-        SceneManager.LoadScene(sceneName);
+    public void reloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
