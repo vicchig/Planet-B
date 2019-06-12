@@ -383,7 +383,7 @@ public class PlayerMovement : MonoBehaviour
             isJumping = false;
 
         }
-        else if (col.transform.CompareTag("RandomlyMovingPlatform") && Physics2D.OverlapCircle(platCollideCheckPoint.position, 0.1f, movingPlatLayer) && col.gameObject.GetComponent<RandomPlatformMover>().isMoving()) {
+        else if (col.transform.CompareTag("RandomlyMovingPlatform") && Physics2D.OverlapCircle(platCollideCheckPoint.position, 0.1f, movingPlatLayer)) {
             transform.parent = col.transform;
             isOnPlatform = true;
             isJumping = false;
@@ -393,12 +393,21 @@ public class PlayerMovement : MonoBehaviour
     //called while the object is colliding with something
     private void OnCollisionStay2D(Collision2D col) {
         if (col.transform.tag == "RandomlyMovingPlatform") {
-            collidedPlatformVelocity.x = col.gameObject.GetComponent<RandomPlatformMover>().platformSpeedX;
-            collidedPlatformVelocity.y = col.gameObject.GetComponent<RandomPlatformMover>().platformSpeedY;
-            collidedPlatformDir.x = col.gameObject.GetComponent<RandomPlatformMover>().direction.x;
-            collidedPlatformDir.y = col.gameObject.GetComponent<RandomPlatformMover>().direction.y;
+            if (col.gameObject.GetComponent<RandomPlatformMover>().isMoving())
+            {
+                collidedPlatformVelocity.x = col.gameObject.GetComponent<RandomPlatformMover>().platformSpeedX;
+                collidedPlatformVelocity.y = col.gameObject.GetComponent<RandomPlatformMover>().platformSpeedY;
+                collidedPlatformDir.x = col.gameObject.GetComponent<RandomPlatformMover>().direction.x;
+                collidedPlatformDir.y = col.gameObject.GetComponent<RandomPlatformMover>().direction.y;
+            }
+            else {
+                collidedPlatformVelocity.x = 0;
+                collidedPlatformVelocity.y = 0;
+                collidedPlatformDir.x = 0;
+                collidedPlatformDir.y = 0;
+            }
 
-            if (Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer) && col.gameObject.GetComponent<RandomPlatformMover>().isMoving())
+            if (Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer))
             {
                 transform.SetParent(col.transform);
                 isOnPlatform = true;
