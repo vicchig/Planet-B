@@ -375,7 +375,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     private void OnCollisionEnter2D(Collision2D col) {
-        
+
         if (col.transform.CompareTag("MovingPlatform") && Physics2D.OverlapCircle(platCollideCheckPoint.position, 0.1f, movingPlatLayer))
         {
             transform.parent = col.transform;
@@ -383,27 +383,48 @@ public class PlayerMovement : MonoBehaviour
             isJumping = false;
 
         }
+        else if (col.transform.CompareTag("RandomlyMovingPlatform") && Physics2D.OverlapCircle(platCollideCheckPoint.position, 0.1f, movingPlatLayer) && col.gameObject.GetComponent<RandomPlatformMover>().isMoving()) {
+            transform.parent = col.transform;
+            isOnPlatform = true;
+            isJumping = false;
+        }
     }
 
     //called while the object is colliding with something
     private void OnCollisionStay2D(Collision2D col) {
-        if (col.transform.tag == "MovingPlatform") {
-            collidedPlatformVelocity.x = col.gameObject.GetComponent<PlatformMover>().platformSpeedX;
-            collidedPlatformVelocity.y = col.gameObject.GetComponent<PlatformMover>().platformSpeedY;
-            collidedPlatformDir.x = col.gameObject.GetComponent<PlatformMover>().direction.x;
-            collidedPlatformDir.y = col.gameObject.GetComponent<PlatformMover>().direction.y;
+        if (col.transform.tag == "RandomlyMovingPlatform") {
+            collidedPlatformVelocity.x = col.gameObject.GetComponent<RandomPlatformMover>().platformSpeedX;
+            collidedPlatformVelocity.y = col.gameObject.GetComponent<RandomPlatformMover>().platformSpeedY;
+            collidedPlatformDir.x = col.gameObject.GetComponent<RandomPlatformMover>().direction.x;
+            collidedPlatformDir.y = col.gameObject.GetComponent<RandomPlatformMover>().direction.y;
 
-            if (Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer))
+            if (Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer) && col.gameObject.GetComponent<RandomPlatformMover>().isMoving())
             {
                 transform.SetParent(col.transform);
                 isOnPlatform = true;
             }
         }
-        
+        else if (col.transform.tag == "MovingPlatform") {
+            collidedPlatformVelocity.x = col.gameObject.GetComponent<PlatformMover>().platformSpeedX;
+            collidedPlatformVelocity.y = col.gameObject.GetComponent<PlatformMover>().platformSpeedY;
+            collidedPlatformDir.x = col.gameObject.GetComponent<PlatformMover>().direction.x;
+            collidedPlatformDir.y = col.gameObject.GetComponent<PlatformMover>().direction.y;
+
+            if (Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer) )
+            {
+                transform.SetParent(col.transform);
+                isOnPlatform = true;
+            }
+        }
     }
 
     private void OnCollisionExit2D(Collision2D col) {
         if (col.transform.tag == "MovingPlatform")
+        {
+            transform.parent = null;
+            isOnPlatform = false;
+        }
+        else if (col.transform.tag == "RandomlyMovingPlatform")
         {
             transform.parent = null;
             isOnPlatform = false;
