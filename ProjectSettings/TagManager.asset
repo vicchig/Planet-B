@@ -32,6 +32,7 @@ TagManager:
   - EndTutorialArea
   - RegenExplainArea
   - RandomlyMovingPlatform
+  - PoisonousCloud
   layers:
   - Default
   - TransparentFX
