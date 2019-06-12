@@ -80,10 +80,6 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate() {
         physicsCheck();
 
-        
-
-        
-
         horizontalMovement();
         inAirMovement();
         wallHangMovement();
