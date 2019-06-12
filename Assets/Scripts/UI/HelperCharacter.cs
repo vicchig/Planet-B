@@ -11,6 +11,7 @@ public class HelperCharacter : MonoBehaviour
     public GameObject managerObj;
     public GameObject player;
     public GameObject waterDropParent;
+    
 
     [Header("UI Objects")]
     public GameObject txtMeshContainer;

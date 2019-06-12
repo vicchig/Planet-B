@@ -33,19 +33,16 @@ public class WaterPourController : MonoBehaviour
         else{
             generator.enabled = false;
         }
-
-        if(Input.GetButtonDown("Flood")) {
-            fPressed = true;
-        }
-        else if (Input.GetButtonUp("Flood"))
-        {
-            fPressed = false;
-        }
     }
 
     private void FixedUpdate()
     {
-        
+        if (Input.GetButtonDown("Flood")) {
+            fPressed = true;
+        }
+        else if (Input.GetButtonUp("Flood")) {
+            fPressed = false;
+        }
 
         if (fPressed)
         {
