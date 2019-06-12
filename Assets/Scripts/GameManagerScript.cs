@@ -5,6 +5,9 @@ using UnityEngine;
 public class GameManagerScript : MonoBehaviour
 {
     [Header("Level 1 Vars")]
+    public GameObject nextLevelMarker;
+
+
     private int amountOfWaterInPool;
     private int amountOfEvaporatedWater;
 
@@ -12,12 +15,14 @@ public class GameManagerScript : MonoBehaviour
     {
         amountOfWaterInPool = 0;
         amountOfEvaporatedWater = 0;
-
+        nextLevelMarker.SetActive(false);
     }
 
     private void Update()
     {
-
+        if (amountOfEvaporatedWater >= 300) {
+            nextLevelMarker.SetActive(true);
+        }
     }
 
     public int getAmountOfWaterInPool()

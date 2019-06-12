@@ -178,34 +178,40 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void inAirMovement() {
-        if (input.jumpPressed && !isJumping && (isOnPlatform || isOnGround || jumpDelayTime > Time.time || (isHanging && !isOnGround && !isOnPlatform) || (isHanging && isOnPlatform)))
+        if (input.jumpPressed)
         {
 
-            if (isHanging && isOnPlatform) {
-                transform.SetParent(null);
+            if (!isJumping && (isOnPlatform || isOnGround || jumpDelayTime > Time.time || (isHanging && !isOnGround && !isOnPlatform) || (isHanging && isOnPlatform))) {
+                if (isHanging && isOnPlatform)
+                {
+                    transform.SetParent(null);
+                    isOnPlatform = false;
+                }
+
+                //jump is severely decreased on a platform that is moving down and increased for one that is moving up, so to balance that out, give a little boost when jumping on a platform that is moving down
+                if (isOnPlatform)
+                {
+                    platformJump();
+                }
+                else
+                {
+                    if (isHanging)
+                    {
+                        wallJump();
+                    }
+                    else
+                    {
+                        rBody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+                    }
+                }
+                isOnGround = false;
+                isHanging = false;
+                isJumping = true;
                 isOnPlatform = false;
+                landingSoundPlayed = false;
+                //jumpTime = Time.time + 0.5f;
             }
 
-            //jump is severely decreased on a platform that is moving down and increased for one that is moving up, so to balance that out, give a little boost when jumping on a platform that is moving down
-            if (isOnPlatform)
-            {
-                platformJump();
-            }
-            else {
-                if (isHanging)
-                {
-                    wallJump();
-                }
-                else {
-                    rBody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-                }
-            }
-            isOnGround = false;
-            isHanging = false;
-            isJumping = true;
-            isOnPlatform = false;
-            landingSoundPlayed = false;
-            //jumpTime = Time.time + 0.5f;
         }
         else if (rBody.velocity.y != 0 && !isOnPlatform && !isHanging && !isOnGround)
         {
@@ -220,6 +226,8 @@ public class PlayerMovement : MonoBehaviour
         if (rBody.velocity.y < maxFallSpeed) {
             rBody.velocity = new Vector2(rBody.velocity.x, maxFallSpeed);
         }
+
+
     }
 
     private void platformMovement(float xVelocity) {
@@ -317,9 +325,12 @@ public class PlayerMovement : MonoBehaviour
 
 
     private void wallHangMovement() {
-        if (!isOnGround) //!Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer))
+        if (!isOnGround && Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, groundLayer) || Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer)) //!Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer))
         {
-            isHanging = Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, groundLayer) || Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer);
+            isHanging = true;
+        }
+        else {
+            isHanging = false;
         }
 
         if (isHanging)

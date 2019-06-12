@@ -44,6 +44,7 @@ public class HelperCharacter : MonoBehaviour
     public AudioClip objectiveLevelClip1_7;
     public AudioClip objectiveLevelClip1_8;
     public AudioClip objectiveLevelClip1_9;
+    public AudioClip objectiveLevelClip1_10;
     public AudioClip waterFound;
     public AudioClip waterPoolFoundClip;
     public AudioClip butterlfyCommentClip;
@@ -95,6 +96,7 @@ public class HelperCharacter : MonoBehaviour
     ObjectText objectiveLevelTxt1_7;
     ObjectText objectiveLevelTxt1_8;
     ObjectText objectiveLevelTxt1_9;
+    ObjectText objectiveLevelTxt1_10;
 
     ObjectText waterPoolFoundTxt;
     ObjectText dontWasteWaterReminderTxt;
@@ -169,6 +171,7 @@ public class HelperCharacter : MonoBehaviour
         objectiveLevelTxt1_7 = new ObjectText("Congratulations! We have fixed the first stage of the water cycle -- evaporation. Now we will go up into the atmosphere and see if we can get precipitation to work as well.", false, objectiveLevelClip1_7.length + 0.5f, objectiveLevelClip1_7, 1);
         objectiveLevelTxt1_8 = new ObjectText("There is not enough water in the pool yet. We need some more.", false, objectiveLevelClip1_8.length + 0.5f, objectiveLevelClip1_8, 1);
         objectiveLevelTxt1_9 = new ObjectText("There is not enough water left in the caves for us to fill the pool. We should probably restart.", false, objectiveLevelClip1_9.length + 0.5f, objectiveLevelClip1_9, 1);
+        objectiveLevelTxt1_10 = new ObjectText("Congratulations! You have started the process of evaporation on the planet. Next we will need to make sure this water comes back to the surface in the form of precipitation. Head to the marker on the other side of the pool to proceede.", false, objectiveLevelClip1_10.length + 0.5f, objectiveLevelClip1_10, 1);
 
         waterPoolFoundTxt = new ObjectText("This looks like a good spot to release our water. Remember, you can do that by holding down F. I will let you know when we have enough water in the pool.", false, waterPoolFoundClip.length + 0.5f, waterPoolFoundClip, 1);
         dontWasteWaterReminderTxt = new ObjectText("Make sure you do not waste it. If you do, check the cave for some more water. If you waste all of it, we will have to restart.", false, dontWasteWaterReminderClip.length + 0.5f, dontWasteWaterReminderClip, 1);
@@ -266,7 +269,11 @@ public class HelperCharacter : MonoBehaviour
             {
                 sounds.Enqueue(objectiveLevelTxt1_9);
             }
+
+            //evaporated enough water
+
         }
+        //TUTORIAL
         else if (SceneManager.GetActiveScene().name == "TutorialLevel0") {
             if (!startedTutorial && sounds.Count == 0)
             {
