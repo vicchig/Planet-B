@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 jumpColliderSize;
 
     private bool landingSoundPlayed;
-
+    private bool initiateWallHang;
     private void Start()
     {
         input = GetComponent<PlayerInput>();
@@ -75,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
         dir = 1;
 
         landingSoundPlayed = true;
+        initiateWallHang = false;
     }
 
     private void FixedUpdate() {
@@ -101,6 +102,27 @@ public class PlayerMovement : MonoBehaviour
         if (!isJumping && isOnGround && !landingSoundPlayed) {
             AudioManager.playFootstepSound();
             landingSoundPlayed = true;
+        }
+
+        if (Input.GetButtonDown("WallClimb")) {
+            initiateWallHang = true;
+        }
+        if (Input.GetButtonUp("WallClimb")) {
+            initiateWallHang = false;
+            isHanging = false;
+        }
+
+
+        if (initiateWallHang)
+        {
+            if (!isOnGround && Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, groundLayer) || Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer)) //!Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer))
+            {
+                isHanging = true;
+            }
+            else
+            {
+                isHanging = false;
+            }
         }
     }
 
@@ -321,13 +343,8 @@ public class PlayerMovement : MonoBehaviour
 
 
     private void wallHangMovement() {
-        if (!isOnGround && Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, groundLayer) || Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer)) //!Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer))
-        {
-            isHanging = true;
-        }
-        else {
-            isHanging = false;
-        }
+
+        
 
         if (isHanging)
         {
