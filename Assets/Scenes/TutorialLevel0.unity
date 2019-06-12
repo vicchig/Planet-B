@@ -93353,6 +93353,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5359453249395348013, guid: 4c153fe675027a645ae92f124e58c8b4,
+        type: 3}
+      propertyPath: nextLevelMarker
+      value: 
+      objectReference: {fileID: 1373870345}
     - target: {fileID: 5359453249395348012, guid: 4c153fe675027a645ae92f124e58c8b4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -96265,6 +96270,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1340559733}
   m_CullTransparentMesh: 0
+--- !u!1 &1373870345 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4734872096466631805, guid: 2d3ca68be4a2f574c8be7df703e83b9d,
+    type: 3}
+  m_PrefabInstance: {fileID: 4734872095218639283}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1387475948
 PrefabInstance:
   m_ObjectHideFlags: 0
