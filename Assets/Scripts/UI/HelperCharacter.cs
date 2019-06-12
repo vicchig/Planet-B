@@ -11,7 +11,6 @@ public class HelperCharacter : MonoBehaviour
     public GameObject managerObj;
     public GameObject player;
     public GameObject waterDropParent;
-    
 
     [Header("UI Objects")]
     public GameObject txtMeshContainer;
@@ -271,7 +270,9 @@ public class HelperCharacter : MonoBehaviour
             }
 
             //evaporated enough water
-
+            if (manager.getEvaporated() >= GameObject.Find("RisingSteam").GetComponent<RisingSteamManager>().waterThreshold) {
+                sounds.Enqueue(objectiveLevelTxt1_10);
+            }
         }
         //TUTORIAL
         else if (SceneManager.GetActiveScene().name == "TutorialLevel0") {
