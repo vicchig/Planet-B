@@ -92118,9 +92118,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50c42c5ab279b84499799425a01b9373, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footstepsClips: []
-  airSourcePop: {fileID: 0}
-  waterDropPop: {fileID: 0}
+  footstepsClips:
+  - {fileID: 8300000, guid: eac2d9f21b92f41488f01c8cec72dc38, type: 3}
+  - {fileID: 8300000, guid: 079382555368ffa43acbb068e7f8f7f1, type: 3}
+  - {fileID: 8300000, guid: 8f90ad70b1102b14c879a75ff3850ef2, type: 3}
+  airSourcePop: {fileID: 8300000, guid: c85d2edb65339774cb35f68b73d04153, type: 3}
+  waterDropPop: {fileID: 8300000, guid: fd94ca626dcd24a45b5bcc7cb35ec2b1, type: 3}
   ambientGroup: {fileID: 0}
   musicGroup: {fileID: 0}
   stingGroup: {fileID: 0}
@@ -92594,7 +92597,7 @@ MonoBehaviour:
   textDuration: 4
   level: 1
   introClip: {fileID: 8300000, guid: 8286ef29fe2bfa243827e5fead482bca, type: 3}
-  introClip2: {fileID: 0}
+  introClip2: {fileID: 8300000, guid: 9c2a1791323142c469955d88e5a4394e, type: 3}
   controlExplanationClip: {fileID: 8300000, guid: dbe407a0b8e21b74abcc09c46b12ef75,
     type: 3}
   hudExplanationClip: {fileID: 8300000, guid: 4ae1f710b4dc1114fb52b9e07fe4db9b, type: 3}
@@ -92605,7 +92608,7 @@ MonoBehaviour:
   shootingExplanation: {fileID: 8300000, guid: 746e93f08d24278458b917e434bed239, type: 3}
   healthRegenExplanation: {fileID: 8300000, guid: 0efd47b15d2df21489045186d7b9143d,
     type: 3}
-  endTutorialClip: {fileID: 0}
+  endTutorialClip: {fileID: 8300000, guid: 94dc0a128db592f469980ccfeeab92d4, type: 3}
   objectiveLevelClip1_0: {fileID: 8300000, guid: 0c9c09ea075ce824ea8b9e648cc61fca,
     type: 3}
   objectiveLevelClip1_1: {fileID: 8300000, guid: beff1ed6344f4b64d8febdebda5a62c5,
@@ -92626,7 +92629,8 @@ MonoBehaviour:
     type: 3}
   objectiveLevelClip1_9: {fileID: 8300000, guid: b016f40d95aab014690ff3de67081182,
     type: 3}
-  objectiveLevelClip1_10: {fileID: 0}
+  objectiveLevelClip1_10: {fileID: 8300000, guid: e69e76e9e77fec044b3fdbab1d4af02f,
+    type: 3}
   waterFound: {fileID: 8300000, guid: 35b0d9120ff22c84cbc982d965cb70b1, type: 3}
   waterPoolFoundClip: {fileID: 8300000, guid: 67f5f80187cade647972ee3c321f2a43, type: 3}
   butterlfyCommentClip: {fileID: 8300000, guid: 36ca199339d3cfe4ca1b7ef2a208d106,
