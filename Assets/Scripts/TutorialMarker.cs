@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class TutorialMarker : MonoBehaviour
@@ -10,10 +9,13 @@ public class TutorialMarker : MonoBehaviour
     public float floatTime = 0.5f;
     public float speed = 0.05f;
     float floatTimer;
+    public GameObject nextLevelObject;
+    NextLevelScript nextLevelMenu;
 
     void Start()
     {
         floatTimer = floatTime;
+        nextLevelMenu = nextLevelObject.GetComponent<NextLevelScript>();
     }
 
     // Update is called once per frame
@@ -52,7 +54,7 @@ public class TutorialMarker : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            SceneManager.LoadScene(1);
+            nextLevelMenu.LaunchMenu();
         }
     }
 }
