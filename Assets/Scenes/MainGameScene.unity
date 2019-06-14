@@ -1589,7 +1589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  waterCollected: 14
+  waterCollected: 0
   maxAir: 100
   maxHeat: 300
   airDepletionTime: 2
