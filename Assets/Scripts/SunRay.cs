@@ -18,4 +18,11 @@ public class SunRay : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Platforms") {
+            Destroy(gameObject);
+        }
+    }
 }
