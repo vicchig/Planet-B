@@ -412,7 +412,7 @@ public class PlayerMovement : MonoBehaviour
             transform.parent = col.transform;
             isOnPlatform = true;
             isJumping = false;
-
+            col.gameObject.GetComponent<PlatformMover>().active = true;
         }
 
     }
