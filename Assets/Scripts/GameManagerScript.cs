@@ -16,7 +16,11 @@ public class GameManagerScript : MonoBehaviour
     {
         amountOfWaterInPool = 0;
         amountOfEvaporatedWater = 0;
-        nextLevelMarker.SetActive(false);
+
+        if (SceneManager.GetActiveScene().name == "MainGameScene") {
+            nextLevelMarker.SetActive(false);
+        }
+        
     }
 
     private void Update()
