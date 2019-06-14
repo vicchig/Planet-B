@@ -33,7 +33,7 @@ public class DynamicParticle : MonoBehaviour
         manager = GameObject.Find("GameManager");
         managerScript = manager.GetComponent<GameManagerScript>();
 
-        if (GameObject.Find("WaterParent").transform.childCount > GameObject.Find("HelperCharacter").GetComponent<HelperCharacter>().waterNeededInPool)
+        if (GameObject.Find("WaterParent").transform.childCount > managerScript.waterNeededInPool)
         {
             destroyObject = true;
         }

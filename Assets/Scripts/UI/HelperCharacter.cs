@@ -49,6 +49,8 @@ public class HelperCharacter : MonoBehaviour
     public AudioClip butterlfyCommentClip;
     public AudioClip rockWarningClip;
     public AudioClip dontWasteWaterReminderClip;
+    public AudioClip echoDirectionClip1;
+    public AudioClip echoDirectionClip2;
 
     [Header("Sounds General")]
     public AudioClip airFound;
@@ -62,7 +64,6 @@ public class HelperCharacter : MonoBehaviour
     public float healthWarningDelay; //amount of time between health warning delays
     public int critAirThreshold; //percentage of air under which the air warning is played
     public float airWarningDelay; //amount of time between air warning delays
-    public int waterNeededInPool; //amount of water object collisions needed to fill the pool
 
     //text mesh where the text will be displayed
     private TextMeshProUGUI uiTextMesh;
@@ -95,6 +96,9 @@ public class HelperCharacter : MonoBehaviour
     ObjectText objectiveLevelTxt1_7;
     ObjectText objectiveLevelTxt1_8;
     ObjectText objectiveLevelTxt1_9;
+
+    ObjectText echoDirectionTxt1;
+    ObjectText echoDirectionTxt2;
 
     ObjectText waterPoolFoundTxt;
     ObjectText dontWasteWaterReminderTxt;
@@ -168,6 +172,9 @@ public class HelperCharacter : MonoBehaviour
         objectiveLevelTxt1_6 = new ObjectText("Use the 2 key to amplify the heat energy collected and use it to heat the water.", false, objectiveLevelClip1_6.length, objectiveLevelClip1_6, 1);
         objectiveLevelTxt1_7 = new ObjectText("Congratulations! We have fixed the first stage of the water cycle. As water is heated by the sun, it evaporates in small amounts and rises in the atmosphere, which is where we are going next.", false, objectiveLevelClip1_7.length + 0.5f, objectiveLevelClip1_7, 1);
 
+        echoDirectionTxt1 = new ObjectText("I do not see any way across. We should probably turn around for now.", false, echoDirectionClip1.length + 0.5f, echoDirectionClip1, 1);
+        echoDirectionTxt2 = new ObjectText("I think this platform can be a shortcut, try jumping on it.", false, echoDirectionClip2.length + 0.5f, echoDirectionClip2, 1);
+
         //TODO: this should be done by a progress bar or something
         objectiveLevelTxt1_8 = new ObjectText("There is not enough water in the pool yet. We need some more.", false, objectiveLevelClip1_8.length + 0.5f, objectiveLevelClip1_8, 1);
         objectiveLevelTxt1_9 = new ObjectText("There is not enough water left in the caves for us to fill the pool. We should probably restart.", false, objectiveLevelClip1_9.length + 0.5f, objectiveLevelClip1_9, 1);
@@ -236,7 +243,7 @@ public class HelperCharacter : MonoBehaviour
         }
 
         //enough water collected
-        if (attributes.GetCurrentWater() >= waterNeededInPool / 4 && !isBusy && objectiveLevelTxt1_3.getTextShows() < objectiveLevelTxt1_3.getMaxTextShows()) { 
+        if (attributes.GetCurrentWater() >= manager.waterNeededInPool / 4 && !isBusy && objectiveLevelTxt1_3.getTextShows() < objectiveLevelTxt1_3.getMaxTextShows()) { 
             sounds.Enqueue(objectiveLevelTxt1_3);
             sounds.Enqueue(dontWasteWaterReminderTxt);
         }
@@ -252,20 +259,20 @@ public class HelperCharacter : MonoBehaviour
         //LEVEL 1
         if (SceneManager.GetActiveScene().name == "MainGameScene") {
             //enough water in pool
-            if (manager.getAmountOfWaterInPool() >= waterNeededInPool)
+            if (manager.getAmountOfWaterInPool() >= manager.waterNeededInPool)
             {
                 sounds.Enqueue(objectiveLevelTxt1_5);
                 sounds.Enqueue(objectiveLevelTxt1_6);
             }
 
             //player did not get enough water in the pool
-            if (inPoolArea && manager.getAmountOfWaterInPool() < waterNeededInPool && attributes.GetCurrentWater() == 0 && playerWaterPourController.getFPressed())
+            if (inPoolArea && manager.getAmountOfWaterInPool() < manager.waterNeededInPool && attributes.GetCurrentWater() == 0 && playerWaterPourController.getFPressed())
             {
                 sounds.Enqueue(objectiveLevelTxt1_8);
             }
 
             //not enough water left on the level 1 Water Drop = 4 WaterParticles
-            if ((attributes.GetCurrentWater() + waterDropParent.transform.childCount) * 4 < waterNeededInPool - manager.getAmountOfWaterInPool())
+            if ((attributes.GetCurrentWater() + waterDropParent.transform.childCount) * 4 < manager.waterNeededInPool - manager.getAmountOfWaterInPool())
             {
                 sounds.Enqueue(objectiveLevelTxt1_9);
             }
@@ -340,20 +347,25 @@ public class HelperCharacter : MonoBehaviour
             sounds.Enqueue(butterlfyCommentTxt);
         }
 
-        if (collision.tag == "ExploreAreaEastLevel1" && attributes.GetCurrentWater() >= waterNeededInPool / 4  && waterPoolFoundTxt.getTextShows() < waterPoolFoundTxt.getMaxTextShows())
+        if (collision.tag == "ExploreAreaEastLevel1" && attributes.GetCurrentWater() >= manager.waterNeededInPool / 4  && waterPoolFoundTxt.getTextShows() < waterPoolFoundTxt.getMaxTextShows())
         {
             sounds.Enqueue(objectiveLevelTxt1_4);
         }
         if (collision.tag == "WaterPoolCollisionArea") {
             inPoolArea = true;
-            if (waterPoolFoundTxt.getTextShows() < waterPoolFoundTxt.getMaxTextShows() && attributes.GetCurrentWater() >= waterNeededInPool / 4) {
+            if (waterPoolFoundTxt.getTextShows() < waterPoolFoundTxt.getMaxTextShows() && attributes.GetCurrentWater() >= manager.waterNeededInPool / 4) {
                 sounds.Enqueue(waterPoolFoundTxt);
             }       
         }
         if (collision.tag == "FallingRockArea" && rockWarningTxt.getTextShows() < rockWarningTxt.getMaxTextShows() && !isBusy) {
             sounds.Enqueue(rockWarningTxt);
         }
-
+        if (collision.tag == "EchoDirection1" && echoDirectionTxt1.getTextShows() < echoDirectionTxt1.getMaxTextShows()) {
+            sounds.Enqueue(echoDirectionTxt1);
+        }
+        if (collision.tag == "EchoDirectionArea2" && echoDirectionTxt2.getTextShows() < echoDirectionTxt2.getMaxTextShows()) {
+            sounds.Enqueue(echoDirectionTxt2);
+        }
 
         //TUTORIAL
         if (collision.tag == "DestructibleAreaTutorial" && destructibleExplanationTxt.getTextShows() < destructibleExplanationTxt.getMaxTextShows() && shootingExplanationTxt.getTextShows() < shootingExplanationTxt.getMaxTextShows()) {

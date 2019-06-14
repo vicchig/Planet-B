@@ -7,7 +7,7 @@ public class GameManagerScript : MonoBehaviour
 {
     [Header("Level 1 Vars")]
     public GameObject nextLevelMarker;
-
+    public int waterNeededInPool;
 
     private int amountOfWaterInPool;
     private int amountOfEvaporatedWater;
