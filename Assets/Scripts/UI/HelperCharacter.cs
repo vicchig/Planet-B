@@ -25,7 +25,6 @@ public class HelperCharacter : MonoBehaviour
     [Header("Sounds Tutorial")]
     public AudioClip introClip;
     public AudioClip introClip2;
-    public AudioClip controlExplanationClip;
     public AudioClip hudExplanationClip;
     public AudioClip destructibleExplanation;
     public AudioClip wallClimbingExplanationClip;
@@ -77,7 +76,6 @@ public class HelperCharacter : MonoBehaviour
     //TUTORIAL 
     ObjectText introTxt;
     ObjectText introTxt2;
-    ObjectText controlExplanationTxt;
     ObjectText hudExplanationTxt;
     ObjectText destructibleExplanationTxt;
     ObjectText wallClimbingExplanationTxt;
@@ -154,12 +152,11 @@ public class HelperCharacter : MonoBehaviour
         //TUTORIAL
         introTxt = new ObjectText("Hello, I am Echo, your suit's built-in A.I. I hope we can get along, if not, please remember that I control your suit's life support systems.", false, introClip.length + 0.5f, introClip, 1);
         introTxt2 = new ObjectText("Your mission is to terraform a planet's water cycle so that it may become inhabitable. Apparently, your species is dying out and needs another planet to live on. This suit and I were built for the purpose of helping you achieve this goal. We will now begin your training.", false, introClip2.length + 0.5f, introClip2, 1);
-        controlExplanationTxt = new ObjectText("Use the A and D keys to move. Use W to jump.", false, controlExplanationClip.length + 0.5f, controlExplanationClip, 1);
         hudExplanationTxt = new ObjectText("Your suit has a built-in display at the top left of your screen. It tells you useful information about your resources and life support system state.", false, hudExplanationClip.length + 0.5f, hudExplanationClip, 1); ;
         destructibleExplanationTxt = new ObjectText("This material has weak physical properties and can be destroyed with your weapon.", false, destructibleExplanation.length + 0.5f, destructibleExplanation, 1); ;
-        wallClimbingExplanationTxt = new ObjectText("To wall climb, hold SPACE near a wall during your jump. To jump off the wall, use W while not holding A and D.", false, wallClimbingExplanationClip.length + 0.5f, wallClimbingExplanationClip, 1); ;
-        shootingExplanationTxt = new ObjectText("Shoot using the left mouse button. You can use the 1, 2 and 3 keys to change weapon modes. Weapon 1 is your regular bullets. Weapon modes 2 and 3 use heat energy to respectively heat and cool down your environment.", false, shootingExplanation.length + 0.5f, shootingExplanation, 1); ;
-        healthRegenTxt = new ObjectText("The planet we are going to will have many environmental hazards. Your suit will protect you from most of them. However, if your health reaches critical levels, the suit will passively regenerate your health.", false, healthRegenExplanation.length + 0.5f, healthRegenExplanation, 1);
+        wallClimbingExplanationTxt = new ObjectText("To wall climb, hold space during your jump and move close to a wall. Once on a wall, you can jump higher using W and let go of the wall using A or D.", false, wallClimbingExplanationClip.length + 0.5f, wallClimbingExplanationClip, 1); ;
+        shootingExplanationTxt = new ObjectText("Shoot using the left mouse button while using the mouse to aim. You can use the 1, 2 and 3 keys to change weapon modes. Weapon 1 is your regular bullets. Weapon modes 2 and 3 use heat energy to respectively heat and cool down your environment.", false, shootingExplanation.length + 0.5f, shootingExplanation, 1); ;
+        healthRegenTxt = new ObjectText("The planet we are going to will have many environmental hazards. If your health reaches critical levels, the suit will passively regenerate your health.", false, healthRegenExplanation.length + 0.5f, healthRegenExplanation, 1);
         endTutorialTxt = new ObjectText("Let's see what you have learned. Make your way to the marker on the other side of this lava pool to complete the level.", false, endTutorialClip.length + 0.5f, endTutorialClip, 1);
 
         //LEVEL 1
@@ -171,16 +168,13 @@ public class HelperCharacter : MonoBehaviour
         objectiveLevelTxt1_5 = new ObjectText("Now we just need to evaporate the water. This can be done using heat energy. We will need to find a source.", false, objectiveLevelClip1_5.length + 0.5f, objectiveLevelClip1_5, 1);
         objectiveLevelTxt1_6 = new ObjectText("Use the 2 key to amplify the heat energy collected and use it to heat the water.", false, objectiveLevelClip1_6.length, objectiveLevelClip1_6, 1);
         objectiveLevelTxt1_7 = new ObjectText("Congratulations! We have fixed the first stage of the water cycle. As water is heated by the sun, it evaporates in small amounts and rises in the atmosphere, which is where we are going next.", false, objectiveLevelClip1_7.length + 0.5f, objectiveLevelClip1_7, 1);
+        objectiveLevelTxt1_8 = new ObjectText("There is not enough water in the pool yet. We need some more.", false, objectiveLevelClip1_8.length + 0.5f, objectiveLevelClip1_8, 1);
+        objectiveLevelTxt1_9 = new ObjectText("There is not enough water left in the caves for us to fill the pool. We should probably restart.", false, objectiveLevelClip1_9.length + 0.5f, objectiveLevelClip1_9, 1);
 
         echoDirectionTxt1 = new ObjectText("I do not see any way across. We should probably turn around for now.", false, echoDirectionClip1.length + 0.5f, echoDirectionClip1, 1);
         echoDirectionTxt2 = new ObjectText("I think this platform can be a shortcut, try jumping on it.", false, echoDirectionClip2.length + 0.5f, echoDirectionClip2, 1);
 
-        //TODO: this should be done by a progress bar or something
-        objectiveLevelTxt1_8 = new ObjectText("There is not enough water in the pool yet. We need some more.", false, objectiveLevelClip1_8.length + 0.5f, objectiveLevelClip1_8, 1);
-        objectiveLevelTxt1_9 = new ObjectText("There is not enough water left in the caves for us to fill the pool. We should probably restart.", false, objectiveLevelClip1_9.length + 0.5f, objectiveLevelClip1_9, 1);
-
-        //TODO: this should be done by a pop up
-        waterPoolFoundTxt = new ObjectText("This looks like a good spot to release our water. Remember, you can do that by holding down F. I will let you know when we have enough water in the pool.", false, waterPoolFoundClip.length + 0.5f, waterPoolFoundClip, 1);
+        waterPoolFoundTxt = new ObjectText("This looks like a good spot to release our water.", false, waterPoolFoundClip.length + 0.5f, waterPoolFoundClip, 1);
         dontWasteWaterReminderTxt = new ObjectText("Make sure you do not waste it. If you do, check the cave for some more water. If you waste all of it, we will have to restart.", false, dontWasteWaterReminderClip.length + 0.5f, dontWasteWaterReminderClip, 1);
 
         butterlfyCommentTxt = new ObjectText("Wow. Aren't these beautiful!", false, butterlfyCommentClip.length + 0.5f, butterlfyCommentClip, 1);
