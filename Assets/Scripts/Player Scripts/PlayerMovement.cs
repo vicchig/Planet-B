@@ -55,6 +55,10 @@ public class PlayerMovement : MonoBehaviour
 
     private bool landingSoundPlayed;
     private bool initiateWallHang;
+
+    private bool suppressAD = false;
+    private float suppressADTimer = 0f;
+
     private void Start()
     {
         input = GetComponent<PlayerInput>();
@@ -84,15 +88,33 @@ public class PlayerMovement : MonoBehaviour
         horizontalMovement();
         inAirMovement();
         wallHangMovement();
-        
-        setAnimations();
+
+
+        if (suppressAD)
+        {
+            if (suppressADTimer >= 0.20f)
+            {
+                suppressADTimer = 0;
+                suppressAD = false;
+            }
+            else {
+                suppressADTimer += Time.deltaTime;
+            }
+        }
     }
 
     private void Update()
     {
+
         if (isHanging)
         {
             firePoint.transform.localPosition = new Vector3(-0.454f, -0.133f, 0f);
+
+            if (input.jumpPressed) {
+                suppressAD = true;
+                suppressADTimer = 0;
+            }
+
         }
         else
         {
@@ -124,6 +146,13 @@ public class PlayerMovement : MonoBehaviour
                 isHanging = false;
             }
         }
+        
+
+        if (suppressAD) {
+            input.horizontalIn = 0;
+        }
+
+        setAnimations();
     }
 
 
@@ -165,10 +194,11 @@ public class PlayerMovement : MonoBehaviour
             capsuleCollider.enabled = false;
             boxCollider.enabled = true;
         }
+
     }
 
     private void horizontalMovement() {
-        float xVelocity = speedX * input.horizontalIn;
+        float xVelocity = speedX * input.horizontalIn;    
         float yVelocity = rBody.velocity.y;
 
         if (xVelocity * dir < 0)
@@ -274,21 +304,9 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void wallJump() {
-        if (input.horizontalIn == 0) {
-            if (dir > 0)
-            {
-                rBody.transform.position = new Vector2(rBody.transform.position.x - 0.5f, rBody.transform.position.y);
-                rBody.velocity = new Vector2(-15, rBody.velocity.y);
-            }
-            else
-            {
-                rBody.transform.position = new Vector2(rBody.transform.position.x + 0.5f, rBody.transform.position.y);
-                rBody.velocity = new Vector2(15, rBody.velocity.y);
-            }
-            rBody.AddForce(new Vector2(0f, jumpForce * 1.3f), ForceMode2D.Impulse);
-
-        }
-      
+        rBody.transform.position = new Vector2(rBody.transform.position.x - 1f * dir, rBody.transform.position.y);
+        rBody.velocity = new Vector2(rBody.velocity.x, rBody.velocity.y);
+        rBody.AddForce(new Vector2(5f * dir, jumpForce * 1.3f), ForceMode2D.Impulse);
     }
 
 
@@ -343,20 +361,20 @@ public class PlayerMovement : MonoBehaviour
 
 
     private void wallHangMovement() {
-
-        
-
         if (isHanging)
         {
             rBody.velocity = new Vector2(rBody.velocity.x, -1);
-            if (Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer)) {
-                //isHanging = false;
-                isOnPlatform = false;
-            }
+            
         }
         else
         {
             rBody.velocity = new Vector2(rBody.velocity.x, rBody.velocity.y);
+        }
+
+        if (Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer) || !Physics2D.OverlapCircle(platCollideCheckPoint.position, 0.1f, movingPlatLayer))
+        {
+            //isHanging = false;
+            isOnPlatform = false;
         }
     }
 
@@ -389,18 +407,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col) {
 
-        if (col.transform.CompareTag("MovingPlatform") && Physics2D.OverlapCircle(platCollideCheckPoint.position, 0.1f, movingPlatLayer))
+        if ((col.transform.CompareTag("MovingPlatform") || col.transform.CompareTag("RandomlyMovingPlatform")) && Physics2D.OverlapCircle(platCollideCheckPoint.position, 0.1f, movingPlatLayer))
         {
             transform.parent = col.transform;
             isOnPlatform = true;
             isJumping = false;
 
         }
-        else if (col.transform.CompareTag("RandomlyMovingPlatform") && Physics2D.OverlapCircle(platCollideCheckPoint.position, 0.1f, movingPlatLayer)) {
-            transform.parent = col.transform;
-            isOnPlatform = true;
-            isJumping = false;
-        }
+
     }
 
     //called while the object is colliding with something
@@ -420,7 +434,7 @@ public class PlayerMovement : MonoBehaviour
                 collidedPlatformDir.y = 0;
             }
 
-            if (Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer))
+            if (Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer) && initiateWallHang)
             {
                 transform.SetParent(col.transform);
                 isOnPlatform = true;
@@ -432,7 +446,7 @@ public class PlayerMovement : MonoBehaviour
             collidedPlatformDir.x = col.gameObject.GetComponent<PlatformMover>().direction.x;
             collidedPlatformDir.y = col.gameObject.GetComponent<PlatformMover>().direction.y;
 
-            if (Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer) )
+            if (Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer) &&initiateWallHang)
             {
                 transform.SetParent(col.transform);
                 isOnPlatform = true;
