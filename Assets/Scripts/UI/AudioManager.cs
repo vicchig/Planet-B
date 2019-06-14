@@ -92,7 +92,6 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        Debug.Log("HERE");
         current.stingSource.clip = current.airSourcePop;
         current.stingSource.Play();
     }
@@ -103,8 +102,6 @@ public class AudioManager : MonoBehaviour
         {
             return;
         }
-
-        Debug.Log("HERE");
         current.stingSource.clip = current.waterDropPop;
         current.stingSource.Play();
     }
