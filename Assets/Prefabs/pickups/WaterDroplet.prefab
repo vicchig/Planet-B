@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5527944435394124081}
   - component: {fileID: 5527944435394124080}
   - component: {fileID: 5527944435394124111}
+  - component: {fileID: 8397884}
   m_Layer: 12
   m_Name: WaterDroplet
   m_TagString: WaterDrop
@@ -47,9 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1feba636c50b1b34db3b0d476458081d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceDistance: 0.1
-  floatSpeed: 0.3
-  waterAdded: 1
+  waterAddedOnPickUp: 1
 --- !u!212 &5527944435394124081
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -135,6 +134,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.195
+--- !u!114 &8397884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5527944435394124110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f80708170d6b8b242ba16b7e45c60ddd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounceDistance: 0.1
+  floatSpeed: 0.2
 --- !u!1 &5983100581789623278
 GameObject:
   m_ObjectHideFlags: 0
