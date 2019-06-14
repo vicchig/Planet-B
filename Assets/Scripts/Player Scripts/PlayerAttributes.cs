@@ -136,6 +136,7 @@ public class PlayerAttributes : MonoBehaviour
         if (collision.transform.tag == "Lava")
         {
             collidingWithLava = true;
+            currentHealth -= healthDecrementLava;
         }
         if (collision.CompareTag("Sun Ray"))
         {
