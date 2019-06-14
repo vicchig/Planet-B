@@ -212,8 +212,8 @@ public class HelperCharacter : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "TutorialLevel0")
         {
-            //player.GetComponent<PlayerMovement>().enabled = false;
-            //startedTutorial = false;
+            player.GetComponent<PlayerMovement>().enabled = false;
+            startedTutorial = false;
         }
     }
 

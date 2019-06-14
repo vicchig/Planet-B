@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
         setInitialBarValues(heatBar, playerAttributes.getCurrentHeat(), playerAttributes.maxHeat);
 
         waterInPoolBar = this.transform.GetChild(4).GetComponent<ProgressBar>();
-        setInitialBarValues(waterInPoolBar, manager.getAmountOfWaterInPool(), manager.waterNeededInPool);
+        setInitialBarValues(waterInPoolBar, manager.getAmountOfWaterInPool(), manager.waterNeededInPool - 8);
     }
 
     private void Update()

@@ -107,7 +107,7 @@ public class DynamicParticle : MonoBehaviour
         }
 
         if (destroyObject) {
-            Destroy(gameObject, 3f);
+            Destroy(gameObject, 2f);
         }
     }
     // This scales the particle image acording to its velocity, so it looks like its deformable... but its not ;)
@@ -172,7 +172,11 @@ public class DynamicParticle : MonoBehaviour
         if (other.tag != "WaterPool" && other.tag != "WaterDisappear" && other.tag != "WaterPoolCollisionArea" && other.tag != "bullet2") {
             destroyObject = true;
         }
+
+        Debug.Log(other.tag);
     }
+
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("WaterPool"))
@@ -181,6 +185,16 @@ public class DynamicParticle : MonoBehaviour
             inPool = false;
         }
     }
+
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.transform.tag == "Platforms") {
+            destroyObject = true;
+        }
+    }
+
+
     private void OnDestroy()
     {
         if (inPool)
