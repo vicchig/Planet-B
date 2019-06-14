@@ -199,7 +199,6 @@ public class HelperCharacter : MonoBehaviour
         else if (SceneManager.GetActiveScene().name == "TutorialLevel0") {
             sounds.Enqueue(introTxt);
             sounds.Enqueue(introTxt2);
-            sounds.Enqueue(controlExplanationTxt);
             sounds.Enqueue(hudExplanationTxt);
         }
 
