@@ -44,7 +44,6 @@ public class HelperCharacter : MonoBehaviour
     public AudioClip objectiveLevelClip1_7;
     public AudioClip objectiveLevelClip1_8;
     public AudioClip objectiveLevelClip1_9;
-    public AudioClip objectiveLevelClip1_10;
     public AudioClip waterFound;
     public AudioClip waterPoolFoundClip;
     public AudioClip butterlfyCommentClip;
@@ -96,7 +95,6 @@ public class HelperCharacter : MonoBehaviour
     ObjectText objectiveLevelTxt1_7;
     ObjectText objectiveLevelTxt1_8;
     ObjectText objectiveLevelTxt1_9;
-    ObjectText objectiveLevelTxt1_10;
 
     ObjectText waterPoolFoundTxt;
     ObjectText dontWasteWaterReminderTxt;
@@ -161,18 +159,20 @@ public class HelperCharacter : MonoBehaviour
         endTutorialTxt = new ObjectText("Let's see what you have learned. Make your way to the marker on the other side of this lava pool to complete the level.", false, endTutorialClip.length + 0.5f, endTutorialClip, 1);
 
         //LEVEL 1
-        objectiveLevelTxt1_0 = new ObjectText("This planet looks nice. Unfortunately, its water cycle is not functioning. If we want to colonize it, we will have to fix that first.", false, objectiveLevelClip1_0.length + 0.5f, objectiveLevelClip1_0, 1);
-        objectiveLevelTxt1_1 = new ObjectText("The first step would be to evaporate some water into the atmosphere. However, there does not seem to be any water on the surface. Maybe we should check if we can release some groundwater in the caves below us.", false, objectiveLevelClip1_1.length + 0.5f, objectiveLevelClip1_1, 1);
-        objectiveLevelTxt1_2 = new ObjectText("By my calculations we will need about 12 of these to have enough water to evaporate. You can see the current amount on your HUD.", false, objectiveLevelClip1_2.length + 0.5f, objectiveLevelClip1_2, 1);
-        objectiveLevelTxt1_3 = new ObjectText("We should have enough water now. Head back to the surface and see if there is somewhere where we can create an artificial lake.", false, objectiveLevelClip1_3.length + 0.5f, objectiveLevelClip1_3, 1);
+        objectiveLevelTxt1_0 = new ObjectText("If we want to colonize this planet, we will need to fix its water cycle first. The first step is to evaporate water from surface bodies of water into the atmosphere.", false, objectiveLevelClip1_0.length + 0.5f, objectiveLevelClip1_0, 1);
+        objectiveLevelTxt1_1 = new ObjectText("There is no water on the surface, I suggest you check the caves below us for some groundwater that we can collect and use.", false, objectiveLevelClip1_1.length + 0.5f, objectiveLevelClip1_1, 1);
+        objectiveLevelTxt1_2 = new ObjectText("By my calculations we will need about 14 of these to have enough water to evaporate. You can see the current amount on your HUD.", false, objectiveLevelClip1_2.length + 0.5f, objectiveLevelClip1_2, 1);
+        objectiveLevelTxt1_3 = new ObjectText("We should have enough water now. Head back to the surface and find a place for an artificial lake.", false, objectiveLevelClip1_3.length + 0.5f, objectiveLevelClip1_3, 1);
         objectiveLevelTxt1_4 = new ObjectText("We should probably explore some more to the east.", false, objectiveLevelClip1_4.length + 0.5f, objectiveLevelClip1_4, 1);
-        objectiveLevelTxt1_5 = new ObjectText("This should be enough. Now we just need to evaporate it. Unfortunately, this planet's Sun is too weak to do that. We will have to amplify it's heat.", false, objectiveLevelClip1_5.length + 0.5f, objectiveLevelClip1_5, 1);
-        objectiveLevelTxt1_6 = new ObjectText("Remember that your weapon mode 2 amplifies heat energy. Use the 2 key to switch to it and 1 to switch back.", false, objectiveLevelClip1_6.length, objectiveLevelClip1_6, 1);
-        objectiveLevelTxt1_7 = new ObjectText("Congratulations! We have fixed the first stage of the water cycle -- evaporation. Now we will go up into the atmosphere and see if we can get precipitation to work as well.", false, objectiveLevelClip1_7.length + 0.5f, objectiveLevelClip1_7, 1);
+        objectiveLevelTxt1_5 = new ObjectText("Now we just need to evaporate the water. This can be done using heat energy. We will need to find a source.", false, objectiveLevelClip1_5.length + 0.5f, objectiveLevelClip1_5, 1);
+        objectiveLevelTxt1_6 = new ObjectText("Use the 2 key to amplify the heat energy collected and use it to heat the water.", false, objectiveLevelClip1_6.length, objectiveLevelClip1_6, 1);
+        objectiveLevelTxt1_7 = new ObjectText("Congratulations! We have fixed the first stage of the water cycle. As water is heated by the sun, it evaporates in small amounts and rises in the atmosphere, which is where we are going next.", false, objectiveLevelClip1_7.length + 0.5f, objectiveLevelClip1_7, 1);
+
+        //TODO: this should be done by a progress bar or something
         objectiveLevelTxt1_8 = new ObjectText("There is not enough water in the pool yet. We need some more.", false, objectiveLevelClip1_8.length + 0.5f, objectiveLevelClip1_8, 1);
         objectiveLevelTxt1_9 = new ObjectText("There is not enough water left in the caves for us to fill the pool. We should probably restart.", false, objectiveLevelClip1_9.length + 0.5f, objectiveLevelClip1_9, 1);
-        objectiveLevelTxt1_10 = new ObjectText("Congratulations! You have started the process of evaporation on the planet. Next we will need to make sure this water comes back to the surface in the form of precipitation. Head to the marker on the other side of the pool to proceede.", false, objectiveLevelClip1_10.length + 0.5f, objectiveLevelClip1_10, 1);
 
+        //TODO: this should be done by a pop up
         waterPoolFoundTxt = new ObjectText("This looks like a good spot to release our water. Remember, you can do that by holding down F. I will let you know when we have enough water in the pool.", false, waterPoolFoundClip.length + 0.5f, waterPoolFoundClip, 1);
         dontWasteWaterReminderTxt = new ObjectText("Make sure you do not waste it. If you do, check the cave for some more water. If you waste all of it, we will have to restart.", false, dontWasteWaterReminderClip.length + 0.5f, dontWasteWaterReminderClip, 1);
 
@@ -235,7 +235,7 @@ public class HelperCharacter : MonoBehaviour
             healthWarningTimer = healthWarningDelay;
         }
 
-        //objectiveLevel1_2
+        //enough water collected
         if (attributes.GetCurrentWater() >= waterNeededInPool / 4 && !isBusy && objectiveLevelTxt1_3.getTextShows() < objectiveLevelTxt1_3.getMaxTextShows()) { 
             sounds.Enqueue(objectiveLevelTxt1_3);
             sounds.Enqueue(dontWasteWaterReminderTxt);
@@ -272,7 +272,7 @@ public class HelperCharacter : MonoBehaviour
 
             //evaporated enough water
             if (manager.getEvaporated() >= GameObject.Find("RisingSteam").GetComponent<RisingSteamManager>().waterThreshold) {
-                sounds.Enqueue(objectiveLevelTxt1_10);
+                sounds.Enqueue(objectiveLevelTxt1_7);
             }
         }
         //TUTORIAL
@@ -372,10 +372,12 @@ public class HelperCharacter : MonoBehaviour
         //GENERAL
         if (collision.tag == "AirSourceTextArea" && airSourceTxt.getTextShows() < airSourceTxt.getMaxTextShows())
         {
+            sounds.Clear();
             sounds.Enqueue(airSourceTxt);
         }
         if (collision.tag == "WaterTextArea" && waterDropTxt.getTextShows() < waterDropTxt.getMaxTextShows())
         {
+            sounds.Clear();
             sounds.Enqueue(waterDropTxt);
             sounds.Enqueue(objectiveLevelTxt1_2);
         }
