@@ -25,24 +25,29 @@ public class WaterPourController : MonoBehaviour
         if (fPressed && attributes.GetCurrentWater() > 0)
         {
             generator.enabled = true;
-            generator.particleForce = new Vector3(150 * this.GetComponent<PlayerMovement>().dir, -20, 0);
+            generator.particleForce = new Vector3(50 * this.GetComponent<PlayerMovement>().dir, -20, 0);
             if (pourTime >= decrementTime) {
                 attributes.SetCurrentWater(attributes.GetCurrentWater() - 1);
+                pourTime = 0;
             }
         }
         else{
             generator.enabled = false;
         }
+
+        if (Input.GetButtonDown("Flood"))
+        {
+            fPressed = true;
+        }
+        else if (Input.GetButtonUp("Flood"))
+        {
+            fPressed = false;
+        }
     }
 
     private void FixedUpdate()
     {
-        if (Input.GetButtonDown("Flood")) {
-            fPressed = true;
-        }
-        else if (Input.GetButtonUp("Flood")) {
-            fPressed = false;
-        }
+        
 
         if (fPressed)
         {
@@ -50,13 +55,6 @@ public class WaterPourController : MonoBehaviour
             {
                 pourTime += Time.deltaTime;
             }
-            else
-            {
-                pourTime = 0;
-            }
-        }
-        else {
-            pourTime = 0;
         }
     }
 

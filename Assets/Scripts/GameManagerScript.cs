@@ -21,8 +21,10 @@ public class GameManagerScript : MonoBehaviour
 
     private void Update()
     {
-        if (SceneManager.GetActiveScene().name == "MainGameScene" && amountOfEvaporatedWater >= GameObject.Find("RisingSteam").GetComponent<RisingSteamManager>().waterThreshold) {
-            nextLevelMarker.SetActive(true);
+        if (SceneManager.GetActiveScene().name == "MainGameScene") {
+            if (amountOfEvaporatedWater >= GameObject.Find("RisingSteam").GetComponent<RisingSteamManager>().waterThreshold) {
+                nextLevelMarker.SetActive(true);
+            }
         }
     }
 

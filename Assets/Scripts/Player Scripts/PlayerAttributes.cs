@@ -55,11 +55,6 @@ public class PlayerAttributes : MonoBehaviour
             Scene scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);
         }
-        
-        hudObject.GetComponent<UIManager>().setWaterCount(waterCollected);
-        hudObject.GetComponent<UIManager>().setHealth(currentHealth);
-        hudObject.GetComponent<UIManager>().setAir(currentAir);
-        hudObject.GetComponent<UIManager>().setHeat(currentHeat);
     }
 
     private void FixedUpdate()
