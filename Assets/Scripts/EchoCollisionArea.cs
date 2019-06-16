@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EchoCollisionText : MonoBehaviour
 {
-    public string text;
-
 
 
 

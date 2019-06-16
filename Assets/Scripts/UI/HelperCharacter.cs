@@ -74,49 +74,49 @@ public class HelperCharacter : MonoBehaviour
     private bool showIntro;
 
     //TUTORIAL 
-    ObjectText introTxt;
-    ObjectText introTxt2;
-    ObjectText hudExplanationTxt;
-    ObjectText destructibleExplanationTxt;
-    ObjectText wallClimbingExplanationTxt;
-    ObjectText shootingExplanationTxt;
-    ObjectText healthRegenTxt;
-    ObjectText endTutorialTxt;
+    EchoMessage introTxt;
+    EchoMessage introTxt2;
+    EchoMessage hudExplanationTxt;
+    EchoMessage destructibleExplanationTxt;
+    EchoMessage wallClimbingExplanationTxt;
+    EchoMessage shootingExplanationTxt;
+    EchoMessage healthRegenTxt;
+    EchoMessage endTutorialTxt;
 
     //LEVEL 1
-    ObjectText objectiveLevelTxt1_0;
-    ObjectText objectiveLevelTxt1_1;
-    ObjectText objectiveLevelTxt1_2;
-    ObjectText objectiveLevelTxt1_3;
-    ObjectText objectiveLevelTxt1_4;
-    ObjectText objectiveLevelTxt1_5;
-    ObjectText objectiveLevelTxt1_6;
-    ObjectText objectiveLevelTxt1_7;
-    ObjectText objectiveLevelTxt1_8;
-    ObjectText objectiveLevelTxt1_9;
+    EchoMessage objectiveLevelTxt1_0;
+    EchoMessage objectiveLevelTxt1_1;
+    EchoMessage objectiveLevelTxt1_2;
+    EchoMessage objectiveLevelTxt1_3;
+    EchoMessage objectiveLevelTxt1_4;
+    EchoMessage objectiveLevelTxt1_5;
+    EchoMessage objectiveLevelTxt1_6;
+    EchoMessage objectiveLevelTxt1_7;
+    EchoMessage objectiveLevelTxt1_8;
+    EchoMessage objectiveLevelTxt1_9;
 
-    ObjectText echoDirectionTxt1;
-    ObjectText echoDirectionTxt2;
+    EchoMessage echoDirectionTxt1;
+    EchoMessage echoDirectionTxt2;
 
-    ObjectText waterPoolFoundTxt;
-    ObjectText dontWasteWaterReminderTxt;
-    ObjectText butterlfyCommentTxt;
-    ObjectText rockWarningTxt;
+    EchoMessage waterPoolFoundTxt;
+    EchoMessage dontWasteWaterReminderTxt;
+    EchoMessage butterlfyCommentTxt;
+    EchoMessage rockWarningTxt;
 
     //GENERAL
-    ObjectText aboutToDieTxt;
-    ObjectText lavaCommentTxt;
-    ObjectText airCritical;
-    ObjectText airSourceTxt;
-    ObjectText waterDropTxt;
-    ObjectText destructibleTxt;
+    EchoMessage aboutToDieTxt;
+    EchoMessage lavaCommentTxt;
+    EchoMessage airCritical;
+    EchoMessage airSourceTxt;
+    EchoMessage waterDropTxt;
+    EchoMessage destructibleTxt;
 
     private PlayerAttributes attributes;
 
     //whether the display is already dispalying any text
     private bool isBusy;
 
-    private Queue<ObjectText> sounds;
+    private Queue<EchoMessage> sounds;
     private float healthWarningTimer;
     private bool healthWarningTimerEnable;
     private float airWarningTimer;
@@ -150,47 +150,47 @@ public class HelperCharacter : MonoBehaviour
 
        
         //TUTORIAL
-        introTxt = new ObjectText("Hello, I am Echo, your suit's built-in A.I. I hope we can get along, if not, please remember that I control your suit's life support systems.", false, introClip.length + 0.5f, introClip, 1);
-        introTxt2 = new ObjectText("Your mission is to terraform a planet's water cycle so that it may become inhabitable. Apparently, your species is dying out and needs another planet to live on. This suit and I were built for the purpose of helping you achieve this goal. We will now begin your training.", false, introClip2.length + 0.5f, introClip2, 1);
-        hudExplanationTxt = new ObjectText("Your suit has a built-in display at the top left of your screen. It tells you useful information about your resources and life support system state.", false, hudExplanationClip.length + 0.5f, hudExplanationClip, 1); ;
-        destructibleExplanationTxt = new ObjectText("This material has weak physical properties and can be destroyed with your weapon.", false, destructibleExplanation.length + 0.5f, destructibleExplanation, 1); ;
-        wallClimbingExplanationTxt = new ObjectText("To wall climb, hold space during your jump and move close to a wall. Once on a wall, you can jump higher using W and let go of the wall using A or D.", false, wallClimbingExplanationClip.length + 0.5f, wallClimbingExplanationClip, 1); ;
-        shootingExplanationTxt = new ObjectText("Shoot using the left mouse button while using the mouse to aim. You can use the 1, 2 and 3 keys to change weapon modes. Weapon 1 is your regular bullets. Weapon modes 2 and 3 use heat energy to respectively heat and cool down your environment.", false, shootingExplanation.length + 0.5f, shootingExplanation, 1); ;
-        healthRegenTxt = new ObjectText("The planet we are going to will have many environmental hazards. If your health reaches critical levels, the suit will passively regenerate your health.", false, healthRegenExplanation.length + 0.5f, healthRegenExplanation, 1);
-        endTutorialTxt = new ObjectText("Let's see what you have learned. Make your way to the marker on the other side of this lava pool to complete the level.", false, endTutorialClip.length + 0.5f, endTutorialClip, 1);
+        introTxt = new EchoMessage("Hello, I am Echo, your suit's built-in A.I. I hope we can get along, if not, please remember that I control your suit's life support systems.", introClip, 1);
+        introTxt2 = new EchoMessage("Your mission is to terraform a planet's water cycle so that it may become inhabitable. Apparently, your species is dying out and needs another planet to live on. This suit and I were built for the purpose of helping you achieve this goal. We will now begin your training.", introClip2, 1);
+        hudExplanationTxt = new EchoMessage("Your suit has a built-in display at the top left of your screen. It tells you useful information about your resources and life support system state.", hudExplanationClip, 1); ;
+        destructibleExplanationTxt = new EchoMessage("This material has weak physical properties and can be destroyed with your weapon.", destructibleExplanation, 1); ;
+        wallClimbingExplanationTxt = new EchoMessage("To wall climb, hold space during your jump and move close to a wall. Once on a wall, you can jump higher using W and let go of the wall using A or D.", wallClimbingExplanationClip, 1); ;
+        shootingExplanationTxt = new EchoMessage("Shoot using the left mouse button while using the mouse to aim. You can use the 1, 2 and 3 keys to change weapon modes. Weapon 1 is your regular bullets. Weapon modes 2 and 3 use heat energy to respectively heat and cool down your environment.", shootingExplanation, 1); ;
+        healthRegenTxt = new EchoMessage("The planet we are going to will have many environmental hazards. If your health reaches critical levels, the suit will passively regenerate your health.", healthRegenExplanation, 1);
+        endTutorialTxt = new EchoMessage("Let's see what you have learned. Make your way to the marker on the other side of this lava pool to complete the level.", endTutorialClip, 1);
 
         //LEVEL 1
-        objectiveLevelTxt1_0 = new ObjectText("If we want to colonize this planet, we will need to fix its water cycle first. The first step is to evaporate water from surface bodies of water into the atmosphere.", false, objectiveLevelClip1_0.length + 0.5f, objectiveLevelClip1_0, 1);
-        objectiveLevelTxt1_1 = new ObjectText("There is no water on the surface, I suggest you check the caves below us for some groundwater that we can collect and use.", false, objectiveLevelClip1_1.length + 0.5f, objectiveLevelClip1_1, 1);
-        objectiveLevelTxt1_2 = new ObjectText("By my calculations we will need about 14 of these to have enough water to evaporate. You can see the current amount on your HUD.", false, objectiveLevelClip1_2.length + 0.5f, objectiveLevelClip1_2, 1);
-        objectiveLevelTxt1_3 = new ObjectText("We should have enough water now. Head back to the surface and find a place for an artificial lake.", false, objectiveLevelClip1_3.length + 0.5f, objectiveLevelClip1_3, 1);
-        objectiveLevelTxt1_4 = new ObjectText("We should probably explore some more to the east.", false, objectiveLevelClip1_4.length + 0.5f, objectiveLevelClip1_4, 1);
-        objectiveLevelTxt1_5 = new ObjectText("Now we just need to evaporate the water. This can be done using heat energy. We will need to find a source.", false, objectiveLevelClip1_5.length + 0.5f, objectiveLevelClip1_5, 1);
-        objectiveLevelTxt1_6 = new ObjectText("Use the 2 key to amplify the heat energy collected and use it to heat the water.", false, objectiveLevelClip1_6.length, objectiveLevelClip1_6, 1);
-        objectiveLevelTxt1_7 = new ObjectText("Congratulations! We have fixed the first stage of the water cycle. As water is heated by the sun, it evaporates in small amounts and rises in the atmosphere, which is where we are going next.", false, objectiveLevelClip1_7.length + 0.5f, objectiveLevelClip1_7, 1);
-        objectiveLevelTxt1_8 = new ObjectText("There is not enough water in the pool yet. We need some more.", false, objectiveLevelClip1_8.length + 0.5f, objectiveLevelClip1_8, 1);
-        objectiveLevelTxt1_9 = new ObjectText("There is not enough water left in the caves for us to fill the pool. We should probably restart.", false, objectiveLevelClip1_9.length + 0.5f, objectiveLevelClip1_9, 1);
+        objectiveLevelTxt1_0 = new EchoMessage("If we want to colonize this planet, we will need to fix its water cycle first. The first step is to evaporate water from surface bodies of water into the atmosphere.", objectiveLevelClip1_0, 1);
+        objectiveLevelTxt1_1 = new EchoMessage("There is no water on the surface, I suggest you check the caves below us for some groundwater that we can collect and use.", objectiveLevelClip1_1, 1);
+        objectiveLevelTxt1_2 = new EchoMessage("By my calculations we will need about 14 of these to have enough water to evaporate. You can see the current amount on your HUD.", objectiveLevelClip1_2, 1);
+        objectiveLevelTxt1_3 = new EchoMessage("We should have enough water now. Head back to the surface and find a place for an artificial lake.", objectiveLevelClip1_3, 1);
+        objectiveLevelTxt1_4 = new EchoMessage("We should probably explore some more to the east.",  objectiveLevelClip1_4, 1);
+        objectiveLevelTxt1_5 = new EchoMessage("Now we just need to evaporate the water. This can be done using heat energy. We will need to find a source.", objectiveLevelClip1_5, 1);
+        objectiveLevelTxt1_6 = new EchoMessage("Use the 2 key to amplify the heat energy collected and use it to heat the water.", objectiveLevelClip1_6, 1);
+        objectiveLevelTxt1_7 = new EchoMessage("Congratulations! We have fixed the first stage of the water cycle. As water is heated by the sun, it evaporates in small amounts and rises in the atmosphere, which is where we are going next.", objectiveLevelClip1_7, 1);
+        objectiveLevelTxt1_8 = new EchoMessage("There is not enough water in the pool yet. We need some more.", objectiveLevelClip1_8, 1);
+        objectiveLevelTxt1_9 = new EchoMessage("There is not enough water left in the caves for us to fill the pool. We should probably restart.", objectiveLevelClip1_9, 1);
 
-        echoDirectionTxt1 = new ObjectText("I do not see any way across. We should probably turn around for now.", false, echoDirectionClip1.length + 0.5f, echoDirectionClip1, 1);
-        echoDirectionTxt2 = new ObjectText("I think this platform can be a shortcut, try jumping on it.", false, echoDirectionClip2.length + 0.5f, echoDirectionClip2, 1);
+        echoDirectionTxt1 = new EchoMessage("I do not see any way across. We should probably turn around for now.", echoDirectionClip1, 1);
+        echoDirectionTxt2 = new EchoMessage("I think this platform can be a shortcut, try jumping on it.", echoDirectionClip2, 1);
 
-        waterPoolFoundTxt = new ObjectText("This looks like a good spot to release our water.", false, waterPoolFoundClip.length + 0.5f, waterPoolFoundClip, 1);
-        dontWasteWaterReminderTxt = new ObjectText("Make sure you do not waste it. If you do, check the cave for some more water. If you waste all of it, we will have to restart.", false, dontWasteWaterReminderClip.length + 0.5f, dontWasteWaterReminderClip, 1);
+        waterPoolFoundTxt = new EchoMessage("This looks like a good spot to release our water.", waterPoolFoundClip, 1);
+        dontWasteWaterReminderTxt = new EchoMessage("Make sure you do not waste it. If you do, check the cave for some more water. If you waste all of it, we will have to restart.", dontWasteWaterReminderClip, 1);
 
-        butterlfyCommentTxt = new ObjectText("Wow. Aren't these beautiful!", false, butterlfyCommentClip.length + 0.5f, butterlfyCommentClip, 1);
-        rockWarningTxt = new ObjectText("The ceiling of the cave in this area is prone to collapse. Watch your head!", false, rockWarningClip.length + 0.5f, rockWarningClip, 4);
+        butterlfyCommentTxt = new EchoMessage("Wow. Aren't these beautiful!", butterlfyCommentClip, 1);
+        rockWarningTxt = new EchoMessage("The ceiling of the cave in this area is prone to collapse. Watch your head!", rockWarningClip, 4);
         
         
         //GENERAL
-        aboutToDieTxt = new ObjectText("Warning: operator sustaining critical damage.", false, aboutToDieClip.length +0.5f, aboutToDieClip, 1000);
-        airCritical = new ObjectText("Warning: Air supply at critical level.", false, airCriticalClip.length + 0.5f, airCriticalClip, 1000);
-        lavaCommentTxt = new ObjectText("It burns! It burns! Make it stop! Just kidding, I cannot feel a thing.", false, lavaCommentClip.length + 0.5f, lavaCommentClip, 1);
-        airSourceTxt = new ObjectText("This weird orb seems to be the only source of breathable air here. Better grab it to replenish the air supply.", false, airFound.length + 0.5f, airFound, 1);
-        waterDropTxt = new ObjectText("Look! We seem to have found some water. Better collect it.", false, waterFound.length + 0.5f, waterFound, 1);
-        destructibleTxt = new ObjectText("The ground in the vicinity seems to be prone to collapse. Try shooting it with your weapon.", false, destructibleFound.length + 1f, destructibleFound, 2);
+        aboutToDieTxt = new EchoMessage("Warning: operator sustaining critical damage.", aboutToDieClip, 1000);
+        airCritical = new EchoMessage("Warning: Air supply at critical level.", airCriticalClip, 1000);
+        lavaCommentTxt = new EchoMessage("It burns! It burns! Make it stop! Just kidding, I cannot feel a thing.", lavaCommentClip, 1);
+        airSourceTxt = new EchoMessage("This weird orb seems to be the only source of breathable air here. Better grab it to replenish the air supply.", airFound, 1);
+        waterDropTxt = new EchoMessage("Look! We seem to have found some water. Better collect it.", waterFound, 1);
+        destructibleTxt = new EchoMessage("The ground in the vicinity seems to be prone to collapse. Try shooting it with your weapon.", destructibleFound, 2);
 
 
-        sounds = new Queue<ObjectText>();
+        sounds = new Queue<EchoMessage>();
 
         if (SceneManager.GetActiveScene().name == "MainGameScene") {
             sounds.Enqueue(objectiveLevelTxt1_0);
@@ -215,15 +215,15 @@ public class HelperCharacter : MonoBehaviour
         //playing sounds
         if (sounds.Count >= 1 && !isBusy)
         {
-            ObjectText currText = null;
+            EchoMessage currText = null;
             currText = sounds.Dequeue();
 
-            if (currText.getTextShows() < currText.getMaxTextShows()) {
+            if (!currText.maxTextShowsReached()) {
                 isBusy = true;
                 textDuration = currText.getDuration();
-                currText.setTextShows(currText.getTextShows() + 1);
+                currText.incrementTextShows(1);
                 uiTextMesh.text = currText.getText();
-                AudioManager.playVoiceClip(currText.getClip());
+                currText.playMessage();
             }
         }
 
@@ -236,7 +236,7 @@ public class HelperCharacter : MonoBehaviour
         }
 
         //enough water collected
-        if (attributes.GetCurrentWater() >= manager.waterNeededInPool / 4 && !isBusy && objectiveLevelTxt1_3.getTextShows() < objectiveLevelTxt1_3.getMaxTextShows()) { 
+        if (attributes.GetCurrentWater() >= manager.waterNeededInPool / 4 && !isBusy && !objectiveLevelTxt1_3.maxTextShowsReached()) { 
             sounds.Enqueue(objectiveLevelTxt1_3);
             sounds.Enqueue(dontWasteWaterReminderTxt);
         }
@@ -335,52 +335,52 @@ public class HelperCharacter : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //LEVEL 1
-        if (collision.tag == "FireflyArea" && !isBusy && butterlfyCommentTxt.getTextShows() < butterlfyCommentTxt.getMaxTextShows())
+        if (collision.tag == "FireflyArea" && !isBusy && !butterlfyCommentTxt.maxTextShowsReached())
         {
             sounds.Enqueue(butterlfyCommentTxt);
         }
 
-        if (collision.tag == "ExploreAreaEastLevel1" && attributes.GetCurrentWater() >= manager.waterNeededInPool / 4  && waterPoolFoundTxt.getTextShows() < waterPoolFoundTxt.getMaxTextShows())
+        if (collision.tag == "ExploreAreaEastLevel1" && attributes.GetCurrentWater() >= manager.waterNeededInPool / 4  && !waterPoolFoundTxt.maxTextShowsReached())
         {
             sounds.Enqueue(objectiveLevelTxt1_4);
         }
         if (collision.tag == "WaterPoolCollisionArea") {
             inPoolArea = true;
-            if (waterPoolFoundTxt.getTextShows() < waterPoolFoundTxt.getMaxTextShows() && attributes.GetCurrentWater() >= manager.waterNeededInPool / 4) {
+            if (!waterPoolFoundTxt.maxTextShowsReached() && attributes.GetCurrentWater() >= manager.waterNeededInPool / 4) {
                 sounds.Enqueue(waterPoolFoundTxt);
             }       
         }
-        if (collision.tag == "FallingRockArea" && rockWarningTxt.getTextShows() < rockWarningTxt.getMaxTextShows() && !isBusy) {
+        if (collision.tag == "FallingRockArea" && !rockWarningTxt.maxTextShowsReached() && !isBusy) {
             sounds.Enqueue(rockWarningTxt);
         }
-        if (collision.tag == "EchoDirection1" && echoDirectionTxt1.getTextShows() < echoDirectionTxt1.getMaxTextShows()) {
+        if (collision.tag == "EchoDirection1" && !echoDirectionTxt1.maxTextShowsReached()) {
             sounds.Enqueue(echoDirectionTxt1);
         }
-        if (collision.tag == "EchoDirectionArea2" && echoDirectionTxt2.getTextShows() < echoDirectionTxt2.getMaxTextShows()) {
+        if (collision.tag == "EchoDirectionArea2" && !echoDirectionTxt2.maxTextShowsReached()) {
             sounds.Enqueue(echoDirectionTxt2);
         }
 
         //TUTORIAL
-        if (collision.tag == "DestructibleAreaTutorial" && destructibleExplanationTxt.getTextShows() < destructibleExplanationTxt.getMaxTextShows() && shootingExplanationTxt.getTextShows() < shootingExplanationTxt.getMaxTextShows()) {
+        if (collision.tag == "DestructibleAreaTutorial" && !destructibleExplanationTxt.maxTextShowsReached() && !shootingExplanationTxt.maxTextShowsReached()) {
             sounds.Enqueue(destructibleExplanationTxt);
             sounds.Enqueue(shootingExplanationTxt);
         }
-        if (collision.tag == "WallClimbTextArea" && wallClimbingExplanationTxt.getTextShows() < wallClimbingExplanationTxt.getMaxTextShows()) {
+        if (collision.tag == "WallClimbTextArea" && !wallClimbingExplanationTxt.maxTextShowsReached()) {
             sounds.Enqueue(wallClimbingExplanationTxt);
         }
-        if (collision.tag == "Lava" && healthRegenTxt.getTextShows() < healthRegenTxt.getMaxTextShows() && SceneManager.GetActiveScene().name == "TutorialLevel0") {
+        if (collision.tag == "Lava" && !healthRegenTxt.maxTextShowsReached() && SceneManager.GetActiveScene().name == "TutorialLevel0") {
             sounds.Enqueue(healthRegenTxt);
         }
-        if (collision.tag == "EndTutorialArea" && endTutorialTxt.getTextShows() < endTutorialTxt.getMaxTextShows()) {
+        if (collision.tag == "EndTutorialArea" && !endTutorialTxt.maxTextShowsReached()) {
             sounds.Enqueue(endTutorialTxt);
         }
         //GENERAL
-        if (collision.tag == "AirSourceTextArea" && airSourceTxt.getTextShows() < airSourceTxt.getMaxTextShows())
+        if (collision.tag == "AirSourceTextArea" && !airSourceTxt.maxTextShowsReached())
         {
             sounds.Clear();
             sounds.Enqueue(airSourceTxt);
         }
-        if (collision.tag == "WaterTextArea" && waterDropTxt.getTextShows() < waterDropTxt.getMaxTextShows())
+        if (collision.tag == "WaterTextArea" && !waterDropTxt.maxTextShowsReached())
         {
             sounds.Clear();
             sounds.Enqueue(waterDropTxt);
@@ -396,12 +396,11 @@ public class HelperCharacter : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (SceneManager.GetActiveScene().name != "TutorialLevel0") {
-            if (collision.tag == "RegenExplainArea" && lavaCommentTxt.getTextShows() < lavaCommentTxt.getMaxTextShows() && !isBusy)
+            if (collision.tag == "RegenExplainArea" && !lavaCommentTxt.maxTextShowsReached() && !isBusy)
             {
                 sounds.Enqueue(lavaCommentTxt);
             }
         }
-        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -409,56 +408,6 @@ public class HelperCharacter : MonoBehaviour
         if (collision.tag == "WaterPoolCollisionArea")
         {
             inPoolArea = false;
-        }
-    }
-
-    private class ObjectText {
-        private bool showText; //whether this text should be shown right now or not
-        private int textShows; //number of times this text has been shown
-        private string text; //text to be shown
-        private float duration;
-        private int maxTextShows;
-        private AudioClip clip;
-
-        public ObjectText(string text, bool showText, float duration, AudioClip clip, int maxTextShows) {
-            this.text = text;
-            this.showText = showText;
-            this.duration = duration;
-            this.clip = clip;
-            this.maxTextShows = maxTextShows;
-            textShows = 0;
-        }
-
-
-        public bool isShowText() {
-            return showText;
-        }
-        public void setShowText(bool tf) {
-            showText = tf;
-        }
-        public int getTextShows() {
-            return textShows;
-        }
-        public void setTextShows(int textShows) {
-            this.textShows = textShows;
-        }
-        public string getText() {
-            return text;
-        }
-        public void setText(string text) {
-            this.text = text;
-        }
-        public void setDuration(float duration) {
-            this.duration = duration;
-        }
-        public float getDuration() {
-            return duration;
-        }
-        public AudioClip getClip() {
-            return clip;
-        }
-        public int getMaxTextShows() {
-            return maxTextShows;
         }
     }
 }
