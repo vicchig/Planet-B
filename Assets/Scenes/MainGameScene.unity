@@ -10101,7 +10101,7 @@ Transform:
   - {fileID: 1369479016}
   - {fileID: 297882796}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1036159725
 PrefabInstance:
@@ -12008,7 +12008,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4693653493845900, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
       propertyPath: m_RootOrder
-      value: 24
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 4693653493845900, guid: 379785de5e39005469c875710d3cc5a7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -55338,7 +55338,7 @@ GameObject:
   - component: {fileID: 1329634134}
   m_Layer: 9
   m_Name: HelperCharacter
-  m_TagString: Untagged
+  m_TagString: EchoCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55426,8 +55426,6 @@ MonoBehaviour:
   level: 1
   introClip: {fileID: 8300000, guid: 8286ef29fe2bfa243827e5fead482bca, type: 3}
   introClip2: {fileID: 8300000, guid: 9c2a1791323142c469955d88e5a4394e, type: 3}
-  controlExplanationClip: {fileID: 8300000, guid: dbe407a0b8e21b74abcc09c46b12ef75,
-    type: 3}
   hudExplanationClip: {fileID: 8300000, guid: 4ae1f710b4dc1114fb52b9e07fe4db9b, type: 3}
   destructibleExplanation: {fileID: 8300000, guid: 8d0c01b9f0a7def4fba71f3fcb48dff0,
     type: 3}
@@ -55679,7 +55677,7 @@ Transform:
   - {fileID: 325470232}
   - {fileID: 1509722739}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1396714582
 GameObject:
@@ -103445,7 +103443,7 @@ PrefabInstance:
     - target: {fileID: 5359453249395348012, guid: 4c153fe675027a645ae92f124e58c8b4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5359453249395348012, guid: 4c153fe675027a645ae92f124e58c8b4,
         type: 3}

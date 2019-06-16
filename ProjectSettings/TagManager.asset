@@ -35,6 +35,7 @@ TagManager:
   - PoisonousCloud
   - EchoDirection1
   - EchoDirectionArea2
+  - EchoCollider
   layers:
   - Default
   - TransparentFX

@@ -410,4 +410,8 @@ public class HelperCharacter : MonoBehaviour
             inPoolArea = false;
         }
     }
+
+    public void addMessage(EchoMessage msg) {
+        sounds.Enqueue(msg);
+    }
 }

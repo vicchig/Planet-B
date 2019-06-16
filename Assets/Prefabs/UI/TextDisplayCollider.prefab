@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8742231733998290308}
   - component: {fileID: 3546228992207641018}
   - component: {fileID: 2355123609290904645}
+  - component: {fileID: 8570055596288946891}
   m_Layer: 0
   m_Name: TextDisplayCollider
   m_TagString: Untagged
@@ -79,3 +80,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &8570055596288946891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7550295173081739892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bcb0243233709f459fb7d17bc58eae1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
