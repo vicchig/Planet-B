@@ -21,7 +21,7 @@ public class EchoMessageCollider : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "EchoCollider" && !message.maxTextShowsReached()) {
+        if (collision.tag == "EchoCollider" && !message.maxTextShowsReached() && !echo.isBusy()) {
             echo.addMessage(message);
         }
     }

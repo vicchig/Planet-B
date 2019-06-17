@@ -6,16 +6,20 @@ public class RisingSteamManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject[] steam;
-    public GameManagerScript gameManager;
+    public GameObject manager;
     public int waterThreshold = 20;
+
+    private GameManagerLevel1 managerScript;
+
     private void Start()
     {
         DisableSteam();
+        managerScript = manager.GetComponent<GameManagerLevel1>();
     }
 
     private void Update()
     {
-        if(gameManager.getAmountOfWaterInPool() < waterThreshold)
+        if(managerScript.getAmountOfWaterInPool() < waterThreshold)
         {
             DisableSteam();
         }

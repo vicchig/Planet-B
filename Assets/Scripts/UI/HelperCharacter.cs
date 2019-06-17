@@ -17,10 +17,6 @@ public class HelperCharacter : MonoBehaviour
     public GameObject txtBackground;
     public GameObject portraitObj;
 
-    [Header("Text Display Attributes")]
-    public float textDuration = 4.0f; //for how long the text is displayed
-    public int level = 1;
-
     [Header("Sounds Tutorial")]
     public AudioClip introClip;
     public AudioClip introClip2;
@@ -31,16 +27,8 @@ public class HelperCharacter : MonoBehaviour
     public AudioClip healthRegenExplanation;
     public AudioClip endTutorialClip;
 
-    [Header("Sounds Level 1")]
-    public AudioClip objectiveLevelClip1_2;
-    public AudioClip objectiveLevelClip1_4;
-    public AudioClip waterFound;
-    public AudioClip waterPoolFoundClip;
-
     [Header("Sounds General")]
-    public AudioClip airFound;
     public AudioClip aboutToDieClip;
-    public AudioClip lavaCommentClip;
     public AudioClip airCriticalClip;
 
     [Header("Audio Play Conditions")]
@@ -54,6 +42,7 @@ public class HelperCharacter : MonoBehaviour
 
     //how long the current text has been displayed for so far
     private float textTimer;
+    private float textDuration;
 
     //TUTORIAL 
     EchoMessage introTxt;
@@ -65,19 +54,9 @@ public class HelperCharacter : MonoBehaviour
     EchoMessage healthRegenTxt;
     EchoMessage endTutorialTxt;
 
-    //LEVEL 1
-    EchoMessage objectiveLevelTxt1_4;
-    EchoMessage waterPoolFoundTxt;
-    EchoMessage objectiveLevelTxt1_2;
-
-
-
     //GENERAL
     EchoMessage aboutToDieTxt;
-    EchoMessage lavaCommentTxt;
     EchoMessage airCritical;
-    EchoMessage airSourceTxt;
-    EchoMessage waterDropTxt;
 
     private PlayerAttributes attributes;
 
@@ -126,27 +105,14 @@ public class HelperCharacter : MonoBehaviour
         healthRegenTxt = new EchoMessage("The planet we are going to will have many environmental hazards. If your health reaches critical levels, the suit will passively regenerate your health.", healthRegenExplanation, 1);
         endTutorialTxt = new EchoMessage("Let's see what you have learned. Make your way to the marker on the other side of this lava pool to complete the level.", endTutorialClip, 1);
 
-        //LEVEL 1
-        objectiveLevelTxt1_4 = new EchoMessage("We should probably explore some more to the east.", objectiveLevelClip1_4, 1);
-        waterPoolFoundTxt = new EchoMessage("This looks like a good spot to release our water.", waterPoolFoundClip, 1);
-        objectiveLevelTxt1_2 = new EchoMessage("By my calculations we will need about 14 of these to have enough water to evaporate. You can see the current amount on your HUD.", objectiveLevelClip1_2, 1);
-
         //GENERAL
         aboutToDieTxt = new EchoMessage("Warning: operator sustaining critical damage.", aboutToDieClip, 1000);
         airCritical = new EchoMessage("Warning: Air supply at critical level.", airCriticalClip, 1000);
-        lavaCommentTxt = new EchoMessage("It burns! It burns! Make it stop! Just kidding, I cannot feel a thing.", lavaCommentClip, 1);
-        airSourceTxt = new EchoMessage("This weird orb seems to be the only source of breathable air here. Better grab it to replenish the air supply.", airFound, 1);
-        waterDropTxt = new EchoMessage("Look! We seem to have found some water. Better collect it.", waterFound, 1);
 
         if (SceneManager.GetActiveScene().name == "TutorialLevel0") {
             sounds.Enqueue(introTxt);
             sounds.Enqueue(introTxt2);
             sounds.Enqueue(hudExplanationTxt);
-        }
-
-
-        if (SceneManager.GetActiveScene().name == "TutorialLevel0")
-        {
             player.GetComponent<PlayerMovement>().enabled = false;
             startedTutorial = false;
         }
@@ -184,13 +150,8 @@ public class HelperCharacter : MonoBehaviour
             airWarningTimer = airWarningDelay;
         }
 
-
-        //LEVEL 1
-        if (SceneManager.GetActiveScene().name == "MainGameScene") {
-
-        }
         //TUTORIAL
-        else if (SceneManager.GetActiveScene().name == "TutorialLevel0") {
+        if (SceneManager.GetActiveScene().name == "TutorialLevel0") {
             if (!startedTutorial && sounds.Count == 0)
             {
                 player.GetComponent<PlayerMovement>().enabled = true;
@@ -214,7 +175,7 @@ public class HelperCharacter : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //update timer
+        //update text duration timer
         if (busy)
         {
             if (textTimer >= textDuration) {
@@ -248,17 +209,6 @@ public class HelperCharacter : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //LEVEL 1
-        if (collision.tag == "ExploreAreaEastLevel1" && attributes.GetCurrentWater() >= manager.waterNeededInPool / 4  && !waterPoolFoundTxt.maxTextShowsReached())
-        {
-            sounds.Enqueue(objectiveLevelTxt1_4);
-        }
-        if (collision.tag == "WaterPoolCollisionArea") {
-            inPoolArea = true;
-            if (!waterPoolFoundTxt.maxTextShowsReached() && attributes.GetCurrentWater() >= manager.waterNeededInPool / 4) {
-                sounds.Enqueue(waterPoolFoundTxt);
-            }       
-        }
 
         //TUTORIAL
         if (collision.tag == "DestructibleAreaTutorial" && !destructibleExplanationTxt.maxTextShowsReached() && !shootingExplanationTxt.maxTextShowsReached()) {
@@ -274,37 +224,16 @@ public class HelperCharacter : MonoBehaviour
         if (collision.tag == "EndTutorialArea" && !endTutorialTxt.maxTextShowsReached()) {
             sounds.Enqueue(endTutorialTxt);
         }
-
-        //GENERAL
-        if (collision.tag == "AirSourceTextArea" && !airSourceTxt.maxTextShowsReached())
-        {
-            sounds.Clear();
-            sounds.Enqueue(airSourceTxt);
-        }
-        if (collision.tag == "WaterTextArea" && !waterDropTxt.maxTextShowsReached())
-        {
-            sounds.Clear();
-            sounds.Enqueue(waterDropTxt);
-            sounds.Enqueue(objectiveLevelTxt1_2);
-        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (SceneManager.GetActiveScene().name != "TutorialLevel0") {
+        /*if (SceneManager.GetActiveScene().name != "TutorialLevel0") {
             if (collision.tag == "RegenExplainArea" && !lavaCommentTxt.maxTextShowsReached() && !busy)
             {
                 sounds.Enqueue(lavaCommentTxt);
             }
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "WaterPoolCollisionArea")
-        {
-            inPoolArea = false;
-        }
+        }*/
     }
 
     public void addMessage(EchoMessage msg) {
@@ -317,9 +246,5 @@ public class HelperCharacter : MonoBehaviour
 
     public bool isBusy() {
         return busy;
-    }
-
-    public bool isInPoolArea() {
-        return inPoolArea;
     }
 }
