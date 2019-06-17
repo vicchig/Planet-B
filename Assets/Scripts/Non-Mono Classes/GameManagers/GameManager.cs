@@ -42,6 +42,8 @@ public abstract class GameManager : MonoBehaviour
         if (attributes.GetCurrentHealth() <= 0)
         {
             player.transform.position = respawnPosition;
+            attributes.SetCurrentAir(attributes.GetMaxAir());
+            attributes.SetCurrentHealth(attributes.GetMaxHealth());
         }
     }
 
