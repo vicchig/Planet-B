@@ -29,7 +29,6 @@ public class GameManagerLevel1 : GameManager
 
     [Header("Level Objects")]
     public GameObject nextLevelMarker;
-    public GameObject helperChar;
     public GameObject waterDropParent;
 
     //Level 1 Echo Messages
@@ -54,7 +53,6 @@ public class GameManagerLevel1 : GameManager
 
     /// <summary> Amount of water that has been evaporated from the pool.</summary>
     private int amountOfEvaporatedWater;
-    private HelperCharacter echo;
 
     /// <summary> Script that controls how the player can pour water.</summary>
     private WaterPourController waterPControl;
@@ -95,7 +93,7 @@ public class GameManagerLevel1 : GameManager
 
         attributes = player.GetComponent<PlayerAttributes>();
         waterPControl = player.GetComponent<WaterPourController>();
-        echo = helperChar.GetComponent<HelperCharacter>();
+
         echo.addMessage(objectiveLevelTxt1_0);
         echo.addMessage(objectiveLevelTxt1_1);
     }
@@ -169,7 +167,7 @@ public class GameManagerLevel1 : GameManager
                     echo.addMessage(waterPoolFoundTxt);
                 }
             }
-            else if (echoColliders[i].tag == "AirSourceTextArea" && !airSourceFoundTxt.maxTextShowsReached()) {
+            else if (echoColliders[i].tag == "AirSourceTextArea" && !airSourceFoundTxt.maxTextShowsReached() && !echo.isBusy()) {
 
                 echo.clearMessages();
                 echo.addMessage(airSourceFoundTxt);

@@ -438,7 +438,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 154045993}
-  respawnPosition: {x: 0, y: 0, z: 0}
+  respawnPosition: {x: -6.24, y: 0.761, z: 0}
+  helperChar: {fileID: 1329634132}
   objectiveLevelClip1_0: {fileID: 8300000, guid: 0c9c09ea075ce824ea8b9e648cc61fca,
     type: 3}
   objectiveLevelClip1_1: {fileID: 8300000, guid: beff1ed6344f4b64d8febdebda5a62c5,
@@ -467,7 +468,6 @@ MonoBehaviour:
   lavaCommentClip: {fileID: 8300000, guid: ca006463c9e1aaf42a0a0e2ebc998475, type: 3}
   waterNeededInPool: 56
   nextLevelMarker: {fileID: 1462285831}
-  helperChar: {fileID: 1329634132}
   waterDropParent: {fileID: 1033588060}
 --- !u!1001 &54436656
 PrefabInstance:
@@ -1533,32 +1533,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.35138977, y: 1.1291075}
   m_EdgeRadius: 0
---- !u!114 &154045995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 154045993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d21b76328b64f6499f6667e3a6c7af3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  waterCollected: 0
-  maxAir: 100
-  maxHeat: 300
-  airDepletionTime: 2
-  lavaCollisionTime: 0.1
-  outOfAirHealthDecrementTime: 0.5
-  healthRegenTime: 3
-  healthDecrementOutOfAir: 5
-  healthDecrementLava: 3
-  airDecrement: 1
-  healthRegenRate: 2
-  sunRayValue: 12
-  hudObject: {fileID: 214270708}
 --- !u!114 &154045996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55450,23 +55424,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0bfcc480e9df6e42a6900b4d9da0915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  managerObj: {fileID: 51099171}
   player: {fileID: 154045993}
-  waterDropParent: {fileID: 1033588060}
   txtMeshContainer: {fileID: 867387537}
   txtBackground: {fileID: 1633108334}
   portraitObj: {fileID: 897589204}
-  introClip: {fileID: 8300000, guid: 8286ef29fe2bfa243827e5fead482bca, type: 3}
-  introClip2: {fileID: 8300000, guid: 9c2a1791323142c469955d88e5a4394e, type: 3}
-  hudExplanationClip: {fileID: 8300000, guid: 4ae1f710b4dc1114fb52b9e07fe4db9b, type: 3}
-  destructibleExplanation: {fileID: 8300000, guid: 8d0c01b9f0a7def4fba71f3fcb48dff0,
-    type: 3}
-  wallClimbingExplanationClip: {fileID: 8300000, guid: 7e5fcb485affa9646a485c7eeaec2fb4,
-    type: 3}
-  shootingExplanation: {fileID: 8300000, guid: 746e93f08d24278458b917e434bed239, type: 3}
-  healthRegenExplanation: {fileID: 8300000, guid: 0efd47b15d2df21489045186d7b9143d,
-    type: 3}
-  endTutorialClip: {fileID: 8300000, guid: 94dc0a128db592f469980ccfeeab92d4, type: 3}
   aboutToDieClip: {fileID: 8300000, guid: 861bf70274563c14888acd7e282894ad, type: 3}
   airCriticalClip: {fileID: 8300000, guid: 7ab60fc5220f8364b95e466a13c5ac79, type: 3}
   critHealthThreshold: 15
@@ -55857,7 +55818,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1417087499}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 73.55, y: 0.42, z: 0}
+  m_LocalPosition: {x: 77.53, y: 0.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -99610,7 +99571,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1724776092}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.85, z: 0}
+  m_LocalPosition: {x: 0, y: -0.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 560990074}
@@ -103306,6 +103267,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2912555128475887094, guid: 5841e2894e0701f4c910647647c23e7a,
+        type: 3}
+      propertyPath: hudObject
+      value: 
+      objectReference: {fileID: 214270708}
     - target: {fileID: 3190657251732207762, guid: 5841e2894e0701f4c910647647c23e7a,
         type: 3}
       propertyPath: m_Name

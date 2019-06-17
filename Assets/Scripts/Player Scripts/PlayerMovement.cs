@@ -176,7 +176,7 @@ public class PlayerMovement : MonoBehaviour
 
         // if ((leftFoot || rightFoot) && !isHanging)
         //if ((leftFoot || rightFoot))
-        if (Physics2D.OverlapCircle(platCollideCheckPoint.position, 0.1f, groundLayer))
+        if (Physics2D.OverlapCircle(platCollideCheckPoint.position, 0.12f, groundLayer))
         {
             isOnGround = true;
             isHanging = false;
@@ -371,7 +371,7 @@ public class PlayerMovement : MonoBehaviour
             rBody.velocity = new Vector2(rBody.velocity.x, rBody.velocity.y);
         }
 
-        if (Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer) || !Physics2D.OverlapCircle(platCollideCheckPoint.position, 0.1f, movingPlatLayer))
+        if (Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer) || !Physics2D.OverlapCircle(platCollideCheckPoint.position, 0.12f, movingPlatLayer))
         {
             //isHanging = false;
             isOnPlatform = false;
@@ -407,7 +407,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col) {
 
-        if ((col.transform.CompareTag("MovingPlatform") || col.transform.CompareTag("RandomlyMovingPlatform")) && Physics2D.OverlapCircle(platCollideCheckPoint.position, 0.1f, movingPlatLayer))
+        if ((col.transform.CompareTag("MovingPlatform") || col.transform.CompareTag("RandomlyMovingPlatform")) && Physics2D.OverlapCircle(platCollideCheckPoint.position, 0.12f, movingPlatLayer))
         {
             transform.parent = col.transform;
             isOnPlatform = true;

@@ -24,8 +24,6 @@ TagManager:
   - Sun Ray
   - WaterPool
   - WaterDisappear
-  - WallClimbTextArea
-  - EndTutorialArea
   - RegenExplainArea
   - RandomlyMovingPlatform
   - PoisonousCloud

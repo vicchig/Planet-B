@@ -8,24 +8,12 @@ using UnityEngine.SceneManagement;
 public class HelperCharacter : MonoBehaviour
 {
     [Header("Game Utilities")]
-    public GameObject managerObj;
     public GameObject player;
-    public GameObject waterDropParent;
     
     [Header("UI Objects")]
     public GameObject txtMeshContainer;
     public GameObject txtBackground;
     public GameObject portraitObj;
-
-    [Header("Sounds Tutorial")]
-    public AudioClip introClip;
-    public AudioClip introClip2;
-    public AudioClip hudExplanationClip;
-    public AudioClip destructibleExplanation;
-    public AudioClip wallClimbingExplanationClip;
-    public AudioClip shootingExplanation;
-    public AudioClip healthRegenExplanation;
-    public AudioClip endTutorialClip;
 
     [Header("Sounds General")]
     public AudioClip aboutToDieClip;
@@ -44,19 +32,9 @@ public class HelperCharacter : MonoBehaviour
     private float textTimer;
     private float textDuration;
 
-    //TUTORIAL 
-    EchoMessage introTxt;
-    EchoMessage introTxt2;
-    EchoMessage hudExplanationTxt;
-    EchoMessage destructibleExplanationTxt;
-    EchoMessage wallClimbingExplanationTxt;
-    EchoMessage shootingExplanationTxt;
-    EchoMessage healthRegenTxt;
-    EchoMessage endTutorialTxt;
-
     //GENERAL
-    EchoMessage aboutToDieTxt;
-    EchoMessage airCritical;
+    private EchoMessage aboutToDieTxt;
+    private EchoMessage airCritical;
 
     private PlayerAttributes attributes;
 
@@ -90,32 +68,11 @@ public class HelperCharacter : MonoBehaviour
         healthWarningTimer = 0;
         airWarningTimer = 0;
         airWarningTimerEnable = false;
-        manager = managerObj.GetComponent<GameManagerScript>();
         attributes = player.GetComponent<PlayerAttributes>();
-        playerWaterPourController = player.GetComponent<WaterPourController>();
-
-       
-        //TUTORIAL
-        introTxt = new EchoMessage("Hello, I am Echo, your suit's built-in A.I. I hope we can get along, if not, please remember that I control your suit's life support systems.", introClip, 1);
-        introTxt2 = new EchoMessage("Your mission is to terraform a planet's water cycle so that it may become inhabitable. Apparently, your species is dying out and needs another planet to live on. This suit and I were built for the purpose of helping you achieve this goal. We will now begin your training.", introClip2, 1);
-        hudExplanationTxt = new EchoMessage("Your suit has a built-in display at the top left of your screen. It tells you useful information about your resources and life support system state.", hudExplanationClip, 1); ;
-        destructibleExplanationTxt = new EchoMessage("This material has weak physical properties and can be destroyed with your weapon.", destructibleExplanation, 1); ;
-        wallClimbingExplanationTxt = new EchoMessage("To wall climb, hold space during your jump and move close to a wall. Once on a wall, you can jump higher using W and let go of the wall using A or D.", wallClimbingExplanationClip, 1); ;
-        shootingExplanationTxt = new EchoMessage("Shoot using the left mouse button while using the mouse to aim. You can use the 1, 2 and 3 keys to change weapon modes. Weapon 1 is your regular bullets. Weapon modes 2 and 3 use heat energy to respectively heat and cool down your environment.", shootingExplanation, 1); ;
-        healthRegenTxt = new EchoMessage("The planet we are going to will have many environmental hazards. If your health reaches critical levels, the suit will passively regenerate your health.", healthRegenExplanation, 1);
-        endTutorialTxt = new EchoMessage("Let's see what you have learned. Make your way to the marker on the other side of this lava pool to complete the level.", endTutorialClip, 1);
 
         //GENERAL
         aboutToDieTxt = new EchoMessage("Warning: operator sustaining critical damage.", aboutToDieClip, 1000);
         airCritical = new EchoMessage("Warning: Air supply at critical level.", airCriticalClip, 1000);
-
-        if (SceneManager.GetActiveScene().name == "TutorialLevel0") {
-            sounds.Enqueue(introTxt);
-            sounds.Enqueue(introTxt2);
-            sounds.Enqueue(hudExplanationTxt);
-            //player.GetComponent<PlayerMovement>().enabled = false;
-            //startedTutorial = false;
-        }
     }
 
     private void Update()
@@ -148,15 +105,6 @@ public class HelperCharacter : MonoBehaviour
             sounds.Enqueue(airCritical);
             airWarningTimerEnable = true;
             airWarningTimer = airWarningDelay;
-        }
-
-        //TUTORIAL
-        if (SceneManager.GetActiveScene().name == "TutorialLevel0") {
-            if (!startedTutorial && sounds.Count == 0)
-            {
-                player.GetComponent<PlayerMovement>().enabled = true;
-                startedTutorial = true;
-            }
         }
 
         //reseting the text mesh
@@ -204,36 +152,6 @@ public class HelperCharacter : MonoBehaviour
             airWarningTimer = 0;
             airWarningTimerEnable = false;
         }
-    }
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-
-        //TUTORIAL
-        if (collision.tag == "DestructibleAreaTutorial" && !destructibleExplanationTxt.maxTextShowsReached() && !shootingExplanationTxt.maxTextShowsReached()) {
-            sounds.Enqueue(destructibleExplanationTxt);
-            sounds.Enqueue(shootingExplanationTxt);
-        }
-        if (collision.tag == "WallClimbTextArea" && !wallClimbingExplanationTxt.maxTextShowsReached()) {
-            sounds.Enqueue(wallClimbingExplanationTxt);
-        }
-        if (collision.tag == "Lava" && !healthRegenTxt.maxTextShowsReached() && SceneManager.GetActiveScene().name == "TutorialLevel0") {
-            sounds.Enqueue(healthRegenTxt);
-        }
-        if (collision.tag == "EndTutorialArea" && !endTutorialTxt.maxTextShowsReached()) {
-            sounds.Enqueue(endTutorialTxt);
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        /*if (SceneManager.GetActiveScene().name != "TutorialLevel0") {
-            if (collision.tag == "RegenExplainArea" && !lavaCommentTxt.maxTextShowsReached() && !busy)
-            {
-                sounds.Enqueue(lavaCommentTxt);
-            }
-        }*/
     }
 
     public void addMessage(EchoMessage msg) {

@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class GameManager : MonoBehaviour
-{
-
+{ 
     [Header("Inherited")]
     public GameObject player;
     public Vector3 respawnPosition;
+    public GameObject helperChar;
 
     protected List<Collider2D> echoColliders;
     protected PlayerAttributes attributes;
+    protected HelperCharacter echo;
 
     protected void Start()
     {
         echoColliders = new List<Collider2D>();
         attributes = player.GetComponent<PlayerAttributes>();
+        echo = helperChar.GetComponent<HelperCharacter>();
     }
 
     protected void Update()
@@ -32,14 +34,13 @@ public abstract class GameManager : MonoBehaviour
         echoCollider.OverlapCollider(filter, echoColliders);
     }
 
-    protected abstract void levelObjectiveChecks();
-    protected abstract void checkEchoCollisions();
-
     protected void resetLevel() {
         if (attributes.GetCurrentHealth() <= 0)
         {
             player.transform.position = respawnPosition;
         }
     }
-    
+
+    protected abstract void levelObjectiveChecks();
+    protected abstract void checkEchoCollisions();
 }

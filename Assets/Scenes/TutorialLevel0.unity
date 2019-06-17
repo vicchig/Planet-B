@@ -120,6 +120,124 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &7844028
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 342167632}
+    m_Modifications:
+    - target: {fileID: 7550295173081739892, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_Name
+      value: ShootingArea
+      objectReference: {fileID: 0}
+    - target: {fileID: 7550295173081739892, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 20.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3546228992207641018, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 2.9084597
+      objectReference: {fileID: 0}
+    - target: {fileID: 3546228992207641018, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 6.8169193
+      objectReference: {fileID: 0}
+    - target: {fileID: 3546228992207641018, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 3.211423
+      objectReference: {fileID: 0}
+    - target: {fileID: 3546228992207641018, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 7.422846
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: txt
+      value: Shoot using the left mouse button while using the mouse to aim. You can
+        use the 1, 2 and 3 keys to change weapon modes. Weapon 1 is your regular bullets.
+        Weapon modes 2 and 3 use heat energy to respectively heat and cool down your
+        environment.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 746e93f08d24278458b917e434bed239, type: 3}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: maxTxtShows
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 808ad436350ed3946bee4bb8377e7cc3, type: 3}
+--- !u!4 &7844029 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+    type: 3}
+  m_PrefabInstance: {fileID: 7844028}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &22336268
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -414,10 +532,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 478073378}
     m_Modifications:
-    - target: {fileID: 1825481033360878, guid: 5eefba205a58c8c4a937c97b87c185a3, type: 3}
-      propertyPath: m_Name
-      value: HealthBar
-      objectReference: {fileID: 0}
     - target: {fileID: 224763426186284840, guid: 5eefba205a58c8c4a937c97b87c185a3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -522,6 +636,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825481033360878, guid: 5eefba205a58c8c4a937c97b87c185a3, type: 3}
+      propertyPath: m_Name
+      value: HealthBar
       objectReference: {fileID: 0}
     - target: {fileID: 114769781544105922, guid: 5eefba205a58c8c4a937c97b87c185a3,
         type: 3}
@@ -1059,7 +1177,7 @@ PrefabInstance:
     - target: {fileID: 7550295173081739892, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
       propertyPath: m_TagString
-      value: WallClimbTextArea
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
@@ -1135,6 +1253,23 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.x
       value: 7.422846
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: txt
+      value: To wall climb, hold space during your jump and move close to a wall.
+        Once on a wall, you can jump higher using W and let go of the wall using A
+        or D.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7e5fcb485affa9646a485c7eeaec2fb4, type: 3}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: maxTxtShows
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 808ad436350ed3946bee4bb8377e7cc3, type: 3}
@@ -2096,6 +2231,7 @@ Transform:
   - {fileID: 98145440}
   - {fileID: 1175253996}
   - {fileID: 1069644649}
+  - {fileID: 7844029}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -103477,6 +103613,11 @@ PrefabInstance:
       propertyPath: waterNeededInPool
       value: 48
       objectReference: {fileID: 0}
+    - target: {fileID: 5359453249395348013, guid: 4c153fe675027a645ae92f124e58c8b4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5359453249395348012, guid: 4c153fe675027a645ae92f124e58c8b4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -103540,6 +103681,26 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 821890867}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &821890869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821890868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72384a15af3c3df4db3d009d14725ed9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1817615208}
+  respawnPosition: {x: -6.24, y: 58.83, z: 0}
+  helperChar: {fileID: 1393291473}
+  introClip1: {fileID: 8300000, guid: 8286ef29fe2bfa243827e5fead482bca, type: 3}
+  introClip2: {fileID: 8300000, guid: 9c2a1791323142c469955d88e5a4394e, type: 3}
+  hudExplanationClip: {fileID: 8300000, guid: 4ae1f710b4dc1114fb52b9e07fe4db9b, type: 3}
+  healthRegenExplanationClip: {fileID: 8300000, guid: 0efd47b15d2df21489045186d7b9143d,
+    type: 3}
 --- !u!4 &822555357 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 665821836065025060, guid: 88f647290f0f47442953ba3ce2c5ff67,
@@ -104619,7 +104780,7 @@ PrefabInstance:
     - target: {fileID: 7550295173081739892, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
       propertyPath: m_TagString
-      value: EndTutorialArea
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
@@ -104695,6 +104856,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.x
       value: 3.9147377
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: txt
+      value: Let's see what you have learned. Make your way to the marker on the other
+        side of this lava pool to complete the level.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 94dc0a128db592f469980ccfeeab92d4, type: 3}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: maxTxtShows
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 808ad436350ed3946bee4bb8377e7cc3, type: 3}
@@ -106767,23 +106944,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0bfcc480e9df6e42a6900b4d9da0915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  managerObj: {fileID: 821890868}
   player: {fileID: 1817615208}
-  waterDropParent: {fileID: 0}
   txtMeshContainer: {fileID: 1131017760}
   txtBackground: {fileID: 905499381}
   portraitObj: {fileID: 1098537009}
-  introClip: {fileID: 8300000, guid: 8286ef29fe2bfa243827e5fead482bca, type: 3}
-  introClip2: {fileID: 8300000, guid: 9c2a1791323142c469955d88e5a4394e, type: 3}
-  hudExplanationClip: {fileID: 8300000, guid: 4ae1f710b4dc1114fb52b9e07fe4db9b, type: 3}
-  destructibleExplanation: {fileID: 8300000, guid: 8d0c01b9f0a7def4fba71f3fcb48dff0,
-    type: 3}
-  wallClimbingExplanationClip: {fileID: 8300000, guid: 7e5fcb485affa9646a485c7eeaec2fb4,
-    type: 3}
-  shootingExplanation: {fileID: 8300000, guid: 746e93f08d24278458b917e434bed239, type: 3}
   healthRegenExplanation: {fileID: 8300000, guid: 0efd47b15d2df21489045186d7b9143d,
     type: 3}
-  endTutorialClip: {fileID: 8300000, guid: 94dc0a128db592f469980ccfeeab92d4, type: 3}
   aboutToDieClip: {fileID: 8300000, guid: 861bf70274563c14888acd7e282894ad, type: 3}
   airCriticalClip: {fileID: 8300000, guid: 7ab60fc5220f8364b95e466a13c5ac79, type: 3}
   critHealthThreshold: 15
@@ -110298,10 +110464,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 478073378}
     m_Modifications:
-    - target: {fileID: 1825481033360878, guid: 5eefba205a58c8c4a937c97b87c185a3, type: 3}
-      propertyPath: m_Name
-      value: AirBar
-      objectReference: {fileID: 0}
     - target: {fileID: 224763426186284840, guid: 5eefba205a58c8c4a937c97b87c185a3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -110406,6 +110568,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825481033360878, guid: 5eefba205a58c8c4a937c97b87c185a3, type: 3}
+      propertyPath: m_Name
+      value: AirBar
       objectReference: {fileID: 0}
     - target: {fileID: 114769781544105922, guid: 5eefba205a58c8c4a937c97b87c185a3,
         type: 3}
@@ -111943,7 +112109,7 @@ PrefabInstance:
     - target: {fileID: 7550295173081739892, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
       propertyPath: m_TagString
-      value: DestructibleAreaTutorial
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
@@ -112019,6 +112185,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.x
       value: 7.422846
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: txt
+      value: This material has weak physical properties and can be destroyed with
+        your weapon.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8d0c01b9f0a7def4fba71f3fcb48dff0, type: 3}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: maxTxtShows
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 808ad436350ed3946bee4bb8377e7cc3, type: 3}
@@ -113384,10 +113566,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 478073378}
     m_Modifications:
-    - target: {fileID: 1825481033360878, guid: 5eefba205a58c8c4a937c97b87c185a3, type: 3}
-      propertyPath: m_Name
-      value: HeatBar
-      objectReference: {fileID: 0}
     - target: {fileID: 224763426186284840, guid: 5eefba205a58c8c4a937c97b87c185a3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -113492,6 +113670,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825481033360878, guid: 5eefba205a58c8c4a937c97b87c185a3, type: 3}
+      propertyPath: m_Name
+      value: HeatBar
       objectReference: {fileID: 0}
     - target: {fileID: 114769781544105922, guid: 5eefba205a58c8c4a937c97b87c185a3,
         type: 3}
