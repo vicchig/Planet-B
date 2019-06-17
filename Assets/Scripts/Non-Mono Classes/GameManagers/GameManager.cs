@@ -22,8 +22,12 @@ public abstract class GameManager : MonoBehaviour
 
     protected void Update()
     {
-        findEchoColliders();
         resetLevel();
+    }
+
+    protected void FixedUpdate()
+    {
+        findEchoColliders();
     }
 
     protected void findEchoColliders() {

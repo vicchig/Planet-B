@@ -189,7 +189,7 @@ public class DynamicParticle : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.transform.tag == "Platforms") {
+        if (collision.transform.tag == "Platforms" && !inPool) {
             destroyObject = true;
         }
     }

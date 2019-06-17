@@ -105,6 +105,12 @@ public class GameManagerLevel1 : GameManager
         levelObjectiveChecks();
         checkEchoCollisions();
     }
+    
+    new protected void FixedUpdate()
+    {
+        base.FixedUpdate();
+
+    }
 
     /**
         <summary> Checks whether specific checkpoints in the level have been reached and performs the appropriate action. </summary> 

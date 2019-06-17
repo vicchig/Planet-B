@@ -33,6 +33,11 @@ public class GameManagerTutorial : GameManager
         checkEchoCollisions();
     }
 
+    new protected void FixedUpdate()
+    {
+        base.FixedUpdate();
+    }
+
     protected override void checkEchoCollisions()
     {
         for (int i = 0; i < echoColliders.Count; i++) {
