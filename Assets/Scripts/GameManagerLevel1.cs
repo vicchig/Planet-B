@@ -109,7 +109,7 @@ public class GameManagerLevel1 : GameManager
     new protected void FixedUpdate()
     {
         base.FixedUpdate();
-
+        Debug.Log(echoColliders.Count);
     }
 
     /**
@@ -160,30 +160,34 @@ public class GameManagerLevel1 : GameManager
     */
     protected override void checkEchoCollisions() {
         for (int i = 0; i < echoColliders.Count; i++) {
-
-            if (echoColliders[i].tag == "ExploreAreaEastLevel1" && attributes.GetCurrentWater() >= waterNeededInPool / 4 && !waterPoolFoundTxt.maxTextShowsReached())
-            {
-                echo.addMessage(objectiveLevelTxt1_4);
-            }
-            else if (echoColliders[i].tag == "WaterPoolCollisionArea")
-            {
-                playerIsInPool = true;
-                if (!waterPoolFoundTxt.maxTextShowsReached() && attributes.GetCurrentWater() >= waterNeededInPool / 4)
+            if (echoColliders[i] != null) {
+                if (echoColliders[i].tag == "ExploreAreaEastLevel1" && attributes.GetCurrentWater() >= waterNeededInPool / 4 && !waterPoolFoundTxt.maxTextShowsReached())
                 {
-                    echo.addMessage(waterPoolFoundTxt);
+                    echo.addMessage(objectiveLevelTxt1_4);
                 }
-            }
-            else if (echoColliders[i].tag == "AirSourceTextArea" && !airSourceFoundTxt.maxTextShowsReached() && !echo.isBusy()) {
+                else if (echoColliders[i].tag == "WaterPoolCollisionArea")
+                {
+                    playerIsInPool = true;
+                    if (!waterPoolFoundTxt.maxTextShowsReached() && attributes.GetCurrentWater() >= waterNeededInPool / 4)
+                    {
+                        echo.addMessage(waterPoolFoundTxt);
+                    }
+                }
+                else if (echoColliders[i].tag == "AirSourceTextArea" && !airSourceFoundTxt.maxTextShowsReached() && !echo.isBusy())
+                {
 
-                echo.clearMessages();
-                echo.addMessage(airSourceFoundTxt);
-            }
-            else if (echoColliders[i].tag == "WaterTextArea" && !waterDropFoundTxt.maxTextShowsReached()) {
-                echo.clearMessages();
-                echo.addMessage(waterDropFoundTxt);
-            }
-            else if (echoColliders[i].tag == "Lava" && !lavaCommentTxt.maxTextShowsReached() && !echo.isBusy()) {
-                echo.addMessage(lavaCommentTxt);
+                    echo.clearMessages();
+                    echo.addMessage(airSourceFoundTxt);
+                }
+                else if (echoColliders[i].tag == "WaterTextArea" && !waterDropFoundTxt.maxTextShowsReached())
+                {
+                    echo.clearMessages();
+                    echo.addMessage(waterDropFoundTxt);
+                }
+                else if (echoColliders[i].tag == "Lava" && !lavaCommentTxt.maxTextShowsReached() && !echo.isBusy())
+                {
+                    echo.addMessage(lavaCommentTxt);
+                }
             }
         }
     }
