@@ -59,6 +59,8 @@ public class PlayerMovement : MonoBehaviour
     private bool suppressAD = false;
     private float suppressADTimer = 0f;
 
+    private bool playJumpingAnim;
+
     private void Start()
     {
         input = GetComponent<PlayerInput>();
@@ -105,6 +107,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+
+        if (rBody.velocity.y != 0 && !isOnGround && !isOnPlatform && !isHanging)
+        {
+            playJumpingAnim = true;
+        }
+        else {
+            playJumpingAnim = false;
+        }
 
         if (isHanging)
         {
@@ -261,11 +271,11 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
-        else if (rBody.velocity.y != 0 && !isOnPlatform && !isHanging && !isOnGround)
-        {
-            isJumping = true;
-            landingSoundPlayed = false;
-        }
+       // else if (rBody.velocity.y != 0 && !isOnPlatform && !isHanging && !isOnGround)
+       // {
+        //    isJumping = true;
+       //     landingSoundPlayed = false;
+       // }
         else{
             isJumping = false;
         }
@@ -314,7 +324,7 @@ public class PlayerMovement : MonoBehaviour
     {
         bool movingHorizontally = false, jumping = false, standing = false, shootingWhileStanding = false, hanging = false;
 
-        if (input.horizontalIn != 0 && !isJumping && !isHanging)
+        if (input.horizontalIn != 0 && !playJumpingAnim && !isHanging)
         {
             movingHorizontally = true;
             jumping = false;
@@ -322,14 +332,14 @@ public class PlayerMovement : MonoBehaviour
             hanging = false;
             shootingWhileStanding = false;
         }
-        else if (isJumping && !isHanging)
+        else if (playJumpingAnim)
         {
             jumping = true;
             standing = false;
             shootingWhileStanding = false;
             hanging = false;
         }
-        else if (input.horizontalIn == 0 && !isJumping && !Input.GetButtonDown("Fire1") && !isHanging)
+        else if (input.horizontalIn == 0 && !playJumpingAnim && !Input.GetButtonDown("Fire1") && !isHanging)
         {
             standing = true;
             movingHorizontally = false;
@@ -337,7 +347,7 @@ public class PlayerMovement : MonoBehaviour
             shootingWhileStanding = false;
             hanging = false;
         }
-        else if (Input.GetButtonDown("Fire1") && input.horizontalIn == 0 && !isJumping && !isHanging) {
+        else if (Input.GetButtonDown("Fire1") && input.horizontalIn == 0 && !playJumpingAnim && !isHanging) {
             shootingWhileStanding = true;
             movingHorizontally = false;
             jumping = false;

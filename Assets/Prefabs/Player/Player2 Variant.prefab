@@ -109,12 +109,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3824444740467452730, guid: 3949805abe36cd3468529a93bfe8a736,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3824444740467452730, guid: 3949805abe36cd3468529a93bfe8a736,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3824444740467452730, guid: 3949805abe36cd3468529a93bfe8a736,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3824444740467452729, guid: 3949805abe36cd3468529a93bfe8a736,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.15
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3824444740467452869, guid: 3949805abe36cd3468529a93bfe8a736, type: 3}
     - {fileID: 3824444740467452731, guid: 3949805abe36cd3468529a93bfe8a736, type: 3}
+    - {fileID: 3824444740467452728, guid: 3949805abe36cd3468529a93bfe8a736, type: 3}
     - {fileID: 3824444740467452730, guid: 3949805abe36cd3468529a93bfe8a736, type: 3}
     - {fileID: 3824444740467452729, guid: 3949805abe36cd3468529a93bfe8a736, type: 3}
-    - {fileID: 3824444740467452728, guid: 3949805abe36cd3468529a93bfe8a736, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3949805abe36cd3468529a93bfe8a736, type: 3}
 --- !u!1 &3190657251732207762 stripped
 GameObject:
