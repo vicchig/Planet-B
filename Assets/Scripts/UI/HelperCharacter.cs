@@ -113,8 +113,8 @@ public class HelperCharacter : MonoBehaviour
             sounds.Enqueue(introTxt);
             sounds.Enqueue(introTxt2);
             sounds.Enqueue(hudExplanationTxt);
-            player.GetComponent<PlayerMovement>().enabled = false;
-            startedTutorial = false;
+            //player.GetComponent<PlayerMovement>().enabled = false;
+            //startedTutorial = false;
         }
     }
 
