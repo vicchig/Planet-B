@@ -1175,7 +1175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 710238878}
-  managerObj: {fileID: 0}
+  managerObj: {fileID: 1308785660}
 --- !u!1 &285644759
 GameObject:
   m_ObjectHideFlags: 0
