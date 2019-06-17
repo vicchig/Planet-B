@@ -318,106 +318,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 13660270}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &19834880
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1243004036}
-    m_Modifications:
-    - target: {fileID: 7550295173081739892, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_Name
-      value: DestructibleCollider2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7550295173081739892, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_TagString
-      value: DestructibleTextArea
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 41.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -11.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3546228992207641018, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: 0.978282
-      objectReference: {fileID: 0}
-    - target: {fileID: 3546228992207641018, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 2.956564
-      objectReference: {fileID: 0}
-    - target: {fileID: 3546228992207641018, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: 1.1898003
-      objectReference: {fileID: 0}
-    - target: {fileID: 3546228992207641018, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 4.384323
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 808ad436350ed3946bee4bb8377e7cc3, type: 3}
---- !u!4 &19834881 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
-    type: 3}
-  m_PrefabInstance: {fileID: 19834880}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &28508257
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -473,7 +373,7 @@ PrefabInstance:
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
@@ -510,7 +410,8 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 18.305561
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 808ad436350ed3946bee4bb8377e7cc3, type: 3}
 --- !u!4 &28508258 stripped
 Transform:
@@ -591,7 +492,7 @@ PrefabInstance:
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
@@ -628,6 +529,21 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 2.1130753
       objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: txt
+      value: The ground in the vicinity is prone to collapse. Watch your head.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: maxTxtShows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 34ca55226ebcda3489205edb3a5fc339, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 808ad436350ed3946bee4bb8377e7cc3, type: 3}
 --- !u!4 &54436657 stripped
@@ -828,12 +744,6 @@ PrefabInstance:
     - {fileID: 2300000, guid: 7c9fb993626aaf8488be64eb9feadbbc, type: 3}
     - {fileID: 11400000, guid: 7c9fb993626aaf8488be64eb9feadbbc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7c9fb993626aaf8488be64eb9feadbbc, type: 3}
---- !u!4 &66072935 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
-    type: 3}
-  m_PrefabInstance: {fileID: 881722216}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &71075131
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1197,7 +1107,7 @@ PrefabInstance:
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
@@ -1233,6 +1143,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.x
       value: 4.2549043
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: txt
+      value: I do not see any way across. We sohuld probably turn around for now.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: cfb332eca93a5a942a37c634142c15e8, type: 3}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: maxTxtShows
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 808ad436350ed3946bee4bb8377e7cc3, type: 3}
@@ -1589,7 +1514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  waterCollected: 12
+  waterCollected: 0
   maxAir: 100
   maxHeat: 300
   airDepletionTime: 2
@@ -3516,7 +3441,7 @@ PrefabInstance:
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
@@ -3553,7 +3478,18 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 12.023514
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: txt
+      value: We should probably explore some more to the east.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: maxTxtShows
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 808ad436350ed3946bee4bb8377e7cc3, type: 3}
 --- !u!1001 &325470230
 PrefabInstance:
@@ -4390,7 +4326,7 @@ PrefabInstance:
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
@@ -4427,6 +4363,21 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 4.2549043
       objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: txt
+      value: The ground in the vicinity is prone to collapse. Watch your head.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 34ca55226ebcda3489205edb3a5fc339, type: 3}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: maxTxtShows
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 808ad436350ed3946bee4bb8377e7cc3, type: 3}
 --- !u!4 &481208805 stripped
@@ -4434,6 +4385,117 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
     type: 3}
   m_PrefabInstance: {fileID: 481208804}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &490026207
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1243004036}
+    m_Modifications:
+    - target: {fileID: 7550295173081739892, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_Name
+      value: TextDisplayCollider(DestructibleArea)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 44.289997
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3546228992207641018, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.16765594
+      objectReference: {fileID: 0}
+    - target: {fileID: 3546228992207641018, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 4.8374634
+      objectReference: {fileID: 0}
+    - target: {fileID: 3546228992207641018, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.9127946
+      objectReference: {fileID: 0}
+    - target: {fileID: 3546228992207641018, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.8255892
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: txt
+      value: The ground in the vicinity seems to be prone to collapse. Try shooting
+        it with your weapon.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 708755aaddefdc342bfe8c6e2505b862, type: 3}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: maxTxtShows
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 808ad436350ed3946bee4bb8377e7cc3, type: 3}
+--- !u!4 &490026208 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+    type: 3}
+  m_PrefabInstance: {fileID: 490026207}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &497171625
 PrefabInstance:
@@ -7477,7 +7539,7 @@ PrefabInstance:
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
@@ -7513,6 +7575,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.x
       value: 6.009297
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4e88fa31eb74ee441a2cf0a4c3bae35c, type: 3}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: maxTxtShows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: txt
+      value: I think this platform can be a shortcut, try jumping on it.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 808ad436350ed3946bee4bb8377e7cc3, type: 3}
@@ -8799,100 +8876,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &881722216
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1243004036}
-    m_Modifications:
-    - target: {fileID: 7550295173081739892, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_Name
-      value: FireflyCollider (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7550295173081739892, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_TagString
-      value: FireflyArea
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 28.43
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -17.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3546228992207641018, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.9499216
-      objectReference: {fileID: 0}
-    - target: {fileID: 3546228992207641018, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 5.040289
-      objectReference: {fileID: 0}
-    - target: {fileID: 3546228992207641018, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: -1.264225
-      objectReference: {fileID: 0}
-    - target: {fileID: 3546228992207641018, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 6.7064247
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 808ad436350ed3946bee4bb8377e7cc3, type: 3}
 --- !u!1 &884397070 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 9520b4773cd4be247b979318eae6c1da,
@@ -10634,7 +10617,7 @@ PrefabInstance:
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
@@ -10670,6 +10653,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.x
       value: 2.1130753
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: txt
+      value: The ground in the vicinity is prone to collapse. Watch your head.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 34ca55226ebcda3489205edb3a5fc339, type: 3}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: maxTxtShows
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 808ad436350ed3946bee4bb8377e7cc3, type: 3}
@@ -54903,9 +54901,7 @@ Transform:
   m_LocalPosition: {x: -1.03, y: -1.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 19834881}
   - {fileID: 1714587810}
-  - {fileID: 66072935}
   - {fileID: 1386224207}
   - {fileID: 28508258}
   - {fileID: 54436657}
@@ -54915,6 +54911,7 @@ Transform:
   - {fileID: 481208805}
   - {fileID: 102170395}
   - {fileID: 704818845}
+  - {fileID: 490026208}
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -55457,18 +55454,12 @@ MonoBehaviour:
     type: 3}
   waterFound: {fileID: 8300000, guid: 35b0d9120ff22c84cbc982d965cb70b1, type: 3}
   waterPoolFoundClip: {fileID: 8300000, guid: 67f5f80187cade647972ee3c321f2a43, type: 3}
-  butterlfyCommentClip: {fileID: 8300000, guid: 36ca199339d3cfe4ca1b7ef2a208d106,
-    type: 3}
-  rockWarningClip: {fileID: 8300000, guid: 34ca55226ebcda3489205edb3a5fc339, type: 3}
   dontWasteWaterReminderClip: {fileID: 8300000, guid: 3180511b35283a040a583755fc2c2856,
     type: 3}
-  echoDirectionClip1: {fileID: 8300000, guid: cfb332eca93a5a942a37c634142c15e8, type: 3}
-  echoDirectionClip2: {fileID: 8300000, guid: 4e88fa31eb74ee441a2cf0a4c3bae35c, type: 3}
   airFound: {fileID: 8300000, guid: a42850c1bad20c24596b8f006ab42eaf, type: 3}
   aboutToDieClip: {fileID: 8300000, guid: 861bf70274563c14888acd7e282894ad, type: 3}
   lavaCommentClip: {fileID: 8300000, guid: ca006463c9e1aaf42a0a0e2ebc998475, type: 3}
   airCriticalClip: {fileID: 8300000, guid: 7ab60fc5220f8364b95e466a13c5ac79, type: 3}
-  destructibleFound: {fileID: 8300000, guid: 708755aaddefdc342bfe8c6e2505b862, type: 3}
   critHealthThreshold: 15
   healthWarningDelay: 120
   critAirThreshold: 15
@@ -56141,7 +56132,7 @@ PrefabInstance:
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
@@ -56177,6 +56168,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.x
       value: 2.1130753
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: txt
+      value: The ground in the vicinity is prone to collapse. Watch your head.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 34ca55226ebcda3489205edb3a5fc339, type: 3}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: maxTxtShows
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 808ad436350ed3946bee4bb8377e7cc3, type: 3}
@@ -56509,7 +56515,7 @@ PrefabInstance:
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
@@ -56546,6 +56552,21 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 5.7954693
       objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: maxTxtShows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: txt
+      value: Wow. Aren't these beautiful?
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 36ca199339d3cfe4ca1b7ef2a208d106, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 808ad436350ed3946bee4bb8377e7cc3, type: 3}
 --- !u!1001 &1499668022
@@ -56752,7 +56773,7 @@ PrefabInstance:
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
@@ -56789,6 +56810,21 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 2.1130753
       objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: txt
+      value: The ground in the vicinity is prone to collapse. Watch your head.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: maxTxtShows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 34ca55226ebcda3489205edb3a5fc339, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 808ad436350ed3946bee4bb8377e7cc3, type: 3}
 --- !u!4 &1502545719 stripped
@@ -99565,7 +99601,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1724776092}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.72, z: 0}
+  m_LocalPosition: {x: 0, y: -0.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 560990074}

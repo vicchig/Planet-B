@@ -45,18 +45,14 @@ public class HelperCharacter : MonoBehaviour
     public AudioClip objectiveLevelClip1_9;
     public AudioClip waterFound;
     public AudioClip waterPoolFoundClip;
-    public AudioClip butterlfyCommentClip;
-    public AudioClip rockWarningClip;
     public AudioClip dontWasteWaterReminderClip;
-    public AudioClip echoDirectionClip1;
-    public AudioClip echoDirectionClip2;
 
     [Header("Sounds General")]
     public AudioClip airFound;
     public AudioClip aboutToDieClip;
     public AudioClip lavaCommentClip;
     public AudioClip airCriticalClip;
-    public AudioClip destructibleFound;
+    //public AudioClip destructibleFound;
 
     [Header("Audio Play Conditions")]
     public int critHealthThreshold; //the percentage of health under which the critical damage sound will be played
@@ -95,13 +91,8 @@ public class HelperCharacter : MonoBehaviour
     EchoMessage objectiveLevelTxt1_8;
     EchoMessage objectiveLevelTxt1_9;
 
-    EchoMessage echoDirectionTxt1;
-    EchoMessage echoDirectionTxt2;
-
     EchoMessage waterPoolFoundTxt;
     EchoMessage dontWasteWaterReminderTxt;
-    EchoMessage butterlfyCommentTxt;
-    EchoMessage rockWarningTxt;
 
     //GENERAL
     EchoMessage aboutToDieTxt;
@@ -109,7 +100,7 @@ public class HelperCharacter : MonoBehaviour
     EchoMessage airCritical;
     EchoMessage airSourceTxt;
     EchoMessage waterDropTxt;
-    EchoMessage destructibleTxt;
+    //EchoMessage destructibleTxt;
 
     private PlayerAttributes attributes;
 
@@ -171,15 +162,8 @@ public class HelperCharacter : MonoBehaviour
         objectiveLevelTxt1_8 = new EchoMessage("There is not enough water in the pool yet. We need some more.", objectiveLevelClip1_8, 1);
         objectiveLevelTxt1_9 = new EchoMessage("There is not enough water left in the caves for us to fill the pool. We should probably restart.", objectiveLevelClip1_9, 1);
 
-        echoDirectionTxt1 = new EchoMessage("I do not see any way across. We should probably turn around for now.", echoDirectionClip1, 1);
-        echoDirectionTxt2 = new EchoMessage("I think this platform can be a shortcut, try jumping on it.", echoDirectionClip2, 1);
-
         waterPoolFoundTxt = new EchoMessage("This looks like a good spot to release our water.", waterPoolFoundClip, 1);
         dontWasteWaterReminderTxt = new EchoMessage("Make sure you do not waste it. If you do, check the cave for some more water. If you waste all of it, we will have to restart.", dontWasteWaterReminderClip, 1);
-
-        butterlfyCommentTxt = new EchoMessage("Wow. Aren't these beautiful!", butterlfyCommentClip, 1);
-        rockWarningTxt = new EchoMessage("The ceiling of the cave in this area is prone to collapse. Watch your head!", rockWarningClip, 4);
-        
         
         //GENERAL
         aboutToDieTxt = new EchoMessage("Warning: operator sustaining critical damage.", aboutToDieClip, 1000);
@@ -187,7 +171,7 @@ public class HelperCharacter : MonoBehaviour
         lavaCommentTxt = new EchoMessage("It burns! It burns! Make it stop! Just kidding, I cannot feel a thing.", lavaCommentClip, 1);
         airSourceTxt = new EchoMessage("This weird orb seems to be the only source of breathable air here. Better grab it to replenish the air supply.", airFound, 1);
         waterDropTxt = new EchoMessage("Look! We seem to have found some water. Better collect it.", waterFound, 1);
-        destructibleTxt = new EchoMessage("The ground in the vicinity seems to be prone to collapse. Try shooting it with your weapon.", destructibleFound, 2);
+       // destructibleTxt = new EchoMessage("The ground in the vicinity seems to be prone to collapse. Try shooting it with your weapon.", destructibleFound, 2);
 
 
         sounds = new Queue<EchoMessage>();
@@ -335,11 +319,6 @@ public class HelperCharacter : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //LEVEL 1
-        if (collision.tag == "FireflyArea" && !isBusy && !butterlfyCommentTxt.maxTextShowsReached())
-        {
-            sounds.Enqueue(butterlfyCommentTxt);
-        }
-
         if (collision.tag == "ExploreAreaEastLevel1" && attributes.GetCurrentWater() >= manager.waterNeededInPool / 4  && !waterPoolFoundTxt.maxTextShowsReached())
         {
             sounds.Enqueue(objectiveLevelTxt1_4);
@@ -349,15 +328,6 @@ public class HelperCharacter : MonoBehaviour
             if (!waterPoolFoundTxt.maxTextShowsReached() && attributes.GetCurrentWater() >= manager.waterNeededInPool / 4) {
                 sounds.Enqueue(waterPoolFoundTxt);
             }       
-        }
-        if (collision.tag == "FallingRockArea" && !rockWarningTxt.maxTextShowsReached() && !isBusy) {
-            sounds.Enqueue(rockWarningTxt);
-        }
-        if (collision.tag == "EchoDirection1" && !echoDirectionTxt1.maxTextShowsReached()) {
-            sounds.Enqueue(echoDirectionTxt1);
-        }
-        if (collision.tag == "EchoDirectionArea2" && !echoDirectionTxt2.maxTextShowsReached()) {
-            sounds.Enqueue(echoDirectionTxt2);
         }
 
         //TUTORIAL
@@ -385,11 +355,6 @@ public class HelperCharacter : MonoBehaviour
             sounds.Clear();
             sounds.Enqueue(waterDropTxt);
             sounds.Enqueue(objectiveLevelTxt1_2);
-        }
-        if (collision.tag == "DestructibleTextArea" && !isBusy)
-        {
-            sounds.Enqueue(destructibleTxt);
-            collision.GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 
