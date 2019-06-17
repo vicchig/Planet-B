@@ -432,11 +432,46 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 5359453249446241289}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 51099171}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db5e07defc3fea4459fe412022904ef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &51099173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51099171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6749939284d48f34fb6711262d0cc834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectiveLevelClip1_0: {fileID: 8300000, guid: 0c9c09ea075ce824ea8b9e648cc61fca,
+    type: 3}
+  objectiveLevelClip1_1: {fileID: 8300000, guid: beff1ed6344f4b64d8febdebda5a62c5,
+    type: 3}
+  objectiveLevelClip1_3: {fileID: 8300000, guid: 4e9733ea62ed1734ea1d2fb23774d671,
+    type: 3}
+  objectiveLevelClip1_5: {fileID: 8300000, guid: a6d7030efb9cb92439566adbbdba859b,
+    type: 3}
+  objectiveLevelClip1_6: {fileID: 8300000, guid: 832df831a10f9c34c9538ea76e1a894f,
+    type: 3}
+  objectiveLevelClip1_7: {fileID: 8300000, guid: dc738145127cc3f48ac621c333a092a9,
+    type: 3}
+  objectiveLevelClip1_8: {fileID: 8300000, guid: 183f67f2491c044408f9bddb2569cbdf,
+    type: 3}
+  objectiveLevelClip1_9: {fileID: 8300000, guid: b016f40d95aab014690ff3de67081182,
+    type: 3}
+  dontWasteWaterReminderClip: {fileID: 8300000, guid: 3180511b35283a040a583755fc2c2856,
+    type: 3}
+  waterNeededInPool: 56
+  nextLevelMarker: {fileID: 1462285831}
+  helperChar: {fileID: 1329634132}
+  player: {fileID: 154045993}
+  waterDropParent: {fileID: 1033588060}
 --- !u!1001 &54436656
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4504,11 +4539,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 791763909}
     m_Modifications:
-    - target: {fileID: 5917332715930947496, guid: 94b64d60fe3b2ec47b5eea23fd483aa6,
-        type: 3}
-      propertyPath: m_Name
-      value: MovingPlatform (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 5917332715930947507, guid: 94b64d60fe3b2ec47b5eea23fd483aa6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4563,6 +4593,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917332715930947496, guid: 94b64d60fe3b2ec47b5eea23fd483aa6,
+        type: 3}
+      propertyPath: m_Name
+      value: MovingPlatform (1)
       objectReference: {fileID: 0}
     - target: {fileID: 5917332715825322165, guid: 94b64d60fe3b2ec47b5eea23fd483aa6,
         type: 3}
@@ -5660,10 +5695,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 214270709}
     m_Modifications:
-    - target: {fileID: 1825481033360878, guid: 5eefba205a58c8c4a937c97b87c185a3, type: 3}
-      propertyPath: m_Name
-      value: AirBar
-      objectReference: {fileID: 0}
     - target: {fileID: 224763426186284840, guid: 5eefba205a58c8c4a937c97b87c185a3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5768,6 +5799,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825481033360878, guid: 5eefba205a58c8c4a937c97b87c185a3, type: 3}
+      propertyPath: m_Name
+      value: AirBar
       objectReference: {fileID: 0}
     - target: {fileID: 114769781544105922, guid: 5eefba205a58c8c4a937c97b87c185a3,
         type: 3}
@@ -6041,10 +6076,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 214270709}
     m_Modifications:
-    - target: {fileID: 1825481033360878, guid: 5eefba205a58c8c4a937c97b87c185a3, type: 3}
-      propertyPath: m_Name
-      value: HeatBar
-      objectReference: {fileID: 0}
     - target: {fileID: 224763426186284840, guid: 5eefba205a58c8c4a937c97b87c185a3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6149,6 +6180,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825481033360878, guid: 5eefba205a58c8c4a937c97b87c185a3, type: 3}
+      propertyPath: m_Name
+      value: HeatBar
       objectReference: {fileID: 0}
     - target: {fileID: 114769781544105922, guid: 5eefba205a58c8c4a937c97b87c185a3,
         type: 3}
@@ -7382,11 +7417,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 791763909}
     m_Modifications:
-    - target: {fileID: 5917332715930947496, guid: 94b64d60fe3b2ec47b5eea23fd483aa6,
-        type: 3}
-      propertyPath: m_Name
-      value: MovingPlatform (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 5917332715930947507, guid: 94b64d60fe3b2ec47b5eea23fd483aa6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7441,6 +7471,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917332715930947496, guid: 94b64d60fe3b2ec47b5eea23fd483aa6,
+        type: 3}
+      propertyPath: m_Name
+      value: MovingPlatform (3)
       objectReference: {fileID: 0}
     - target: {fileID: 5917332715825322165, guid: 94b64d60fe3b2ec47b5eea23fd483aa6,
         type: 3}
@@ -11455,11 +11490,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 791763909}
     m_Modifications:
-    - target: {fileID: 5917332715930947496, guid: 94b64d60fe3b2ec47b5eea23fd483aa6,
-        type: 3}
-      propertyPath: m_Name
-      value: MovingPlatform (4)
-      objectReference: {fileID: 0}
     - target: {fileID: 5917332715930947507, guid: 94b64d60fe3b2ec47b5eea23fd483aa6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11514,6 +11544,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917332715930947496, guid: 94b64d60fe3b2ec47b5eea23fd483aa6,
+        type: 3}
+      propertyPath: m_Name
+      value: MovingPlatform (4)
       objectReference: {fileID: 0}
     - target: {fileID: 5917332715825322165, guid: 94b64d60fe3b2ec47b5eea23fd483aa6,
         type: 3}
@@ -54922,10 +54957,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 214270709}
     m_Modifications:
-    - target: {fileID: 1825481033360878, guid: 5eefba205a58c8c4a937c97b87c185a3, type: 3}
-      propertyPath: m_Name
-      value: HealthBar
-      objectReference: {fileID: 0}
     - target: {fileID: 224763426186284840, guid: 5eefba205a58c8c4a937c97b87c185a3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -55030,6 +55061,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825481033360878, guid: 5eefba205a58c8c4a937c97b87c185a3, type: 3}
+      propertyPath: m_Name
+      value: HealthBar
       objectReference: {fileID: 0}
     - target: {fileID: 114769781544105922, guid: 5eefba205a58c8c4a937c97b87c185a3,
         type: 3}
@@ -55432,30 +55467,12 @@ MonoBehaviour:
   healthRegenExplanation: {fileID: 8300000, guid: 0efd47b15d2df21489045186d7b9143d,
     type: 3}
   endTutorialClip: {fileID: 8300000, guid: 94dc0a128db592f469980ccfeeab92d4, type: 3}
-  objectiveLevelClip1_0: {fileID: 8300000, guid: 0c9c09ea075ce824ea8b9e648cc61fca,
-    type: 3}
-  objectiveLevelClip1_1: {fileID: 8300000, guid: beff1ed6344f4b64d8febdebda5a62c5,
-    type: 3}
   objectiveLevelClip1_2: {fileID: 8300000, guid: 369537d6b6fda0d46bcb9e015496ec59,
-    type: 3}
-  objectiveLevelClip1_3: {fileID: 8300000, guid: 4e9733ea62ed1734ea1d2fb23774d671,
     type: 3}
   objectiveLevelClip1_4: {fileID: 8300000, guid: a8efcc435c20b5d46bfe86ac8a12321b,
     type: 3}
-  objectiveLevelClip1_5: {fileID: 8300000, guid: a6d7030efb9cb92439566adbbdba859b,
-    type: 3}
-  objectiveLevelClip1_6: {fileID: 8300000, guid: 832df831a10f9c34c9538ea76e1a894f,
-    type: 3}
-  objectiveLevelClip1_7: {fileID: 8300000, guid: dc738145127cc3f48ac621c333a092a9,
-    type: 3}
-  objectiveLevelClip1_8: {fileID: 8300000, guid: 183f67f2491c044408f9bddb2569cbdf,
-    type: 3}
-  objectiveLevelClip1_9: {fileID: 8300000, guid: b016f40d95aab014690ff3de67081182,
-    type: 3}
   waterFound: {fileID: 8300000, guid: 35b0d9120ff22c84cbc982d965cb70b1, type: 3}
   waterPoolFoundClip: {fileID: 8300000, guid: 67f5f80187cade647972ee3c321f2a43, type: 3}
-  dontWasteWaterReminderClip: {fileID: 8300000, guid: 3180511b35283a040a583755fc2c2856,
-    type: 3}
   airFound: {fileID: 8300000, guid: a42850c1bad20c24596b8f006ab42eaf, type: 3}
   aboutToDieClip: {fileID: 8300000, guid: 861bf70274563c14888acd7e282894ad, type: 3}
   lavaCommentClip: {fileID: 8300000, guid: ca006463c9e1aaf42a0a0e2ebc998475, type: 3}
@@ -100178,11 +100195,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 791763909}
     m_Modifications:
-    - target: {fileID: 5917332715930947496, guid: 94b64d60fe3b2ec47b5eea23fd483aa6,
-        type: 3}
-      propertyPath: m_Name
-      value: MovingPlatform (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 5917332715930947507, guid: 94b64d60fe3b2ec47b5eea23fd483aa6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -100237,6 +100249,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917332715930947496, guid: 94b64d60fe3b2ec47b5eea23fd483aa6,
+        type: 3}
+      propertyPath: m_Name
+      value: MovingPlatform (2)
       objectReference: {fileID: 0}
     - target: {fileID: 5917332715825322165, guid: 94b64d60fe3b2ec47b5eea23fd483aa6,
         type: 3}
@@ -100592,11 +100609,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 791763909}
     m_Modifications:
-    - target: {fileID: 5917332715930947496, guid: 94b64d60fe3b2ec47b5eea23fd483aa6,
-        type: 3}
-      propertyPath: m_Name
-      value: MovingPlatform
-      objectReference: {fileID: 0}
     - target: {fileID: 5917332715930947507, guid: 94b64d60fe3b2ec47b5eea23fd483aa6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -100651,6 +100663,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917332715930947496, guid: 94b64d60fe3b2ec47b5eea23fd483aa6,
+        type: 3}
+      propertyPath: m_Name
+      value: MovingPlatform
       objectReference: {fileID: 0}
     - target: {fileID: 5917332715825322165, guid: 94b64d60fe3b2ec47b5eea23fd483aa6,
         type: 3}
@@ -101437,10 +101454,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 214270709}
     m_Modifications:
-    - target: {fileID: 1825481033360878, guid: 5eefba205a58c8c4a937c97b87c185a3, type: 3}
-      propertyPath: m_Name
-      value: WaterInPoolBar
-      objectReference: {fileID: 0}
     - target: {fileID: 224763426186284840, guid: 5eefba205a58c8c4a937c97b87c185a3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -101545,6 +101558,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825481033360878, guid: 5eefba205a58c8c4a937c97b87c185a3, type: 3}
+      propertyPath: m_Name
+      value: WaterInPoolBar
       objectReference: {fileID: 0}
     - target: {fileID: 114769781544105922, guid: 5eefba205a58c8c4a937c97b87c185a3,
         type: 3}
@@ -103440,6 +103457,11 @@ PrefabInstance:
         type: 3}
       propertyPath: waterNeededInPool
       value: 56
+      objectReference: {fileID: 0}
+    - target: {fileID: 5359453249395348013, guid: 4c153fe675027a645ae92f124e58c8b4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5359453249395348012, guid: 4c153fe675027a645ae92f124e58c8b4,
         type: 3}
