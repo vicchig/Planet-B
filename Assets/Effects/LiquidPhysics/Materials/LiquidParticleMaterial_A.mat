@@ -32,7 +32,7 @@ Material:
     - _EnableExternalAlpha: 0
     - _Shininess: 0.7
     m_Colors:
-    - _Color: {r: 0.035955828, g: 0.28315207, b: 0.9528302, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Emission: {r: 0.71323526, g: 0.59785897, b: 0.59785897, a: 0}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
