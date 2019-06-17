@@ -2046,30 +2046,12 @@ MonoBehaviour:
   healthRegenExplanation: {fileID: 8300000, guid: 0efd47b15d2df21489045186d7b9143d,
     type: 3}
   endTutorialClip: {fileID: 8300000, guid: 94dc0a128db592f469980ccfeeab92d4, type: 3}
-  objectiveLevelClip1_0: {fileID: 8300000, guid: 0c9c09ea075ce824ea8b9e648cc61fca,
-    type: 3}
-  objectiveLevelClip1_1: {fileID: 8300000, guid: beff1ed6344f4b64d8febdebda5a62c5,
-    type: 3}
   objectiveLevelClip1_2: {fileID: 8300000, guid: 369537d6b6fda0d46bcb9e015496ec59,
-    type: 3}
-  objectiveLevelClip1_3: {fileID: 8300000, guid: 4e9733ea62ed1734ea1d2fb23774d671,
     type: 3}
   objectiveLevelClip1_4: {fileID: 8300000, guid: a8efcc435c20b5d46bfe86ac8a12321b,
     type: 3}
-  objectiveLevelClip1_5: {fileID: 8300000, guid: a6d7030efb9cb92439566adbbdba859b,
-    type: 3}
-  objectiveLevelClip1_6: {fileID: 8300000, guid: 832df831a10f9c34c9538ea76e1a894f,
-    type: 3}
-  objectiveLevelClip1_7: {fileID: 8300000, guid: dc738145127cc3f48ac621c333a092a9,
-    type: 3}
-  objectiveLevelClip1_8: {fileID: 8300000, guid: 183f67f2491c044408f9bddb2569cbdf,
-    type: 3}
-  objectiveLevelClip1_9: {fileID: 8300000, guid: b016f40d95aab014690ff3de67081182,
-    type: 3}
   waterFound: {fileID: 8300000, guid: 35b0d9120ff22c84cbc982d965cb70b1, type: 3}
   waterPoolFoundClip: {fileID: 8300000, guid: 67f5f80187cade647972ee3c321f2a43, type: 3}
-  dontWasteWaterReminderClip: {fileID: 8300000, guid: 3180511b35283a040a583755fc2c2856,
-    type: 3}
   airFound: {fileID: 8300000, guid: a42850c1bad20c24596b8f006ab42eaf, type: 3}
   aboutToDieClip: {fileID: 8300000, guid: 861bf70274563c14888acd7e282894ad, type: 3}
   lavaCommentClip: {fileID: 8300000, guid: ca006463c9e1aaf42a0a0e2ebc998475, type: 3}
@@ -62495,6 +62477,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BodyType
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3783346701309453609, guid: af3f6a4ab9a38634f825e3335dcbae48,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3783346701309453615, guid: af3f6a4ab9a38634f825e3335dcbae48,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6201979217329797830, guid: af3f6a4ab9a38634f825e3335dcbae48,
         type: 3}
