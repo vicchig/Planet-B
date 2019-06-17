@@ -48,14 +48,6 @@ public class PlayerAttributes : MonoBehaviour
         currentHeat = 0;
     }
 
-    private void Update()
-    {
-        if (currentHealth == 0)
-        {
-            Scene scene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scene.name);
-        }
-    }
 
     private void FixedUpdate()
     {
