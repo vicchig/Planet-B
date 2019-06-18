@@ -200,7 +200,6 @@ public class PlayerMovement : MonoBehaviour
     private void LateUpdate()
     {
         setAnimations();
-
     }
 
     //performs various physics related checks and calculations, should be put in FixedUpdate
@@ -214,6 +213,15 @@ public class PlayerMovement : MonoBehaviour
         else {
             capsuleCollider.enabled = false;
             boxCollider.enabled = true;
+        }
+
+
+        if (isInAir)
+        {
+            boxCollider.size = jumpColliderSize;
+        }
+        else {
+            boxCollider.size = defaultColliderSize;
         }
 
     }

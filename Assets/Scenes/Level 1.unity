@@ -103416,7 +103416,7 @@ PrefabInstance:
     - target: {fileID: 2912555128475887094, guid: 5841e2894e0701f4c910647647c23e7a,
         type: 3}
       propertyPath: waterCollected
-      value: 14
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3190657251732207764, guid: 5841e2894e0701f4c910647647c23e7a,
         type: 3}
