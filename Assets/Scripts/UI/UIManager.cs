@@ -36,7 +36,7 @@ public class UIManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "Level 1") {
             waterInPoolBar = this.transform.GetChild(4).GetComponent<ProgressBar>();
-            setInitialBarValues(waterInPoolBar, manager.getAmountOfWaterInPool(), manager.waterNeededInPool - 8);
+            setInitialBarValues(waterInPoolBar, manager.getAmountOfWaterInPool(), manager.waterNeededInPool);
         }
         
     }

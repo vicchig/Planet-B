@@ -6,8 +6,8 @@ public class ObjectSpawner : MonoBehaviour
 {
     [Header("Spawn Properties")]
     public GameObject objectPrefab;
-    public bool spawnContinuously;
-    public float spawnDelay;//these two should be 0 for an object that is being spawned continuously
+    public bool spawnContinuously;//false if you want to spawn a given amount of objects once and not spawn any more of them
+    public float spawnDelay;//these two should be 0 for an object that is being spawned continuously (without any delay)
     public int spawnAmount;
     public int spawnChance;//integer percentage
 

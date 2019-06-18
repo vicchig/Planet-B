@@ -107,6 +107,8 @@ public class GameManagerLevel1 : GameManager
     {
         base.Update();
 
+        Debug.Log(amountOfWaterInPool);
+
         levelObjectiveChecks();
         checkEchoCollisions();
     }
