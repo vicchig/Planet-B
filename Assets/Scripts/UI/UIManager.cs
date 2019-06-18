@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     public GameObject managerObj;
 
     private PlayerAttributes playerAttributes;
-    private GameManagerScript manager;
+    private GameManagerLevel1 manager;
 
     private ProgressBar healthBar;
     private ProgressBar airBar;
@@ -19,7 +19,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         playerAttributes = player.GetComponent<PlayerAttributes>();
-        manager = managerObj.GetComponent<GameManagerScript>();
+        manager = managerObj.GetComponent<GameManagerLevel1>();
 
         healthBar = this.transform.GetChild(0).GetComponent<ProgressBar>();
         setInitialBarValues(healthBar, playerAttributes.maxHealth, playerAttributes.maxHealth);

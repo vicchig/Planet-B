@@ -166,14 +166,12 @@ public class DynamicParticle : MonoBehaviour
 
         if (other.tag == "WaterPool")
         {
-            manager.GetComponent<GameManagerScript>().setAmountOfWaterInPool(manager.GetComponent<GameManagerScript>().getAmountOfWaterInPool() + 1);
+            manager.GetComponent<GameManagerLevel1>().setAmountOfWaterInPool(manager.GetComponent<GameManagerLevel1>().getAmountOfWaterInPool() + 1);
             inPool = true;
         }
         if (other.tag != "WaterPool" && other.tag != "WaterDisappear" && other.tag != "WaterPoolCollisionArea" && other.tag != "bullet2") {
             destroyObject = true;
         }
-
-        Debug.Log(other.tag);
     }
 
 

@@ -130,13 +130,13 @@ public class HelperCharacter : MonoBehaviour
                 busy = false;
                 textTimer = 0;
             }
-            textTimer += Time.deltaTime;
+            textTimer += Time.fixedDeltaTime;
         }
 
         //health warning timer
         if (healthWarningTimerEnable)
         {
-            healthWarningTimer -= Time.deltaTime;
+            healthWarningTimer -= Time.fixedDeltaTime;
         }
         else if (healthWarningTimer <= 0) {
             healthWarningTimer = 0;
@@ -146,7 +146,7 @@ public class HelperCharacter : MonoBehaviour
         //air warning timer
         if (airWarningTimerEnable)
         {
-            airWarningTimer -= Time.deltaTime;
+            airWarningTimer -= Time.fixedDeltaTime;
         }
         else if (airWarningTimer <= 0) {
             airWarningTimer = 0;

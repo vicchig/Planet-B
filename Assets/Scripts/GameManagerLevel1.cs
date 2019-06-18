@@ -104,12 +104,13 @@ public class GameManagerLevel1 : GameManager
 
         levelObjectiveChecks();
         checkEchoCollisions();
+
+        Debug.Log(amountOfWaterInPool + " / " + waterNeededInPool);
     }
     
     new protected void FixedUpdate()
     {
         base.FixedUpdate();
-        Debug.Log(echoColliders.Count);
     }
 
     /**

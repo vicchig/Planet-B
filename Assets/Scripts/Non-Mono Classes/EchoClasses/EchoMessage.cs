@@ -56,7 +56,7 @@ public class EchoMessage
         <returns> Float representation of the time in seconds.</returns>
     */
     public float getDuration() {
-        return clip.length + 0.5f;
+        return clip.length;
     }
 
     /**
