@@ -53,6 +53,8 @@ public class PlayerMovement : MonoBehaviour
 
     public int dir; //1 for right -1 for left
 
+    private bool leftMousePressed;
+
     private void Start()
     {
         input = GetComponent<PlayerInput>();
@@ -74,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
 
         landingSoundPlayed = true;
         initiateWallHang = false;
+        leftMousePressed = false;
     }
 
     private void FixedUpdate() {
@@ -96,6 +99,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetButtonDown("Fire1")) {
+            leftMousePressed = true;
+        }
+
+        if (Input.GetButtonUp("Fire1")) {
+            leftMousePressed = false;
+        }
+
         //determine whether jumping animation should be palyed
         if (rBody.velocity.y != 0 && !isOnGround && !isOnPlatform && !isHanging)
         {
@@ -311,7 +322,7 @@ public class PlayerMovement : MonoBehaviour
             shootingWhileStanding = false;
             hanging = false;
         }
-        else if (input.horizontalIn == 0 && !isInAir && !Input.GetButtonDown("Fire1") && !isHanging)
+        else if (input.horizontalIn == 0 && !isInAir && !leftMousePressed && !isHanging)
         {
             standing = true;
             movingHorizontally = false;
@@ -319,7 +330,7 @@ public class PlayerMovement : MonoBehaviour
             shootingWhileStanding = false;
             hanging = false;
         }
-        else if (Input.GetButtonDown("Fire1") && input.horizontalIn == 0 && !isInAir && !isHanging) {
+        else if (leftMousePressed && input.horizontalIn == 0 && !isInAir && !isHanging) {
             shootingWhileStanding = true;
             movingHorizontally = false;
             jumping = false;
