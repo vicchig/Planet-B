@@ -8,6 +8,10 @@ public class EchoMessageCollider : MonoBehaviour
     public string txt;
     public AudioClip clip;
     public int maxTxtShows;
+    /// <summary>
+    /// Whether this collider should wait for Echo to finish all of her current dialogues.
+    /// </summary>
+    public bool waitUntilFree = true; 
 
     private EchoMessage message;
     private HelperCharacter echo;
@@ -21,8 +25,19 @@ public class EchoMessageCollider : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "EchoCollider" && !message.maxTextShowsReached() && !echo.isBusy()) {
-            echo.addMessage(message);
+        if (waitUntilFree)
+        {
+            if (collision.tag == "EchoCollider" && !message.maxTextShowsReached() && !echo.isBusy())
+            {
+                echo.addMessage(message);
+            }
         }
+        else {
+            if (collision.tag == "EchoCollider" && !message.maxTextShowsReached())
+            {
+                echo.addMessage(message);
+            }
+        }
+        
     }
 }
