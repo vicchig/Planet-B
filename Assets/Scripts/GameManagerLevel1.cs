@@ -109,8 +109,6 @@ public class GameManagerLevel1 : GameManager
 
         levelObjectiveChecks();
         checkEchoCollisions();
-
-        Debug.Log(amountOfEvaporatedWater);
     }
     
     new protected void FixedUpdate()
@@ -123,40 +121,40 @@ public class GameManagerLevel1 : GameManager
     */
     protected override void levelObjectiveChecks() {
         //check for whether the player has collected enough water
-        if (attributes.GetCurrentWater() >= waterNeededInPool / 4 && !echo.isBusy() && !objectiveLevelTxt1_3.maxTextShowsReached())
+        if (attributes.GetCurrentWater() >= waterNeededInPool / 4 && !echo.isBusy() && !objectiveLevelTxt1_3.maxTextShowsReached() && !dontWasteWaterReminderTxt.maxTextShowsReached())
         {
             echo.addMessage(objectiveLevelTxt1_3);
             echo.addMessage(dontWasteWaterReminderTxt);
         }
 
         //check for whether the pool has enough water to begin evaporation
-        if (amountOfWaterInPool >= waterNeededInPool)
+        if (amountOfWaterInPool >= waterNeededInPool && !objectiveLevelTxt1_5.maxTextShowsReached() && !objectiveLevelTxt1_6.maxTextShowsReached())
         {
             echo.addMessage(objectiveLevelTxt1_5);
             echo.addMessage(objectiveLevelTxt1_6);
 
         }
         //player did not fill the pool with enough water
-        if (playerIsInPool && amountOfWaterInPool < waterNeededInPool && attributes.GetCurrentWater() == 0 && waterPControl.getFPressed())
+        if (playerIsInPool && amountOfWaterInPool < waterNeededInPool && attributes.GetCurrentWater() == 0 && waterPControl.getFPressed() && !objectiveLevelTxt1_8.maxTextShowsReached())
         {
             echo.addMessage(objectiveLevelTxt1_8);
         }
 
         //not enough water left on level
-        if ((attributes.GetCurrentWater() + waterDropParent.transform.childCount) * 4 < waterNeededInPool - amountOfWaterInPool)
+        if ((attributes.GetCurrentWater() + waterDropParent.transform.childCount) * 4 < waterNeededInPool - amountOfWaterInPool && !objectiveLevelTxt1_9.maxTextShowsReached())
         {
             echo.addMessage(objectiveLevelTxt1_9);
         }
 
         //evaporated enough water
-        if (amountOfEvaporatedWater >= GameObject.Find("RisingSteam").GetComponent<RisingSteamManager>().waterThreshold)
+        if (amountOfEvaporatedWater >= GameObject.Find("RisingSteam").GetComponent<RisingSteamManager>().waterThreshold && !objectiveLevelTxt1_7.maxTextShowsReached())
         {
             echo.addMessage(objectiveLevelTxt1_7);
             nextLevelMarker.SetActive(true);
         }
 
         //first water picked up
-        if (attributes.GetCurrentWater() > 0 && !objectiveLevelTxt1_2.maxTextShowsReached()) {
+        if (attributes.GetCurrentWater() > 0 && !objectiveLevelTxt1_2.maxTextShowsReached() && !echo.isBusy()) {
             echo.addMessage(objectiveLevelTxt1_2);
         }   
     }
@@ -170,6 +168,7 @@ public class GameManagerLevel1 : GameManager
                 if (echoColliders[i].tag == "ExploreAreaEastLevel1" && attributes.GetCurrentWater() >= waterNeededInPool / 4 && !waterPoolFoundTxt.maxTextShowsReached())
                 {
                     echo.addMessage(objectiveLevelTxt1_4);
+                    echoColliders[i].enabled = false;
                 }
                 else if (echoColliders[i].tag == "WaterPoolCollisionArea")
                 {

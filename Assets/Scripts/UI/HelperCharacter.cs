@@ -77,6 +77,7 @@ public class HelperCharacter : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(sounds.Count);
         //text duration timer
         if (textTimer >= textDuration)
         {
@@ -133,7 +134,7 @@ public class HelperCharacter : MonoBehaviour
         //update text duration timer
         if (busy)
         {
-            textTimer += Time.fixedDeltaTime;
+            textTimer += Time.deltaTime;
         }
 
         //health warning timer
