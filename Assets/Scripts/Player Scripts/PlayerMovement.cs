@@ -2,63 +2,56 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+/// <summary> Class that controls player movement.</summary>
 public class PlayerMovement : MonoBehaviour
 {
-
     [Header("Movement Properties")]
-    public float speedX = 8f;
+    public float speedX = 8f; //player's vertical speed
     public float jumpDelayDuration = 0.05f; //amount of time you have to jump up once you have walked off an edge of the platform you were on
-    public float maxFallSpeed = -10.0f;
+    public float maxFallSpeed = -10.0f; //limit for how fast the player can fall down
 
     [Header("Jump Properties")]
-    public float jumpForce = 6.3f;
+    public float jumpForce = 6.3f; //force of the regular player jump
 
     [Header("Enviro Check Properties")]
-    public float footOffset = 0.4f;
     public float groundDistance = 0.2f; //distance at which the player is considered to be on the ground at
-    public LayerMask groundLayer;
-    public LayerMask movingPlatLayer;
+    public LayerMask groundLayer; //layer that contains static platforms
+    public LayerMask movingPlatLayer; //layer that contains moving platforms
 
     [Header("Status Flags")]
-    public bool isOnGround;
-    public bool isJumping;
-    public bool isOnPlatform;
-    public bool isHanging;
+    public bool isOnGround; //whether the player is on graound or not
+    public bool isJumping; //whether the player has just attempted to jump using the jump key
+    public bool isOnPlatform; //whether the player is on a moving platform or not
+    public bool isHanging; //whether the player is hanging off a wall or moving platform
 
     [Header("Weapon Components")]
-    public Transform firePoint;
+    public Transform firePoint; //the point where player bullets are spawned
 
-    public Transform wallGrabCheckPointTransform;
-    public Transform platCollideCheckPoint;
+    [Header("Collision Checkpoints")]
+    public Transform wallGrabCheckPointTransform; //point that checks whether the player can grab a wall or not
+    public Transform platCollideCheckPoint; //point that checks whether the player's feet are on the ground or not
 
-    PlayerInput input; //stores current inputs for the player
+    private PlayerInput input; //stores current inputs for the player
+    private BoxCollider2D boxCollider;
+    private CapsuleCollider2D capsuleCollider;
+    private Rigidbody2D rBody;
 
-    //store the respective component of the player object
-    BoxCollider2D boxCollider;
-    CapsuleCollider2D capsuleCollider;
-    Rigidbody2D rBody;
+    private Vector2 defaultColliderSize; //the starting size of the player's collider
+    private Vector2 jumpColliderSize; //the size of the player's collider when they are in the air
+    private Vector2 collidedPlatformVelocity; //velocity of the moving platform that the player is colliding with
+    private Vector3 collidedPlatformDir; //direction of the moving platform that the player is colliding with
+    private Animator animator; 
 
-    float jumpDelayTime; //holds the inspector jump delay
-    float originalScaleX;
+    private bool landingSoundPlayed; //whether the landing sound has been played or not when the player touches the ground after a jump
+    private bool initiateWallHang; //whether the player can wall grab or not (ie. is the wall grab key being pressed)
+    private bool isInAir; //wether the player is in the air or not
+    private bool suppressAD = false; //whether A and D key presses should be suppressed
+
+    private float suppressADTimer = 0f; //current amount of time that A and D key presses have been suppresed for
+    private float jumpDelayTime; //holds the inspector jump delay
+    private float originalScaleX; //the transform's x scale that the player starts with
 
     public int dir; //1 for right -1 for left
-
-
-    private Vector2 collidedPlatformVelocity;
-    private Vector3 collidedPlatformDir;
-    private Animator animator;
-
-    private Vector2 defaultColliderSize;
-    private Vector2 jumpColliderSize;
-
-    private bool landingSoundPlayed;
-    private bool initiateWallHang;
-
-    private bool suppressAD = false;
-    private float suppressADTimer = 0f;
-
-    private bool playJumpingAnim;
 
     private void Start()
     {
@@ -85,7 +78,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate() {
         physicsCheck();
-
         inAirMovement();
 
         //timer for suppressing A and D presses after a wall hang jump
@@ -100,19 +92,20 @@ public class PlayerMovement : MonoBehaviour
                 suppressADTimer += Time.fixedDeltaTime;
             }
         }
+
+        //changing collider size during a jump
+
     }
 
     private void Update()
     {
-
-
         //determine whether jumping animation should be palyed
         if (rBody.velocity.y != 0 && !isOnGround && !isOnPlatform && !isHanging)
         {
-            playJumpingAnim = true;
+            isInAir = true;
         }
         else {
-            playJumpingAnim = false;
+            isInAir = false;
         }
 
         //change firepoint location when hanging on a wall and shooting
@@ -129,13 +122,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             firePoint.transform.localPosition = new Vector3(0.454f, -0.133f, 0f);
-        }
-
-        //playing the landing sound after a jump
-        if (!isJumping && isOnGround && !landingSoundPlayed) {
-            AudioManager.playFootstepSound();
-            landingSoundPlayed = true;
-        }
+        }        
 
         //wall climb setting when appropriate input is pressed
         if (Input.GetButtonDown("WallClimb")) {
@@ -170,7 +157,7 @@ public class PlayerMovement : MonoBehaviour
         {
             isOnGround = true;
             isOnPlatform = false;
-            playJumpingAnim = false;
+            isInAir = false;
             isHanging = false;
             isJumping = false;
         }
@@ -179,16 +166,14 @@ public class PlayerMovement : MonoBehaviour
             isOnGround = false;
         }
 
-
-
         horizontalMovement();
         wallHangMovement();
 
-
         setAnimations();
+        playSounds();
     }
 
-
+    //performs various physics related checks and calculations, should be put in FixedUpdate
     private void physicsCheck() {
         //changing colliders during wall grab
         if (isHanging && !Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer))
@@ -223,10 +208,6 @@ public class PlayerMovement : MonoBehaviour
         }
         else {
             rBody.velocity = new Vector2(xVelocity, rBody.velocity.y);
-        }
-
-        if (input.horizontalIn != 0 && (isOnGround || isOnPlatform) && !isHanging) {
-            AudioManager.playFootstepSound();
         }
     }
 
@@ -275,6 +256,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    //movement of the palyer on a moving platform
     private void platformMovement(float xVelocity) {
         if (input.horizontalIn == 0)
         {
@@ -286,6 +268,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    //jump of the player on a moving platform
     private void platformJump() {
         if (collidedPlatformDir.y < 0 && collidedPlatformVelocity.y == 0)
         {
@@ -306,12 +289,11 @@ public class PlayerMovement : MonoBehaviour
         rBody.AddForce(new Vector2(5f * dir, jumpForce * 1.3f), ForceMode2D.Impulse);
     }
 
-
     private void setAnimations()
     {
         bool movingHorizontally = false, jumping = false, standing = false, shootingWhileStanding = false, hanging = false;
 
-        if (input.horizontalIn != 0 && !playJumpingAnim && !isHanging)
+        if (input.horizontalIn != 0 && !isInAir && !isHanging)
         {
             movingHorizontally = true;
             jumping = false;
@@ -319,14 +301,14 @@ public class PlayerMovement : MonoBehaviour
             hanging = false;
             shootingWhileStanding = false;
         }
-        else if (playJumpingAnim)
+        else if (isInAir)
         {
             jumping = true;
             standing = false;
             shootingWhileStanding = false;
             hanging = false;
         }
-        else if (input.horizontalIn == 0 && !playJumpingAnim && !Input.GetButtonDown("Fire1") && !isHanging)
+        else if (input.horizontalIn == 0 && !isInAir && !Input.GetButtonDown("Fire1") && !isHanging)
         {
             standing = true;
             movingHorizontally = false;
@@ -334,7 +316,7 @@ public class PlayerMovement : MonoBehaviour
             shootingWhileStanding = false;
             hanging = false;
         }
-        else if (Input.GetButtonDown("Fire1") && input.horizontalIn == 0 && !playJumpingAnim && !isHanging) {
+        else if (Input.GetButtonDown("Fire1") && input.horizontalIn == 0 && !isInAir && !isHanging) {
             shootingWhileStanding = true;
             movingHorizontally = false;
             jumping = false;
@@ -355,7 +337,6 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("shooting", shootingWhileStanding);
         animator.SetBool("hanging", hanging);
     }
-
 
     private void wallHangMovement() {
         if (isHanging)
@@ -383,6 +364,22 @@ public class PlayerMovement : MonoBehaviour
 
         scale.x = originalScaleX * dir;
         transform.localScale = scale;
+    }
+
+
+    private void playSounds() {
+        //footsteps
+        if (input.horizontalIn != 0 && (isOnGround || isOnPlatform) && !isHanging)
+        {
+            AudioManager.playFootstepSound();
+        }
+
+        //landing
+        if (!isJumping && isOnGround && !landingSoundPlayed)
+        {
+            AudioManager.playFootstepSound();
+            landingSoundPlayed = true;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D col) {
