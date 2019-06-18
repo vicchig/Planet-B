@@ -99,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        //check left mouse button input
         if (Input.GetButtonDown("Fire1")) {
             leftMousePressed = true;
         }
@@ -179,11 +180,27 @@ public class PlayerMovement : MonoBehaviour
             landingSoundPlayed = false;
         }
 
+
+        //change shooting dir based on where you clicked
+        if (input.horizontalIn == 0 && leftMousePressed) {
+            Camera cam = Camera.main;
+
+            Vector2 mousePos = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -cam.transform.position.z));
+            if ((mousePos.x > transform.position.x && dir != 1) || (mousePos.x < transform.position.x && dir != -1)) {
+                flipPlayerDir();
+            }
+        }
+
         horizontalMovement();
         wallHangMovement();
 
-        setAnimations();
         playSounds();
+    }
+
+    private void LateUpdate()
+    {
+        setAnimations();
+
     }
 
     //performs various physics related checks and calculations, should be put in FixedUpdate
