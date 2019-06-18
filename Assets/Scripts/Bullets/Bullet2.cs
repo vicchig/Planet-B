@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet2 : Bullet
 {
     private GameObject manager;
-    private GameManagerScript managerScript;
+    private GameManagerLevel1 managerScript;
     protected override void Start()
     {
         Destroy(gameObject, despawnTime); // despawner
@@ -15,7 +15,7 @@ public class Bullet2 : Bullet
         rb.velocity = shootDirection.normalized * speed;
 
         manager = GameObject.Find("GameManager");
-        managerScript = manager.GetComponent<GameManagerScript>();
+        managerScript = manager.GetComponent<GameManagerLevel1>();
     }
     protected override void OnTriggerEnter2D(Collider2D collision)
     {

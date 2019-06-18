@@ -12,7 +12,7 @@ public class ObjectiveDisplayScript : MonoBehaviour
     public GameObject hudObj;
 
     private PlayerAttributes playerAttributes;
-    private GameManagerScript manager;
+    private GameManagerLevel1 manager;
     private HelperCharacter echo;
     private TextMeshProUGUI textMesh;
     private UIManager uiManager;
@@ -20,7 +20,7 @@ public class ObjectiveDisplayScript : MonoBehaviour
     private void Start()
     {
         playerAttributes = playerObj.GetComponent<PlayerAttributes>();
-        manager = gameManagerObj.GetComponent<GameManagerScript>();
+        manager = gameManagerObj.GetComponent<GameManagerLevel1>();
         echo = playerObj.GetComponent<HelperCharacter>();
         textMesh = this.GetComponent<TextMeshProUGUI>();
         uiManager = hudObj.GetComponent<UIManager>();

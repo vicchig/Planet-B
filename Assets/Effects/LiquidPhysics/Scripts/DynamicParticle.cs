@@ -24,14 +24,14 @@ public class DynamicParticle : MonoBehaviour
     bool isSteaming = false;
 
     private GameObject manager;
-    private GameManagerScript managerScript;
+    private GameManagerLevel1 managerScript;
     private bool destroyObject;
     private bool inPool = false;
     private void Start()
     {
         gameObject.transform.SetParent(GameObject.Find("WaterParent").transform);
         manager = GameObject.Find("GameManager");
-        managerScript = manager.GetComponent<GameManagerScript>();
+        managerScript = manager.GetComponent<GameManagerLevel1>();
 
         if (GameObject.Find("WaterParent").transform.childCount > managerScript.waterNeededInPool)
         {

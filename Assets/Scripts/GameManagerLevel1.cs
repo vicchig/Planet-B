@@ -109,6 +109,8 @@ public class GameManagerLevel1 : GameManager
 
         levelObjectiveChecks();
         checkEchoCollisions();
+
+        Debug.Log(amountOfEvaporatedWater);
     }
     
     new protected void FixedUpdate()
