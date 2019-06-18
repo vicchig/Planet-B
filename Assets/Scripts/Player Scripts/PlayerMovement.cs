@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 jumpColliderSize; //the size of the player's collider when they are in the air
     private Vector2 collidedPlatformVelocity; //velocity of the moving platform that the player is colliding with
     private Vector3 collidedPlatformDir; //direction of the moving platform that the player is colliding with
-    private Animator animator; 
+    private Animator animator;
 
     private bool landingSoundPlayed; //whether the landing sound has been played or not when the player touches the ground after a jump
     private bool initiateWallHang; //whether the player can wall grab or not (ie. is the wall grab key being pressed)
@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
 
         defaultColliderSize = boxCollider.size;
-        jumpColliderSize = new Vector2(defaultColliderSize.x, defaultColliderSize.y * 0.5f);
+        jumpColliderSize = new Vector2(defaultColliderSize.x, defaultColliderSize.y * 0.6f);
 
         dir = 1;
 
@@ -92,9 +92,6 @@ public class PlayerMovement : MonoBehaviour
                 suppressADTimer += Time.fixedDeltaTime;
             }
         }
-
-        //changing collider size during a jump
-
     }
 
     private void Update()
@@ -122,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             firePoint.transform.localPosition = new Vector3(0.454f, -0.133f, 0f);
-        }        
+        }
 
         //wall climb setting when appropriate input is pressed
         if (Input.GetButtonDown("WallClimb")) {
@@ -153,7 +150,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         /*Determine whether the player is on the ground or not*/
-        if (Physics2D.OverlapCircle(platCollideCheckPoint.position, 0.1f, groundLayer))
+        if (Physics2D.OverlapCircle(platCollideCheckPoint.position, 0.05f, groundLayer))
         {
             isOnGround = true;
             isOnPlatform = false;
@@ -181,7 +178,7 @@ public class PlayerMovement : MonoBehaviour
     //performs various physics related checks and calculations, should be put in FixedUpdate
     private void physicsCheck() {
         //changing colliders during wall grab
-        if (isHanging && !Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer))
+        if ((isHanging && !Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer)))
         {
             boxCollider.enabled = false;
             capsuleCollider.enabled = true;
@@ -205,6 +202,7 @@ public class PlayerMovement : MonoBehaviour
         {
             jumpDelayTime = Time.time + jumpDelayDuration;
             isJumping = false;
+            isInAir = false;
         }
 
         if (isOnPlatform)

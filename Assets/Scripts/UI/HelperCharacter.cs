@@ -77,8 +77,6 @@ public class HelperCharacter : MonoBehaviour
 
     private void Update()
     {
-
-        Debug.Log(busy);
         //text duration timer
         if (textTimer >= textDuration)
         {
