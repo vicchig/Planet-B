@@ -77,6 +77,15 @@ public class HelperCharacter : MonoBehaviour
 
     private void Update()
     {
+
+        Debug.Log(busy);
+        //text duration timer
+        if (textTimer >= textDuration)
+        {
+            busy = false;
+            textTimer = 0;
+        }
+
         //playing sounds
         if (sounds.Count >= 1 && !busy)
         {
@@ -126,10 +135,6 @@ public class HelperCharacter : MonoBehaviour
         //update text duration timer
         if (busy)
         {
-            if (textTimer >= textDuration) {
-                busy = false;
-                textTimer = 0;
-            }
             textTimer += Time.fixedDeltaTime;
         }
 
