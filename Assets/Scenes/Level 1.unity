@@ -55209,7 +55209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9520b4773cd4be247b979318eae6c1da, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.84
+      value: 0.99
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9520b4773cd4be247b979318eae6c1da, type: 3}
       propertyPath: m_LocalPosition.y
@@ -55843,12 +55843,12 @@ PrefabInstance:
     - target: {fileID: 3546228992207641018, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
       propertyPath: m_Offset.y
-      value: 0.007847309
+      value: 1.1133132
       objectReference: {fileID: 0}
     - target: {fileID: 3546228992207641018, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
       propertyPath: m_Size.y
-      value: 5.491164
+      value: 7.702096
       objectReference: {fileID: 0}
     - target: {fileID: 3546228992207641018, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
@@ -103291,6 +103291,11 @@ PrefabInstance:
       propertyPath: hudObject
       value: 
       objectReference: {fileID: 214270708}
+    - target: {fileID: 2912555128475887094, guid: 5841e2894e0701f4c910647647c23e7a,
+        type: 3}
+      propertyPath: waterCollected
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 3190657251732207764, guid: 5841e2894e0701f4c910647647c23e7a,
         type: 3}
       propertyPath: jumpDelayInsp
