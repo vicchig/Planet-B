@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -33,8 +34,11 @@ public class UIManager : MonoBehaviour
         heatBar = this.transform.GetChild(3).GetComponent<ProgressBar>();
         setInitialBarValues(heatBar, playerAttributes.getCurrentHeat(), playerAttributes.maxHeat);
 
-        waterInPoolBar = this.transform.GetChild(4).GetComponent<ProgressBar>();
-        setInitialBarValues(waterInPoolBar, manager.getAmountOfWaterInPool(), manager.waterNeededInPool - 8);
+        if (SceneManager.GetActiveScene().name == "Level 1") {
+            waterInPoolBar = this.transform.GetChild(4).GetComponent<ProgressBar>();
+            setInitialBarValues(waterInPoolBar, manager.getAmountOfWaterInPool(), manager.waterNeededInPool - 8);
+        }
+        
     }
 
     private void Update()
@@ -43,7 +47,11 @@ public class UIManager : MonoBehaviour
         airBar.BarValue = playerAttributes.GetCurrentAir();
         this.transform.GetChild(2).GetComponent<Text>().text = ":" + playerAttributes.GetCurrentWater();
         heatBar.BarValue = playerAttributes.getCurrentHeat();
-        waterInPoolBar.BarValue = manager.getAmountOfWaterInPool();
+        if (SceneManager.GetActiveScene().name == "Level 1")
+        {
+            waterInPoolBar.BarValue = manager.getAmountOfWaterInPool();
+
+        }
     }
 
     private void setInitialBarValues(ProgressBar bar, int curr, int max) {
