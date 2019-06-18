@@ -189,6 +189,7 @@ public class GameManagerLevel1 : GameManager
                 {
                     echo.addMessage(lavaCommentTxt);
                 }
+                else if (echoColliders[i].tag == "" && !echo.isBusy() && player.GetComponent<Rigidbody2D>().velocity.x > 0) { }
             }
         }
     }
