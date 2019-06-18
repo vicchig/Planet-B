@@ -134,6 +134,7 @@ public class PlayerMovement : MonoBehaviour
         if (!isJumping && isOnGround && !landingSoundPlayed) {
             AudioManager.playFootstepSound();
             landingSoundPlayed = true;
+
         }
 
         if (Input.GetButtonDown("WallClimb")) {
@@ -167,9 +168,9 @@ public class PlayerMovement : MonoBehaviour
 
 
     private void physicsCheck() {
-        if (isJumping || isHanging)
+        if (isJumping || isHanging || (!isOnPlatform && !isOnGround && rBody.velocity.y != 0))
         {
-            boxCollider.size = jumpColliderSize;
+            // boxCollider.size = jumpColliderSize;
         }
         else
         {
@@ -190,11 +191,13 @@ public class PlayerMovement : MonoBehaviour
         {
             isOnGround = true;
             isHanging = false;
+            isJumping = false;
         }
         else {
             isOnGround = false;
         }
 
+        
         if (isHanging && !Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer))
         {
             boxCollider.enabled = false;
@@ -267,6 +270,7 @@ public class PlayerMovement : MonoBehaviour
                 isJumping = true;
                 isOnPlatform = false;
                 landingSoundPlayed = false;
+
                 //jumpTime = Time.time + 0.5f;
             }
 
@@ -417,7 +421,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col) {
 
-        if ((col.transform.CompareTag("MovingPlatform") || col.transform.CompareTag("RandomlyMovingPlatform")) && Physics2D.OverlapCircle(platCollideCheckPoint.position, 0.12f, movingPlatLayer))
+        if ((col.transform.CompareTag("MovingPlatform") || col.transform.CompareTag("RandomlyMovingPlatform")) && Physics2D.OverlapCircle(platCollideCheckPoint.position, 0.14f, movingPlatLayer))
         {
             transform.parent = col.transform;
             isOnPlatform = true;
