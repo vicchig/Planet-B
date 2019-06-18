@@ -166,6 +166,11 @@ public class PlayerMovement : MonoBehaviour
             isOnGround = false;
         }
 
+        //sound checks
+        if (isInAir) {
+            landingSoundPlayed = false;
+        }
+
         horizontalMovement();
         wallHangMovement();
 
@@ -375,7 +380,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //landing
-        if (!isJumping && isOnGround && !landingSoundPlayed)
+        if (!isInAir && isOnGround && !landingSoundPlayed)
         {
             AudioManager.playFootstepSound();
             landingSoundPlayed = true;
