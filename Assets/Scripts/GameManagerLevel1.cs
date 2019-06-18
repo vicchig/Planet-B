@@ -177,6 +177,7 @@ public class GameManagerLevel1 : GameManager
                     {
                         echo.addMessage(waterPoolFoundTxt);
                     }
+                    echoColliders[i].enabled = false;
                 }
                 else if (echoColliders[i].tag == "AirSourceTextArea" && !airSourceFoundTxt.maxTextShowsReached() && !echo.isBusy())
                 {
