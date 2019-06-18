@@ -22,6 +22,7 @@ public class GameManagerLevel1 : GameManager
     public AudioClip waterFoundClip;
     public AudioClip airFoundClip;
     public AudioClip lavaCommentClip;
+    public AudioClip echoDirectionClip1;
 
     [Header("Level 1 Variables")]
     ///<summary> Amount of water needed in the pool to begin evaporation. </summary>
@@ -30,6 +31,7 @@ public class GameManagerLevel1 : GameManager
     [Header("Level Objects")]
     public GameObject nextLevelMarker;
     public GameObject waterDropParent;
+    public GameObject movingPlatParent;
 
     //Level 1 Echo Messages
     EchoMessage objectiveLevelTxt1_0;
@@ -47,15 +49,16 @@ public class GameManagerLevel1 : GameManager
     EchoMessage airSourceFoundTxt;
     EchoMessage waterDropFoundTxt;
     EchoMessage lavaCommentTxt;
+    EchoMessage echoDirectionTxt1;
+
+    /// <summary> Script that controls how the player can pour water.</summary>
+    private WaterPourController waterPControl;
 
     /// <summary> Current amount of water in the pool, each water droplet is equivalent to 4 of these</summary>
     private int amountOfWaterInPool;
 
     /// <summary> Amount of water that has been evaporated from the pool.</summary>
     private int amountOfEvaporatedWater;
-
-    /// <summary> Script that controls how the player can pour water.</summary>
-    private WaterPourController waterPControl;
 
     /// <summary> Tracks whether the player is standing inside the pool area collider or not. Uses the Echo collider.</summary>
     private bool playerIsInPool;
@@ -78,6 +81,8 @@ public class GameManagerLevel1 : GameManager
 
         dontWasteWaterReminderTxt = new EchoMessage("Make sure you do not waste it. If you do, check the cave for some more water. If you waste all of it, we will have to restart.", dontWasteWaterReminderClip, 1);
         waterPoolFoundTxt = new EchoMessage("This looks like a good spot to release our water.", waterPoolFoundClip, 1);
+
+        echoDirectionTxt1 = new EchoMessage("I do not see any way across. We sohuld probably turn around for now.", echoDirectionClip1, 1);
 
         //LEVEL PICK UPS AUDIO
         waterDropFoundTxt = new EchoMessage("Look! We seem to have found some water. Better collect it.", waterFoundClip, 1);
@@ -104,8 +109,6 @@ public class GameManagerLevel1 : GameManager
 
         levelObjectiveChecks();
         checkEchoCollisions();
-
-        Debug.Log(amountOfWaterInPool + " / " + waterNeededInPool);
     }
     
     new protected void FixedUpdate()
@@ -189,7 +192,9 @@ public class GameManagerLevel1 : GameManager
                 {
                     echo.addMessage(lavaCommentTxt);
                 }
-                else if (echoColliders[i].tag == "" && !echo.isBusy() && player.GetComponent<Rigidbody2D>().velocity.x > 0) { }
+                else if (echoColliders[i].tag == "directionAreaLevel1_1" && !echo.isBusy() && !echoDirectionTxt1.maxTextShowsReached() && (!movingPlatParent.transform.GetChild(4).transform.GetChild(2).GetComponent<PlatformMover>().active && !movingPlatParent.transform.GetChild(5).transform.GetChild(2).GetComponent<PlatformMover>().active)) {
+                    echo.addMessage(echoDirectionTxt1);
+                }
             }
         }
     }
