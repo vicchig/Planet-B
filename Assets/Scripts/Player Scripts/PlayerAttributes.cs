@@ -10,6 +10,7 @@ public class PlayerAttributes : MonoBehaviour
     public int waterCollected = 0;
     public int maxAir = 100;
     public int maxHeat = 0;
+    public int currentHeat = 0;
 
     [Header("Attribute Timers")]
     public float airDepletionTime = 2f;
@@ -37,7 +38,7 @@ public class PlayerAttributes : MonoBehaviour
     private float airDepletionTimer;
     private float outOfAirHealthDepletionTimer;
     private float healthRegenTimer;
-    private int currentHeat;
+    
 
     private void Start()
     {
@@ -45,7 +46,6 @@ public class PlayerAttributes : MonoBehaviour
         currentHealth = maxHealth;
         collidingWithLava = false;
         healthRegenTimer = healthRegenTime;
-        currentHeat = 0;
     }
 
 
