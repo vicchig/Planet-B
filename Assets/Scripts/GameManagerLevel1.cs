@@ -123,7 +123,7 @@ public class GameManagerLevel1 : GameManager
     */
     protected override void levelObjectiveChecks() {
         //check for whether the player has collected enough water
-        if (attributes.GetCurrentWater() >= waterNeededInPool / 4 && !echo.isBusy() && !objectiveLevelTxt1_3.maxTextShowsReached() && !dontWasteWaterReminderTxt.maxTextShowsReached())
+        if (attributes.GetCurrentWater() >= (waterNeededInPool / 4) + 4 && !echo.isBusy() && !objectiveLevelTxt1_3.maxTextShowsReached() && !dontWasteWaterReminderTxt.maxTextShowsReached())
         {
             echo.addMessage(objectiveLevelTxt1_3);
             echo.addMessage(dontWasteWaterReminderTxt);
