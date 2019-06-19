@@ -215,10 +215,9 @@ PrefabInstance:
     - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
       propertyPath: txt
-      value: Shoot using the left mouse button while using the mouse to aim. You can
-        use the 1, 2 and 3 keys to change weapon modes. Weapon 1 is your regular bullets.
-        Weapon modes 2 and 3 use heat energy to respectively heat and cool down your
-        environment.
+      value: You can use the 1, 2 and 3 keys to change weapon modes. Weapon 1 is your
+        regular bullets. Weapon modes 2 and 3 use heat energy to respectively heat
+        and cool down your environment.
       objectReference: {fileID: 0}
     - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
