@@ -78,6 +78,9 @@ TagManager:
   - name: Player
     uniqueID: 2075511947
     locked: 0
+  - name: EnviroEffects
+    uniqueID: 141163957
+    locked: 0
   - name: EnviroHazards
     uniqueID: 743712853
     locked: 0
