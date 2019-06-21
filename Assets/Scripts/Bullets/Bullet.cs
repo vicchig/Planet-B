@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, despawnTime); // despawner
 
 
-        shootDirection = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -cam.transform.position.z)) - transform.position;
+        shootDirection = Vector3.right * GameObject.Find("Player3").GetComponent<PlayerMovement>().dir;
 
         rb.velocity = shootDirection.normalized * speed;
     }
@@ -68,8 +68,6 @@ public class Bullet : MonoBehaviour
                     }
                 }
             }
-
-            Debug.Log(tilemap.WorldToCell(hitPosition));
             Destroy(gameObject);
         } else if (collision.CompareTag("Platforms"))
         {

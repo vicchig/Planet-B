@@ -29,7 +29,7 @@ public class Weapon : MonoBehaviour
     void Update()
     {
         
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("ShootWeapon"))
         {
             Shoot();
 
@@ -49,13 +49,13 @@ public class Weapon : MonoBehaviour
             bulletPrefab = bullet3;
             isBullet2 = false;
         }
-        if (Input.GetButtonUp("Fire1"))
+        if (Input.GetButtonUp("ShootWeapon"))
         {
             ps.Stop();
         }
         if (isBullet2)
         {
-            if (Input.GetButton("Fire1"))
+            if (Input.GetButton("ShootWeapon"))
             {
                 Shoot();
             }
@@ -68,7 +68,7 @@ public class Weapon : MonoBehaviour
         {
             if (playerStats.getCurrentHeat() > 0)
             {
-                if (Input.GetButtonDown("Fire1"))
+                if (Input.GetButtonDown("ShootWeapon"))
                 {
                     ps.Play();
                 }
