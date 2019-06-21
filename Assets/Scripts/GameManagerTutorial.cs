@@ -37,7 +37,7 @@ public class GameManagerTutorial : GameManager
     protected override void checkEchoCollisions()
     {
         for (int i = 0; i < echoColliders.Count; i++) {
-            if (echoColliders[i].tag == "Lava" && !healthRegenTxt.maxTextShowsReached())
+            if (echoColliders[i].tag == "Lava" && !healthRegenTxt.maxTextShowsReached() && !echo.containsMessage(healthRegenTxt))
             {
                 echo.addMessage(healthRegenTxt);
             }

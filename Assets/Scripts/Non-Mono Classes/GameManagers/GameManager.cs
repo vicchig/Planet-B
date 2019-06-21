@@ -6,23 +6,26 @@ public abstract class GameManager : MonoBehaviour
 { 
     [Header("Inherited")]
     public GameObject player;
-    public Vector3 respawnPosition;
     public GameObject helperChar;
 
     protected List<Collider2D> echoColliders;
     protected PlayerAttributes attributes;
     protected HelperCharacter echo;
+    protected CheckPointTracker checkpointTracker;
 
     protected void Start()
     {
         echoColliders = new List<Collider2D>();
         attributes = player.GetComponent<PlayerAttributes>();
         echo = helperChar.GetComponent<HelperCharacter>();
+        checkpointTracker = this.GetComponent<CheckPointTracker>();
+
+        resetLevel();
     }
 
     protected void Update()
     {
-        resetLevel();
+        respawnAtCheckPoint();
     }
 
     protected void FixedUpdate()
@@ -38,12 +41,19 @@ public abstract class GameManager : MonoBehaviour
         echoCollider.OverlapCollider(filter, echoColliders);
     }
 
-    protected void resetLevel() {
-        if (attributes.GetCurrentHealth() <= 0)
-        {
-            player.transform.position = respawnPosition;
+    protected void respawnAtCheckPoint()
+    {
+        if (attributes.GetCurrentHealth() <= 0) {
+            player.transform.position = checkpointTracker.getCurrentCP();
             attributes.SetCurrentHealth(attributes.GetMaxHealth());
         }
+
+    }
+
+    protected void resetLevel() {
+        player.transform.position = checkpointTracker.checkpoints[0];
+        attributes.SetCurrentHealth(attributes.GetMaxHealth());
+        
     }
 
     protected abstract void levelObjectiveChecks();

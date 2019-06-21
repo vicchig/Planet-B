@@ -77,6 +77,7 @@ public class HelperCharacter : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(sounds.Count);
         //text duration timer
         if (textTimer >= textDuration)
         {
@@ -156,6 +157,10 @@ public class HelperCharacter : MonoBehaviour
 
     public void clearMessages() {
         sounds.Clear();
+    }
+
+    public bool containsMessage(EchoMessage msg) {
+        return sounds.Contains(msg);
     }
 
     public bool isBusy() {
