@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckPointTracker : MonoBehaviour
+public class CheckpointTracker : MonoBehaviour
 {
     public Vector3[] checkpoints = new Vector3[0];
 
