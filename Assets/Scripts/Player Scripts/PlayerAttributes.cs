@@ -8,12 +8,10 @@ public class PlayerAttributes : MonoBehaviour
     [Header("Player Atrtributes")]
     public int maxHealth = 100;
     public int waterCollected = 0;
-    public int maxAir = 100;
     public int maxHeat = 0;
     public int currentHeat = 0;
 
     [Header("Attribute Timers")]
-    public float airDepletionTime = 2f;
     public float lavaCollisionTime = 0.2f;
     public float outOfAirHealthDecrementTime = 0.5f;
     public float healthRegenTime = 3f;
@@ -21,7 +19,6 @@ public class PlayerAttributes : MonoBehaviour
     [Header("Attribute Decrement Rates")]
     public int healthDecrementOutOfAir = 1;
     public int healthDecrementLava = 2;
-    public int airDecrement = 1;
 
     [Header("Attribute Increment Rates")]
     public int healthRegenRate = 1;
@@ -30,62 +27,39 @@ public class PlayerAttributes : MonoBehaviour
     [Header("HUD Object")]
     public GameObject hudObject;
 
-    private int currentAir;
     private int currentHealth;
     private float lavaColisionDuration;
     private bool collidingWithLava;
 
-    private float airDepletionTimer;
     private float outOfAirHealthDepletionTimer;
     private float healthRegenTimer;
     
 
     private void Start()
     {
-        currentAir = maxAir;
         currentHealth = maxHealth;
         collidingWithLava = false;
         healthRegenTimer = healthRegenTime;
     }
 
 
-    private void FixedUpdate()
+    private void Update()
     {
-        //lava timer 
-        if (collidingWithLava) {
-            lavaColisionDuration += Time.deltaTime;
-        }
-
         //lava timed health decrement
-        if (lavaColisionDuration >= lavaCollisionTime) {
+        if (lavaColisionDuration >= lavaCollisionTime)
+        {
             lavaColisionDuration = 0;
             currentHealth -= healthDecrementLava;
         }
 
-        //air timer
-        if (airDepletionTimer >= airDepletionTime) {
-            currentAir -= airDecrement;
-            airDepletionTimer = 0;
-        }
-
         //Attribute bounds and air health decrement
-        //Air
-        if (currentAir < 0) {
-            currentAir = 0;
-        }
-        else if (currentAir == 0 && outOfAirHealthDepletionTimer >= airDepletionTime) {
-            currentHealth -= healthDecrementOutOfAir;
-            outOfAirHealthDepletionTimer = 0;
-        }
-        else if (currentAir > maxAir) {
-            currentAir = maxAir;
-        }
-
         //Health
-        if (currentHealth <= 0) {
+        if (currentHealth <= 0)
+        {
             currentHealth = 0;
         }
-        else if (currentHealth >= maxHealth) {
+        else if (currentHealth >= maxHealth)
+        {
             currentHealth = maxHealth;
         }
 
@@ -94,7 +68,8 @@ public class PlayerAttributes : MonoBehaviour
         {
             currentHeat = 0;
         }
-        else if(currentHeat > maxHeat){
+        else if (currentHeat > maxHeat)
+        {
             currentHeat = maxHeat;
         }
 
@@ -102,7 +77,7 @@ public class PlayerAttributes : MonoBehaviour
         if (healthRegenTimer > healthRegenTime)
         {
             healthRegenTimer = 0;
-            
+
             if (GetMaxHealth() - currentHealth >= healthRegenRate)
             {
                 currentHealth += healthRegenRate;
@@ -112,10 +87,17 @@ public class PlayerAttributes : MonoBehaviour
                 currentHealth = GetMaxHealth();
             }
         }
+    }
 
-        healthRegenTimer += Time.deltaTime;
-        outOfAirHealthDepletionTimer += Time.deltaTime;
-        airDepletionTimer += Time.deltaTime;
+    private void FixedUpdate()
+    {
+        //lava timer 
+        if (collidingWithLava) {
+            lavaColisionDuration += Time.fixedDeltaTime;
+        }
+
+        healthRegenTimer += Time.fixedDeltaTime;
+        outOfAirHealthDepletionTimer += Time.fixedDeltaTime;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -156,14 +138,6 @@ public class PlayerAttributes : MonoBehaviour
         return currentHealth;
     }
 
-    public int GetCurrentAir() {
-        return currentAir;
-    }
-
-    public void SetCurrentAir(int air) {
-        currentAir = air;
-    }
-
     public void SetCurrentWater(int water) {
         waterCollected = water;
     }
@@ -174,11 +148,6 @@ public class PlayerAttributes : MonoBehaviour
 
     public int GetMaxHealth() {
         return maxHealth;
-    }
-
-    public int GetMaxAir()
-    {
-        return maxAir;
     }
 
     public int GetMaxHeat() {

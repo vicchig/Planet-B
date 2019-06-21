@@ -107,13 +107,6 @@ public class HelperCharacter : MonoBehaviour
             healthWarningTimer = healthWarningDelay;
         }
 
-        //air warning
-        if (attributes.GetCurrentAir() * 100 / attributes.GetMaxAir() < critAirThreshold && airWarningTimer <= 0) { 
-            sounds.Enqueue(airCritical);
-            airWarningTimerEnable = true;
-            airWarningTimer = airWarningDelay;
-        }
-
         //reseting the text mesh
         if (!busy)
         {
