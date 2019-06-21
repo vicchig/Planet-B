@@ -10,7 +10,7 @@ public class FallingRockController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.CompareTag("Player")) {
-            Transform player = GameObject.Find("Player2").transform;
+            Transform player = GameObject.Find("Player3").transform;
             player.GetComponent<PlayerAttributes>().SetCurrentHealth(player.GetComponent<PlayerAttributes>().GetCurrentHealth() - rockDamage);
             Destroy(gameObject);
         }
