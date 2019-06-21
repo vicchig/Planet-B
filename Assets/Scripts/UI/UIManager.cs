@@ -25,13 +25,13 @@ public class UIManager : MonoBehaviour
         setInitialBarValues(healthBar, playerAttributes.maxHealth, playerAttributes.maxHealth);
 
         //WaterCount - child 2
-        this.transform.GetChild(2).GetComponent<Text>().text = ":" + playerAttributes.waterCollected;
+        this.transform.GetChild(1).GetComponent<Text>().text = ":" + playerAttributes.waterCollected;
 
-        heatBar = this.transform.GetChild(3).GetComponent<ProgressBar>();
+        heatBar = this.transform.GetChild(2).GetComponent<ProgressBar>();
         setInitialBarValues(heatBar, playerAttributes.getCurrentHeat(), playerAttributes.maxHeat);
 
         if (SceneManager.GetActiveScene().name == "Level 1") {
-            waterInPoolBar = this.transform.GetChild(4).GetComponent<ProgressBar>();
+            waterInPoolBar = this.transform.GetChild(3).GetComponent<ProgressBar>();
             setInitialBarValues(waterInPoolBar, manager.getAmountOfWaterInPool(), manager.waterNeededInPool);
         }
         
@@ -40,7 +40,7 @@ public class UIManager : MonoBehaviour
     private void Update()
     {
         healthBar.BarValue = playerAttributes.GetCurrentHealth();
-        this.transform.GetChild(2).GetComponent<Text>().text = ":" + playerAttributes.GetCurrentWater();
+        this.transform.GetChild(1).GetComponent<Text>().text = ":" + playerAttributes.GetCurrentWater();
         heatBar.BarValue = playerAttributes.getCurrentHeat();
         if (SceneManager.GetActiveScene().name == "Level 1")
         {
