@@ -12,7 +12,7 @@ public class WaterDropletController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player") {
-            Transform player = GameObject.Find("Player2").transform;
+            Transform player = GameObject.Find("Player3").transform;
             player.GetComponent<PlayerAttributes>().SetCurrentWater(player.GetComponent<PlayerAttributes>().GetCurrentWater() + waterAddedOnPickUp);
             AudioManager.playWaterDropPop();
             Destroy(gameObject);
