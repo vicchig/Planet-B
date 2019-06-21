@@ -101,7 +101,7 @@ public class HelperCharacter : MonoBehaviour
 
         //ENQUEUING SOUNDS
         //health warning
-        if (attributes.GetCurrentHealth() * 100 / attributes.GetMaxHealth() < critHealthThreshold && healthWarningTimer <= 0) { 
+        if (attributes.GetCurrentHealth() * 100 / attributes.GetMaxHealth() < critHealthThreshold && healthWarningTimer <= 0 && !isBusy()) { 
             sounds.Enqueue(aboutToDieTxt);
             healthWarningTimerEnable = true;
             healthWarningTimer = healthWarningDelay;

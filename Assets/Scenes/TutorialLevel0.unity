@@ -66400,6 +66400,11 @@ PrefabInstance:
       propertyPath: currentHeat
       value: 300
       objectReference: {fileID: 0}
+    - target: {fileID: 300620396967336476, guid: 4310601504673064bac7d93c327e3117,
+        type: 3}
+      propertyPath: healthDecrementLava
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1329634136, guid: 4310601504673064bac7d93c327e3117, type: 3}
       propertyPath: txtBackground
       value: 

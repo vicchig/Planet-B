@@ -13,11 +13,9 @@ public class PlayerAttributes : MonoBehaviour
 
     [Header("Attribute Timers")]
     public float lavaCollisionTime = 0.2f;
-    public float outOfAirHealthDecrementTime = 0.5f;
     public float healthRegenTime = 3f;
 
     [Header("Attribute Decrement Rates")]
-    public int healthDecrementOutOfAir = 1;
     public int healthDecrementLava = 2;
 
     [Header("Attribute Increment Rates")]
