@@ -66544,6 +66544,11 @@ PrefabInstance:
       propertyPath: portraitObj
       value: 
       objectReference: {fileID: 1277416421}
+    - target: {fileID: 5274822477744961995, guid: 4310601504673064bac7d93c327e3117,
+        type: 3}
+      propertyPath: wallGrabCheckPointTransform
+      value: 
+      objectReference: {fileID: 1179771061}
     - target: {fileID: 5472536764790301380, guid: 4310601504673064bac7d93c327e3117,
         type: 3}
       propertyPath: useRigidbodyForVelocity
@@ -66551,6 +66556,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4310601504673064bac7d93c327e3117, type: 3}
+--- !u!4 &1179771061 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1059827932, guid: 4310601504673064bac7d93c327e3117,
+    type: 3}
+  m_PrefabInstance: {fileID: 1179771060}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1191136790 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5274822477744961997, guid: 4310601504673064bac7d93c327e3117,

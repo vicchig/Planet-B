@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Collision Checkpoints")]
     public Transform platCollideCheckPoint; //point that checks whether the player's feet are on the ground or not
+    public Transform wallGrabCheckPointTransform;
 
     private PlayerInput input; //stores current inputs for the player
     private BoxCollider2D boxCollider;
@@ -136,6 +137,11 @@ public class PlayerMovement : MonoBehaviour
             boxCollider.size = defaultColliderSize;
         }
 
+        //fixes bug where player sticks to sides of platforms
+        if (Physics2D.OverlapCircle(wallGrabCheckPointTransform.position, 0.1f, movingPlatLayer) || !Physics2D.OverlapCircle(platCollideCheckPoint.position, 0.12f, movingPlatLayer))
+        {
+            isOnPlatform = false;
+        }
     }
 
     private void horizontalMovement() {
@@ -166,7 +172,12 @@ public class PlayerMovement : MonoBehaviour
         if (input.jumpPressed)
         {
             if (!isJumping && (isOnPlatform || isOnGround || jumpDelayTime > Time.time)) {
-                if (!isOnPlatform) {
+
+                if (isOnPlatform)
+                {
+                    platformJump();
+                }
+                else {
                     rBody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
                 }
 
