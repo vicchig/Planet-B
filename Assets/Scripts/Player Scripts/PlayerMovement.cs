@@ -214,6 +214,16 @@ public class PlayerMovement : MonoBehaviour
             capsuleCollider.enabled = false;
             boxCollider.enabled = true;
         }
+
+
+        if (isInAir)
+        {
+            boxCollider.size = jumpColliderSize;
+        }
+        else {
+            boxCollider.size = defaultColliderSize;
+        }
+
     }
 
     private void horizontalMovement() {
