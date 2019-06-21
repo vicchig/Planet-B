@@ -6,11 +6,11 @@ public class CheckpointController : MonoBehaviour
 {
     public GameObject manager;
 
-    private CheckPointTracker cpTracker;
+    private CheckpointTracker cpTracker;
 
     private void Start()
     {
-        cpTracker = manager.GetComponent<CheckPointTracker>();
+        cpTracker = manager.GetComponent<CheckpointTracker>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

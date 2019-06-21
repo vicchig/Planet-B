@@ -11,14 +11,14 @@ public abstract class GameManager : MonoBehaviour
     protected List<Collider2D> echoColliders;
     protected PlayerAttributes attributes;
     protected HelperCharacter echo;
-    protected CheckPointTracker checkpointTracker;
+    protected CheckpointTracker checkpointTracker;
 
     protected void Start()
     {
         echoColliders = new List<Collider2D>();
         attributes = player.GetComponent<PlayerAttributes>();
         echo = helperChar.GetComponent<HelperCharacter>();
-        checkpointTracker = this.GetComponent<CheckPointTracker>();
+        checkpointTracker = this.GetComponent<CheckpointTracker>();
 
         resetLevel();
     }

@@ -219,6 +219,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (input.horizontalIn != 0 && !isInAir)
         {
+            Debug.Log("3");
+
             movingHorizontally = true;
             jumping = false;
             standing = false;
@@ -226,18 +228,23 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (isInAir)
         {
+            Debug.Log("2");
+
             jumping = true;
             standing = false;
             shootingWhileStanding = false;
         }
         else if (input.horizontalIn == 0 && !isInAir && !spacePressed)
         {
+            Debug.Log("4");
+
             standing = true;
             movingHorizontally = false;
             jumping = false;
             shootingWhileStanding = false;
         }
         else if (spacePressed && input.horizontalIn == 0 && !isInAir) {
+            Debug.Log("1");
             shootingWhileStanding = true;
             movingHorizontally = false;
             jumping = false;
@@ -248,7 +255,6 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("movingHorizontally", movingHorizontally);
         animator.SetBool("jumping", jumping);
         animator.SetBool("shooting", shootingWhileStanding);
-        animator.SetBool("hanging", false);
     }
 
     //changes the direction of the player on the X axis
