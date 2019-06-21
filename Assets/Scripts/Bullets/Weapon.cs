@@ -72,7 +72,7 @@ public class Weapon : MonoBehaviour
                 {
                     ps.Play();
                 }
-                PlayerMovement player = GameObject.Find("Player2").GetComponent<PlayerMovement>();
+                PlayerMovement player = GameObject.Find("Player3").GetComponent<PlayerMovement>();
                 Bullet bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
                 bullet.playerDir = player.dir;
                 playerStats.SetCurrentHeat(playerStats.getCurrentHeat() - 1);
