@@ -44,14 +44,14 @@ public abstract class GameManager : MonoBehaviour
     protected void respawnAtCheckPoint()
     {
         if (attributes.GetCurrentHealth() <= 0) {
-            player.transform.position = checkpointTracker.getCurrentCP();
+            player.transform.position = checkpointTracker.getCurrentCP().position;
             attributes.SetCurrentHealth(attributes.GetMaxHealth());
         }
 
     }
 
     protected void resetLevel() {
-        player.transform.position = checkpointTracker.checkpoints[0];
+        player.transform.position = checkpointTracker.checkpoints[0].position;
         attributes.SetCurrentHealth(attributes.GetMaxHealth());
         
     }

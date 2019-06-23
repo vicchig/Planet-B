@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CheckpointTracker : MonoBehaviour
 {
-    public Vector3[] checkpoints = new Vector3[0];
+    public Transform[] checkpoints = new Transform[1];
 
     private int currentCPIndex;
 
@@ -13,7 +13,7 @@ public class CheckpointTracker : MonoBehaviour
         currentCPIndex = 0;
     }
 
-    public Vector3 getCurrentCP() {
+    public Transform getCurrentCP() {
         return checkpoints[currentCPIndex];
     }
 
