@@ -13,11 +13,6 @@ public class CheckpointTracker : MonoBehaviour
         currentCPIndex = 0;
     }
 
-    public void Update()
-    {
-        Debug.Log(currentCPIndex);
-    }
-
     public Transform getCurrentCPTransform() {
         return checkpoints[currentCPIndex];
     }

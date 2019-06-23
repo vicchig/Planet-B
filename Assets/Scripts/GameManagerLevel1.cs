@@ -55,6 +55,8 @@ public class GameManagerLevel1 : GameManager
     /// <summary> Tracks whether the player is standing inside the pool area collider or not. Uses the Echo collider.</summary>
     private bool playerIsInPool;
 
+    private bool lastCPEnabled;
+
     new protected void Start()
     {
         base.Start();
@@ -84,6 +86,8 @@ public class GameManagerLevel1 : GameManager
 
         echo.addMessage(objectiveLevelTxt1_0);
         echo.addMessage(objectiveLevelTxt1_1);
+
+        lastCPEnabled = false;
     }
 
     new protected void Update()
@@ -92,6 +96,12 @@ public class GameManagerLevel1 : GameManager
 
         levelObjectiveChecks();
         checkEchoCollisions();
+
+        //enabled last cp on surface (index 7)
+        if (attributes.GetCurrentWater() >= 14 && lastCPEnabled == false) {
+            checkpointTracker.checkpoints[checkpointTracker.checkpoints.Length - 1].GetComponent<CheckpointController>().active = true;
+            lastCPEnabled = true;
+        }
     }
     
     new protected void FixedUpdate()
