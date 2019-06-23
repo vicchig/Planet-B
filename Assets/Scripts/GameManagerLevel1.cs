@@ -185,7 +185,7 @@ public class GameManagerLevel1 : GameManager
         }
         else if (amountOfWaterInPool >= waterNeededInPool)
         {
-            textMesh.text = "Current Objective: Evaporate the water in the lake using heat energy from the Sun.";
+            textMesh.text = "Current Objective: Evaporate the water in the lake using heat energy.";
         }
     }
 
