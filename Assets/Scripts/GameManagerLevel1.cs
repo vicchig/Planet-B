@@ -120,6 +120,8 @@ public class GameManagerLevel1 : GameManager
         <summary> Checks whether specific checkpoints in the level have been reached and performs the appropriate action. </summary> 
     */
     protected override void levelObjectiveChecks() {
+
+        Debug.Log((attributes.GetCurrentWater() + waterDropParent.transform.childCount) * 4  + " / " + (waterNeededInPool - amountOfWaterInPool));
         //check for whether the player has collected enough water
         if (attributes.GetCurrentWater() >= (waterNeededInPool / 4) + 4 && !echo.isBusy() && !objectiveLevelTxt1_3.maxTextShowsReached() && !dontWasteWaterReminderTxt.maxTextShowsReached())
         {
@@ -141,7 +143,7 @@ public class GameManagerLevel1 : GameManager
         }
 
         //not enough water left on level
-        if ((attributes.GetCurrentWater() + waterDropParent.transform.childCount) * 4 < waterNeededInPool - amountOfWaterInPool && !objectiveLevelTxt1_9.maxTextShowsReached())
+        if ((attributes.GetCurrentWater() + waterDropParent.transform.childCount) * 4 < (waterNeededInPool - amountOfWaterInPool) && !objectiveLevelTxt1_9.maxTextShowsReached())
         {
             echo.addMessage(objectiveLevelTxt1_9);
         }
