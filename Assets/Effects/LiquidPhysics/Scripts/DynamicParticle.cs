@@ -33,7 +33,7 @@ public class DynamicParticle : MonoBehaviour
         manager = GameObject.Find("GameManager");
         managerScript = manager.GetComponent<GameManagerLevel1>();
 
-        if (GameObject.Find("WaterParent").transform.childCount > managerScript.waterNeededInPool)
+        if (GameObject.Find("WaterParent").transform.childCount > managerScript.waterNeededInPool + 8)//offset since sometimes not enough water is in the pool if too much of it spawned outside
         {
             destroyObject = true;
         }

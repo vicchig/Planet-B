@@ -28,7 +28,6 @@ TagManager:
   - RandomlyMovingPlatform
   - PoisonousCloud
   - EchoCollider
-  - directionAreaLevel1_1
   layers:
   - Default
   - TransparentFX
