@@ -94,9 +94,6 @@ public class GameManagerLevel1 : GameManager
     {
         base.Update();
 
-        levelObjectiveChecks();
-        checkEchoCollisions();
-
         //enabled last cp on surface (index 7)
         if (attributes.GetCurrentWater() >= 14 && lastCPEnabled == false) {
             checkpointTracker.checkpoints[checkpointTracker.checkpoints.Length - 1].GetComponent<CheckpointController>().active = true;
@@ -112,7 +109,7 @@ public class GameManagerLevel1 : GameManager
     /**
         <summary> Checks whether specific checkpoints in the level have been reached and performs the appropriate action. </summary> 
     */
-    protected override void levelObjectiveChecks() {
+    protected override void levelEchoMsgChecks() {
         //check for whether the player has collected enough water
         if (attributes.GetCurrentWater() >= (waterNeededInPool / 4) + 4 && !echo.isBusy() && !objectiveLevelTxt1_3.maxTextShowsReached() && !dontWasteWaterReminderTxt.maxTextShowsReached())
         {
@@ -173,6 +170,22 @@ public class GameManagerLevel1 : GameManager
                     echoColliders[i].enabled = false;
                 }
             }
+        }
+    }
+
+    protected override void changeObjectives()
+    {
+        if (attributes.GetCurrentWater() * 4 < waterNeededInPool && amountOfWaterInPool <= 0)
+        {
+            textMesh.text = "Current Objective: Collect 14 groundwater droplets.";
+        }
+        else if (attributes.GetCurrentWater() * 4 >= waterNeededInPool)
+        {
+            textMesh.text = "Current Objective: Find an area on the surface to create an artificial lake in and fill it with the collected water. Press F to release water into the lake.";
+        }
+        else if (amountOfWaterInPool >= waterNeededInPool)
+        {
+            textMesh.text = "Current Objective: Evaporate the water in the lake using heat energy from the Sun.";
         }
     }
 

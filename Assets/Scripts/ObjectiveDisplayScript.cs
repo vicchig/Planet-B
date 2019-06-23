@@ -27,23 +27,4 @@ public class ObjectiveDisplayScript : MonoBehaviour
         uiManager = hudObj.GetComponent<UIManager>();
     }
 
-
-    private void Update()
-    {
-        if (SceneManager.GetActiveScene().name == "Level 1") {
-            if (playerAttributes.GetCurrentWater() * 4 < manager.waterNeededInPool && manager.getAmountOfWaterInPool() <= 0)
-            {
-                textMesh.text = "Current Objective: Collect 14 groundwater droplets.";
-            }
-            else if (playerAttributes.GetCurrentWater() * 4 >= manager.waterNeededInPool)
-            {
-                textMesh.text = "Current Objective: Find an area on the surface to create an artificial lake in and fill it with the collected water. Press F to release water into the lake.";
-            }
-            else if (manager.getAmountOfWaterInPool() >= manager.waterNeededInPool)
-            {
-                textMesh.text = "Current Objective: Evaporate the water in the lake using heat energy from the Sun.";
-            }
-        }
-        
-    }
 }

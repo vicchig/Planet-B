@@ -64228,6 +64228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1191136790}
   helperChar: {fileID: 1250598882}
+  objectiveDisplay: {fileID: 1961577068}
   introClip1: {fileID: 8300000, guid: 8286ef29fe2bfa243827e5fead482bca, type: 3}
   hudExplanationClip: {fileID: 8300000, guid: 4ae1f710b4dc1114fb52b9e07fe4db9b, type: 3}
   healthRegenExplanationClip: {fileID: 8300000, guid: 0efd47b15d2df21489045186d7b9143d,
@@ -69566,7 +69567,6 @@ GameObject:
   - component: {fileID: 1961577069}
   - component: {fileID: 1961577072}
   - component: {fileID: 1961577071}
-  - component: {fileID: 1961577070}
   m_Layer: 5
   m_Name: ObjectivesDisplay
   m_TagString: Untagged
@@ -69593,21 +69593,6 @@ RectTransform:
   m_AnchoredPosition: {x: 596, y: 211}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1961577070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1961577068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 489c9df74e65c0b4e811389a8f9ec490, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerObj: {fileID: 1191136790}
-  gameManagerObj: {fileID: 821890868}
-  hudObj: {fileID: 2106644131}
 --- !u!114 &1961577071
 MonoBehaviour:
   m_ObjectHideFlags: 0

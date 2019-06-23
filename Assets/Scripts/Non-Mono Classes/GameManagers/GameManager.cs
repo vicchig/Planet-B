@@ -1,34 +1,43 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+
 
 public abstract class GameManager : MonoBehaviour
 { 
     [Header("Inherited")]
     public GameObject player;
     public GameObject helperChar;
+    public GameObject objectiveDisplay;
 
     protected List<Collider2D> echoColliders;
     protected PlayerAttributes attributes;
     protected HelperCharacter echo;
     protected CheckpointTracker checkpointTracker;
+    protected TextMeshProUGUI textMesh;
 
-    protected void Start()
+
+    protected virtual void Start()
     {
         echoColliders = new List<Collider2D>();
         attributes = player.GetComponent<PlayerAttributes>();
         echo = helperChar.GetComponent<HelperCharacter>();
         checkpointTracker = this.GetComponent<CheckpointTracker>();
+        textMesh = objectiveDisplay.GetComponent<TextMeshProUGUI>();
 
         resetLevel();
     }
 
-    protected void Update()
+    protected virtual void Update()
     {
         respawnAtCheckPoint();
+        levelEchoMsgChecks();
+        checkEchoCollisions();
+        changeObjectives();
     }
 
-    protected void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         findEchoColliders();
     }
@@ -56,6 +65,7 @@ public abstract class GameManager : MonoBehaviour
         
     }
 
-    protected abstract void levelObjectiveChecks();
+    protected abstract void levelEchoMsgChecks();
     protected abstract void checkEchoCollisions();
+    protected abstract void changeObjectives();
 }

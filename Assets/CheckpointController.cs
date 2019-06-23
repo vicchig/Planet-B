@@ -14,7 +14,6 @@ public class CheckpointController : MonoBehaviour
     {
         cpTracker = manager.GetComponent<CheckpointTracker>();
         cpIndex = findCPIndex(this.GetComponent<CheckpointController>());
-        Debug.Log(cpIndex);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

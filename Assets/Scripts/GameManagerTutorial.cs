@@ -13,7 +13,7 @@ public class GameManagerTutorial : GameManager
     private EchoMessage hudExplanationTxt;
     private EchoMessage healthRegenTxt;
 
-    new protected void Start() {
+    protected override void Start() {
         base.Start();
 
         introTxt = new EchoMessage("Hello, I am Echo, your suit's built-in A.I. Your mission is to terraform a planet's water cycle to make it inhabitable. We will now begin your training.", introClip1, 1);
@@ -24,12 +24,12 @@ public class GameManagerTutorial : GameManager
         echo.addMessage(hudExplanationTxt);
     }
 
-    new protected void Update() {
+    protected override void Update() {
         base.Update();
         checkEchoCollisions();
     }
 
-    new protected void FixedUpdate()
+    protected override void FixedUpdate()
     {
         base.FixedUpdate();
     }
@@ -44,8 +44,14 @@ public class GameManagerTutorial : GameManager
         }
     }
 
-    protected override void levelObjectiveChecks()
+    protected override void levelEchoMsgChecks()
     {
-        throw new System.NotImplementedException();
+        
     }
+
+    protected override void changeObjectives()
+    {
+        
+    }
+
 }
