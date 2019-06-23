@@ -21,8 +21,6 @@ public class GameManagerLevel1 : GameManager
     public AudioClip waterPoolFoundClip;
     public AudioClip waterFoundClip;
     public AudioClip airFoundClip;
-    public AudioClip lavaCommentClip;
-    public AudioClip echoDirectionClip1;
 
     [Header("Level 1 Variables")]
     ///<summary> Amount of water needed in the pool to begin evaporation. </summary>
@@ -48,8 +46,6 @@ public class GameManagerLevel1 : GameManager
     EchoMessage waterPoolFoundTxt;
     EchoMessage airSourceFoundTxt;
     EchoMessage waterDropFoundTxt;
-    EchoMessage lavaCommentTxt;
-    EchoMessage echoDirectionTxt1;
 
     /// <summary> Script that controls how the player can pour water.</summary>
     private WaterPourController waterPControl;
@@ -82,14 +78,9 @@ public class GameManagerLevel1 : GameManager
         dontWasteWaterReminderTxt = new EchoMessage("Make sure you do not waste it. If you do, check the cave for some more water. If you waste all of it, we will have to restart.", dontWasteWaterReminderClip, 1);
         waterPoolFoundTxt = new EchoMessage("This looks like a good spot to release our water.", waterPoolFoundClip, 1);
 
-        echoDirectionTxt1 = new EchoMessage("I do not see any way across. We sohuld probably turn around for now.", echoDirectionClip1, 1);
-
         //LEVEL PICK UPS AUDIO
         waterDropFoundTxt = new EchoMessage("Look! We seem to have found some water. Better collect it.", waterFoundClip, 1);
         airSourceFoundTxt = new EchoMessage("This weird orb seems to be the only source of breathable air here. Better grab it to replenish the air supply.", airFoundClip, 1);
-
-        //LEVEL ENVIRONMENT
-        lavaCommentTxt = new EchoMessage("It burns! It burns! Make it stop! Just kidding, I cannot feel a thing.", lavaCommentClip, 1);
 
         amountOfWaterInPool = 0;
         amountOfEvaporatedWater = 0;
@@ -191,13 +182,6 @@ public class GameManagerLevel1 : GameManager
                 {
                     echo.clearMessages();
                     echo.addMessage(waterDropFoundTxt);
-                }
-                else if (echoColliders[i].tag == "Lava" && !lavaCommentTxt.maxTextShowsReached() && !echo.isBusy())
-                {
-                    echo.addMessage(lavaCommentTxt);
-                }
-                else if (echoColliders[i].tag == "directionAreaLevel1_1" && !echo.isBusy() && !echoDirectionTxt1.maxTextShowsReached() && (!movingPlatParent.transform.GetChild(4).transform.GetChild(2).GetComponent<PlatformMover>().active && !movingPlatParent.transform.GetChild(5).transform.GetChild(2).GetComponent<PlatformMover>().active)) {
-                    echo.addMessage(echoDirectionTxt1);
                 }
             }
         }
