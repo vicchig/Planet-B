@@ -13,11 +13,21 @@ public class CheckpointTracker : MonoBehaviour
         currentCPIndex = 0;
     }
 
-    public Transform getCurrentCP() {
+    public void Update()
+    {
+        Debug.Log(currentCPIndex);
+    }
+
+    public Transform getCurrentCPTransform() {
         return checkpoints[currentCPIndex];
     }
 
-    public void incrementCPIndex(int increment) {
-        currentCPIndex += increment;
+    public int getCurrentCPIndex() {
+        return currentCPIndex;
     }
+
+    public void setCheckpoint(GameObject cp) {
+        currentCPIndex = cp.GetComponent<CheckpointController>().getCPIndex();
+    }
+   
 }

@@ -44,7 +44,7 @@ public abstract class GameManager : MonoBehaviour
     protected void respawnAtCheckPoint()
     {
         if (attributes.GetCurrentHealth() <= 0) {
-            player.transform.position = checkpointTracker.getCurrentCP().position;
+            player.transform.position = checkpointTracker.getCurrentCPTransform().position;
             attributes.SetCurrentHealth(attributes.GetMaxHealth());
         }
 

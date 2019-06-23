@@ -5,22 +5,39 @@ using UnityEngine;
 public class CheckpointController : MonoBehaviour
 {
     public GameObject manager;
-    public bool incrementOnCollision; //whether the current checkpoint index should be incremented upon collision with this checkpoint
+    public bool active; //whether this checkpoint should change the player's current checkpoint on collision
     private CheckpointTracker cpTracker;
+
+    private int cpIndex;
 
     private void Start()
     {
         cpTracker = manager.GetComponent<CheckpointTracker>();
+        cpIndex = findCPIndex(this.GetComponent<CheckpointController>());
+        Debug.Log(cpIndex);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player") {
-            if (incrementOnCollision) {
-                cpTracker.incrementCPIndex(1);
-                incrementOnCollision = false;
+            if (active && cpIndex > cpTracker.getCurrentCPIndex()) {
+                cpTracker.setCheckpoint(this.gameObject);
+                active = false;
             }
         }
         
+    }
+
+    private int findCPIndex(CheckpointController cp) {
+        for (int i = 0; i < cpTracker.checkpoints.Length; i++) {
+            if (cp == cpTracker.checkpoints[i].GetComponent<CheckpointController>()) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public int getCPIndex() {
+        return cpIndex;
     }
 }
