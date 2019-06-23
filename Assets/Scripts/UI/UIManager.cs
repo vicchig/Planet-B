@@ -30,7 +30,6 @@ public class UIManager : MonoBehaviour
     protected virtual void Update()
     {
         healthBar.BarValue = playerAttributes.GetCurrentHealth();
-        this.transform.GetChild(1).GetComponent<Text>().text = ":" + playerAttributes.GetCurrentWater();
         heatBar.BarValue = playerAttributes.getCurrentHeat();
     }
 

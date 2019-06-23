@@ -27,6 +27,6 @@ public class UIManagerL1 : UIManager
         base.Update();
 
         waterInPoolBar.BarValue = manager.getAmountOfWaterInPool();
-
+        this.transform.GetChild(1).GetComponent<Text>().text = ":" + playerAttributes.GetCurrentWater();
     }
 }
