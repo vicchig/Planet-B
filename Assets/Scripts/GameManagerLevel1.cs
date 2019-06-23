@@ -19,8 +19,6 @@ public class GameManagerLevel1 : GameManager
     public AudioClip objectiveLevelClip1_9;
     public AudioClip dontWasteWaterReminderClip;
     public AudioClip waterPoolFoundClip;
-    public AudioClip waterFoundClip;
-    public AudioClip airFoundClip;
 
     [Header("Level 1 Variables")]
     ///<summary> Amount of water needed in the pool to begin evaporation. </summary>
@@ -44,8 +42,6 @@ public class GameManagerLevel1 : GameManager
     EchoMessage objectiveLevelTxt1_9;
     EchoMessage dontWasteWaterReminderTxt;
     EchoMessage waterPoolFoundTxt;
-    EchoMessage airSourceFoundTxt;
-    EchoMessage waterDropFoundTxt;
 
     /// <summary> Script that controls how the player can pour water.</summary>
     private WaterPourController waterPControl;
@@ -77,10 +73,6 @@ public class GameManagerLevel1 : GameManager
 
         dontWasteWaterReminderTxt = new EchoMessage("Make sure you do not waste it. If you do, check the cave for some more water. If you waste all of it, we will have to restart.", dontWasteWaterReminderClip, 1);
         waterPoolFoundTxt = new EchoMessage("This looks like a good spot to release our water.", waterPoolFoundClip, 1);
-
-        //LEVEL PICK UPS AUDIO
-        waterDropFoundTxt = new EchoMessage("Look! We seem to have found some water. Better collect it.", waterFoundClip, 1);
-        airSourceFoundTxt = new EchoMessage("This weird orb seems to be the only source of breathable air here. Better grab it to replenish the air supply.", airFoundClip, 1);
 
         amountOfWaterInPool = 0;
         amountOfEvaporatedWater = 0;
@@ -171,17 +163,6 @@ public class GameManagerLevel1 : GameManager
                         echo.addMessage(waterPoolFoundTxt);
                     }
                     echoColliders[i].enabled = false;
-                }
-                else if (echoColliders[i].tag == "AirSourceTextArea" && !airSourceFoundTxt.maxTextShowsReached() && !echo.isBusy())
-                {
-
-                    echo.clearMessages();
-                    echo.addMessage(airSourceFoundTxt);
-                }
-                else if (echoColliders[i].tag == "WaterTextArea" && !waterDropFoundTxt.maxTextShowsReached())
-                {
-                    echo.clearMessages();
-                    echo.addMessage(waterDropFoundTxt);
                 }
             }
         }
