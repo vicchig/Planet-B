@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &514872003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3783346701309453611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0593a308eabb9ea4b8e87f07b54e56e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  steam: {fileID: 0}
+  rain: {fileID: 0}
 --- !u!1001 &2779731234611595592
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14,6 +28,10 @@ PrefabInstance:
     - target: {fileID: 1907188104338014, guid: 3d19250bdd4e0df4c8da855e85a8d70b, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1907188104338014, guid: 3d19250bdd4e0df4c8da855e85a8d70b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4434907143542138, guid: 3d19250bdd4e0df4c8da855e85a8d70b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -69,6 +87,16 @@ PrefabInstance:
       propertyPath: InitialModule.startSpeed.scalar
       value: 2.08
       objectReference: {fileID: 0}
+    - target: {fileID: 198020576693072572, guid: 3d19250bdd4e0df4c8da855e85a8d70b,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.maxCurve.m_Curve.Array.data[0].value
+      value: 0.80328107
+      objectReference: {fileID: 0}
+    - target: {fileID: 198020576693072572, guid: 3d19250bdd4e0df4c8da855e85a8d70b,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.maxCurve.m_Curve.Array.data[3].time
+      value: 0.92091244
+      objectReference: {fileID: 0}
     - target: {fileID: 1394705897857586, guid: 3d19250bdd4e0df4c8da855e85a8d70b, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -93,6 +121,10 @@ PrefabInstance:
     - target: {fileID: 1735024089641582, guid: 378b2c30ef426554495292cb902cb8f4, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1735024089641582, guid: 378b2c30ef426554495292cb902cb8f4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 198603562046773920, guid: 378b2c30ef426554495292cb902cb8f4,
         type: 3}
@@ -169,21 +201,13 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Platforms
       objectReference: {fileID: 0}
-    - target: {fileID: 11400002, guid: 4ce7c41dbf3afd84da37439c72f6419c, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400002, guid: 4ce7c41dbf3afd84da37439c72f6419c, type: 3}
-      propertyPath: currentImage
-      value: 
-      objectReference: {fileID: 3783346701309453615}
     - target: {fileID: 400006, guid: 4ce7c41dbf3afd84da37439c72f6419c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.02
+      value: -18.62
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 4ce7c41dbf3afd84da37439c72f6419c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.12
+      value: 10.576343
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 4ce7c41dbf3afd84da37439c72f6419c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -241,17 +265,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11400002, guid: 4ce7c41dbf3afd84da37439c72f6419c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4ce7c41dbf3afd84da37439c72f6419c, type: 3}
---- !u!4 &3783346701309688075 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400006, guid: 4ce7c41dbf3afd84da37439c72f6419c,
+--- !u!1 &3783346701309453611 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100006, guid: 4ce7c41dbf3afd84da37439c72f6419c,
     type: 3}
   m_PrefabInstance: {fileID: 3783346701309551501}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &3783346701309453615 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100002, guid: 4ce7c41dbf3afd84da37439c72f6419c,
+--- !u!4 &3783346701309688075 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400006, guid: 4ce7c41dbf3afd84da37439c72f6419c,
     type: 3}
   m_PrefabInstance: {fileID: 3783346701309551501}
   m_PrefabAsset: {fileID: 0}
