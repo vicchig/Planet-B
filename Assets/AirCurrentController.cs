@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class AirCurrentController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float force;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if (other.tag == "Player" || other.tag == "VAPOUR") {
+            other.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, force), ForceMode2D.Impulse);
+        }
     }
 }
