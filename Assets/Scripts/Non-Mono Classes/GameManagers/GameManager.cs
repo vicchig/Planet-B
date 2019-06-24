@@ -78,7 +78,7 @@ public abstract class GameManager : MonoBehaviour
 
         for (int i = 0; i < colliders.Count; i++) {
             if (colliders[i].tag == "DeathOnTouch") {
-                resetLevel();
+                attributes.SetCurrentHealth(0);
             }
         }
     }
