@@ -47,10 +47,6 @@ public class GameManagerLevel2 : GameManager
         //enable next level marker
         if (condensedVapourAmnt >= condensedVapourNeeded) {
             nextLevelMarker.SetActive(true);
-            if (!echo.containsMessage(objectiveLevelTxt2_2) && !echo.containsMessage(objectiveLevelTxt2_3) && !objectiveLevelTxt2_2.maxTextShowsReached() && !objectiveLevelTxt2_3.maxTextShowsReached()) {
-                echo.addMessage(objectiveLevelTxt2_2);
-                echo.addMessage(objectiveLevelTxt2_3);
-            }
         }
     }
 
@@ -65,13 +61,30 @@ public class GameManagerLevel2 : GameManager
 
     protected override void checkEchoCollisions()
     {
+        for (int i = 0; i < echoColliders.Count; i++)
+        {
+            if (echoColliders[i] != null)
+            {
+                if (echoColliders[i].tag == "PoisonousCloud" && !echo.containsMessage(poisonPlatformCommentTxt) && !poisonPlatformCommentTxt.maxTextShowsReached() && !echo.isBusy())
+                {
+                    echo.addMessage(poisonPlatformCommentTxt);
+                }
+                
+            }
+        }
     }
 
     protected override void levelEchoMsgChecks()
     {
-
+        if (condensedVapourAmnt >= condensedVapourNeeded)
+        {
+            if (!echo.containsMessage(objectiveLevelTxt2_2) && !echo.containsMessage(objectiveLevelTxt2_3) && !objectiveLevelTxt2_2.maxTextShowsReached() && !objectiveLevelTxt2_3.maxTextShowsReached())
+            {
+                echo.addMessage(objectiveLevelTxt2_2);
+                echo.addMessage(objectiveLevelTxt2_3);
+            }
+        }
     }
-
     public int getCondensedVapourAmnt() {
         return condensedVapourAmnt;
     }
