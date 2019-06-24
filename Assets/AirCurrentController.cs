@@ -9,8 +9,89 @@ public class AirCurrentController : MonoBehaviour
     public float forceP;
     [Tooltip("Force applied to Water Vapours by the Air Current")]
     public float forceV;
+    public float forceUp;
+    public float forceDown = 0.4f;
 
-    private bool active; 
+    private List<AirCurrentObj> objects;
+
+
+    private void Start()
+    {
+        objects = new List<AirCurrentObj>();
+    }
+
+
+    private void Update()
+    {
+        for (int  i = 0; i < objects.Count; i++) {
+            if (objects[i].isInAirCurrent())
+            {
+                if (objects[i].getBody().velocity.y >= 0)
+                {
+                    objects[i].setTempVelocityY(objects[i].getTempVelocityY() + forceUp);
+
+                }
+                else {
+                    objects[i].setTempVelocityY(objects[i].getTempVelocityY() + forceDown);
+                }
+                objects[i].setVelocity();
+            }
+            else {
+                objects.RemoveAt(i);
+            }
+        }
+
+        for (int i = 0; i < objects.Count; i++) {
+            if (objects[i].getResetVelocityTimer() >= 0.2) {
+                objects[i].setTempVelocityY(0);
+                objects[i].setResetVelocity(false);
+                objects[i].setResetVelocityTimer(0);
+                objects[i].setInAirCurrent(false);
+            }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        for (int i = 0; i < objects.Count; i++)
+        {
+            if (objects[i].isResetVelocity()) {
+                objects[i].setResetVelocityTimer(objects[i].getResetVelocityTimer() + Time.fixedDeltaTime);
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        for (int i = 0; i < objects.Count; i++)
+        {
+            if (objects[i].getCollider() == collision)
+            {
+                return;
+            }
+        }
+        if (collision.tag == "Player")
+        {
+            objects.Add(new AirCurrentObj(collision.GetComponent<Rigidbody2D>(), collision, false));
+            objects[objects.Count - 1].setInAirCurrent(true);
+        }
+        else if (collision.tag == "WaterVapour")
+        {
+            objects.Add(new AirCurrentObj(collision.GetComponent<Rigidbody2D>(), collision, true));
+            objects[objects.Count - 1].setInAirCurrent(true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        for (int i = 0; i < objects.Count; i++) {
+            if (collision == objects[i].getCollider()) {
+                objects[i].setResetVelocity(true);
+            }
+        }
+    }
+    /*
+    private bool inAirCurrent; 
     private float tempVeolictyY;
     private Rigidbody2D collidedBody;
 
@@ -19,21 +100,21 @@ public class AirCurrentController : MonoBehaviour
 
     private void Start()
     {
-        active = false;
+        inAirCurrent = false;
         tempVeolictyY = 0;
         collidedBody = null;
     }
 
     private void Update()
     {
-        if (active) {
+        if (inAirCurrent) {
             
             tempVeolictyY += forceP;
             collidedBody.velocity = new Vector2(collidedBody.velocity.x, tempVeolictyY);
 
         }
         else{
-            active = false;
+            inAirCurrent = false;
             collidedBody = null;
         }
         if (resetVelocityTimer >= 0.2) {
@@ -63,13 +144,13 @@ public class AirCurrentController : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Player") {
-            active = true;
+            inAirCurrent = true;
             collidedBody = other.GetComponent<Rigidbody2D>();
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         resetVelocity = true;
-        active = false;
-    }
+        inAirCurrent = false;
+    }*/
 }
