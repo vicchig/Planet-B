@@ -30,6 +30,7 @@ TagManager:
   - EchoCollider
   - WaterVapour
   - DeathOnTouch
+  - CondensationArea
   layers:
   - Default
   - TransparentFX

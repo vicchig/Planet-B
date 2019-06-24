@@ -8,7 +8,7 @@ public class GameManagerLevel2 : GameManager
     public int condensedVapourNeeded;
 
     private int condensedVapourAmnt;
-    
+    private List<GameObject> waterVapours;
 
 
     protected override void Start()
@@ -16,6 +16,9 @@ public class GameManagerLevel2 : GameManager
         base.Start();
 
         condensedVapourAmnt = 0;
+
+        initWaterVapours();
+        
     }
 
     protected override void Update()
@@ -23,6 +26,7 @@ public class GameManagerLevel2 : GameManager
         base.Update();
 
         playerInstantDeath();
+        checkWaterVapourCollisions();
     }
 
     protected override void FixedUpdate()
@@ -49,5 +53,39 @@ public class GameManagerLevel2 : GameManager
 
     public void setCondensedVapourAmnt(int newAmount) {
         condensedVapourAmnt = newAmount;
+    }
+
+    private void checkWaterVapourCollisions() {
+        List<Collider2D> colliders = new List<Collider2D>();
+        CircleCollider2D col;
+
+        ContactFilter2D filter = new ContactFilter2D
+        {
+            useTriggers = true
+        };
+
+        for (int i = 0; i < waterVapours.Count; i++) {
+            col = waterVapours[i].GetComponent<CircleCollider2D>();
+            col.OverlapCollider(filter, colliders);
+
+            for (int j = 0; j < colliders.Count; j++) {
+                if (colliders[j].tag == "CondensationArea") {
+                    Destroy(waterVapours[i]);
+                    waterVapours.RemoveAt(i);
+                    condensedVapourAmnt++;
+                }
+            }
+        }
+
+    }
+
+    private void initWaterVapours() {
+        GameObject waterVapourParent = GameObject.Find("WaterVapourParent");
+        waterVapours = new List<GameObject>();
+        for (int i = 0; i < waterVapourParent.transform.childCount; i++)
+        {
+            waterVapours.Add(waterVapourParent.transform.GetChild(i).gameObject);
+        }
+
     }
 }

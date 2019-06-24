@@ -24,7 +24,6 @@ public class CheckpointController : MonoBehaviour
                 active = false;
             }
         }
-        
     }
 
     private int findCPIndex(CheckpointController cp) {
