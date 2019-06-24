@@ -28,6 +28,7 @@ TagManager:
   - RandomlyMovingPlatform
   - PoisonousCloud
   - EchoCollider
+  - WaterVapour
   layers:
   - Default
   - TransparentFX
