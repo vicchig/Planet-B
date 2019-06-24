@@ -143,7 +143,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  poisonDuration: 1
+  poisonDuration: 0.5
+  poisonDmg: 3
 --- !u!1001 &2294682866183537031
 PrefabInstance:
   m_ObjectHideFlags: 0

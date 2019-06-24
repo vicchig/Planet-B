@@ -6,6 +6,7 @@ public class PoisonCloudController : MonoBehaviour
 {
     public GameObject player;
     public float poisonDuration;
+    public int poisonDmg;
 
     private PlayerAttributes attributes;
     private bool poisonActive;
@@ -24,7 +25,7 @@ public class PoisonCloudController : MonoBehaviour
         {
             if (poisonTimer >= poisonDuration)
             {
-                attributes.SetCurrentHealth(attributes.GetCurrentHealth() - 3);
+                attributes.SetCurrentHealth(attributes.GetCurrentHealth() - poisonDmg);
                 poisonTimer = 0;
             }
         }
@@ -36,7 +37,7 @@ public class PoisonCloudController : MonoBehaviour
     private void FixedUpdate()
     {
         if (poisonActive) {
-            poisonTimer += Time.deltaTime;
+            poisonTimer += Time.fixedDeltaTime;
         }
     }
 
