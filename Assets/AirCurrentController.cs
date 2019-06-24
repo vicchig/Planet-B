@@ -54,7 +54,9 @@ public class AirCurrentController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "WaterVapour") {
+            collision.GetComponent<Rigidbody2D>().velocity = new Vector2(0, collision.GetComponent<Rigidbody2D>().velocity.y);
             collision.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, forceV), ForceMode2D.Impulse);
+            
         }
     }
 
