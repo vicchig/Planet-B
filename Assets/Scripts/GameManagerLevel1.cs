@@ -25,7 +25,6 @@ public class GameManagerLevel1 : GameManager
     public int waterNeededInPool;
 
     [Header("Level Objects")]
-    public GameObject nextLevelMarker;
     public GameObject waterDropParent;
     public GameObject movingPlatParent;
 

@@ -10,6 +10,7 @@ public abstract class GameManager : MonoBehaviour
     public GameObject player;
     public GameObject helperChar;
     public GameObject objectiveDisplay;
+    public GameObject nextLevelMarker;
 
     protected List<Collider2D> echoColliders;
     protected PlayerAttributes attributes;

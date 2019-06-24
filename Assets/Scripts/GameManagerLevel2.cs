@@ -16,6 +16,7 @@ public class GameManagerLevel2 : GameManager
         base.Start();
 
         condensedVapourAmnt = 0;
+        nextLevelMarker.SetActive(false);
 
         initWaterVapours();
         
@@ -27,6 +28,11 @@ public class GameManagerLevel2 : GameManager
 
         playerInstantDeath();
         checkWaterVapourCollisions();
+
+        //enable next level marker
+        if (condensedVapourAmnt >= condensedVapourNeeded) {
+            nextLevelMarker.SetActive(true);
+        }
     }
 
     protected override void FixedUpdate()
