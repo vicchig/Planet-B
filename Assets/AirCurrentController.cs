@@ -36,7 +36,8 @@ public class AirCurrentController : MonoBehaviour
                 }
                 objects[i].setVelocity();
             }
-            else {
+            else if(!objects[i].isInAirCurrent() || objects[i].getBody() == null) //25 is a little less than the y coordinate of the condensation area, otherwise get missing references
+            {
                 objects.RemoveAt(i);
             }
         }
@@ -77,6 +78,7 @@ public class AirCurrentController : MonoBehaviour
         }
         else if (collision.tag == "WaterVapour")
         {
+            collision.GetComponent<Rigidbody2D>().velocity = new Vector2(0, collision.GetComponent<Rigidbody2D>().velocity.y);
             objects.Add(new AirCurrentObj(collision.GetComponent<Rigidbody2D>(), collision, true));
             objects[objects.Count - 1].setInAirCurrent(true);
         }
