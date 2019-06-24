@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1918603048826802176}
   - component: {fileID: 1761155202640611950}
   - component: {fileID: 1762116735643812226}
+  - component: {fileID: 6204867529419284697}
+  - component: {fileID: 7680635114503232135}
   m_Layer: 0
   m_Name: DustStorm
   m_TagString: Untagged
@@ -26,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1924244563269984064}
   m_LocalRotation: {x: -0.49966288, y: -0.5003369, z: 0.5003369, w: 0.49966288}
-  m_LocalPosition: {x: -15.558729, y: 4.553088, z: 0}
+  m_LocalPosition: {x: -16.32, y: 4.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4761,3 +4763,28 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &6204867529419284697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924244563269984064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f92db9ad7d20cb4eaa7c1d6899f6f3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &7680635114503232135
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924244563269984064}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20.95212, y: 13.425183, z: 2.502603}
+  m_Center: {x: 7.0373235, y: -0.59252024, z: 0.033952117}
