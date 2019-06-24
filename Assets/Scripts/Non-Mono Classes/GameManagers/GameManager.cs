@@ -44,8 +44,10 @@ public abstract class GameManager : MonoBehaviour
 
     protected void findEchoColliders() {
         BoxCollider2D echoCollider = player.GetComponent<BoxCollider2D>();
-        ContactFilter2D filter = new ContactFilter2D();
-        filter.useTriggers = true;
+        ContactFilter2D filter = new ContactFilter2D
+        {
+            useTriggers = true
+        };
 
         echoCollider.OverlapCollider(filter, echoColliders);
     }
@@ -62,7 +64,23 @@ public abstract class GameManager : MonoBehaviour
     protected void resetLevel() {
         player.transform.position = checkpointTracker.checkpoints[0].position;
         attributes.SetCurrentHealth(attributes.GetMaxHealth());
-        
+    }
+
+    protected void playerInstantDeath() {
+        List<Collider2D> colliders = new List<Collider2D>();
+        BoxCollider2D col = player.GetComponent<BoxCollider2D>();
+        ContactFilter2D filter = new ContactFilter2D
+        {
+            useTriggers = true
+        };
+
+        col.OverlapCollider(filter, colliders);
+
+        for (int i = 0; i < colliders.Count; i++) {
+            if (colliders[i].tag == "DeathOnTouch") {
+                resetLevel();
+            }
+        }
     }
 
     protected abstract void levelEchoMsgChecks();

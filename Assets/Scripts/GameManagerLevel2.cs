@@ -21,6 +21,8 @@ public class GameManagerLevel2 : GameManager
     protected override void Update()
     {
         base.Update();
+
+        playerInstantDeath();
     }
 
     protected override void FixedUpdate()

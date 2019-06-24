@@ -29,6 +29,7 @@ TagManager:
   - PoisonousCloud
   - EchoCollider
   - WaterVapour
+  - DeathOnTouch
   layers:
   - Default
   - TransparentFX
