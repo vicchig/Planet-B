@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class GameManagerLevel2 : GameManager
 {
+
+    public int condensedVapourNeeded;
+
+    private int condensedVapourAmnt;
+    
+
+
     protected override void Start()
     {
         base.Start();
+
+        condensedVapourAmnt = 0;
     }
 
     protected override void Update()
@@ -30,5 +39,13 @@ public class GameManagerLevel2 : GameManager
     protected override void levelEchoMsgChecks()
     {
 
+    }
+
+    public int getCondensedVapourAmnt() {
+        return condensedVapourAmnt;
+    }
+
+    public void setCondensedVapourAmnt(int newAmount) {
+        condensedVapourAmnt = newAmount;
     }
 }

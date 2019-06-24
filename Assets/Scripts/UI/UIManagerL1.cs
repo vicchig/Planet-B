@@ -7,6 +7,8 @@ public class UIManagerL1 : UIManager
 {
     private GameManagerLevel1 manager;
 
+    private ProgressBar waterInPoolBar;
+
     protected override void Start()
     {
         base.Start();

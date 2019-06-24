@@ -14,7 +14,6 @@ public class UIManager : MonoBehaviour
 
     protected ProgressBar healthBar;
     protected ProgressBar heatBar;
-    protected ProgressBar waterInPoolBar;
 
     protected virtual void Start()
     {
