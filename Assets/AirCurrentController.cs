@@ -23,6 +23,14 @@ public class AirCurrentController : MonoBehaviour
 
     private void Update()
     {
+        for (int i = 0; i < objects.Count; i++) {
+            if (objects[i].getBody() == null || !objects[i].isInAirCurrent())
+            {
+                Debug.Log("Hello there");
+                objects.RemoveAt(i);
+            }
+        }
+
         for (int  i = 0; i < objects.Count; i++) {
             if (objects[i].isInAirCurrent())
             {
@@ -35,10 +43,6 @@ public class AirCurrentController : MonoBehaviour
                     objects[i].setTempVelocityY(objects[i].getTempVelocityY() + forceDown);
                 }
                 objects[i].setVelocity();
-            }
-            else if(!objects[i].isInAirCurrent() || objects[i].getBody() == null) //25 is a little less than the y coordinate of the condensation area, otherwise get missing references
-            {
-                objects.RemoveAt(i);
             }
         }
 
