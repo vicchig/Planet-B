@@ -9,14 +9,14 @@ public abstract class GameManager : MonoBehaviour
     [Header("Inherited")]
     public GameObject player;
     public GameObject helperChar;
-    public GameObject objectiveDisplay;
+    public GameObject textMesh;
     public GameObject nextLevelMarker;
 
     protected List<Collider2D> echoColliders;
     protected PlayerAttributes attributes;
     protected HelperCharacter echo;
     protected CheckpointTracker checkpointTracker;
-    protected TextMeshProUGUI textMesh;
+    protected TextMeshProUGUI objectiveDisplay;
 
 
     protected virtual void Start()
@@ -25,7 +25,7 @@ public abstract class GameManager : MonoBehaviour
         attributes = player.GetComponent<PlayerAttributes>();
         echo = helperChar.GetComponent<HelperCharacter>();
         checkpointTracker = this.GetComponent<CheckpointTracker>();
-        textMesh = objectiveDisplay.GetComponent<TextMeshProUGUI>();
+        objectiveDisplay = textMesh.GetComponent<TextMeshProUGUI>();
 
         resetLevel();
     }

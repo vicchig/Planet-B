@@ -570,7 +570,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 481904847}
   helperChar: {fileID: 1812424981}
-  objectiveDisplay: {fileID: 153321984}
+  textMesh: {fileID: 153321984}
+  nextLevelMarker: {fileID: 1462285831}
   objectiveLevelClip1_0: {fileID: 8300000, guid: 0c9c09ea075ce824ea8b9e648cc61fca,
     type: 3}
   objectiveLevelClip1_1: {fileID: 8300000, guid: beff1ed6344f4b64d8febdebda5a62c5,
@@ -595,7 +596,6 @@ MonoBehaviour:
     type: 3}
   waterPoolFoundClip: {fileID: 8300000, guid: 67f5f80187cade647972ee3c321f2a43, type: 3}
   waterNeededInPool: 40
-  nextLevelMarker: {fileID: 1462285831}
   waterDropParent: {fileID: 1033588060}
   movingPlatParent: {fileID: 791763908}
 --- !u!1001 &54436656

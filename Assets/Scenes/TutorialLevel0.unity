@@ -64551,7 +64551,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1191136790}
   helperChar: {fileID: 1250598882}
-  objectiveDisplay: {fileID: 1961577068}
+  textMesh: {fileID: 1961577068}
+  nextLevelMarker: {fileID: 1373870345}
   introClip1: {fileID: 8300000, guid: 8286ef29fe2bfa243827e5fead482bca, type: 3}
   hudExplanationClip: {fileID: 8300000, guid: 4ae1f710b4dc1114fb52b9e07fe4db9b, type: 3}
   healthRegenExplanationClip: {fileID: 8300000, guid: 0efd47b15d2df21489045186d7b9143d,

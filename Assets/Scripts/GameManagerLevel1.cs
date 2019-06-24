@@ -176,15 +176,15 @@ public class GameManagerLevel1 : GameManager
     {
         if (attributes.GetCurrentWater() * 4 < waterNeededInPool && amountOfWaterInPool <= 0)
         {
-            textMesh.text = "Current Objective: Collect 14 groundwater droplets.";
+            objectiveDisplay.text = "Current Objective: Collect 14 groundwater droplets.";
         }
         else if (attributes.GetCurrentWater() * 4 >= waterNeededInPool)
         {
-            textMesh.text = "Current Objective: Find an area on the surface to create an artificial lake in and fill it with the collected water. Press F to release water into the lake.";
+            objectiveDisplay.text = "Current Objective: Find an area on the surface to create an artificial lake in and fill it with the collected water. Press F to release water into the lake.";
         }
         else if (amountOfWaterInPool >= waterNeededInPool)
         {
-            textMesh.text = "Current Objective: Evaporate the water in the lake using heat energy.";
+            objectiveDisplay.text = "Current Objective: Evaporate the water in the lake using heat energy.";
         }
     }
 
