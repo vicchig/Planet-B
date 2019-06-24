@@ -26,7 +26,6 @@ public class AirCurrentController : MonoBehaviour
         for (int i = 0; i < objects.Count; i++) {
             if (objects[i].getBody() == null || !objects[i].isInAirCurrent())
             {
-                Debug.Log("Hello there");
                 objects.RemoveAt(i);
             }
         }

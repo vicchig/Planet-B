@@ -6,10 +6,10 @@ public class GameManagerLevel2 : GameManager
 {
 
     public int condensedVapourNeeded;
+    public GameObject condensationCloudParent;
 
     private int condensedVapourAmnt;
     private List<GameObject> waterVapours;
-
 
     protected override void Start()
     {
@@ -73,6 +73,8 @@ public class GameManagerLevel2 : GameManager
                     Destroy(waterVapours[i]);
                     waterVapours.RemoveAt(i);
                     condensedVapourAmnt++;
+
+                    changeCloudColour();
                 }
             }
         }
@@ -87,5 +89,11 @@ public class GameManagerLevel2 : GameManager
             waterVapours.Add(waterVapourParent.transform.GetChild(i).gameObject);
         }
 
+    }
+
+    private void changeCloudColour() {
+        for (int i = 0; i < condensationCloudParent.transform.childCount; i++) {
+            condensationCloudParent.transform.GetChild(i).GetComponent<SpriteRenderer>().color = new Color(condensationCloudParent.transform.GetChild(i).GetComponent<SpriteRenderer>().color.r * 0.9f, condensationCloudParent.transform.GetChild(i).GetComponent<SpriteRenderer>().color.g * 0.9f, condensationCloudParent.transform.GetChild(i).GetComponent<SpriteRenderer>().color.b * 0.9f, condensationCloudParent.transform.GetChild(i).GetComponent<SpriteRenderer>().color.a);
+        }
     }
 }
