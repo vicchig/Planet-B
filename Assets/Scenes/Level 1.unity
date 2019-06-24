@@ -496,16 +496,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6596443120604202710, guid: bf481bbd65c1a3d45937cba54fefd05b,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: 0.5347986
-      objectReference: {fileID: 0}
-    - target: {fileID: 6596443120604202710, guid: bf481bbd65c1a3d45937cba54fefd05b,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 2.0695972
-      objectReference: {fileID: 0}
     - target: {fileID: 5252934439088469468, guid: bf481bbd65c1a3d45937cba54fefd05b,
         type: 3}
       propertyPath: incrementOnCollision
@@ -520,6 +510,16 @@ PrefabInstance:
         type: 3}
       propertyPath: active
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596443120604202710, guid: bf481bbd65c1a3d45937cba54fefd05b,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.5347986
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596443120604202710, guid: bf481bbd65c1a3d45937cba54fefd05b,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.0695972
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf481bbd65c1a3d45937cba54fefd05b, type: 3}
@@ -4780,16 +4780,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6596443120604202710, guid: bf481bbd65c1a3d45937cba54fefd05b,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: 1.062685
-      objectReference: {fileID: 0}
-    - target: {fileID: 6596443120604202710, guid: bf481bbd65c1a3d45937cba54fefd05b,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 5.2425766
-      objectReference: {fileID: 0}
     - target: {fileID: 5252934439088469468, guid: bf481bbd65c1a3d45937cba54fefd05b,
         type: 3}
       propertyPath: incrementOnCollision
@@ -4800,6 +4790,16 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 51099171}
+    - target: {fileID: 6596443120604202710, guid: bf481bbd65c1a3d45937cba54fefd05b,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 1.062685
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596443120604202710, guid: bf481bbd65c1a3d45937cba54fefd05b,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 5.2425766
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf481bbd65c1a3d45937cba54fefd05b, type: 3}
 --- !u!4 &412810817 stripped
@@ -7792,7 +7792,12 @@ PrefabInstance:
     - target: {fileID: 4734872096466631778, guid: 2d3ca68be4a2f574c8be7df703e83b9d,
         type: 3}
       propertyPath: sceneName
-      value: Level2
+      value: Level 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734872096466631778, guid: 2d3ca68be4a2f574c8be7df703e83b9d,
+        type: 3}
+      propertyPath: sceneChangeTag
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d3ca68be4a2f574c8be7df703e83b9d, type: 3}
@@ -7863,16 +7868,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6596443120604202710, guid: bf481bbd65c1a3d45937cba54fefd05b,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.12679863
-      objectReference: {fileID: 0}
-    - target: {fileID: 6596443120604202710, guid: bf481bbd65c1a3d45937cba54fefd05b,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 2.8636093
-      objectReference: {fileID: 0}
     - target: {fileID: 5252934439088469468, guid: bf481bbd65c1a3d45937cba54fefd05b,
         type: 3}
       propertyPath: incrementOnCollision
@@ -7887,6 +7882,16 @@ PrefabInstance:
         type: 3}
       propertyPath: active
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596443120604202710, guid: bf481bbd65c1a3d45937cba54fefd05b,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.12679863
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596443120604202710, guid: bf481bbd65c1a3d45937cba54fefd05b,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.8636093
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf481bbd65c1a3d45937cba54fefd05b, type: 3}
