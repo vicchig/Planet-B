@@ -15,7 +15,7 @@ public class GameManagerLevel2 : GameManager
 
     [Header("Level 2 Objects")]
     public GameObject condensationCloudParent;
-
+    public GameObject rainParent;
     
 
     private EchoMessage objectiveLevelTxt2_1;
@@ -41,6 +41,10 @@ public class GameManagerLevel2 : GameManager
         poisonPlatformCommentTxt = new EchoMessage("I would not stay on these for too long.", poisonPlatformCommentClip, 1);
 
         echo.addMessage(objectiveLevelTxt2_1);
+
+        for (int i = 0; i < rainParent.transform.childCount; i++) {
+            rainParent.transform.GetChild(i).GetComponent<ParticleSystem>().Pause();
+        }
     }
 
     protected override void Update()
@@ -53,6 +57,11 @@ public class GameManagerLevel2 : GameManager
         //enable next level marker
         if (condensedVapourAmnt >= condensedVapourNeeded) {
             nextLevelMarker.SetActive(true);
+            for (int i = 0; i < rainParent.transform.childCount; i++)
+            {
+                rainParent.transform.GetChild(i).GetComponent<ParticleSystem>().Play();
+                
+            }
         }
     }
 
