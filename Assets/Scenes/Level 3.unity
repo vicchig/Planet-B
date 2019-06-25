@@ -790,7 +790,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96156a7d3510e184889fb4caab80bb3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectPrefab: {fileID: 100006, guid: 4ce7c41dbf3afd84da37439c72f6419c, type: 3}
+  objectPrefab: {fileID: 892010693323542889, guid: 661b98d70c3dd95428c666f70d7bf925,
+    type: 3}
   spawnContinuously: 0
   spawnDelay: 0.2
   spawnAmount: 30
@@ -803,7 +804,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 114089603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -52.7, y: 15.9, z: -54750.094}
+  m_LocalPosition: {x: -52.7, y: 15.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1844,7 +1845,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &393322210
 GameObject:
@@ -45205,7 +45206,7 @@ PrefabInstance:
     - target: {fileID: 5359453249395348012, guid: 4c153fe675027a645ae92f124e58c8b4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5359453249395348012, guid: 4c153fe675027a645ae92f124e58c8b4,
         type: 3}
