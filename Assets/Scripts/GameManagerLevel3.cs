@@ -36,6 +36,13 @@ public class GameManagerLevel3 : GameManager
 
     protected override void changeObjectives()
     {
+        if (waterInPool1 < waterNeededInPool1)
+        {
+            objectiveDisplay.text = "Current Objective: Fill one of the pools by melting ice on the mountain";
+        } else if (waterInPool2 < waterNeededInPool2)
+        {
+            objectiveDisplay.text = "Current Objective: Fill the second pool with the groundwater near it.";
+        }
     }
 
     protected override void checkEchoCollisions()
