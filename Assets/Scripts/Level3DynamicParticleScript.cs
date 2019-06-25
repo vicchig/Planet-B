@@ -7,9 +7,32 @@ public class Level3DynamicParticleScript : MonoBehaviour
     public float heatEnergyThreshold;
     public float heatEnergyIncrement;
 
-    private void Start()
+    CircleCollider2D cc;
+    private Rigidbody2D rb;
+    // Start is called before the first frame update
+    void Start()
     {
+        cc = GetComponent<CircleCollider2D>();
+        rb = GetComponent<Rigidbody2D>();
+    }
 
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == ("SeepingCollider"))
+        {
+            cc.enabled = false;
+            Debug.Log(cc.enabled + " enter");
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == ("SeepingCollider"))
+        {
+            cc.enabled = true;
+            Debug.Log(cc.enabled + " exit");
+        }
     }
 
     private void Update()
