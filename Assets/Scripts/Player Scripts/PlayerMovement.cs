@@ -101,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         /*Determine whether the player is on the ground or not*/
-        if (Physics2D.OverlapCircle(platCollideCheckPoint.position, 0.05f, groundLayer))
+        if (Physics2D.OverlapCircle(platCollideCheckPoint.position, 0.05f, groundLayer) || (!isOnGround && !isInAir && !isJumping && !isOnPlatform))
         {
             isOnGround = true;
             isOnPlatform = false;

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -8272046332453437006}
   - component: {fileID: -226318740663713164}
   - component: {fileID: 1022900208060146934}
-  m_Layer: 4
+  m_Layer: 8
   m_Name: Level3DynamicParticle
   m_TagString: DynamicParticleL3
   m_Icon: {fileID: 0}
