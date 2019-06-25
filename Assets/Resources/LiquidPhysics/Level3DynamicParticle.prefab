@@ -88,6 +88,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cba190e8521502a42870f28f65a77a59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heatEnergyThreshold: 5
+  heatEnergyIncrement: 1
 --- !u!114 &-8272046332453437006
 MonoBehaviour:
   m_ObjectHideFlags: 0
