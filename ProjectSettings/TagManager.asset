@@ -32,6 +32,7 @@ TagManager:
   - DeathOnTouch
   - CondensationArea
   - Vapor
+  - FreezeCollider
   layers:
   - Default
   - TransparentFX
