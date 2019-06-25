@@ -24,6 +24,12 @@ public class Level3DynamicParticleScript : MonoBehaviour
             cc.enabled = false;
             Debug.Log(cc.enabled + " enter");
         }
+        else if(collision.transform.tag == "bullet2")
+        {
+            Debug.Log("Getting heated");
+            heatEnergyThreshold -= heatEnergyIncrement;
+            Destroy(collision.gameObject);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -55,10 +61,6 @@ public class Level3DynamicParticleScript : MonoBehaviour
             this.GetComponent<CircleCollider2D>().enabled = false;
             this.transform.localScale = new Vector3(1, 1, 1);
         }
-        else if (collision.transform.tag == "bullet2") {
-            Debug.Log("Getting heated");
-            heatEnergyThreshold -= heatEnergyIncrement;
-            Destroy(collision.gameObject);
-        }
     }
+
 }

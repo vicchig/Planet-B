@@ -33,6 +33,7 @@ TagManager:
   - CondensationArea
   - Vapor
   - FreezeCollider
+  - DynamicParticleL3
   layers:
   - Default
   - TransparentFX

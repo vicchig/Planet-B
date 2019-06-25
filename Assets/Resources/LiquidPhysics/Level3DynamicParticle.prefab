@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1022900208060146934}
   m_Layer: 4
   m_Name: Level3DynamicParticle
-  m_TagString: DynamicParticle
+  m_TagString: DynamicParticleL3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,13 +69,13 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 0.5
   m_LinearDrag: 0
-  m_AngularDrag: 0
+  m_AngularDrag: 0.1
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!114 &4910516922241051395
 MonoBehaviour:
   m_ObjectHideFlags: 0
