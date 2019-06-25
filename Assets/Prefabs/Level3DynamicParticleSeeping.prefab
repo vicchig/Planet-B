@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2412844957039421346}
   - component: {fileID: 5806292523653456996}
   - component: {fileID: 2485422213105058534}
-  m_Layer: 9
+  m_Layer: 15
   m_Name: Level3DynamicParticleSeeping
   m_TagString: DynamicParticleL3
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 2319040428651244379}
   - component: {fileID: 2319040428654111611}
   - component: {fileID: 2319040428653144507}
-  m_Layer: 4
+  m_Layer: 15
   m_Name: ParticleImage_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 2319040428651244381}
   - component: {fileID: 2319040428654111613}
   - component: {fileID: 2319040428653144509}
-  m_Layer: 4
+  m_Layer: 15
   m_Name: ParticleImage_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 2319040428651244383}
   - component: {fileID: 2319040428654111615}
   - component: {fileID: 2319040428653144511}
-  m_Layer: 4
+  m_Layer: 15
   m_Name: ParticleImage_C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -424,7 +424,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5938248019801653813}
-  m_Layer: 9
+  m_Layer: 15
   m_Name: SeepingCheckpoint
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}

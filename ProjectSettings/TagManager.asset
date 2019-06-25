@@ -50,8 +50,8 @@ TagManager:
   - PickupObjects
   - EnviroHazards
   - CondensationArea
-  - 
-  - 
+  - SeepingParticle
+  - SeepingCollider
   - 
   - 
   - 
