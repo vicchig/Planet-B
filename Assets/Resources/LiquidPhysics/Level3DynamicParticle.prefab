@@ -95,6 +95,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
+  seepingEnabled: 0
 --- !u!114 &-8272046332453437006
 MonoBehaviour:
   m_ObjectHideFlags: 0
