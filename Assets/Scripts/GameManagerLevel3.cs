@@ -36,17 +36,15 @@ public class GameManagerLevel3 : GameManager
 
     protected override void changeObjectives()
     {
-        throw new System.NotImplementedException();
     }
 
     protected override void checkEchoCollisions()
     {
-        throw new System.NotImplementedException();
     }
 
     protected override void levelEchoMsgChecks()
     {
-        throw new System.NotImplementedException();
+
     }
 
     public int getWaterNeededInPool1() {
