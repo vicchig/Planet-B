@@ -5,10 +5,6 @@ using UnityEngine;
 public class AirCurrentController : MonoBehaviour
 {
     [Header("Properties")]
-    [Tooltip("Force Applied to Player by the Air Current")]
-    public float forceP;
-    [Tooltip("Force applied to Water Vapours by the Air Current")]
-    public float forceV;
     public float forceUp;
     public float forceDown = 0.4f;
 
