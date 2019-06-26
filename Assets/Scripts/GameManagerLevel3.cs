@@ -5,7 +5,11 @@ using UnityEngine.Tilemaps;
 
 public class GameManagerLevel3 : GameManager
 {
-    //[Header("Level 1 Echo Dialogue")]
+    [Header("Level 1 Echo Dialogue")]
+    AudioClip objectiveLevelClip3_1;
+    AudioClip objectiveLevelClip3_2;
+    AudioClip objectiveLevelClip3_3;
+    AudioClip objectiveLevelClip3_4;
 
     [Header("Level 1 Variables")]
     public int waterNeededInPool1;
@@ -13,9 +17,14 @@ public class GameManagerLevel3 : GameManager
 
     //[Header("Level Objects")]
 
-
     private int waterInPool1;
     private int waterInPool2;
+
+    EchoMessage objectiveLevelTxt3_1;
+    EchoMessage objectiveLevelTxt3_2;
+    EchoMessage objectiveLevelTxt3_3;
+    EchoMessage objectiveLevelTxt3_4;
+    EchoMessage frozenBlockHintTxt;
 
     protected override void Start()
     {
@@ -23,6 +32,15 @@ public class GameManagerLevel3 : GameManager
 
         waterInPool1 = 0;
         waterInPool2 = 0;
+
+        objectiveLevelTxt3_1 = new EchoMessage("Now we have to do collection. Collection is when precipitation falls down onto the ground and fills various bodies of water on the surface.", objectiveLevelClip3_1, 1);
+        objectiveLevelTxt3_2 = new EchoMessage("Some of the water falls into already existing surface bodies of water. And some of it goes into the groundwater or freezes on top of mountains.", objectiveLevelClip3_2, 1);
+        objectiveLevelTxt3_3 = new EchoMessage("If this water does not make it back into surface bodies of water, it cannot evaporate and rejoin the water cycle. Our goal is to now use groundwater and the frozen water on top of the mountain to the west to fill the two water pools in this area.", objectiveLevelClip3_3, 1);
+        objectiveLevelTxt3_4 = new EchoMessage("Congratulations! We have successfully performed the collection part of the water cycle. Now we will move on to something special, another form of evaporation known as transpiration! Head to the marker in the middle of this area to proceed.", objectiveLevelClip3_4, 1);
+
+        echo.addMessage(objectiveLevelTxt3_1);
+        echo.addMessage(objectiveLevelTxt3_2);
+        echo.addMessage(objectiveLevelTxt3_3);
     }
 
     protected override void Update()
@@ -52,7 +70,9 @@ public class GameManagerLevel3 : GameManager
 
     protected override void levelEchoMsgChecks()
     {
-
+        if (waterInPool1 >= waterNeededInPool1 && waterInPool2 >= waterNeededInPool2 && !objectiveLevelTxt3_4.maxTextShowsReached() && !echo.containsMessage(objectiveLevelTxt3_4)) {
+            echo.addMessage(objectiveLevelTxt3_4);
+        }
     }
 
     public int getWaterNeededInPool1() {
