@@ -61,10 +61,7 @@ public class Level3DynamicParticleScript : MonoBehaviour
             if (!stopMoving) {
                 checkBlockingWallDestruction();
             }
-            
         }
-
-
     }
 
 
