@@ -20,6 +20,8 @@ public class Level3DynamicParticleScript : MonoBehaviour
     BoundsInt bounds;
     int[] destroyed;
     private bool stopMoving;
+    GameManagerLevel3 manager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,10 +35,9 @@ public class Level3DynamicParticleScript : MonoBehaviour
         bounds = destructMap.cellBounds;
         destroyed = new int[3];
         stopMoving = false;
+
+        manager = GameObject.Find("GameManager").GetComponent<GameManagerLevel3>();
     }
-
-
-
 
     private void Update()
     {
@@ -63,8 +64,6 @@ public class Level3DynamicParticleScript : MonoBehaviour
             }
         }
     }
-
-
 
     private void checkBlockingWallDestruction()
     {
@@ -111,26 +110,26 @@ public class Level3DynamicParticleScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.tag == "FreezeCollider")
+        if (seepingEnabled)
         {
-            this.transform.GetChild(0).gameObject.SetActive(false);
-            sr.enabled = true;
-            bc.enabled = true;
-            cc.enabled = false;
-            this.transform.localScale = new Vector3(1, 1, 1);
-        }
 
+        }
+        else {
+            if (collision.transform.tag == "FreezeCollider")
+            {
+                this.transform.GetChild(0).gameObject.SetActive(false);
+                sr.enabled = true;
+                bc.enabled = true;
+                cc.enabled = false;
+                this.transform.localScale = new Vector3(1, 1, 1);
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.tag == "bullet2")
+        if (seepingEnabled)
         {
-            heatEnergyThreshold -= heatEnergyIncrement;
-            Destroy(collision.gameObject);
-        }
-
-        if (seepingEnabled) {
             if (collision.gameObject.name == "SeepingCollider")
             {
                 cc.enabled = false;
@@ -141,8 +140,21 @@ public class Level3DynamicParticleScript : MonoBehaviour
                 stopMoving = true;
                 rb.velocity = new Vector2(0, 0);
             }
+            else if (collision.gameObject.name == "WaterPoolColliderRight")
+            {
+                manager.setWaterInPool1(manager.getWaterInPool1() + 1);
+            }
         }
-        
+        else {
+            if (collision.transform.tag == "bullet2")
+            {
+                heatEnergyThreshold -= heatEnergyIncrement;
+                Destroy(collision.gameObject);
+            }
+            else if (collision.gameObject.name == "WaterPoolColliderLeft" && heatEnergyThreshold <= 0) {
+                manager.setWaterInPool2(manager.getWaterInPool2() + 1);
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -154,6 +166,5 @@ public class Level3DynamicParticleScript : MonoBehaviour
                 bc.enabled = false;
             }
         }
-       
     }
 }
