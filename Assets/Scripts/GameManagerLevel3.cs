@@ -6,10 +6,10 @@ using UnityEngine.Tilemaps;
 public class GameManagerLevel3 : GameManager
 {
     [Header("Level 1 Echo Dialogue")]
-    AudioClip objectiveLevelClip3_1;
-    AudioClip objectiveLevelClip3_2;
-    AudioClip objectiveLevelClip3_3;
-    AudioClip objectiveLevelClip3_4;
+    public AudioClip objectiveLevelClip3_1;
+    public AudioClip objectiveLevelClip3_2;
+    public AudioClip objectiveLevelClip3_3;
+    public AudioClip objectiveLevelClip3_4;
 
     [Header("Level 1 Variables")]
     public int waterNeededInPool1;
@@ -46,6 +46,10 @@ public class GameManagerLevel3 : GameManager
     protected override void Update()
     {
         base.Update();
+
+        if (waterInPool1 >= waterNeededInPool1 && waterInPool2 >= waterNeededInPool2) {
+            nextLevelMarker.SetActive(true);
+        }
     }
 
     protected override void FixedUpdate()
@@ -57,15 +61,16 @@ public class GameManagerLevel3 : GameManager
     {
         if (waterInPool1 < waterNeededInPool1)
         {
-            objectiveDisplay.text = "Current Objective: Fill one of the pools by melting ice on the mountain";
+            objectiveDisplay.text = "Current Objective: Fill the west pool with liquid water using the ice on top of the mountain.";
         } else if (waterInPool2 < waterNeededInPool2)
         {
-            objectiveDisplay.text = "Current Objective: Fill the second pool with the groundwater near it.";
+            objectiveDisplay.text = "Current Objective: Fill the east pool using groundwater from the caves.";
         }
     }
 
     protected override void checkEchoCollisions()
     {
+
     }
 
     protected override void levelEchoMsgChecks()
