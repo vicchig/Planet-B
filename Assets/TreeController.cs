@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class TreeController : MonoBehaviour
 {
-    public int burnAt;
-    public int freezeAt;
-    public Vector2Int transpirationRange;
-    public float energyIncrementTime;
-    public int[] energyIncrements; //0 - freeze, 1 - mild, 2 - dry
+    public int burnAt;//amount of heatEnergy needed for the plant to start burning
+    public int freezeAt; ////amount of heatEnergy needed for the plant to start freezing
+    public Vector2Int transpirationRange; //the range of heatEnergy between which the plant transpirates
+    public float energyIncrementTime; //time delay before each change in the heatEnergy of the tree
+    public int[] energyIncrements; //0 - freeze, 1 - mild, 2 - dry, how much is added or subtracted from the heatEenrgy of the plant in each of the three areas
+    public float charTime; //delay between each increment of the colour of the plant while burning
+    public float freezeTime; //delay between each colour increment of the plant while freezing
+    public int health; //health of the plant, disappears at <= 0
+    public float healthDecrementTime; //delay between each health decrement
 
-    private int heatEnergy;
+    private int heatEnergy;//amount of heat energy this plant has
     private int[] areas; //0 - freeze, 1 - mild, 2 - dry
-    private float[] areaTimers;
+    private float[] areaTimers; //current amount of time since last energy increment for each of the three areas
+    private float charTimer;
+    private float freezeTimer;
+    private int[] states; //0 - burning, 1 - transpirating, 2 - freezing
+    private float healthTimer;
 
     private ParticleSystem fire;
     private ParticleSystem evaporation;
@@ -21,7 +29,11 @@ public class TreeController : MonoBehaviour
     {
         heatEnergy = 0;
         areas = new int[3];
+        states = new int[areas.Length];
         areaTimers = new float[areas.Length];
+        charTimer = 0f;
+        freezeTimer = 0f;
+        healthTimer = 0f;
 
         evaporation = transform.GetChild(0).GetComponent<ParticleSystem>();
         fire = transform.GetChild(1).GetComponent<ParticleSystem>();
@@ -35,20 +47,38 @@ public class TreeController : MonoBehaviour
         energyIncrement();
         energyCheck();
 
+        //health decrement
+        if (healthTimer >= healthDecrementTime) {
+            healthTimer = 0;
+            health -= 1;
+        }
 
+        if (health <= 0) {
+            Destroy(gameObject);
+        }
     }
 
     private void FixedUpdate()
     {
-        timerIncrement();
+        timerIncrements();
     }
 
-    private void timerIncrement() {
+    private void timerIncrements() {
+        //time before next heatEnergy increment
         for (int i = 0; i < areas.Length; i++) {
             if (areas[i] == 1) {
                 areaTimers[i] += Time.fixedDeltaTime;
             }
         }
+
+        //time before next health decrement
+        if (states[0] == 1 || states[2] == 1) {//burning or freezing
+            healthTimer += Time.fixedDeltaTime;
+        }
+        else if (states[1] == 1) {//evaporating
+
+        }
+
     }
 
     private void energyIncrement()
@@ -62,23 +92,37 @@ public class TreeController : MonoBehaviour
     }
 
     private void energyCheck() {
-        if (heatEnergy >= burnAt)
+        if (heatEnergy > burnAt)
         {
             heatEnergy = burnAt;
             evaporation.Pause();
             fire.Play();
+
+            states[0] = 1;
+            states[1] = 0;
+            states[2] = 0;
         }
-        else if (heatEnergy >= transpirationRange.x && heatEnergy <= transpirationRange.y)
+        else if (heatEnergy > transpirationRange.x && heatEnergy < transpirationRange.y)
         {
             if (areas[1] == 1) {
                 heatEnergy = transpirationRange.x + 1;
             }
             evaporation.Play();
+            fire.Pause();
+
+            states[0] = 0;
+            states[1] = 1;
+            states[2] = 0;
         }
-        else if (heatEnergy <= freezeAt)
+        else if (heatEnergy < freezeAt)
         {
             heatEnergy = freezeAt;
-            Debug.Log("Freezing");
+            evaporation.Pause();
+            fire.Pause();
+
+            states[0] = 0;
+            states[1] = 0;
+            states[2] = 1;
         }
     }
 

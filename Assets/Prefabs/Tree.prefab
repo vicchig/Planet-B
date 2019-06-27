@@ -148,6 +148,10 @@ MonoBehaviour:
   transpirationRange: {x: 7, y: 10}
   energyIncrementTime: 0.3
   energyIncrements: ffffffff0100000002000000
+  charTime: 1
+  freezeTime: 0.5
+  health: 5
+  healthDecrementTime: 1
 --- !u!1001 &2812778421893750962
 PrefabInstance:
   m_ObjectHideFlags: 0
