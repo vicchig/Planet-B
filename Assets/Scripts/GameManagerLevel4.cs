@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class GameManagerLevel4 : GameManager
 {
+
+    [Header("Level 1 Variables")]
+    public int transpirationAmntNeeded;
+    
+    private int transpirationAmnt;
+
     protected override void Start()
     {
         base.Start();
+        transpirationAmnt = 0;
     }
 
     protected override void Update()
@@ -29,5 +36,13 @@ public class GameManagerLevel4 : GameManager
 
     protected override void levelEchoMsgChecks()
     {
+    }
+
+    public int getTranspirationAmnt() {
+        return transpirationAmnt;
+    }
+
+    public void setTranspirationAmnt(int amnt) {
+        transpirationAmnt = amnt;
     }
 }
