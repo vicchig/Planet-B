@@ -24,6 +24,7 @@ public class TreeController : MonoBehaviour
 
     private ParticleSystem fire;
     private ParticleSystem evaporation;
+    private SpriteRenderer sr;
 
     void Start()
     {
@@ -37,6 +38,7 @@ public class TreeController : MonoBehaviour
 
         evaporation = transform.GetChild(0).GetComponent<ParticleSystem>();
         fire = transform.GetChild(1).GetComponent<ParticleSystem>();
+        sr = GetComponent<SpriteRenderer>();
 
         evaporation.Pause();
         fire.Pause();
@@ -44,6 +46,8 @@ public class TreeController : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(heatEnergy);
+
         energyIncrement();
         energyCheck();
 
@@ -51,6 +55,13 @@ public class TreeController : MonoBehaviour
         if (healthTimer >= healthDecrementTime) {
             healthTimer = 0;
             health -= 1;
+
+            if (heatEnergy >= burnAt) {
+                colourChangeBurn();
+            }
+            else if (heatEnergy <= freezeAt) {
+                colourChangeFreeze();
+            }
         }
 
         if (health <= 0) {
@@ -96,6 +107,7 @@ public class TreeController : MonoBehaviour
         {
             heatEnergy = burnAt;
             evaporation.Pause();
+            evaporation.Clear();
             fire.Play();
 
             states[0] = 1;
@@ -109,6 +121,7 @@ public class TreeController : MonoBehaviour
             }
             evaporation.Play();
             fire.Pause();
+            fire.Clear();
 
             states[0] = 0;
             states[1] = 1;
@@ -119,10 +132,32 @@ public class TreeController : MonoBehaviour
             heatEnergy = freezeAt;
             evaporation.Pause();
             fire.Pause();
+            evaporation.Clear();
+            fire.Clear();
 
             states[0] = 0;
             states[1] = 0;
             states[2] = 1;
+        }
+    }
+
+    private void colourChangeBurn() {
+        sr.color = new Color(sr.color.r * 0.8f, sr.color.g * 0.8f, sr.color.b * 0.8f, sr.color.a);
+    }
+
+    private void colourChangeFreeze() {
+        sr.color = new Color(sr.color.r * 0.8f, sr.color.g * 0.8f, sr.color.b, sr.color.a);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "bullet2") {
+            heatEnergy += 2;
+            Destroy(collision.gameObject);
+        }
+        else if (collision.tag == "bullet3") {
+            heatEnergy -= 2;
+            Destroy(collision.gameObject);
         }
     }
 

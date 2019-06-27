@@ -35,6 +35,7 @@ TagManager:
   - FreezeCollider
   - DynamicParticleL3
   - TreePlantArea
+  - bullet3
   layers:
   - Default
   - TransparentFX
