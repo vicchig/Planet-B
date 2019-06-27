@@ -46,8 +46,6 @@ public class TreeController : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(heatEnergy);
-
         energyIncrement();
         energyCheck();
 
@@ -195,5 +193,9 @@ public class TreeController : MonoBehaviour
         {
             areas[2] = 0;
         }
+    }
+
+    public int[] getStates() {
+        return states;
     }
 }
