@@ -2076,6 +2076,10 @@ MonoBehaviour:
   helperChar: {fileID: 1430297746}
   textMesh: {fileID: 278544413}
   nextLevelMarker: {fileID: 774880765}
+  objectiveClip4_1: {fileID: 8300000, guid: d0ddd5cd546630a47bc491f982f299f8, type: 3}
+  objectiveClip4_2: {fileID: 8300000, guid: 9fcc562bafa32414fb94b23094626362, type: 3}
+  objectiveClip4_3: {fileID: 8300000, guid: 4a765743eb205e645b3910e2c3680317, type: 3}
+  objectiveClip4_4: {fileID: 8300000, guid: cae7d0d4f2d79aa4cb3db59b5480174d, type: 3}
   transpirationAmntNeeded: 20
 --- !u!114 &784657418
 MonoBehaviour:

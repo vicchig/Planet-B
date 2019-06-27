@@ -5,20 +5,44 @@ using UnityEngine;
 public class GameManagerLevel4 : GameManager
 {
 
-    [Header("Level 1 Variables")]
+    [Header("Level 4 Echo Dialogue")]
+    public AudioClip objectiveClip4_1;
+    public AudioClip objectiveClip4_2;
+    public AudioClip objectiveClip4_3;
+    public AudioClip objectiveClip4_4;
+
+    [Header("Level 4 Variables")]
     public int transpirationAmntNeeded;
     
     private int transpirationAmnt;
+
+    EchoMessage objectiveLevelTxt4_1;
+    EchoMessage objectiveLevelTxt4_2;
+    EchoMessage objectiveLevelTxt4_3;
+    EchoMessage objectiveLevelTxt4_4;
 
     protected override void Start()
     {
         base.Start();
         transpirationAmnt = 0;
+
+        objectiveLevelTxt4_1 = new EchoMessage("Transpiration is when moisture evaporates from the surface of plants on the ground. On planets with large plant populations it can contribute a lot to the evaporation stage of the water cycle.", objectiveClip4_1, 1);
+        objectiveLevelTxt4_2 = new EchoMessage("We brought some plants with us that we hope will not only thrive on this planet, but also contribute to transpiration. You can plant these plants using F.", objectiveClip4_2, 1);
+        objectiveLevelTxt4_3 = new EchoMessage("We need to find the proper area for them to transpirate. Putting them somewhere too cold or too dry will not help us. I would also like to remind you that your weapons can heat or cool down objects.", objectiveClip4_3, 1);
+        objectiveLevelTxt4_4 = new EchoMessage("Nice! We have successfully established the process of transpiration on the planet. Head to the marker on the far right side to proceede.", objectiveClip4_4, 1);
+
+        echo.addMessage(objectiveLevelTxt4_1);
+        echo.addMessage(objectiveLevelTxt4_2);
+        echo.addMessage(objectiveLevelTxt4_3);
     }
 
     protected override void Update()
     {
         base.Update();
+
+        if (transpirationAmnt >= transpirationAmntNeeded){
+            nextLevelMarker.SetActive(true);
+        }
     }
 
     protected override void FixedUpdate()
@@ -28,6 +52,9 @@ public class GameManagerLevel4 : GameManager
 
     protected override void changeObjectives()
     {
+        if (transpirationAmnt <= transpirationAmntNeeded) {
+            objectiveDisplay.text = "Current Objective:\nFind a good area to plant the plants in to begin transpiration.\nUse F to plant.";
+        }
     }
 
     protected override void checkEchoCollisions()
@@ -36,9 +63,13 @@ public class GameManagerLevel4 : GameManager
 
     protected override void levelEchoMsgChecks()
     {
-    }
+        if (transpirationAmnt >= transpirationAmntNeeded && !echo.containsMessage(objectiveLevelTxt4_4) && !objectiveLevelTxt4_4.maxTextShowsReached())
+        {
+            echo.addMessage(objectiveLevelTxt4_4);
 
-    public int getTranspirationAmnt() {
+        }
+    }
+        public int getTranspirationAmnt() {
         return transpirationAmnt;
     }
 
