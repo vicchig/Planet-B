@@ -13,17 +13,29 @@ public class TreeController : MonoBehaviour
     private int heatEnergy;
     private int[] areas; //0 - freeze, 1 - mild, 2 - dry
     private float[] areaTimers;
+
+    private ParticleSystem fire;
+    private ParticleSystem evaporation;
+
     void Start()
     {
         heatEnergy = 0;
         areas = new int[3];
         areaTimers = new float[areas.Length];
+
+        evaporation = transform.GetChild(0).GetComponent<ParticleSystem>();
+        fire = transform.GetChild(1).GetComponent<ParticleSystem>();
+
+        evaporation.Pause();
+        fire.Pause();
     }
 
     void Update()
     {
         energyIncrement();
         energyCheck();
+
+
     }
 
     private void FixedUpdate()
@@ -53,14 +65,15 @@ public class TreeController : MonoBehaviour
         if (heatEnergy >= burnAt)
         {
             heatEnergy = burnAt;
-            Debug.Log("Burning");
+            evaporation.Pause();
+            fire.Play();
         }
         else if (heatEnergy >= transpirationRange.x && heatEnergy <= transpirationRange.y)
         {
             if (areas[1] == 1) {
                 heatEnergy = transpirationRange.x + 1;
             }
-            Debug.Log("Transpirating");
+            evaporation.Play();
         }
         else if (heatEnergy <= freezeAt)
         {
