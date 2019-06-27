@@ -63337,3 +63337,57 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2069990767}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2136281121
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2136281123}
+  - component: {fileID: 2136281122}
+  m_Layer: 0
+  m_Name: AudioObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2136281122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136281121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50c42c5ab279b84499799425a01b9373, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footstepsClips:
+  - {fileID: 8300000, guid: eac2d9f21b92f41488f01c8cec72dc38, type: 3}
+  - {fileID: 8300000, guid: 079382555368ffa43acbb068e7f8f7f1, type: 3}
+  - {fileID: 8300000, guid: 8f90ad70b1102b14c879a75ff3850ef2, type: 3}
+  airSourcePop: {fileID: 8300000, guid: c85d2edb65339774cb35f68b73d04153, type: 3}
+  waterDropPop: {fileID: 8300000, guid: fd94ca626dcd24a45b5bcc7cb35ec2b1, type: 3}
+  ambientGroup: {fileID: 0}
+  musicGroup: {fileID: 0}
+  stingGroup: {fileID: 0}
+  playerGroup: {fileID: 0}
+  voiceGroup: {fileID: 0}
+--- !u!4 &2136281123
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136281121}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 28.050264, y: -20.872082, z: -420.33896}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
