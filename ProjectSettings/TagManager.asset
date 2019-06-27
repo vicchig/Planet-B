@@ -36,6 +36,7 @@ TagManager:
   - DynamicParticleL3
   - TreePlantArea
   - bullet3
+  - bullet1
   layers:
   - Default
   - TransparentFX

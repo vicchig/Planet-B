@@ -56,10 +56,12 @@ public class TreeController : MonoBehaviour
             healthTimer = 0;
             health -= 1;
 
-            if (heatEnergy >= burnAt) {
+            if (heatEnergy >= burnAt)
+            {
                 colourChangeBurn();
             }
-            else if (heatEnergy <= freezeAt) {
+            else if (heatEnergy <= freezeAt)
+            {
                 colourChangeFreeze();
             }
         }
@@ -157,6 +159,11 @@ public class TreeController : MonoBehaviour
         }
         else if (collision.tag == "bullet3") {
             heatEnergy -= 2;
+            Destroy(collision.gameObject);
+        }
+        else if (collision.tag == "bullet1") {
+            colourChangeBurn();
+            health -= 1;
             Destroy(collision.gameObject);
         }
     }
