@@ -20,16 +20,13 @@ public class TreePlantingController : MonoBehaviour
         if (Input.GetButtonDown("Flood"))
         {
             fPressed = true;
-            Debug.Log("HERE");
         }
         if (Input.GetButtonUp("Flood")) {
-            Debug.Log("HERE3");
             fPressed = false;
             planting = false;
         }
 
         if (inTreePlantArea && fPressed && !planting) {
-            Debug.Log("HERE2");
             Instantiate(treePrefab, transform.position, Quaternion.identity);
             planting = true;
         }
