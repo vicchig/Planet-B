@@ -14,6 +14,15 @@ public class SceneChanger : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    public void LoadScene(string sceneName) {
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void quit()
+    {
+        Application.Quit();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == sceneChangeTag) {
