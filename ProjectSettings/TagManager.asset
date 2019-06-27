@@ -34,6 +34,7 @@ TagManager:
   - Vapor
   - FreezeCollider
   - DynamicParticleL3
+  - TreePlantArea
   layers:
   - Default
   - TransparentFX

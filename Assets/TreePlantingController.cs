@@ -1,0 +1,52 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class TreePlantingController : MonoBehaviour
+{
+    public GameObject treePrefab;
+
+    private bool inTreePlantArea;
+    private bool fPressed;
+    private bool planting;
+
+    void Start()
+    {
+        inTreePlantArea = false;
+    }
+
+    void Update()
+    {
+        if (Input.GetButtonDown("Flood"))
+        {
+            fPressed = true;
+            Debug.Log("HERE");
+        }
+        if (Input.GetButtonUp("Flood")) {
+            Debug.Log("HERE3");
+            fPressed = false;
+            planting = false;
+        }
+
+        if (inTreePlantArea && fPressed && !planting) {
+            Debug.Log("HERE2");
+            Instantiate(treePrefab, transform.position, Quaternion.identity);
+            planting = true;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "TreePlantArea") {
+            inTreePlantArea = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "TreePlantArea")
+        {
+            inTreePlantArea = false;
+        }
+    }
+}
