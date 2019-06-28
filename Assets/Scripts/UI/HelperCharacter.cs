@@ -14,6 +14,7 @@ public class HelperCharacter : MonoBehaviour
     public GameObject txtMeshContainer;
     public GameObject txtBackground;
     public GameObject portraitObj;
+    public GameObject muteButton;
 
     [Header("Sounds General")]
     public AudioClip aboutToDieClip;
@@ -50,6 +51,8 @@ public class HelperCharacter : MonoBehaviour
     private GameManagerScript manager;
     private WaterPourController playerWaterPourController;
     private bool startedTutorial;
+    private Image portraitImage;
+    private Image txtBackgroundImg;
 
     private void Awake()
     {
@@ -69,6 +72,9 @@ public class HelperCharacter : MonoBehaviour
         airWarningTimer = 0;
         airWarningTimerEnable = false;
         attributes = player.GetComponent<PlayerAttributes>();
+
+        portraitImage = portraitObj.GetComponent<Image>();
+        txtBackgroundImg = txtBackground.GetComponent<Image>();
 
         //GENERAL
         aboutToDieTxt = new EchoMessage("Warning: operator sustaining critical damage.", aboutToDieClip, 1000);
@@ -111,13 +117,15 @@ public class HelperCharacter : MonoBehaviour
         if (!busy)
         {
             uiTextMesh.text = "";
-            txtBackground.GetComponent<Image>().enabled = false;
-            portraitObj.GetComponent<Image>().enabled = false;
+            txtBackgroundImg.enabled = false;
+            portraitImage.enabled = false;
+            muteButton.SetActive(false);
         }
         else
         {
-            txtBackground.GetComponent<Image>().enabled = true;
-            portraitObj.GetComponent<Image>().enabled = true;
+            txtBackgroundImg.enabled = true;
+            portraitImage.enabled = true;
+            muteButton.SetActive(true);
         }
     }
 

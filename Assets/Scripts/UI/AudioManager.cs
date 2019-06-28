@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
@@ -26,6 +27,10 @@ public class AudioManager : MonoBehaviour
     AudioSource stingSource;            //Reference to the generated sting Audio Source
     AudioSource playerSource;           //Reference to the generated player Audio Source
     AudioSource voiceSource;            //Reference to the generated voice Audio Source
+
+
+    private static Image echoPortraitImage;
+
 
     void Awake()
     {
@@ -55,6 +60,9 @@ public class AudioManager : MonoBehaviour
         stingSource.outputAudioMixerGroup = stingGroup;
         playerSource.outputAudioMixerGroup = playerGroup;
         voiceSource.outputAudioMixerGroup = voiceGroup;
+
+        echoPortraitImage = GameObject.Find("EchoPortrait").GetComponent<Image>();
+
 
     }
 
@@ -104,5 +112,20 @@ public class AudioManager : MonoBehaviour
         }
         current.stingSource.clip = current.waterDropPop;
         current.stingSource.Play();
+    }
+
+    public static void muteVoiceSource() {
+        if (!current.voiceSource.mute)
+        {
+            echoPortraitImage.color = new Color(echoPortraitImage.color.r, echoPortraitImage.color.g, echoPortraitImage.color.b, echoPortraitImage.color.a * 0.4f);
+        }
+        else
+        {
+            echoPortraitImage.color = new Color(echoPortraitImage.color.r, echoPortraitImage.color.g, echoPortraitImage.color.b, echoPortraitImage.color.a * 2.25f);
+        }
+
+        current.voiceSource.mute = !current.voiceSource.mute;
+
+        
     }
 }
