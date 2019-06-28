@@ -21,6 +21,7 @@ public class Level3DynamicParticleScript : MonoBehaviour
     int[] destroyed;
     private bool stopMoving;
     GameManagerLevel3 manager;
+    private bool frozen;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +48,7 @@ public class Level3DynamicParticleScript : MonoBehaviour
             cc.enabled = true;
             this.transform.localScale = new Vector3(5, 5, 1);
             this.transform.GetChild(0).gameObject.SetActive(true);
+            frozen = false;
         }
 
         if (Physics2D.OverlapCircle(seepingCheckpoint.transform.position, 0.1f, groundLayer))
@@ -122,6 +124,7 @@ public class Level3DynamicParticleScript : MonoBehaviour
                 bc.enabled = true;
                 cc.enabled = false;
                 this.transform.localScale = new Vector3(1, 1, 1);
+                frozen = true;
             }
         }
     }
@@ -149,7 +152,10 @@ public class Level3DynamicParticleScript : MonoBehaviour
             if (collision.transform.tag == "bullet2")
             {
                 heatEnergyThreshold -= heatEnergyIncrement;
-                Destroy(collision.gameObject);
+                if (frozen)
+                {
+                    Destroy(collision.gameObject);
+                }
             }
             else if (collision.gameObject.name == "WaterPoolColliderLeft" && heatEnergyThreshold <= 0) {
                 manager.setWaterInPool2(manager.getWaterInPool2() + 1);

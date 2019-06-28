@@ -64301,6 +64301,11 @@ PrefabInstance:
       propertyPath: jumpForce
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 5274822477744961995, guid: 4310601504673064bac7d93c327e3117,
+        type: 3}
+      propertyPath: gravityDown
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 5274822477744961998, guid: 4310601504673064bac7d93c327e3117,
         type: 3}
       propertyPath: m_GravityScale
