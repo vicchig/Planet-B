@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Jump Properties")]
     public float jumpForce = 6.3f; //force of the regular player jump
+    public float gravityUp = 0.6f;
+    public float gravityDown = 0.5f;
 
     [Header("Enviro Check Properties")]
     public float groundDistance = 0.2f; //distance at which the player is considered to be on the ground at
@@ -92,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //determine whether jumping animation should be palyed
-        if (rBody.velocity.y != 0 && !isOnGround && !isOnPlatform)
+        if (!isOnGround && !isOnPlatform)
         {
             isInAir = true;
         }
@@ -101,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         /*Determine whether the player is on the ground or not*/
-        if (Physics2D.OverlapCircle(platCollideCheckPoint.position, 0.05f, groundLayer) || (!isOnGround && !isInAir && !isJumping && !isOnPlatform))
+        if (Physics2D.OverlapCircle(platCollideCheckPoint.position, 0.05f, groundLayer))
         {
             isOnGround = true;
             isOnPlatform = false;
@@ -142,6 +144,8 @@ public class PlayerMovement : MonoBehaviour
         {
             isOnPlatform = false;
         }
+
+        applyGravity();
     }
 
     private void horizontalMovement() {
@@ -185,6 +189,7 @@ public class PlayerMovement : MonoBehaviour
                 isJumping = true;
                 isOnPlatform = false;
                 landingSoundPlayed = false;
+                
             }
         }
         else {
@@ -337,6 +342,18 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.parent = null;
             isOnPlatform = false;
+        }
+    }
+
+    private void applyGravity() {
+        if (!isOnGround && rBody.velocity.y >= 0)
+        {
+            rBody.velocity = new Vector2(rBody.velocity.x, rBody.velocity.y - gravityUp);
+        }
+       
+        else if (!isOnGround && rBody.velocity.y < 0)
+        {
+            rBody.velocity = new Vector2(rBody.velocity.x, rBody.velocity.y - gravityDown);
         }
     }
 }

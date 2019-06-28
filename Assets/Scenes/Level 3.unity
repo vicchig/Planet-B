@@ -44321,6 +44321,26 @@ PrefabInstance:
       propertyPath: wallGrabCheckPointTransform
       value: 
       objectReference: {fileID: 505193177}
+    - target: {fileID: 5274822477744961995, guid: 4310601504673064bac7d93c327e3117,
+        type: 3}
+      propertyPath: jumpDelayDuration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5274822477744961995, guid: 4310601504673064bac7d93c327e3117,
+        type: 3}
+      propertyPath: jumpForce
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5274822477744961995, guid: 4310601504673064bac7d93c327e3117,
+        type: 3}
+      propertyPath: maxFallSpeed
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5274822477744961998, guid: 4310601504673064bac7d93c327e3117,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4310601504673064bac7d93c327e3117, type: 3}
 --- !u!1 &505193176 stripped

@@ -82077,6 +82077,11 @@ PrefabInstance:
       propertyPath: wallGrabCheckPointTransform
       value: 
       objectReference: {fileID: 203277461}
+    - target: {fileID: 5274822477744961995, guid: 4310601504673064bac7d93c327e3117,
+        type: 3}
+      propertyPath: jumpDelayDuration
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4310601504673064bac7d93c327e3117, type: 3}
 --- !u!4 &1761959199 stripped
