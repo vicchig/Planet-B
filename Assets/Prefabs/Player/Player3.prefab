@@ -109,6 +109,7 @@ MonoBehaviour:
   txtMeshContainer: {fileID: 0}
   txtBackground: {fileID: 0}
   portraitObj: {fileID: 0}
+  muteButton: {fileID: 0}
   aboutToDieClip: {fileID: 8300000, guid: 861bf70274563c14888acd7e282894ad, type: 3}
   airCriticalClip: {fileID: 8300000, guid: 7ab60fc5220f8364b95e466a13c5ac79, type: 3}
   critHealthThreshold: 15

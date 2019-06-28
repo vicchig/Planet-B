@@ -163,10 +163,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedX: 7
-  jumpDelayInsp: 0.05
+  jumpDelayDuration: 0.05
   maxFallSpeed: -8
   jumpForce: 6.3
-  footOffset: 0.1
+  gravityUp: 0.6
+  gravityDown: 0.5
   groundDistance: 0.2
   groundLayer:
     serializedVersion: 2
@@ -178,8 +179,9 @@ MonoBehaviour:
   isJumping: 0
   isOnPlatform: 0
   firePoint: {fileID: 3824444741894923112}
-  bulletPrefab: {fileID: -6467515310324970172, guid: 5a96f9a2f0367a143abe360ec59bf64d,
-    type: 3}
+  platCollideCheckPoint: {fileID: 0}
+  wallGrabCheckPointTransform: {fileID: 0}
+  dir: 0
 --- !u!58 &3824444740467452728
 CircleCollider2D:
   m_ObjectHideFlags: 0
