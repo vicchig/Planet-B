@@ -624,7 +624,7 @@ PrefabInstance:
     - target: {fileID: 3824444740467452871, guid: 3949805abe36cd3468529a93bfe8a736,
         type: 3}
       propertyPath: jumpForce
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3824444740467452871, guid: 3949805abe36cd3468529a93bfe8a736,
         type: 3}
@@ -639,7 +639,7 @@ PrefabInstance:
     - target: {fileID: 3824444740467452866, guid: 3949805abe36cd3468529a93bfe8a736,
         type: 3}
       propertyPath: m_GravityScale
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3824444741894923113, guid: 3949805abe36cd3468529a93bfe8a736,
         type: 3}
