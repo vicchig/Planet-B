@@ -5,7 +5,8 @@ using UnityEngine;
 public class TreePlantingController : MonoBehaviour
 {
     public GameObject treePrefab;
-    
+    public int treeAmount;
+
     private bool inTreePlantArea;
     private bool fPressed;
     private bool planting;
@@ -26,11 +27,12 @@ public class TreePlantingController : MonoBehaviour
             planting = false;
         }
 
-        if (inTreePlantArea && fPressed && !planting) {
+        if (inTreePlantArea && fPressed && !planting && treeAmount > 0) {
             GameObject tree = Instantiate(treePrefab, transform.position, Quaternion.identity);
             tree.transform.SetParent(GameObject.Find("TreeParent").transform);
             tree.GetComponent<TranspiratorScript>().managerObj = GameObject.Find("GameManager");
             planting = true;
+            treeAmount -= 1;
         }
     }
 

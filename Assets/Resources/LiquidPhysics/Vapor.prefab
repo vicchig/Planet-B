@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   steam: {fileID: 0}
   rain: {fileID: 0}
+  platform: {fileID: 0}
 --- !u!1 &9184774251360080115
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,47 +204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1735024089641582, guid: 378b2c30ef426554495292cb902cb8f4, type: 3}
       propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198603562046773920, guid: 378b2c30ef426554495292cb902cb8f4,
-        type: 3}
-      propertyPath: UVModule.flipU
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198603562046773920, guid: 378b2c30ef426554495292cb902cb8f4,
-        type: 3}
-      propertyPath: UVModule.flipV
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198603562046773920, guid: 378b2c30ef426554495292cb902cb8f4,
-        type: 3}
-      propertyPath: NoiseModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198603562046773920, guid: 378b2c30ef426554495292cb902cb8f4,
-        type: 3}
-      propertyPath: RotationModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198603562046773920, guid: 378b2c30ef426554495292cb902cb8f4,
-        type: 3}
-      propertyPath: InitialModule.startLifetime.minScalar
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198603562046773920, guid: 378b2c30ef426554495292cb902cb8f4,
-        type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 198603562046773920, guid: 378b2c30ef426554495292cb902cb8f4,
-        type: 3}
-      propertyPath: looping
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198603562046773920, guid: 378b2c30ef426554495292cb902cb8f4,
-        type: 3}
-      propertyPath: SizeModule.separateAxes
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4221402037530588, guid: 378b2c30ef426554495292cb902cb8f4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -302,6 +263,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingLayer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198603562046773920, guid: 378b2c30ef426554495292cb902cb8f4,
+        type: 3}
+      propertyPath: UVModule.flipU
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198603562046773920, guid: 378b2c30ef426554495292cb902cb8f4,
+        type: 3}
+      propertyPath: UVModule.flipV
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198603562046773920, guid: 378b2c30ef426554495292cb902cb8f4,
+        type: 3}
+      propertyPath: NoiseModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198603562046773920, guid: 378b2c30ef426554495292cb902cb8f4,
+        type: 3}
+      propertyPath: RotationModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198603562046773920, guid: 378b2c30ef426554495292cb902cb8f4,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198603562046773920, guid: 378b2c30ef426554495292cb902cb8f4,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 198603562046773920, guid: 378b2c30ef426554495292cb902cb8f4,
+        type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198603562046773920, guid: 378b2c30ef426554495292cb902cb8f4,
+        type: 3}
+      propertyPath: SizeModule.separateAxes
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 378b2c30ef426554495292cb902cb8f4, type: 3}
