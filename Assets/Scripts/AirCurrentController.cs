@@ -9,11 +9,12 @@ public class AirCurrentController : MonoBehaviour
     public float forceDown = 0.4f;
 
     private List<AirCurrentObj> objects;
-
+    private PlayerGravity pGrav;
 
     private void Start()
     {
         objects = new List<AirCurrentObj>();
+        pGrav = GameObject.Find("Player3").GetComponent<PlayerGravity>();
     }
 
 
@@ -72,6 +73,7 @@ public class AirCurrentController : MonoBehaviour
         }
         if (collision.tag == "Player")
         {
+            pGrav.enabled = false;
             objects.Add(new AirCurrentObj(collision.GetComponent<Rigidbody2D>(), collision, false));
             objects[objects.Count - 1].setInAirCurrent(true);
         }
@@ -88,6 +90,9 @@ public class AirCurrentController : MonoBehaviour
         for (int i = 0; i < objects.Count; i++) {
             if (collision == objects[i].getCollider()) {
                 objects[i].setResetVelocity(true);
+            }
+            if (collision.tag == "Player") {
+                pGrav.enabled = true;
             }
         }
     }

@@ -144,8 +144,6 @@ public class PlayerMovement : MonoBehaviour
         {
             isOnPlatform = false;
         }
-
-        applyGravity();
     }
 
     private void horizontalMovement() {
@@ -342,18 +340,6 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.parent = null;
             isOnPlatform = false;
-        }
-    }
-
-    private void applyGravity() {
-        if (!isOnGround && rBody.velocity.y >= 0)
-        {
-            rBody.velocity = new Vector2(rBody.velocity.x, rBody.velocity.y - gravityUp);
-        }
-       
-        else if (!isOnGround && rBody.velocity.y < 0)
-        {
-            rBody.velocity = new Vector2(rBody.velocity.x, rBody.velocity.y - gravityDown);
         }
     }
 }

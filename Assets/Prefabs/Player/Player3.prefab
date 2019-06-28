@@ -305,6 +305,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hurtTexture: {fileID: 2800000, guid: 72bea2a83867b854fb56b8bb465a8caa, type: 3}
+--- !u!114 &259757261827124878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5274822477744961997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73b4b487ab814874dbdee0de37c7e774, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5274822477508765798
 PrefabInstance:
   m_ObjectHideFlags: 0
