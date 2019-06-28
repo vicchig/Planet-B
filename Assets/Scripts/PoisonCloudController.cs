@@ -45,6 +45,7 @@ public class PoisonCloudController : MonoBehaviour
     {
         if (collision.transform.tag == "Player") {
             poisonActive = true;
+            attributes.setTakingDamage(true);
         }
     }
 
@@ -53,6 +54,7 @@ public class PoisonCloudController : MonoBehaviour
         if (collision.transform.tag == "Player")
         {
             poisonActive = false;
+            attributes.setTakingDamage(false);
         }
     }
 }

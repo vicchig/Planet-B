@@ -31,13 +31,15 @@ public class PlayerAttributes : MonoBehaviour
 
     private float outOfAirHealthDepletionTimer;
     private float healthRegenTimer;
-    
+
+    private bool takingDamage;
 
     private void Start()
     {
         currentHealth = maxHealth;
         collidingWithLava = false;
         healthRegenTimer = healthRegenTime;
+        takingDamage = false;
     }
 
 
@@ -103,6 +105,7 @@ public class PlayerAttributes : MonoBehaviour
         if (collision.transform.tag == "Lava")
         {
             collidingWithLava = true;
+            takingDamage = true;
             currentHealth -= healthDecrementLava;
         }
         if (collision.CompareTag("Sun Ray"))
@@ -114,7 +117,7 @@ public class PlayerAttributes : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.transform.tag == "Lava") {
+        if (collision.transform.tag == "Lava") {
             collidingWithLava = true;
         }
     }
@@ -125,6 +128,7 @@ public class PlayerAttributes : MonoBehaviour
         {
             collidingWithLava = false;
             lavaColisionDuration = 0f;
+            takingDamage = false;
         }
     }
 
@@ -158,5 +162,13 @@ public class PlayerAttributes : MonoBehaviour
 
     public void SetCurrentHeat(int heat) {
         currentHeat = heat;
+    }
+
+    public bool isTakingDamage(){
+        return takingDamage;
+    }
+
+    public void setTakingDamage(bool tf) {
+        takingDamage = tf;
     }
 }

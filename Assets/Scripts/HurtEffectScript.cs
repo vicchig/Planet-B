@@ -6,19 +6,20 @@ public class HurtEffectScript : MonoBehaviour
 {
     public Texture hurtTexture;
 
+    private PlayerAttributes pAttributes;
 
     private void Start()
     {
-        
+        pAttributes = this.GetComponent<PlayerAttributes>();
+
     }
 
-    private void Update()
-    {
-        
-    }
+
 
     private void OnGUI()
     {
-        GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), hurtTexture, ScaleMode.StretchToFill);
+        if (pAttributes.isTakingDamage()) {
+            GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), hurtTexture, ScaleMode.StretchToFill);
+        }
     }
 }
