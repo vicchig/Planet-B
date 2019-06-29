@@ -110,24 +110,7 @@ public class Level3DynamicParticleScript : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (seepingEnabled)
-        {
 
-        }
-        else {
-            if (collision.transform.tag == "FreezeCollider")
-            {
-                this.transform.GetChild(0).gameObject.SetActive(false);
-                sr.enabled = true;
-                bc.enabled = true;
-                cc.enabled = false;
-                this.transform.localScale = new Vector3(1, 1, 1);
-                frozen = true;
-            }
-        }
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -159,6 +142,15 @@ public class Level3DynamicParticleScript : MonoBehaviour
             }
             else if (collision.gameObject.name == "WaterPoolColliderLeft" && heatEnergyThreshold <= 0) {
                 manager.setWaterInPool2(manager.getWaterInPool2() + 1);
+            }
+            else if (collision.transform.tag == "FreezeCollider")
+            {
+                this.transform.GetChild(0).gameObject.SetActive(false);
+                sr.enabled = true;
+                bc.enabled = true;
+                cc.enabled = false;
+                this.transform.localScale = new Vector3(1, 1, 1);
+                frozen = true;
             }
         }
     }
