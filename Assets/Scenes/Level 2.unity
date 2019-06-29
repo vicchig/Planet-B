@@ -2572,7 +2572,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 852077945}
         m_MethodName: muteEcho
         m_Mode: 1
         m_Arguments:
@@ -67874,7 +67874,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 852077941}
         m_MethodName: reloadScene
         m_Mode: 1
         m_Arguments:

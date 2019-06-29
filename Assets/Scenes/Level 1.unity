@@ -675,6 +675,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: txt
+      value: The ceiling in the vicinity is prone to collapse. Watch your head.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: maxTxtShows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 34ca55226ebcda3489205edb3a5fc339, type: 3}
     - target: {fileID: 3546228992207641018, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
       propertyPath: m_Offset.y
@@ -695,21 +710,6 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 2.1130753
       objectReference: {fileID: 0}
-    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: txt
-      value: The ceiling in the vicinity is prone to collapse. Watch your head.
-      objectReference: {fileID: 0}
-    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: maxTxtShows
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 34ca55226ebcda3489205edb3a5fc339, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 808ad436350ed3946bee4bb8377e7cc3, type: 3}
 --- !u!4 &54436657 stripped
@@ -3837,6 +3837,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: txt
+      value: We should probably explore some more to the east.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: maxTxtShows
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3546228992207641018, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
       propertyPath: m_Offset.y
@@ -3856,16 +3866,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.x
       value: 12.023514
-      objectReference: {fileID: 0}
-    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: txt
-      value: We should probably explore some more to the east.
-      objectReference: {fileID: 0}
-    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: maxTxtShows
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3, type: 3}
@@ -38183,7 +38183,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1630932573}
         m_MethodName: muteEcho
         m_Mode: 1
         m_Arguments:
@@ -87041,7 +87041,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1630932572}
         m_MethodName: reloadScene
         m_Mode: 1
         m_Arguments:
