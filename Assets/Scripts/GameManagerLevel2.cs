@@ -77,7 +77,7 @@ public class GameManagerLevel2 : GameManager, ILevelManagerCondensation
             objectiveDisplay.text = "Current Objective: \nFind a way to condense the water vapour and fill the condensation bar.";
         }
         else {
-            objectiveDisplay.text = "Current Objective: \n";
+            objectiveDisplay.text = "Current Objective: \nGet to the blue marker at the top to proceed";
         }
     }
 
