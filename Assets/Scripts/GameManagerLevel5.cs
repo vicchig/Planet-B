@@ -123,7 +123,7 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
 
     protected override void changeObjectives()
     {
-       // throw new System.NotImplementedException();
+        objectiveDisplay.text = "Complete the 4 stages of the water cycle covered to create a fully functioning water cycle";
     }
 
     public void SetCondensedVapour(int amount)
