@@ -174,7 +174,7 @@ public class GameManagerLevel1 : GameManager, ILevelManagerWater
 
     protected override void changeObjectives()
     {
-        if (attributes.GetCurrentWater() * 4 < waterNeededInPool && amountOfWaterInPool <= 0)
+        if (attributes.GetCurrentWater() * 4 - 16 < waterNeededInPool && amountOfWaterInPool <= 0)
         {
             objectiveDisplay.text = "Current Objective: Collect 14 groundwater droplets.";
         }
