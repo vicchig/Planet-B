@@ -12,10 +12,13 @@ public class Vapor : MonoBehaviour
 
     private Rigidbody2D rb;
     Vector3 startPosition;
+    private ILevelManagerCondensation manager;
     private void Start()
     {
         startPosition = transform.position;
         rb = GetComponent<Rigidbody2D>();
+
+        manager = GameObject.Find("GameManager").GetComponent<ILevelManagerCondensation>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -33,6 +36,14 @@ public class Vapor : MonoBehaviour
                 transform.position = startPosition;
             }
             rb.velocity = new Vector2(0, 0);
+        }
+
+        if (collision.tag == "CondensationArea")
+        {
+            manager.SetCondensedVapour(manager.GetCondensedVapour() + 1);
+
+            manager.ChangeCloudColour();
+            Destroy(gameObject);
         }
     }
 

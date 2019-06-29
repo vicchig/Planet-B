@@ -5,7 +5,10 @@ using UnityEngine;
 public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelManagerTranspiration, ILevelManagerWater
 {
 
+    public GameObject condensationCloudParent;
 
+    private int condensationNeeded;
+    private int condensed;
 
     protected override void Start()
     {
@@ -39,12 +42,12 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
 
     public void SetCondensedVapour(int amount)
     {
-        throw new System.NotImplementedException();
+        condensed = amount;
     }
 
     public int GetCondensedVapour()
     {
-        throw new System.NotImplementedException();
+        return condensed;
     }
 
     public void SetTranspirationAmnt(int amount)
@@ -89,11 +92,19 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
 
     public int GetCondensedVapourNeeded()
     {
-        throw new System.NotImplementedException();
+        return condensationNeeded;
     }
 
     public int GetEvaporationNeeded()
     {
         throw new System.NotImplementedException();
+    }
+
+    public void ChangeCloudColour()
+    {
+        for (int i = 0; i < condensationCloudParent.transform.childCount; i++)
+        {
+            condensationCloudParent.transform.GetChild(i).GetComponent<SpriteRenderer>().color = new Color(condensationCloudParent.transform.GetChild(i).GetComponent<SpriteRenderer>().color.r * 0.9f, condensationCloudParent.transform.GetChild(i).GetComponent<SpriteRenderer>().color.g * 0.9f, condensationCloudParent.transform.GetChild(i).GetComponent<SpriteRenderer>().color.b * 0.9f, condensationCloudParent.transform.GetChild(i).GetComponent<SpriteRenderer>().color.a);
+        }
     }
 }

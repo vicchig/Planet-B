@@ -109,6 +109,7 @@ public class GameManagerLevel2 : GameManager, ILevelManagerCondensation
     }
 
     private void checkWaterVapourCollisions() {
+        /*
         List<Collider2D> colliders = new List<Collider2D>();
         CircleCollider2D col;
 
@@ -130,7 +131,7 @@ public class GameManagerLevel2 : GameManager, ILevelManagerCondensation
                     changeCloudColour();
                 }
             }
-        }
+        }*/
 
     }
 
@@ -144,7 +145,7 @@ public class GameManagerLevel2 : GameManager, ILevelManagerCondensation
 
     }
 
-    private void changeCloudColour() {
+    public void ChangeCloudColour() {
         for (int i = 0; i < condensationCloudParent.transform.childCount; i++) {
             condensationCloudParent.transform.GetChild(i).GetComponent<SpriteRenderer>().color = new Color(condensationCloudParent.transform.GetChild(i).GetComponent<SpriteRenderer>().color.r * 0.9f, condensationCloudParent.transform.GetChild(i).GetComponent<SpriteRenderer>().color.g * 0.9f, condensationCloudParent.transform.GetChild(i).GetComponent<SpriteRenderer>().color.b * 0.9f, condensationCloudParent.transform.GetChild(i).GetComponent<SpriteRenderer>().color.a);
         }

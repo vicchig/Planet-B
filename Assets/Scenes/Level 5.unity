@@ -12134,6 +12134,7 @@ MonoBehaviour:
   helperChar: {fileID: 1789868513}
   textMesh: {fileID: 809585603}
   nextLevelMarker: {fileID: 16372982}
+  condensationCloudParent: {fileID: 1312387122}
 --- !u!1001 &1380686662
 PrefabInstance:
   m_ObjectHideFlags: 0
