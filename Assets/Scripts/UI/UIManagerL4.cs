@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class UIManagerL4 : UIManager
-{
-
+{ 
     private ProgressBar transpirationBar;
     private ILevelManagerTranspiration manager;
     private TreePlantingController treePlanter;
     private Text treeCountText;
+
     protected override void Start()
     {
         base.Start();
