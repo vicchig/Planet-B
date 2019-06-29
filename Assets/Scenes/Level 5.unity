@@ -9347,7 +9347,7 @@ MonoBehaviour:
   - {fileID: 551675752}
   - {fileID: 706068655}
   - {fileID: 176525783}
-  manager: {fileID: 0}
+  manager: {fileID: 1380098733}
   waterThreshold: 12
 --- !u!4 &970669143
 Transform:
@@ -9357,7 +9357,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 970669141}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -39.71, y: 0.9, z: 0}
+  m_LocalPosition: {x: -39.71, y: 0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 176525784}
