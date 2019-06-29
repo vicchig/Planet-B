@@ -16,6 +16,7 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
 
     [Header("Level 5 Objects")]
     public GameObject condensationCloudParent;
+    public GameObject rainParent;
     public GameObject waterVapourParent;
 
     private int condensedVapourAmount;
@@ -31,11 +32,25 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
         evaporationAmount = 0;
         transpirationAmount = 0;
         waterInPool = 0;
-}
+
+        for (int i = 0; i < rainParent.transform.childCount; i++)
+        {
+            rainParent.transform.GetChild(i).GetComponent<ParticleSystem>().Pause();
+        }
+    }
 
     protected override void Update()
     {
         base.Update();
+        if (condensedVapourAmount >= condensationNeeded)
+        {
+            nextLevelMarker.SetActive(true);
+            for (int i = 0; i < rainParent.transform.childCount; i++)
+            {
+                rainParent.transform.GetChild(i).GetComponent<ParticleSystem>().Play();
+
+            }
+        }
     }
 
     protected override void FixedUpdate()
