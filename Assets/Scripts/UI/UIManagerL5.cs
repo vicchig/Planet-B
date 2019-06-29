@@ -12,12 +12,14 @@ public class UIManagerL5 : UIManager
     private Text treeCount;
 
     private GameManagerLevel5 manager;
+    private TreePlantingController treePlanter;
 
     protected override void Start()
     {
         base.Start();
 
         manager = managerObj.GetComponent<GameManagerLevel5>();
+        treePlanter = GameObject.Find("Player3").GetComponent<TreePlantingController>();
 
         waterInPoolBar = this.transform.GetChild(3).GetComponent<ProgressBar>();
         evaporationBar = this.transform.GetChild(7).GetComponent<ProgressBar>();
@@ -27,8 +29,11 @@ public class UIManagerL5 : UIManager
         treeCount = this.transform.GetChild(6).GetComponent<Text>();
 
         setInitialBarValues(evaporationBar, manager.GetEvaporatedWater(), manager.GetEvaporationNeeded());
+        setInitialBarValues(condensationBar, manager.GetCondensedVapour(), manager.GetCondensedVapourNeeded());
+        setInitialBarValues(waterInPoolBar, manager.GetWaterInPool(), manager.GetWaterNeededInPool());
 
         waterCount.text = ": " + playerAttributes.GetCurrentWater();
+        treeCount.text = ": " + treePlanter.treeAmount;
     }
 
     protected override void Update()
@@ -36,6 +41,10 @@ public class UIManagerL5 : UIManager
         base.Update();
 
         evaporationBar.BarValue = manager.GetEvaporatedWater();
+        condensationBar.BarValue = manager.GetCondensedVapour();
+        waterInPoolBar.BarValue = manager.GetWaterInPool();
+
         waterCount.text = ": " + playerAttributes.GetCurrentWater();
+        treeCount.text = ": " + treePlanter.treeAmount;
     }
 }

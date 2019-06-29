@@ -5,15 +5,32 @@ using UnityEngine;
 public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelManagerTranspiration, ILevelManagerWater
 {
 
+    //[Header("Level 5 Echo Dialogue")]
+
+
+    [Header("Level 5 Variables")]
+    public int condensationNeeded = 5;
+    public int evaporationNeeded = 75;
+    public int transpirationNeeded = 25;
+    public int waterNeededInPool = 5;
+
+    [Header("Level 5 Objects")]
     public GameObject condensationCloudParent;
 
-    private int condensationNeeded;
-    private int condensed;
+    private int condensedVapourAmount;
+    private int evaporationAmount;
+    private int transpirationAmount;
+    private int waterInPool;
 
     protected override void Start()
     {
         base.Start();
-    }
+
+        condensedVapourAmount = 0;
+        evaporationAmount = 0;
+        transpirationAmount = 0;
+        waterInPool = 0;
+}
 
     protected override void Update()
     {
@@ -27,67 +44,67 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
 
     protected override void levelEchoMsgChecks()
     {
-        throw new System.NotImplementedException();
+       // throw new System.NotImplementedException();
     }
 
     protected override void checkEchoCollisions()
     {
-        throw new System.NotImplementedException();
+       // throw new System.NotImplementedException();
     }
 
     protected override void changeObjectives()
     {
-        throw new System.NotImplementedException();
+       // throw new System.NotImplementedException();
     }
 
     public void SetCondensedVapour(int amount)
     {
-        condensed = amount;
+        condensedVapourAmount = amount;
     }
 
     public int GetCondensedVapour()
     {
-        return condensed;
+        return condensedVapourAmount;
     }
 
     public void SetTranspirationAmnt(int amount)
     {
-        throw new System.NotImplementedException();
+        transpirationAmount = amount;
     }
 
     public int GetTranspirationAmountNeeded()
     {
-        throw new System.NotImplementedException();
+        return transpirationNeeded;
     }
 
     public int GetTranspirationAmount()
     {
-        throw new System.NotImplementedException();
+        return transpirationAmount;
     }
 
     public void SetWaterInPool(int amount)
     {
-        throw new System.NotImplementedException();
+        waterInPool = amount;
     }
 
     public void SetEvaporatedWater(int amount)
     {
-        throw new System.NotImplementedException();
+        evaporationAmount = amount;
     }
 
     public int GetWaterInPool()
     {
-        throw new System.NotImplementedException();
+        return waterInPool;
     }
 
     public int GetEvaporatedWater()
     {
-        throw new System.NotImplementedException();
+        return evaporationAmount;
     }
 
     public int GetWaterNeededInPool()
     {
-        throw new System.NotImplementedException();
+        return waterNeededInPool;
     }
 
     public int GetCondensedVapourNeeded()
@@ -97,7 +114,7 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
 
     public int GetEvaporationNeeded()
     {
-        throw new System.NotImplementedException();
+        return evaporationNeeded;
     }
 
     public void ChangeCloudColour()
