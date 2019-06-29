@@ -61,10 +61,14 @@ public class GameManagerLevel3 : GameManager
     {
         if (waterInPool1 < waterNeededInPool1)
         {
-            objectiveDisplay.text = "Current Objective: Fill the west pool with liquid water using the ice on top of the mountain.";
-        } else if (waterInPool2 < waterNeededInPool2)
-        {
             objectiveDisplay.text = "Current Objective: Fill the east pool using groundwater from the caves.";
+        }
+        else if (waterInPool2 < waterNeededInPool2)
+        {
+            objectiveDisplay.text = "Current Objective: Fill the west pool with liquid water using the ice on top of the mountain.";
+        } else
+        {
+            objectiveDisplay.text = "Current Objective: Proceed to the blue marker at the middle to proceed";
         }
     }
 
