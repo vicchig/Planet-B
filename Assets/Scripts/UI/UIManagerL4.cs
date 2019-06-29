@@ -20,7 +20,7 @@ public class UIManagerL4 : UIManager
         setInitialBarValues(transpirationBar, 0, manager.GetTranspirationAmountNeeded());
 
         treePlanter = GameObject.Find("Player3").GetComponent<TreePlantingController>();
-        treeCountText = this.transform.GetChild(8).GetComponent<Text>();
+        treeCountText = this.transform.GetChild(6).GetComponent<Text>();
         treeCountText.text = ":" + treePlanter.treeAmount;
 
     }

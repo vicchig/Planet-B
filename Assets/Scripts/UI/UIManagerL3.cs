@@ -15,7 +15,7 @@ public class UIManagerL3 : UIManager
         base.Start();
         manager = managerObj.GetComponent<GameManagerLevel3>();
 
-        waterBar1 = this.transform.GetChild(3).GetComponent<ProgressBar>();
+        waterBar1 = this.transform.GetChild(4).GetComponent<ProgressBar>();
         waterBar2 = this.transform.GetChild(6).GetComponent<ProgressBar>();
 
         setInitialBarValues(waterBar1, 0, manager.getWaterNeededInPool1());
