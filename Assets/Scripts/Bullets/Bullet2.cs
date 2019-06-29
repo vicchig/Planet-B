@@ -6,8 +6,6 @@ public class Bullet2 : Bullet
 {
     private GameObject manager;
     private ILevelManagerWater managerScript;
-    GameObject steam;
-    RisingSteamManager rsm;
     protected override void Start()
     {
         Destroy(gameObject, despawnTime); // despawner
@@ -18,8 +16,6 @@ public class Bullet2 : Bullet
 
         manager = GameObject.Find("GameManager");
         managerScript = manager.GetComponent<ILevelManagerWater>();
-        steam = GameObject.Find("RisingSteam");
-        rsm = steam.GetComponent<RisingSteamManager>();
     }
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
@@ -28,6 +24,8 @@ public class Bullet2 : Bullet
         {
             if (collision.gameObject.CompareTag("DynamicParticle"))
             {
+                GameObject steam = GameObject.Find("RisingSteam");
+                RisingSteamManager rsm = steam.GetComponent<RisingSteamManager>();
                 rsm.EnableSteam();
                 managerScript.SetEvaporatedWater(managerScript.GetEvaporatedWater() + 1);
                 Destroy(gameObject);
