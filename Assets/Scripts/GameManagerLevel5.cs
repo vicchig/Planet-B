@@ -16,8 +16,6 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
 
     [Header("Level 5 Objects")]
     public GameObject condensationCloudParent;
-    public GameObject rainParent;
-    public GameObject waterVapourParent;
 
     private int condensedVapourAmount;
     private int evaporationAmount;
@@ -33,25 +31,11 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
         evaporationAmount = 0;
         transpirationAmount = 0;
         waterInPool = 0;
-
-        for (int i = 0; i < rainParent.transform.childCount; i++)
-        {
-            rainParent.transform.GetChild(i).GetComponent<ParticleSystem>().Pause();
-        }
-    }
+}
 
     protected override void Update()
     {
         base.Update();
-        if (condensedVapourAmount >= condensationNeeded)
-        {
-            nextLevelMarker.SetActive(true);
-            for (int i = 0; i < rainParent.transform.childCount; i++)
-            {
-                rainParent.transform.GetChild(i).GetComponent<ParticleSystem>().Play();
-
-            }
-        }
     }
 
     protected override void FixedUpdate()
@@ -87,7 +71,6 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
     public void SetTranspirationAmnt(int amount)
     {
         transpirationAmount = amount;
-        CheckEnableWaterVapour();
     }
 
     public int GetTranspirationAmountNeeded()
@@ -108,7 +91,6 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
     public void SetEvaporatedWater(int amount)
     {
         evaporationAmount = amount;
-        CheckEnableWaterVapour();
     }
 
     public int GetWaterInPool()
@@ -118,7 +100,7 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
 
     public int GetEvaporatedWater()
     {
-        return evaporationAmount;
+        return evaporationAmount + transpirationAmount;
     }
 
     public int GetWaterNeededInPool()
@@ -141,14 +123,6 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
         for (int i = 0; i < condensationCloudParent.transform.childCount; i++)
         {
             condensationCloudParent.transform.GetChild(i).GetComponent<SpriteRenderer>().color = new Color(condensationCloudParent.transform.GetChild(i).GetComponent<SpriteRenderer>().color.r * 0.9f, condensationCloudParent.transform.GetChild(i).GetComponent<SpriteRenderer>().color.g * 0.9f, condensationCloudParent.transform.GetChild(i).GetComponent<SpriteRenderer>().color.b * 0.9f, condensationCloudParent.transform.GetChild(i).GetComponent<SpriteRenderer>().color.a);
-        }
-    }
-
-    private void CheckEnableWaterVapour()
-    {
-        if (evaporationAmount >= evaporationNeeded && transpirationAmount >= transpirationNeeded)
-        {
-            waterVapourParent.SetActive(true);
         }
     }
 }
