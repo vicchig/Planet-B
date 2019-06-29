@@ -23,6 +23,7 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
     private int evaporationAmount;
     private int transpirationAmount;
     private int waterInPool;
+    private TreePlantingController treePlanter;
 
     protected override void Start()
     {

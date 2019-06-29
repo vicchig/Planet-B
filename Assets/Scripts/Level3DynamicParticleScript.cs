@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 
 public class Level3DynamicParticleScript : MonoBehaviour
 {
@@ -140,7 +141,7 @@ public class Level3DynamicParticleScript : MonoBehaviour
                     Destroy(collision.gameObject);
                 }
             }
-            else if (collision.gameObject.name == "WaterPoolColliderLeft" && heatEnergyThreshold <= 0) {
+            else if (collision.gameObject.name == "WaterPoolColliderLeft" && !frozen) {
                 manager.setWaterInPool2(manager.getWaterInPool2() + 1);
             }
             else if (collision.transform.tag == "FreezeCollider")
@@ -153,15 +154,38 @@ public class Level3DynamicParticleScript : MonoBehaviour
                 frozen = true;
             }
         }
+        
+        if (SceneManager.GetActiveScene().name == "Level 5") {
+            if (collision.tag == "WaterPool" && !frozen) {
+                ILevelManagerWater manager5 = GameObject.Find("GameManager").GetComponent<ILevelManagerWater>();
+                manager5.SetWaterInPool(manager5.GetWaterInPool() + 1);
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (seepingEnabled) {
+        if (seepingEnabled)
+        {
             if (collision.gameObject.name == "SeepingCollider")
             {
                 cc.enabled = true;
                 bc.enabled = false;
+            }
+        }
+        else {
+            
+            if (collision.gameObject.name == "WaterPoolColliderLeft" && !frozen) {
+                manager.setWaterInPool2(manager.getWaterInPool2() - 1);
+            }
+        }
+        
+        if (SceneManager.GetActiveScene().name == "Level 5")
+        {
+            if (collision.tag == "WaterPool" && !frozen)
+            {
+                ILevelManagerWater manager5 = GameObject.Find("GameManager").GetComponent<ILevelManagerWater>();
+                manager5.SetWaterInPool(manager5.GetWaterInPool() - 1);
             }
         }
     }
