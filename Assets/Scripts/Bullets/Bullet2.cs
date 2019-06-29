@@ -28,7 +28,6 @@ public class Bullet2 : Bullet
                 RisingSteamManager rsm = steam.GetComponent<RisingSteamManager>();
                 rsm.EnableSteam();
                 managerScript.SetEvaporatedWater(managerScript.GetEvaporatedWater() + 1);
-                Destroy(gameObject);
             }
             if (collision.gameObject.CompareTag("DynamicParticleL3"))
             {
