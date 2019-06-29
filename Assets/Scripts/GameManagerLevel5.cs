@@ -14,6 +14,8 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
     public int transpirationNeeded = 25;
     public int waterNeededInPool = 5;
 
+    private int totalEvaporationNeeded;
+
     [Header("Level 5 Objects")]
     public GameObject condensationCloudParent;
 
@@ -31,6 +33,8 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
         evaporationAmount = 0;
         transpirationAmount = 0;
         waterInPool = 0;
+
+        totalEvaporationNeeded = transpirationNeeded + evaporationNeeded;
 }
 
     protected override void Update()
@@ -71,6 +75,10 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
     public void SetTranspirationAmnt(int amount)
     {
         transpirationAmount = amount;
+        if (transpirationAmount >= transpirationNeeded)
+        {
+            transpirationAmount = transpirationNeeded;
+        }
     }
 
     public int GetTranspirationAmountNeeded()
@@ -91,6 +99,10 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
     public void SetEvaporatedWater(int amount)
     {
         evaporationAmount = amount;
+        if (evaporationAmount > evaporationNeeded)
+        {
+            evaporationAmount = evaporationNeeded;
+        }
     }
 
     public int GetWaterInPool()
@@ -115,7 +127,7 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
 
     public int GetEvaporationNeeded()
     {
-        return evaporationNeeded;
+        return evaporationNeeded + transpirationNeeded;
     }
 
     public void ChangeCloudColour()
