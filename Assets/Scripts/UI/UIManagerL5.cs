@@ -25,12 +25,17 @@ public class UIManagerL5 : UIManager
 
         waterCount = this.transform.GetChild(1).GetComponent<Text>();
         treeCount = this.transform.GetChild(6).GetComponent<Text>();
+
+        setInitialBarValues(evaporationBar, manager.GetEvaporatedWater(), manager.GetEvaporationNeeded());
+
+        waterCount.text = ": " + playerAttributes.GetCurrentWater();
     }
 
     protected override void Update()
     {
         base.Update();
 
-
+        evaporationBar.BarValue = manager.GetEvaporatedWater();
+        waterCount.text = ": " + playerAttributes.GetCurrentWater();
     }
 }

@@ -10,4 +10,6 @@ public interface ILevelManagerWater
     int GetWaterInPool();
     int GetEvaporatedWater();
     int GetWaterNeededInPool();
+    int GetEvaporationNeeded();
+
 }

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelManagerTranspiration, ILevelManagerWater
 {
+
+
+
     protected override void Start()
     {
         base.Start();
@@ -85,6 +88,11 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
     }
 
     public int GetCondensedVapourNeeded()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public int GetEvaporationNeeded()
     {
         throw new System.NotImplementedException();
     }

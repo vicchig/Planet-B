@@ -213,6 +213,11 @@ public class GameManagerLevel1 : GameManager, ILevelManagerWater
         return waterNeededInPool;
     }
 
+    public int GetEvaporationNeeded()
+    {
+        return 0;
+    }
+
     /*
     public int getAmountOfWaterInPool()
     {
