@@ -30,6 +30,10 @@ public class Bullet2 : Bullet
                 managerScript.SetEvaporatedWater(managerScript.GetEvaporatedWater() + 1);
                 Destroy(gameObject);
             }
+            if (collision.gameObject.CompareTag("DynamicParticleL3"))
+            {
+                managerScript.SetEvaporatedWater(managerScript.GetEvaporatedWater() + 1);
+            }
         }
     }
 }

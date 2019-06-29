@@ -13884,6 +13884,8 @@ MonoBehaviour:
   transpirationNeeded: 25
   waterNeededInPool: 18
   condensationCloudParent: {fileID: 1312387122}
+  waterVapourParent: {fileID: 1463776329}
+  rainParent: {fileID: 929797297}
 --- !u!1001 &1380686662
 PrefabInstance:
   m_ObjectHideFlags: 0

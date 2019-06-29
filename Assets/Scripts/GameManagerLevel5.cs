@@ -24,6 +24,8 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
 
     [Header("Level 5 Objects")]
     public GameObject condensationCloudParent;
+    public GameObject waterVapourParent;
+    public GameObject rainParent;
 
     private int condensedVapourAmount;
     private int evaporationAmount;
@@ -59,11 +61,25 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
         objectiveLevelTxt5_6 = new EchoMessage("You have evaporated enough water! Time to explore the mountain to the west to find a way up into the atmosphere.", objectiveClip5_6, 1);
 
         echo.addMessage(objectiveLevelTxt5_0);
+
+        for (int i = 0; i < rainParent.transform.childCount; i++)
+        {
+            rainParent.transform.GetChild(i).GetComponent<ParticleSystem>().Pause();
+        }
     }
 
     protected override void Update()
     {
         base.Update();
+        if (condensedVapourAmount >= condensationNeeded)
+        {
+            nextLevelMarker.SetActive(true);
+            for (int i = 0; i < rainParent.transform.childCount; i++)
+            {
+                rainParent.transform.GetChild(i).GetComponent<ParticleSystem>().Play();
+
+            }
+        }       
     }
 
     protected override void FixedUpdate()
@@ -103,6 +119,7 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
         {
             transpirationAmount = transpirationNeeded;
         }
+        CheckEnableVapour();
     }
 
     public int GetTranspirationAmountNeeded()
@@ -127,6 +144,7 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
         {
             evaporationAmount = evaporationNeeded;
         }
+        CheckEnableVapour();
     }
 
     public int GetWaterInPool()
@@ -159,6 +177,13 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
         for (int i = 0; i < condensationCloudParent.transform.childCount; i++)
         {
             condensationCloudParent.transform.GetChild(i).GetComponent<SpriteRenderer>().color = new Color(condensationCloudParent.transform.GetChild(i).GetComponent<SpriteRenderer>().color.r * 0.9f, condensationCloudParent.transform.GetChild(i).GetComponent<SpriteRenderer>().color.g * 0.9f, condensationCloudParent.transform.GetChild(i).GetComponent<SpriteRenderer>().color.b * 0.9f, condensationCloudParent.transform.GetChild(i).GetComponent<SpriteRenderer>().color.a);
+        }
+    }
+    private void CheckEnableVapour()
+    {
+        if (evaporationAmount + transpirationAmount >= totalEvaporationNeeded)
+        {
+            waterVapourParent.SetActive(true);
         }
     }
 }
