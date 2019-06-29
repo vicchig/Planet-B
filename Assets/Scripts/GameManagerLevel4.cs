@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManagerLevel4 : GameManager
+public class GameManagerLevel4 : GameManager, ILevelManagerTranspiration
 {
 
     [Header("Level 4 Echo Dialogue")]
@@ -69,11 +69,28 @@ public class GameManagerLevel4 : GameManager
 
         }
     }
-        public int getTranspirationAmnt() {
+
+    public void SetTranspirationAmnt(int amount)
+    {
+        transpirationAmnt = amount;
+    }
+
+    public int GetTranspirationAmountNeeded()
+    {
+        return transpirationAmntNeeded;
+    }
+
+    public int GetTranspirationAmount()
+    {
+        return transpirationAmnt;
+    }
+
+    /*
+    public int getTranspirationAmnt() {
         return transpirationAmnt;
     }
 
     public void setTranspirationAmnt(int amnt) {
         transpirationAmnt = amnt;
-    }
+    }*/
 }

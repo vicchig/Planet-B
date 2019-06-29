@@ -5,13 +5,13 @@ using UnityEngine.Tilemaps;
 
 public class GameManagerLevel3 : GameManager
 {
-    [Header("Level 1 Echo Dialogue")]
+    [Header("Level 3 Echo Dialogue")]
     public AudioClip objectiveLevelClip3_1;
     public AudioClip objectiveLevelClip3_2;
     public AudioClip objectiveLevelClip3_3;
     public AudioClip objectiveLevelClip3_4;
 
-    [Header("Level 1 Variables")]
+    [Header("Level 3 Variables")]
     public int waterNeededInPool1;
     public int waterNeededInPool2;
 

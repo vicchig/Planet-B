@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary> MonoBehaviour for controlling level 1 and tracking player progress in level 1. </summary>
-public class GameManagerLevel1 : GameManager
+public class GameManagerLevel1 : GameManager, ILevelManagerWater
 {
     [Header("Level 1 Echo Dialogue")]
     public AudioClip objectiveLevelClip1_0;
@@ -188,6 +188,32 @@ public class GameManagerLevel1 : GameManager
         }
     }
 
+    public void SetWaterInPool(int amount)
+    {
+        amountOfWaterInPool = amount;
+    }
+
+    public void SetEvaporatedWater(int amount)
+    {
+        amountOfEvaporatedWater = amount;
+    }
+
+    public int GetWaterInPool()
+    {
+        return amountOfWaterInPool;
+    }
+
+    public int GetEvaporatedWater()
+    {
+        return amountOfEvaporatedWater;
+    }
+
+    public int GetWaterNeededInPool()
+    {
+        return waterNeededInPool;
+    }
+
+    /*
     public int getAmountOfWaterInPool()
     {
         return amountOfWaterInPool;
@@ -206,5 +232,5 @@ public class GameManagerLevel1 : GameManager
     public void setEvaporated(int amount)
     {
         amountOfEvaporatedWater = amount;
-    }
+    }*/
 }

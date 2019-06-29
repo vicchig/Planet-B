@@ -10,19 +10,19 @@ public class TranspiratorScript : MonoBehaviour
 
     private TreeController tController;
     private float transpirationTime;
-    private GameManagerLevel4 manager;
+    private ILevelManagerTranspiration manager;
 
     private void Start()
     {
         tController = this.GetComponent<TreeController>();
-        manager = managerObj.GetComponent<GameManagerLevel4>();
+        manager = managerObj.GetComponent<ILevelManagerTranspiration>();
     }
 
     private void Update()
     {
         if (transpirationTime >= transpirationDelay) {
             transpirationTime = 0f;
-            manager.setTranspirationAmnt(manager.getTranspirationAmnt() + transpirationAmnt);
+            manager.SetTranspirationAmnt(manager.GetTranspirationAmount() + transpirationAmnt);
         }
     }
 

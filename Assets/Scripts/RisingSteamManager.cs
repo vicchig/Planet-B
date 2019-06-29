@@ -9,17 +9,17 @@ public class RisingSteamManager : MonoBehaviour
     public GameObject manager;
     public int waterThreshold = 20;
 
-    private GameManagerLevel1 managerScript;
+    private ILevelManagerWater managerScript;
 
     private void Start()
     {
         DisableSteam();
-        managerScript = manager.GetComponent<GameManagerLevel1>();
+        managerScript = manager.GetComponent<ILevelManagerWater>();
     }
 
     private void Update()
     {
-        if(managerScript.getAmountOfWaterInPool() < waterThreshold)
+        if(managerScript.GetWaterInPool() < waterThreshold)
         {
             DisableSteam();
         }

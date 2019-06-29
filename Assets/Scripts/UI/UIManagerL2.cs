@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class UIManagerL2 : UIManager
 {
-    private GameManagerLevel2 manager;
+    private ILevelManagerCondensation manager;
     private ProgressBar condensationBar;
 
     protected override void Start()
     {
         base.Start();
 
-        manager  = managerObj.GetComponent<GameManagerLevel2>();
+        manager  = managerObj.GetComponent<ILevelManagerCondensation>();
 
         //condensation bar
         condensationBar = this.transform.GetChild(4).gameObject.GetComponent<ProgressBar>();
-        setInitialBarValues(condensationBar, manager.getCondensedVapourAmnt(), manager.condensedVapourNeeded);
+        setInitialBarValues(condensationBar, manager.GetCondensedVapour(), manager.GetCondensedVapourNeeded());
 
 
     }
@@ -23,6 +23,6 @@ public class UIManagerL2 : UIManager
     protected override void Update()
     {
         base.Update();
-        condensationBar.BarValue = manager.getCondensedVapourAmnt();
+        condensationBar.BarValue = manager.GetCondensedVapour();
     }
 }

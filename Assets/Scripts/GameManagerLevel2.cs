@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManagerLevel2 : GameManager
+public class GameManagerLevel2 : GameManager, ILevelManagerCondensation
 {
     [Header("Level 2 Echo Dialogue")]
     public AudioClip objectiveLevelClip2_1;
@@ -107,13 +107,6 @@ public class GameManagerLevel2 : GameManager
             }
         }
     }
-    public int getCondensedVapourAmnt() {
-        return condensedVapourAmnt;
-    }
-
-    public void setCondensedVapourAmnt(int newAmount) {
-        condensedVapourAmnt = newAmount;
-    }
 
     private void checkWaterVapourCollisions() {
         List<Collider2D> colliders = new List<Collider2D>();
@@ -156,4 +149,30 @@ public class GameManagerLevel2 : GameManager
             condensationCloudParent.transform.GetChild(i).GetComponent<SpriteRenderer>().color = new Color(condensationCloudParent.transform.GetChild(i).GetComponent<SpriteRenderer>().color.r * 0.9f, condensationCloudParent.transform.GetChild(i).GetComponent<SpriteRenderer>().color.g * 0.9f, condensationCloudParent.transform.GetChild(i).GetComponent<SpriteRenderer>().color.b * 0.9f, condensationCloudParent.transform.GetChild(i).GetComponent<SpriteRenderer>().color.a);
         }
     }
+
+    public void SetCondensedVapour(int amount)
+    {
+        condensedVapourAmnt = amount;
+    }
+
+    public int GetCondensedVapour()
+    {
+        return condensedVapourAmnt;
+    }
+
+    public int GetCondensedVapourNeeded()
+    {
+        return condensedVapourNeeded;
+    }
+
+
+
+    /*
+    public int getCondensedVapourAmnt() {
+        return condensedVapourAmnt;
+    }
+
+    public void setCondensedVapourAmnt(int newAmount) {
+        condensedVapourAmnt = newAmount;
+    }*/
 }

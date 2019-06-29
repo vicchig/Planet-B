@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet2 : Bullet
 {
     private GameObject manager;
-    private GameManagerLevel1 managerScript;
+    private ILevelManagerWater managerScript;
     protected override void Start()
     {
         Destroy(gameObject, despawnTime); // despawner
@@ -15,7 +15,7 @@ public class Bullet2 : Bullet
         rb.velocity = shootDirection.normalized * speed;
 
         manager = GameObject.Find("GameManager");
-        managerScript = manager.GetComponent<GameManagerLevel1>();
+        managerScript = manager.GetComponent<ILevelManagerWater>();
     }
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
@@ -27,7 +27,7 @@ public class Bullet2 : Bullet
                 GameObject steam = GameObject.Find("RisingSteam");
                 RisingSteamManager rsm = steam.GetComponent<RisingSteamManager>();
                 rsm.EnableSteam();
-                managerScript.setEvaporated(managerScript.getEvaporated() + 1);
+                managerScript.SetEvaporatedWater(managerScript.GetEvaporatedWater() + 1);
                 Destroy(gameObject);
             }
         }

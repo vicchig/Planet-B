@@ -24,16 +24,16 @@ public class DynamicParticle : MonoBehaviour
     bool isSteaming = false;
 
     private GameObject manager;
-    private GameManagerLevel1 managerScript;
+    private ILevelManagerWater managerScript;
     private bool destroyObject;
     private bool inPool = false;
     private void Start()
     {
         gameObject.transform.SetParent(GameObject.Find("WaterParent").transform);
         manager = GameObject.Find("GameManager");
-        managerScript = manager.GetComponent<GameManagerLevel1>();
+        managerScript = manager.GetComponent<ILevelManagerWater>();
 
-        if (GameObject.Find("WaterParent").transform.childCount > managerScript.waterNeededInPool + 8)//offset since sometimes not enough water is in the pool if too much of it spawned outside
+        if (GameObject.Find("WaterParent").transform.childCount > managerScript.GetWaterNeededInPool() + 8)//offset since sometimes not enough water is in the pool if too much of it spawned outside
         {
             destroyObject = true;
         }
@@ -166,7 +166,7 @@ public class DynamicParticle : MonoBehaviour
 
         if (other.tag == "WaterPool")
         {
-            manager.GetComponent<GameManagerLevel1>().setAmountOfWaterInPool(manager.GetComponent<GameManagerLevel1>().getAmountOfWaterInPool() + 1);
+            managerScript.SetWaterInPool(managerScript.GetWaterInPool() + 1);
             inPool = true;
         }
         if (other.tag != "WaterPool" && other.tag != "WaterDisappear" && other.tag != "WaterPoolCollisionArea" && other.tag != "bullet2") {
@@ -179,7 +179,7 @@ public class DynamicParticle : MonoBehaviour
     {
         if (collision.CompareTag("WaterPool"))
         {
-            managerScript.setAmountOfWaterInPool(managerScript.getAmountOfWaterInPool() - 1);
+            managerScript.SetWaterInPool(managerScript.GetWaterInPool() - 1);
             inPool = false;
         }
     }
@@ -197,8 +197,8 @@ public class DynamicParticle : MonoBehaviour
     {
         if (inPool)
         {
-            managerScript.setAmountOfWaterInPool(managerScript.getAmountOfWaterInPool() - 1);
-            
+            managerScript.SetWaterInPool(managerScript.GetWaterInPool() - 1);
+
         }
     }
 }
