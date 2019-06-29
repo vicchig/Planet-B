@@ -13872,13 +13872,18 @@ MonoBehaviour:
   helperChar: {fileID: 1789868513}
   textMesh: {fileID: 809585603}
   nextLevelMarker: {fileID: 16372982}
+  objectiveClip5_0: {fileID: 8300000, guid: cdabbfb7eafb42846b35ddd2ba03d548, type: 3}
+  objectiveClip5_1: {fileID: 8300000, guid: 1a0983548cbb17d489911f329d4ec569, type: 3}
+  objectiveClip5_2: {fileID: 8300000, guid: 95960ba3873dd3542867ec5ef44a2111, type: 3}
+  objectiveClip5_3: {fileID: 8300000, guid: c5d43f9bdbc64a541b2d93001d6fb6ee, type: 3}
+  objectiveClip5_4: {fileID: 8300000, guid: beb48e35de39cb4439b54c62716e4763, type: 3}
+  objectiveClip5_5: {fileID: 8300000, guid: 5b99966439956354199ae1b1490b209c, type: 3}
+  objectiveClip5_6: {fileID: 8300000, guid: 42ed65f636a3f2b458e24946c4b74149, type: 3}
   condensationNeeded: 5
   evaporationNeeded: 75
   transpirationNeeded: 25
   waterNeededInPool: 18
   condensationCloudParent: {fileID: 1312387122}
-  rainParent: {fileID: 929797297}
-  waterVapourParent: {fileID: 1463776329}
 --- !u!1001 &1380686662
 PrefabInstance:
   m_ObjectHideFlags: 0
