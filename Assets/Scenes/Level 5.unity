@@ -12857,6 +12857,7 @@ MonoBehaviour:
   transpirationNeeded: 25
   waterNeededInPool: 5
   condensationCloudParent: {fileID: 1312387122}
+  waterVapourParent: {fileID: 1463776329}
 --- !u!1001 &1380686662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13647,7 +13648,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1463776330
 Transform:
   m_ObjectHideFlags: 0
