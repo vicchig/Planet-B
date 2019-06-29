@@ -18,11 +18,11 @@ public class TreePlantingController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Flood"))
+        if (Input.GetButtonDown("Plant"))
         {
             fPressed = true;
         }
-        if (Input.GetButtonUp("Flood")) {
+        if (Input.GetButtonUp("Plant")) {
             fPressed = false;
             planting = false;
         }
