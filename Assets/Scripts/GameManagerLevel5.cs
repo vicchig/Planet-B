@@ -5,8 +5,14 @@ using UnityEngine;
 public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelManagerTranspiration, ILevelManagerWater
 {
 
-    //[Header("Level 5 Echo Dialogue")]
-
+    [Header("Level 5 Echo Dialogue")]
+    public AudioClip objectiveClip5_0;
+    public AudioClip objectiveClip5_1;
+    public AudioClip objectiveClip5_2;
+    public AudioClip objectiveClip5_3;
+    public AudioClip objectiveClip5_4;
+    public AudioClip objectiveClip5_5;
+    public AudioClip objectiveClip5_6;
 
     [Header("Level 5 Variables")]
     public int condensationNeeded = 5;
@@ -25,6 +31,14 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
     private int waterInPool;
     private TreePlantingController treePlanter;
 
+    EchoMessage objectiveLevelTxt5_0;
+    EchoMessage objectiveLevelTxt5_1;
+    EchoMessage objectiveLevelTxt5_2;
+    EchoMessage objectiveLevelTxt5_3;
+    EchoMessage objectiveLevelTxt5_4;
+    EchoMessage objectiveLevelTxt5_5;
+    EchoMessage objectiveLevelTxt5_6;
+
     protected override void Start()
     {
         base.Start();
@@ -35,7 +49,17 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
         waterInPool = 0;
 
         totalEvaporationNeeded = transpirationNeeded + evaporationNeeded;
-}
+
+        objectiveLevelTxt5_0 = new EchoMessage("Now you have to implement the entire cycle on your own. Let's see what you remember!", objectiveClip5_0, 1);
+        objectiveLevelTxt5_1 = new EchoMessage("You have finished the collection part of the water cycle. But what comes next?", objectiveClip5_1, 1);
+        objectiveLevelTxt5_2 = new EchoMessage("You have successfully evaporated water from surface bodies of water, but remember that some of the evaporated water has to come from some other source.", objectiveClip5_2, 1);
+        objectiveLevelTxt5_3 = new EchoMessage("Now we just need to make sure the water we evaporated comes back to the ground.", objectiveClip5_3, 1);
+        objectiveLevelTxt5_4 = new EchoMessage("You have completed the water cycle! The condensed water vapour falls back onto the ground and the cycle begins anew with collection, followed by evaporation/transpiration and finishing with condensation.", objectiveClip5_4, 1);
+        objectiveLevelTxt5_5 = new EchoMessage("You have successfully initiated the process of transpiration! But the majority of the evaporated water has to come from some other source.", objectiveClip5_5, 1);
+        objectiveLevelTxt5_6 = new EchoMessage("You have evaporated enough water! Time to explore the mountain to the west to find a way up into the atmosphere.", objectiveClip5_6, 1);
+
+        echo.addMessage(objectiveLevelTxt5_0);
+    }
 
     protected override void Update()
     {
