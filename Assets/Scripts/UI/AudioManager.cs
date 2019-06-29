@@ -121,7 +121,7 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-            echoPortraitImage.color = new Color(echoPortraitImage.color.r, echoPortraitImage.color.g, echoPortraitImage.color.b, echoPortraitImage.color.a * 2.25f);
+            echoPortraitImage.color = new Color(echoPortraitImage.color.r, echoPortraitImage.color.g, echoPortraitImage.color.b, 1);
         }
 
         current.voiceSource.mute = !current.voiceSource.mute;
