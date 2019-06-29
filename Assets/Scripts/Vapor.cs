@@ -20,9 +20,10 @@ public class Vapor : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (collision.gameObject.name == "VaporDeathCollider")
         {
-            
+
             if (platform != null)
             {
                 transform.position = platform.transform.position + new Vector3(0, 1f, 0);
@@ -37,18 +38,6 @@ public class Vapor : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "DeathCollider")
-        {
-
-            if (platform != null)
-            {
-                transform.position = platform.transform.position + new Vector3(0, 1f, 0);
-            }
-            else
-            {
-                transform.position = startPosition;
-            }
-            rb.velocity = new Vector2(0, 0);
-        }
+        
     }
 }
