@@ -39,6 +39,8 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
     EchoMessage objectiveLevelTxt5_4;
     EchoMessage objectiveLevelTxt5_5;
 
+    GameObject player;
+
     protected override void Start()
     {
         base.Start();
@@ -63,6 +65,8 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
         {
             rainParent.transform.GetChild(i).GetComponent<ParticleSystem>().Pause();
         }
+
+        player = GameObject.Find("Player3");
     }
 
     protected override void Update()
@@ -76,7 +80,15 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
                 rainParent.transform.GetChild(i).GetComponent<ParticleSystem>().Play();
 
             }
-        }       
+        }
+
+        //change camera perspective when they are going t the clouds
+        if (player.GetComponent<Rigidbody2D>().position.y > 12) {
+            Camera.main.orthographic = true;
+        }
+        else {
+            Camera.main.orthographic = false;
+        }
     }
 
     protected override void FixedUpdate()
