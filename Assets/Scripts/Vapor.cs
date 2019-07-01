@@ -7,7 +7,7 @@ public class Vapor : MonoBehaviour
 {
     public ParticleSystem steam;
     public ParticleSystem rain;
-
+    public bool returnToSpawn = true;
     public GameObject platform;
 
     private Rigidbody2D rb;
@@ -17,7 +17,7 @@ public class Vapor : MonoBehaviour
     {
         startPosition = transform.position;
         rb = GetComponent<Rigidbody2D>();
-
+        
         manager = GameObject.Find("GameManager").GetComponent<ILevelManagerCondensation>();
     }
 
@@ -26,16 +26,17 @@ public class Vapor : MonoBehaviour
 
         if (collision.gameObject.name == "VaporDeathCollider")
         {
-
-            if (platform != null)
-            {
-                transform.position = platform.transform.position + new Vector3(0, 1f, 0);
+            if (returnToSpawn == false) {
+                if (platform != null)
+                {
+                    transform.position = platform.transform.position + new Vector3(0, 1f, 0);
+                }
+                else
+                {
+                    transform.position = startPosition;
+                }
+                rb.velocity = new Vector2(0, 0);
             }
-            else
-            {
-                transform.position = startPosition;
-            }
-            rb.velocity = new Vector2(0, 0);
         }
 
         if (collision.tag == "CondensationArea")
