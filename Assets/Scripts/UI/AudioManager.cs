@@ -128,4 +128,12 @@ public class AudioManager : MonoBehaviour
 
         
     }
+
+    public static void pauseVoiceSource() {
+        current.voiceSource.Pause();
+    }
+
+    public static void unpauseVoiceSource() {
+        current.voiceSource.UnPause();
+    }
 }
