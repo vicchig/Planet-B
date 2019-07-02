@@ -1461,7 +1461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   treePrefab: {fileID: 7777596687601008839, guid: 1a064c1a8ab7abf429d7b9a4415d06d9,
     type: 3}
-  treeAmount: 4
+  treeAmount: 6
 --- !u!1 &281221860
 GameObject:
   m_ObjectHideFlags: 0

@@ -55,6 +55,9 @@ public class GameManagerLevel4 : GameManager, ILevelManagerTranspiration
         if (transpirationAmnt <= transpirationAmntNeeded) {
             objectiveDisplay.text = "Current Objective:\nFind a good area to plant the plants in to begin transpiration.\nUse E to plant.";
         }
+        else if (transpirationAmnt > transpirationAmntNeeded) {
+            objectiveDisplay.text = "Current Objective:\nLocate the marker on the right side to proceed.";
+        }
     }
 
     protected override void checkEchoCollisions()
