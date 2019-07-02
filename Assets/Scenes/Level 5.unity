@@ -1805,7 +1805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   treePrefab: {fileID: 7777596687601008839, guid: 1a064c1a8ab7abf429d7b9a4415d06d9,
     type: 3}
-  treeAmount: 4
+  treeAmount: 6
 --- !u!4 &178246210 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5274822477744961999, guid: 4310601504673064bac7d93c327e3117,
