@@ -26,7 +26,7 @@ public class Vapor : MonoBehaviour
 
         if (collision.gameObject.name == "VaporDeathCollider")
         {
-            if (returnToSpawn == false) {
+            if (returnToSpawn == true) {
                 if (platform != null)
                 {
                     transform.position = platform.transform.position + new Vector3(0, 1f, 0);
