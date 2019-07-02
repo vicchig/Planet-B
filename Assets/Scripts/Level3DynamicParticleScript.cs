@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class Level3DynamicParticleScript : MonoBehaviour
 {
+    public int evapLeft = 5;
     public float heatEnergyThreshold;
     public float heatEnergyIncrement;
     public GameObject seepingCheckpoint;
     public LayerMask groundLayer;
     public bool seepingEnabled;
+    public bool isInPool = false;
 
     CircleCollider2D cc;
     BoxCollider2D bc;
@@ -159,6 +161,7 @@ public class Level3DynamicParticleScript : MonoBehaviour
             if (collision.tag == "WaterPool" && !frozen) {
                 ILevelManagerWater manager5 = GameObject.Find("GameManager").GetComponent<ILevelManagerWater>();
                 manager5.SetWaterInPool(manager5.GetWaterInPool() + 1);
+                isInPool = true;
             }
         }
     }

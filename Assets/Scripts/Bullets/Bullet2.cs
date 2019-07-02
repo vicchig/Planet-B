@@ -31,7 +31,12 @@ public class Bullet2 : Bullet
             }
             if (collision.gameObject.CompareTag("DynamicParticleL3"))
             {
-                managerScript.SetEvaporatedWater(managerScript.GetEvaporatedWater() + 1);
+                Level3DynamicParticleScript d3 = collision.gameObject.GetComponent<Level3DynamicParticleScript>();
+                if (d3.isInPool && d3.evapLeft > 0)
+                {
+                    managerScript.SetEvaporatedWater(managerScript.GetEvaporatedWater() + 1);
+                    d3.evapLeft -= 1;
+                }
             }
         }
     }
