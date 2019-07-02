@@ -23,7 +23,8 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
 
     [Header("Level 5 Objects")]
     public GameObject condensationCloudParent;
-    public GameObject waterVapourParent;
+    public GameObject waterVapourParent1;
+    public GameObject waterVapourParent2;
     public GameObject rainParent;
 
     private int condensedVapourAmount;
@@ -217,9 +218,13 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
     }
     private void CheckEnableVapour()
     {
-        if (evaporationAmount + transpirationAmount >= totalEvaporationNeeded)
+        if (evaporationAmount >= evaporationNeeded)
         {
-            waterVapourParent.SetActive(true);
+            waterVapourParent1.SetActive(true);
+        }
+        if (transpirationAmount >= transpirationNeeded)
+        {
+            waterVapourParent2.SetActive(true);
         }
     }
 }
