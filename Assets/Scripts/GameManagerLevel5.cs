@@ -65,7 +65,6 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
             rainParent.transform.GetChild(i).GetComponent<ParticleSystem>().Pause();
         }
 
-        player = GameObject.Find("Player3");
     }
 
     protected override void Update()
