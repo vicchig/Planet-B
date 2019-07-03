@@ -173,7 +173,9 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
 
     public void SetEvaporatedWater(int amount)
     {
-        evaporationAmount = amount;
+        if (waterInPool >= waterNeededInPool) {
+            evaporationAmount = amount;
+        }
         if (evaporationAmount > evaporationNeeded)
         {
             evaporationAmount = evaporationNeeded;
