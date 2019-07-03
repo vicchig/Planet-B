@@ -27,6 +27,9 @@ public class DynamicParticle : MonoBehaviour
     private ILevelManagerWater managerScript;
     private bool destroyObject;
     private bool inPool = false;
+
+    [Header ("Evaporation")]
+    public int evapLeft = 5;
     private void Start()
     {
         gameObject.transform.SetParent(GameObject.Find("WaterParent").transform);
@@ -200,5 +203,10 @@ public class DynamicParticle : MonoBehaviour
             managerScript.SetWaterInPool(managerScript.GetWaterInPool() - 1);
 
         }
+    }
+
+    public bool GetIsInPool()
+    {
+        return inPool;
     }
 }
