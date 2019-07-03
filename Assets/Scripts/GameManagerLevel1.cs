@@ -42,6 +42,8 @@ public class GameManagerLevel1 : GameManager, ILevelManagerWater
     EchoMessage dontWasteWaterReminderTxt;
     EchoMessage waterPoolFoundTxt;
 
+    RisingSteamManager steamManager;
+
     /// <summary> Script that controls how the player can pour water.</summary>
     private WaterPourController waterPControl;
 
@@ -87,6 +89,9 @@ public class GameManagerLevel1 : GameManager, ILevelManagerWater
         echo.addMessage(objectiveLevelTxt1_1);
 
         lastCPEnabled = false;
+
+        steamManager = GameObject.Find("RisingSteam").GetComponent<RisingSteamManager>();
+        
     }
 
     new protected void Update()
@@ -136,8 +141,9 @@ public class GameManagerLevel1 : GameManager, ILevelManagerWater
         }
 
         //evaporated enough water
-        if (amountOfEvaporatedWater >= GameObject.Find("RisingSteam").GetComponent<RisingSteamManager>().waterThreshold && !objectiveLevelTxt1_7.maxTextShowsReached())
+        if (amountOfWaterInPool>= waterNeededInPool && amountOfEvaporatedWater >= GameObject.Find("RisingSteam").GetComponent<RisingSteamManager>().waterThreshold && !objectiveLevelTxt1_7.maxTextShowsReached())
         {
+            steamManager.EnableSteam();
             echo.addMessage(objectiveLevelTxt1_7);
             nextLevelMarker.SetActive(true);
         }
@@ -178,7 +184,7 @@ public class GameManagerLevel1 : GameManager, ILevelManagerWater
         {
             objectiveDisplay.text = "Current Objective: Collect 14 groundwater droplets.";
         }
-        else if (attributes.GetCurrentWater() * 4 >= waterNeededInPool)
+        else if (attributes.GetCurrentWater() * 4 >= waterNeededInPool && !(amountOfWaterInPool >= waterNeededInPool))
         {
             objectiveDisplay.text = "Current Objective: Find an area on the surface to create an artificial lake in and fill it with the collected water. Press F to release water into the lake.";
         }
@@ -199,7 +205,10 @@ public class GameManagerLevel1 : GameManager, ILevelManagerWater
 
     public void SetEvaporatedWater(int amount)
     {
-        amountOfEvaporatedWater = amount;
+        if (amountOfWaterInPool >= waterNeededInPool) {
+            amountOfEvaporatedWater = amount;
+        }
+       
     }
 
     public int GetWaterInPool()

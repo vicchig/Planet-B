@@ -24,9 +24,7 @@ public class Bullet2 : Bullet
         {
             if (collision.gameObject.CompareTag("DynamicParticle"))
             {
-                GameObject steam = GameObject.Find("RisingSteam");
-                RisingSteamManager rsm = steam.GetComponent<RisingSteamManager>();
-                rsm.EnableSteam();
+                
                 managerScript.SetEvaporatedWater(managerScript.GetEvaporatedWater() + 1);
                 DynamicParticle d = collision.gameObject.GetComponent<DynamicParticle>();
                 if (d.GetIsInPool() && d.evapLeft > 0 && managerScript.GetWaterInPool() >= managerScript.GetWaterNeededInPool())
