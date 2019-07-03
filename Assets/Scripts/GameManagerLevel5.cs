@@ -84,7 +84,6 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
             }
         }
 
-        Debug.Log(evaporationAmount + " / " + evaporationNeeded);
 
         if (evaporationAmount >= evaporationNeeded) {
             steamManager.EnableSteam();
