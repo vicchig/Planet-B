@@ -40,8 +40,6 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
     EchoMessage objectiveLevelTxt5_4;
     EchoMessage objectiveLevelTxt5_5;
 
-    GameObject player;
-
     protected override void Start()
     {
         base.Start();

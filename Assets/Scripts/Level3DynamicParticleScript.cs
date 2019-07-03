@@ -188,7 +188,7 @@ public class Level3DynamicParticleScript : MonoBehaviour
             if (collision.tag == "WaterPool" && !frozen)
             {
                 ILevelManagerWater manager5 = GameObject.Find("GameManager").GetComponent<ILevelManagerWater>();
-                manager5.SetWaterInPool(manager5.GetWaterInPool() - 1);
+                //manager5.SetWaterInPool(manager5.GetWaterInPool() - 1);
             }
         }
     }
