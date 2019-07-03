@@ -21,7 +21,7 @@ public class RisingSteamManager : MonoBehaviour
     {
         if(managerScript.GetWaterInPool() < waterThreshold)
         {
-            DisableSteam();
+         //  DisableSteam();
         }
     }
 
@@ -33,12 +33,13 @@ public class RisingSteamManager : MonoBehaviour
             ps.Play();
         }
     }
+    
     public void DisableSteam()
     {
         for (int i = 0; i < steam.Length; i++)
         {
             ParticleSystem ps = steam[i].GetComponent<ParticleSystem>();
-            ps.Stop();
+            ps.Pause();
         }
     }
 }

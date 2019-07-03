@@ -40,6 +40,8 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
     EchoMessage objectiveLevelTxt5_4;
     EchoMessage objectiveLevelTxt5_5;
 
+    RisingSteamManager steamManager;
+
     protected override void Start()
     {
         base.Start();
@@ -65,6 +67,8 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
             rainParent.transform.GetChild(i).GetComponent<ParticleSystem>().Pause();
         }
 
+
+        steamManager = GameObject.Find("RisingSteam").GetComponent<RisingSteamManager>();
     }
 
     protected override void Update()
@@ -78,6 +82,12 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
                 rainParent.transform.GetChild(i).GetComponent<ParticleSystem>().Play();
 
             }
+        }
+
+        Debug.Log(evaporationAmount + " / " + evaporationNeeded);
+
+        if (evaporationAmount >= evaporationNeeded) {
+            steamManager.EnableSteam();
         }
 
         //change camera perspective when they are going t the clouds
