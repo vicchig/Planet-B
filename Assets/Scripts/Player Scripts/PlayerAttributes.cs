@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerAttributes : MonoBehaviour
 {
     [Header("Player Atrtributes")]
-    //public int maxHealth = 100;
+    public int maxHealth = 100;
     public int waterCollected = 0;
     public int maxHeat = 0;
     public int currentHeat = 0;
@@ -25,7 +25,7 @@ public class PlayerAttributes : MonoBehaviour
     [Header("HUD Object")]
     public GameObject hudObject;
 
-    //private int currentHealth;
+    private int currentHealth;
     //private float lavaColisionDuration;
     //private bool collidingWithLava;
 
@@ -36,8 +36,8 @@ public class PlayerAttributes : MonoBehaviour
 
     private void Start()
     {
-        /*
-        currentHealth = maxHealth;
+        
+        currentHealth = maxHealth;/*
         collidingWithLava = false;
         healthRegenTimer = healthRegenTime;
         takingDamage = false;*/
@@ -138,14 +138,14 @@ public class PlayerAttributes : MonoBehaviour
             takingDamage = false;
         }*/
     }
-    /*
+    
     public void SetCurrentHealth(int health) {
         currentHealth = health;
     }
 
     public int GetCurrentHealth() {
         return currentHealth;
-    }*/
+    }
 
     public void SetCurrentWater(int water) {
         waterCollected = water;
@@ -154,10 +154,10 @@ public class PlayerAttributes : MonoBehaviour
     public int GetCurrentWater() {
         return waterCollected;
     }
-    /*
+    
     public int GetMaxHealth() {
         return maxHealth;
-    }*/
+    }
 
     public int GetMaxHeat() {
         return maxHeat;

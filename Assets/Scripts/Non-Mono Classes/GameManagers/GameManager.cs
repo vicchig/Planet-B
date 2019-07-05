@@ -55,10 +55,10 @@ public abstract class GameManager : MonoBehaviour
 
     protected void respawnAtCheckPoint()
     {
-        //if (attributes.GetCurrentHealth() <= 0) {
-            //player.transform.position = checkpointTracker.getCurrentCPTransform().position;
-            //attributes.SetCurrentHealth(attributes.GetMaxHealth());
-        //}
+        if (attributes.GetCurrentHealth() <= 0) {
+            player.transform.position = checkpointTracker.getCurrentCPTransform().position;
+            attributes.SetCurrentHealth(attributes.GetMaxHealth());
+        }
 
     }
 
@@ -76,12 +76,12 @@ public abstract class GameManager : MonoBehaviour
         };
 
         col.OverlapCollider(filter, colliders);
-        /*
+        
         for (int i = 0; i < colliders.Count; i++) {
             if (colliders[i].tag == "DeathOnTouch") {
                 attributes.SetCurrentHealth(0);
             }
-        }*/
+        }
     }
 
     protected abstract void levelEchoMsgChecks();
