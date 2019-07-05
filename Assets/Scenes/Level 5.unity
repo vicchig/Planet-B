@@ -10123,8 +10123,8 @@ Transform:
   - {fileID: 1629002295}
   - {fileID: 1650357451}
   - {fileID: 1438056913}
-  - {fileID: 7483470}
   - {fileID: 1780487647}
+  - {fileID: 7483470}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14159,7 +14159,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1589760411
 Transform:
   m_ObjectHideFlags: 0
