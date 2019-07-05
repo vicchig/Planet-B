@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PoisonCloudController : MonoBehaviour
 {
+    /*
     public GameObject player;
     public float poisonDuration;
     public int poisonDmg;
@@ -43,6 +44,7 @@ public class PoisonCloudController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        
         if (collision.transform.tag == "Player") {
             poisonActive = true;
             attributes.setTakingDamage(true);
@@ -51,10 +53,12 @@ public class PoisonCloudController : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
+        
         if (collision.transform.tag == "Player")
         {
             poisonActive = false;
             attributes.setTakingDamage(false);
         }
     }
+*/
 }

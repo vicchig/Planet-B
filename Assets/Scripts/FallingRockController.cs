@@ -17,8 +17,8 @@ public class FallingRockController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.CompareTag("Player")) {
-            attributes.SetCurrentHealth(attributes.GetCurrentHealth() - rockDamage);
-            attributes.setTakingDamage(true);
+            //attributes.SetCurrentHealth(attributes.GetCurrentHealth() - rockDamage);
+            //attributes.setTakingDamage(true);
             Destroy(gameObject);
         }
         else if (collision.transform.CompareTag("Platforms") || collision.transform.CompareTag("MovingPlatform"))
@@ -31,7 +31,7 @@ public class FallingRockController : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
-            attributes.setTakingDamage(false);
+            //attributes.setTakingDamage(false);
         }
     }
 }

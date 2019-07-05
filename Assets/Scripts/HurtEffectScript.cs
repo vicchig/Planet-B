@@ -18,8 +18,9 @@ public class HurtEffectScript : MonoBehaviour
 
     private void OnGUI()
     {
+        /*
         if (pAttributes.isTakingDamage()) {
             GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), hurtTexture, ScaleMode.StretchToFill);
-        }
+        }*/
     }
 }

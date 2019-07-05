@@ -9,7 +9,7 @@ public class DeathColliderLevel2Script : MonoBehaviour
         PlayerAttributes attributes = collision.gameObject.GetComponent<PlayerAttributes>();
         if (attributes != null)
         {
-            attributes.SetCurrentHealth(0);
+            //attributes.SetCurrentHealth(0);
         }
     }
 }
