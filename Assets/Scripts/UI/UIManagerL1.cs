@@ -18,7 +18,7 @@ public class UIManagerL1 : UIManager
         //WaterCount - child 2
         this.transform.GetChild(1).GetComponent<Text>().text = ":" + playerAttributes.waterCollected;
 
-        waterInPoolBar = this.transform.GetChild(3).GetComponent<ProgressBar>();
+        waterInPoolBar = this.transform.GetChild(4).GetComponent<ProgressBar>();
         setInitialBarValues(waterInPoolBar, manager.GetWaterInPool(), manager.GetWaterNeededInPool());
 
     }
