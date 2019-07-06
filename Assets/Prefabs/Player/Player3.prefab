@@ -270,6 +270,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleSource: {fileID: 5274822478345228202}
   decrementTime: 0.15
+--- !u!114 &259757261827124878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5274822477744961997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73b4b487ab814874dbdee0de37c7e774, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravityUp: 0.6
+  gravityDown: 0.5
 --- !u!114 &300620396967336476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,10 +300,6 @@ MonoBehaviour:
   waterCollected: 0
   maxHeat: 300
   currentHeat: 0
-  lavaCollisionTime: 0.1
-  healthRegenTime: 3
-  healthDecrementLava: 3
-  healthRegenRate: 2
   sunRayValue: 12
   hudObject: {fileID: 0}
 --- !u!114 &7420075030502873994
@@ -305,18 +315,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hurtTexture: {fileID: 2800000, guid: 72bea2a83867b854fb56b8bb465a8caa, type: 3}
---- !u!114 &259757261827124878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5274822477744961997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73b4b487ab814874dbdee0de37c7e774, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5274822477508765798
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -327,6 +325,10 @@ PrefabInstance:
     - target: {fileID: 1634767862067424, guid: 007c57e2df8e9b144b99f471b84f3d56, type: 3}
       propertyPath: m_Name
       value: FlameThrower
+      objectReference: {fileID: 0}
+    - target: {fileID: 1634767862067424, guid: 007c57e2df8e9b144b99f471b84f3d56, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4584431484625042, guid: 007c57e2df8e9b144b99f471b84f3d56, type: 3}
       propertyPath: m_LocalPosition.x
