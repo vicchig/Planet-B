@@ -113,11 +113,11 @@ public class PlayerAttributes : MonoBehaviour
             takingDamage = true;
             currentHealth -= healthDecrementLava;
         }*/
-        if (collision.CompareTag("Sun Ray"))
-        {
-            currentHeat += sunRayValue;
-            Destroy(collision.gameObject);
-        }
+        //if (collision.CompareTag("Sun Ray"))
+        //{
+        //    currentHeat += sunRayValue;
+        //    Destroy(collision.gameObject);
+        //}
     }
 
     private void OnTriggerStay2D(Collider2D collision)

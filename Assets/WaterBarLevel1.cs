@@ -9,18 +9,40 @@ public class WaterBarLevel1 : MonoBehaviour
     private PlayerAttributes pa;
 
     public int maxVal = 14;
+
+    private int lastFrameWater = 0;
+
+    public float timer = 1f;
+    private float timeRemaining = 0f;
+
     void Start()
     {
-        pb = GetComponent<ProgressBar>();
+        pb = transform.GetChild(0).GetComponent<ProgressBar>();
         pb.maxValue = maxVal;
         pb.BarValue = 0;
 
-        pa = transform.parent.parent.gameObject.GetComponent<PlayerAttributes>();
+        pa = transform.parent.gameObject.GetComponent<PlayerAttributes>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (pa.waterCollected != lastFrameWater)
+        {
+            timeRemaining = timer;
+            lastFrameWater = pa.waterCollected;
+        }
+        if (timeRemaining >= 0)
+        {
+            pb.gameObject.SetActive(true);
+        }
+        if (timeRemaining < 0)
+        {
+            pb.gameObject.SetActive(false);
+        }
         pb.BarValue = pa.waterCollected;
+
+        timeRemaining -= Time.deltaTime;
+        Debug.Log(timeRemaining);
     }
 }
