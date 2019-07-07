@@ -3076,6 +3076,7 @@ MonoBehaviour:
   buttonClick: {fileID: 0}
   buttonHover: {fileID: 0}
   shoot: {fileID: 8300000, guid: 97edbb9ec9a16304bbc6fcfa3e282256, type: 3}
+  rain: {fileID: 0}
   ambientGroup: {fileID: 0}
   musicGroup: {fileID: 0}
   stingGroup: {fileID: 0}
@@ -11825,12 +11826,12 @@ PrefabInstance:
     - target: {fileID: 5153131711289088073, guid: aa2d96049b589dd40a4cacb74ca64337,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -25.4
+      value: -33.53
       objectReference: {fileID: 0}
     - target: {fileID: 5153131711289088073, guid: aa2d96049b589dd40a4cacb74ca64337,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.82
+      value: 5.02
       objectReference: {fileID: 0}
     - target: {fileID: 5153131711289088073, guid: aa2d96049b589dd40a4cacb74ca64337,
         type: 3}

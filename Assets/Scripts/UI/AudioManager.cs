@@ -116,7 +116,7 @@ public class AudioManager : MonoBehaviour
 
     public static void playWaterDropPop()
     {
-        if (current == null || current.stingSource.isPlaying)
+        if (current == null)
         {
             return;
         }
