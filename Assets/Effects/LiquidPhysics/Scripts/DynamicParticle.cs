@@ -166,7 +166,7 @@ public class DynamicParticle : MonoBehaviour
 
             isSteaming = true;
         }*/
-
+        Debug.Log(other.tag);
         if (other.tag == "WaterPool")
         {
             managerScript.SetWaterInPool(managerScript.GetWaterInPool() + 1);
