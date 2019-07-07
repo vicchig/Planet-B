@@ -13,7 +13,7 @@ public class UIManager : MonoBehaviour
     protected PlayerAttributes playerAttributes;
 
    // protected ProgressBar healthBar;
-    protected ProgressBar heatBar;
+    //protected ProgressBar heatBar;
 
     protected virtual void Start()
     {
@@ -22,14 +22,14 @@ public class UIManager : MonoBehaviour
         //healthBar = this.transform.GetChild(0).GetComponent<ProgressBar>();
         //setInitialBarValues(healthBar, playerAttributes.maxHealth, playerAttributes.maxHealth);
 
-        heatBar = this.transform.GetChild(2).GetComponent<ProgressBar>();
-        setInitialBarValues(heatBar, playerAttributes.getCurrentHeat(), playerAttributes.maxHeat);
+        //heatBar = this.transform.GetChild(2).GetComponent<ProgressBar>();
+        //setInitialBarValues(heatBar, playerAttributes.getCurrentHeat(), playerAttributes.maxHeat);
     }
 
     protected virtual void Update()
     {
         //healthBar.BarValue = playerAttributes.GetCurrentHealth();
-        heatBar.BarValue = playerAttributes.getCurrentHeat();
+        //heatBar.BarValue = playerAttributes.getCurrentHeat();
     }
 
     protected void setInitialBarValues(ProgressBar bar, int curr, int max) {

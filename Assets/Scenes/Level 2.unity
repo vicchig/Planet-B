@@ -766,7 +766,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Amount of Water In Pool
+  m_Text: 'Vapour Condensed
+
+'
 --- !u!222 &48846001
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -50071,6 +50073,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HeatBar
       objectReference: {fileID: 0}
+    - target: {fileID: 1825481033360878, guid: 5eefba205a58c8c4a937c97b87c185a3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 224763426186284840, guid: 5eefba205a58c8c4a937c97b87c185a3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -72325,7 +72331,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1927117320
 RectTransform:
   m_ObjectHideFlags: 0
