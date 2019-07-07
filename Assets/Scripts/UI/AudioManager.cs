@@ -17,6 +17,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip waterDropPop; //played when you pick up a water droplet
     public AudioClip buttonClick;
     public AudioClip buttonHover;
+    public AudioClip shoot;
 
     [Header("Mixer Groups")]
     public AudioMixerGroup ambientGroup;//The ambient mixer group
@@ -161,6 +162,15 @@ public class AudioManager : MonoBehaviour
             return;
         }
         current.stingSource.clip = current.buttonHover;
+        current.stingSource.Play();
+    }
+
+    public static void playShoot() {
+        if (current == null)
+        {
+            return;
+        }
+        current.stingSource.clip = current.shoot;
         current.stingSource.Play();
     }
 }

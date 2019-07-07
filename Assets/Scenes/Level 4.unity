@@ -66867,6 +66867,11 @@ PrefabInstance:
       propertyPath: muteButton
       value: 
       objectReference: {fileID: 246110098}
+    - target: {fileID: 5274822477744961998, guid: 4310601504673064bac7d93c327e3117,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5274822477744961995, guid: 4310601504673064bac7d93c327e3117,
         type: 3}
       propertyPath: wallGrabCheckPointTransform
@@ -66886,11 +66891,6 @@ PrefabInstance:
         type: 3}
       propertyPath: gravityDown
       value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5274822477744961998, guid: 4310601504673064bac7d93c327e3117,
-        type: 3}
-      propertyPath: m_GravityScale
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4310601504673064bac7d93c327e3117, type: 3}
@@ -66941,6 +66941,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8f90ad70b1102b14c879a75ff3850ef2, type: 3}
   airSourcePop: {fileID: 8300000, guid: c85d2edb65339774cb35f68b73d04153, type: 3}
   waterDropPop: {fileID: 8300000, guid: fd94ca626dcd24a45b5bcc7cb35ec2b1, type: 3}
+  buttonClick: {fileID: 0}
+  buttonHover: {fileID: 0}
+  shoot: {fileID: 8300000, guid: 97edbb9ec9a16304bbc6fcfa3e282256, type: 3}
   ambientGroup: {fileID: 0}
   musicGroup: {fileID: 0}
   stingGroup: {fileID: 0}

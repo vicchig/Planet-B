@@ -87,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
         //check left mouse button input
         if (Input.GetButtonDown("ShootWeapon")) {
             spacePressed = true;
+            AudioManager.playShoot();
         }
 
         if (Input.GetButtonUp("ShootWeapon")) {
