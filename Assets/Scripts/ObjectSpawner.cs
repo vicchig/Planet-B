@@ -10,7 +10,8 @@ public class ObjectSpawner : MonoBehaviour
     public float spawnDelay;//these two should be 0 for an object that is being spawned continuously (without any delay)
     public int spawnAmount;
     public int spawnChance;//integer percentage
-
+    public bool attachToParent;
+    public GameObject parent;
 
     private float timeUntilNextSpawn;
 
@@ -48,7 +49,14 @@ public class ObjectSpawner : MonoBehaviour
         }
 
         if (spawnedObject != null) {
-            spawnedObject.transform.SetParent(this.transform);
+            if (attachToParent)
+            {
+                spawnedObject.transform.SetParent(parent.transform);
+            }
+            else {
+                spawnedObject.transform.SetParent(this.transform);
+            }
+            
         }
         
 

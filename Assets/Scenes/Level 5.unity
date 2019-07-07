@@ -3784,11 +3784,6 @@ PrefabInstance:
       propertyPath: muteButton
       value: 
       objectReference: {fileID: 402987531}
-    - target: {fileID: 5274822477744961998, guid: 4310601504673064bac7d93c327e3117,
-        type: 3}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5274822477744961995, guid: 4310601504673064bac7d93c327e3117,
         type: 3}
       propertyPath: wallGrabCheckPointTransform
@@ -3808,6 +3803,11 @@ PrefabInstance:
         type: 3}
       propertyPath: gravityDown
       value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5274822477744961998, guid: 4310601504673064bac7d93c327e3117,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4310601504673064bac7d93c327e3117, type: 3}
@@ -5181,6 +5181,8 @@ MonoBehaviour:
   spawnDelay: 0.1
   spawnAmount: 1
   spawnChance: 0
+  attachToParent: 1
+  parent: {fileID: 1877325175}
 --- !u!1001 &563540517
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6220,15 +6222,15 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114165064244077878, guid: 5eefba205a58c8c4a937c97b87c185a3,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 224745179381614346, guid: 5eefba205a58c8c4a937c97b87c185a3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.000015258789
+      objectReference: {fileID: 0}
+    - target: {fileID: 114165064244077878, guid: 5eefba205a58c8c4a937c97b87c185a3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5eefba205a58c8c4a937c97b87c185a3, type: 3}
@@ -8447,6 +8449,8 @@ MonoBehaviour:
   spawnDelay: 0.1
   spawnAmount: 1
   spawnChance: 0
+  attachToParent: 1
+  parent: {fileID: 1877325175}
 --- !u!1001 &1005367568
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8601,6 +8605,8 @@ MonoBehaviour:
   spawnDelay: 0.1
   spawnAmount: 1
   spawnChance: 0
+  attachToParent: 1
+  parent: {fileID: 1877325175}
 --- !u!4 &1057764051 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5917332715930947507, guid: 94b64d60fe3b2ec47b5eea23fd483aa6,
@@ -15664,6 +15670,8 @@ MonoBehaviour:
   spawnDelay: 0.1
   spawnAmount: 1
   spawnChance: 0
+  attachToParent: 1
+  parent: {fileID: 1877325175}
 --- !u!1 &1764321254
 GameObject:
   m_ObjectHideFlags: 0
@@ -104312,6 +104320,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1875648317}
   m_CullTransparentMesh: 0
+--- !u!1 &1877325175
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1877325176}
+  m_Layer: 0
+  m_Name: IceParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1877325176
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877325175}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -31.45758, y: 2.835189, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 29
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1877522384
 GameObject:
   m_ObjectHideFlags: 0
@@ -104518,6 +104556,8 @@ MonoBehaviour:
   spawnDelay: 0.1
   spawnAmount: 1
   spawnChance: 0
+  attachToParent: 1
+  parent: {fileID: 1877325175}
 --- !u!1 &1920285870
 GameObject:
   m_ObjectHideFlags: 0
@@ -105180,6 +105220,8 @@ MonoBehaviour:
   spawnDelay: 0.1
   spawnAmount: 1
   spawnChance: 0
+  attachToParent: 1
+  parent: {fileID: 1877325175}
 --- !u!1 &1958260542
 GameObject:
   m_ObjectHideFlags: 0
