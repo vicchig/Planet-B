@@ -29611,22 +29611,22 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5274822477744961998, guid: 4310601504673064bac7d93c327e3117,
-        type: 3}
-      propertyPath: m_BodyType
+    - target: {fileID: 1329634132, guid: 4310601504673064bac7d93c327e3117, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 384124013, guid: 4310601504673064bac7d93c327e3117, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1329634132, guid: 4310601504673064bac7d93c327e3117, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5275441158880925830, guid: 4310601504673064bac7d93c327e3117,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5274822477744961998, guid: 4310601504673064bac7d93c327e3117,
+        type: 3}
+      propertyPath: m_BodyType
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5274822477744961994, guid: 4310601504673064bac7d93c327e3117,
@@ -29824,6 +29824,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2043728705}
+        m_MethodName: playClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &781666703
@@ -29906,6 +29917,61 @@ Transform:
   - {fileID: 234157045}
   m_Father: {fileID: 0}
   m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1262575523
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1262575525}
+  - component: {fileID: 1262575524}
+  m_Layer: 0
+  m_Name: AudioObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1262575524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262575523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50c42c5ab279b84499799425a01b9373, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footstepsClips:
+  - {fileID: 8300000, guid: eac2d9f21b92f41488f01c8cec72dc38, type: 3}
+  - {fileID: 8300000, guid: 079382555368ffa43acbb068e7f8f7f1, type: 3}
+  - {fileID: 8300000, guid: 8f90ad70b1102b14c879a75ff3850ef2, type: 3}
+  airSourcePop: {fileID: 8300000, guid: c85d2edb65339774cb35f68b73d04153, type: 3}
+  waterDropPop: {fileID: 8300000, guid: fd94ca626dcd24a45b5bcc7cb35ec2b1, type: 3}
+  buttonClick: {fileID: 8300000, guid: fc1692d39b070564bbfb52e8d366c7e5, type: 3}
+  ambientGroup: {fileID: 0}
+  musicGroup: {fileID: 0}
+  stingGroup: {fileID: 0}
+  playerGroup: {fileID: 0}
+  voiceGroup: {fileID: 0}
+--- !u!4 &1262575525
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262575523}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 28.050264, y: -20.872082, z: -420.33896}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1287197181
 GameObject:
@@ -30389,6 +30455,17 @@ MonoBehaviour:
           m_StringArgument: ChooseLevelScene
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2043728705}
+        m_MethodName: playClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1801041170
@@ -30519,6 +30596,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: TutorialLevel0
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2043728705}
+        m_MethodName: playClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -30736,6 +30824,7 @@ GameObject:
   - component: {fileID: 2043728702}
   - component: {fileID: 2043728701}
   - component: {fileID: 2043728704}
+  - component: {fileID: 2043728705}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -30805,6 +30894,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: 
   sceneChangeTag: 
+--- !u!114 &2043728705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043728700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d73425977534aca4ab452fa3946e6003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2137233581
 GameObject:
   m_ObjectHideFlags: 0

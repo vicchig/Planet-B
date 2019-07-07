@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class AudioManager : MonoBehaviour
     [Header("Object Sounds")]
     public AudioClip airSourcePop; //played when air source is picked up
     public AudioClip waterDropPop; //played when you pick up a water droplet
+    public AudioClip buttonClick;
 
     [Header("Mixer Groups")]
     public AudioMixerGroup ambientGroup;//The ambient mixer group
@@ -41,11 +43,13 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
+        
         //This is the current AudioManager and it should persist between scene loads
         current = this;
-       // DontDestroyOnLoad(gameObject);
-
+        if (SceneManager.GetActiveScene().name == "Menu")
+        {
+            DontDestroyOnLoad(gameObject);
+        }
         //Generate the Audio Source "channels" for our game's audio
         ambientSource = gameObject.AddComponent<AudioSource>() as AudioSource;
         musicSource = gameObject.AddComponent<AudioSource>() as AudioSource;
@@ -61,7 +65,10 @@ public class AudioManager : MonoBehaviour
         playerSource.outputAudioMixerGroup = playerGroup;
         voiceSource.outputAudioMixerGroup = voiceGroup;
 
-        echoPortraitImage = GameObject.Find("EchoPortrait").GetComponent<Image>();
+        if (SceneManager.GetActiveScene().name != "Menu") {
+            echoPortraitImage = GameObject.Find("EchoPortrait").GetComponent<Image>();
+
+        }
 
 
     }
@@ -135,5 +142,14 @@ public class AudioManager : MonoBehaviour
 
     public static void unpauseVoiceSource() {
         current.voiceSource.UnPause();
+    }
+
+    public static void playButtonClick() {
+        if (current == null || current.stingSource.isPlaying)
+        {
+            return;
+        }
+        current.stingSource.clip = current.buttonClick;
+        current.stingSource.Play();
     }
 }
