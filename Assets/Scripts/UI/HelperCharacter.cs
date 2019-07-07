@@ -53,6 +53,7 @@ public class HelperCharacter : MonoBehaviour
     private bool startedTutorial;
     private Image portraitImage;
     private Image txtBackgroundImg;
+    private bool muted;
 
     private void Awake()
     {
@@ -79,6 +80,8 @@ public class HelperCharacter : MonoBehaviour
         //GENERAL
         aboutToDieTxt = new EchoMessage("Warning: operator sustaining critical damage.", aboutToDieClip, 1000);
         airCritical = new EchoMessage("Warning: Air supply at critical level.", airCriticalClip, 1000);
+
+        muted = false;
     }
 
     private void Update()
@@ -156,6 +159,18 @@ public class HelperCharacter : MonoBehaviour
         else if (airWarningTimer <= 0) {
             airWarningTimer = 0;
             airWarningTimerEnable = false;
+        }
+
+        //echo mute control
+        if (AudioManager.voiceSource.mute && !muted)
+        {
+            portraitImage.color = new Color(portraitImage.color.r, portraitImage.color.g, portraitImage.color.b, portraitImage.color.a * 0.4f);
+            muted = true;
+        }
+        else if(!AudioManager.voiceSource.mute)
+        {
+            muted = false;
+            portraitImage.color = new Color(portraitImage.color.r, portraitImage.color.g, portraitImage.color.b, 1);
         }
     }
 

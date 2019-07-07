@@ -31,10 +31,9 @@ public class AudioManager : MonoBehaviour
     AudioSource musicSource;            //Reference to the generated music Audio Source
     AudioSource stingSource;            //Reference to the generated sting Audio Source
     AudioSource playerSource;           //Reference to the generated player Audio Source
-    AudioSource voiceSource;            //Reference to the generated voice Audio Source
+    public static AudioSource voiceSource;            //Reference to the generated voice Audio Source
 
 
-    private static Image echoPortraitImage;
 
 
     void Awake()
@@ -49,10 +48,8 @@ public class AudioManager : MonoBehaviour
         
         //This is the current AudioManager and it should persist between scene loads
         current = this;
-        if (SceneManager.GetActiveScene().name == "Menu" || SceneManager.GetActiveScene().name == "ChooseLevelScene")
-        {
-            DontDestroyOnLoad(gameObject);
-        }
+        DontDestroyOnLoad(gameObject);
+        
         //Generate the Audio Source "channels" for our game's audio
         ambientSource = gameObject.AddComponent<AudioSource>() as AudioSource;
         musicSource = gameObject.AddComponent<AudioSource>() as AudioSource;
@@ -68,11 +65,6 @@ public class AudioManager : MonoBehaviour
         playerSource.outputAudioMixerGroup = playerGroup;
         voiceSource.outputAudioMixerGroup = voiceGroup;
 
-        if (SceneManager.GetActiveScene().name != "Menu" && SceneManager.GetActiveScene().name != "ChooseLevelScene") {
-            echoPortraitImage = GameObject.Find("EchoPortrait").GetComponent<Image>();
-
-        }
-
 
     }
 
@@ -83,11 +75,11 @@ public class AudioManager : MonoBehaviour
     }
 
     public static void playVoiceClip(AudioClip clip) {
-        if (current == null || current.voiceSource.isPlaying) {
+        if (current == null || AudioManager.voiceSource.isPlaying) {
             return;
         }
-        current.voiceSource.clip = clip;
-        current.voiceSource.Play();
+        AudioManager.voiceSource.clip = clip;
+        AudioManager.voiceSource.Play();
     }
 
     public static void playFootstepSound() {
@@ -125,26 +117,15 @@ public class AudioManager : MonoBehaviour
     }
 
     public static void muteVoiceSource() {
-        if (!current.voiceSource.mute)
-        {
-            echoPortraitImage.color = new Color(echoPortraitImage.color.r, echoPortraitImage.color.g, echoPortraitImage.color.b, echoPortraitImage.color.a * 0.4f);
-        }
-        else
-        {
-            echoPortraitImage.color = new Color(echoPortraitImage.color.r, echoPortraitImage.color.g, echoPortraitImage.color.b, 1);
-        }
-
-        current.voiceSource.mute = !current.voiceSource.mute;
-
-        
+        voiceSource.mute = !voiceSource.mute;
     }
 
     public static void pauseVoiceSource() {
-        current.voiceSource.Pause();
+        voiceSource.Pause();
     }
 
     public static void unpauseVoiceSource() {
-        current.voiceSource.UnPause();
+        voiceSource.UnPause();
     }
 
     public static void playButtonClick() {
