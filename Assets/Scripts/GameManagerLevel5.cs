@@ -132,6 +132,7 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
         if (condensedVapourAmount >= condensationNeeded && !echo.containsMessage(objectiveLevelTxt5_4) && !objectiveLevelTxt5_4.maxTextShowsReached())
         {
             echo.addMessage(objectiveLevelTxt5_4);
+            AudioManager.playRain();
         }
     }
 

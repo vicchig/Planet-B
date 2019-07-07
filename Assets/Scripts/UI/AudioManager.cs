@@ -18,6 +18,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip buttonClick;
     public AudioClip buttonHover;
     public AudioClip shoot;
+    public AudioClip rain;
 
     [Header("Mixer Groups")]
     public AudioMixerGroup ambientGroup;//The ambient mixer group
@@ -172,5 +173,16 @@ public class AudioManager : MonoBehaviour
         }
         current.stingSource.clip = current.shoot;
         current.stingSource.Play();
+    }
+
+    public static void playRain()
+    {
+        if (current == null || current.ambientSource.isPlaying)
+        {
+            return;
+        }
+        current.ambientSource.clip = current.rain;
+        current.ambientSource.Play();
+        current.ambientSource.loop = true;
     }
 }

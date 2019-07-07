@@ -57,6 +57,7 @@ public class GameManagerLevel2 : GameManager, ILevelManagerCondensation
         //enable next level marker
         if (condensedVapourAmnt >= condensedVapourNeeded) {
             nextLevelMarker.SetActive(true);
+            AudioManager.playRain();
             for (int i = 0; i < rainParent.transform.childCount; i++)
             {
                 rainParent.transform.GetChild(i).GetComponent<ParticleSystem>().Play();
