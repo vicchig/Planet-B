@@ -8,5 +8,8 @@ public class ButtonSoundPlayer : MonoBehaviour
         AudioManager.playButtonClick();
     }
 
+    public void playHover() {
+        AudioManager.playButtonHover();
+    }
     
 }

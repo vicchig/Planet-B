@@ -16,6 +16,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip airSourcePop; //played when air source is picked up
     public AudioClip waterDropPop; //played when you pick up a water droplet
     public AudioClip buttonClick;
+    public AudioClip buttonHover;
 
     [Header("Mixer Groups")]
     public AudioMixerGroup ambientGroup;//The ambient mixer group
@@ -46,7 +47,7 @@ public class AudioManager : MonoBehaviour
         
         //This is the current AudioManager and it should persist between scene loads
         current = this;
-        if (SceneManager.GetActiveScene().name == "Menu")
+        if (SceneManager.GetActiveScene().name == "Menu" || SceneManager.GetActiveScene().name == "ChooseLevelScene")
         {
             DontDestroyOnLoad(gameObject);
         }
@@ -65,7 +66,7 @@ public class AudioManager : MonoBehaviour
         playerSource.outputAudioMixerGroup = playerGroup;
         voiceSource.outputAudioMixerGroup = voiceGroup;
 
-        if (SceneManager.GetActiveScene().name != "Menu") {
+        if (SceneManager.GetActiveScene().name != "Menu" && SceneManager.GetActiveScene().name != "ChooseLevelScene") {
             echoPortraitImage = GameObject.Find("EchoPortrait").GetComponent<Image>();
 
         }
@@ -150,6 +151,16 @@ public class AudioManager : MonoBehaviour
             return;
         }
         current.stingSource.clip = current.buttonClick;
+        current.stingSource.Play();
+    }
+
+    public static void playButtonHover()
+    {
+        if (current == null || current.stingSource.isPlaying)
+        {
+            return;
+        }
+        current.stingSource.clip = current.buttonHover;
         current.stingSource.Play();
     }
 }
