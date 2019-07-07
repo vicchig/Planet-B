@@ -146,7 +146,7 @@ public class AudioManager : MonoBehaviour
     }
 
     public static void playButtonClick() {
-        if (current == null || current.stingSource.isPlaying)
+        if (current == null)
         {
             return;
         }
@@ -156,7 +156,7 @@ public class AudioManager : MonoBehaviour
 
     public static void playButtonHover()
     {
-        if (current == null || current.stingSource.isPlaying)
+        if (current == null)
         {
             return;
         }

@@ -29984,8 +29984,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8f90ad70b1102b14c879a75ff3850ef2, type: 3}
   airSourcePop: {fileID: 8300000, guid: c85d2edb65339774cb35f68b73d04153, type: 3}
   waterDropPop: {fileID: 8300000, guid: fd94ca626dcd24a45b5bcc7cb35ec2b1, type: 3}
-  buttonClick: {fileID: 8300000, guid: dc8cf536263c0f643ae9b278b29eeba9, type: 3}
-  buttonHover: {fileID: 8300000, guid: fc1692d39b070564bbfb52e8d366c7e5, type: 3}
+  buttonClick: {fileID: 8300000, guid: 0c5a6b24250dd1942a2a78029cf33f87, type: 3}
+  buttonHover: {fileID: 8300000, guid: a791c1090c6aa4b479b6520e48ead5e4, type: 3}
   ambientGroup: {fileID: 0}
   musicGroup: {fileID: 0}
   stingGroup: {fileID: 0}
