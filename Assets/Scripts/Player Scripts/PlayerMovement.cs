@@ -12,8 +12,6 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Jump Properties")]
     public float jumpForce = 6.3f; //force of the regular player jump
-    public float gravityUp = 0.6f;
-    public float gravityDown = 0.5f;
 
     [Header("Enviro Check Properties")]
     public float groundDistance = 0.2f; //distance at which the player is considered to be on the ground at
@@ -52,7 +50,6 @@ public class PlayerMovement : MonoBehaviour
     public int dir; //1 for right -1 for left
 
     private bool spacePressed;
-
     private void Start()
     {
         input = GetComponent<PlayerInput>();
@@ -98,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
         if (!isOnGround && !isOnPlatform)
         {
             isInAir = true;
+            
         }
         else {
             isInAir = false;
@@ -129,6 +127,8 @@ public class PlayerMovement : MonoBehaviour
     {
         setAnimations();
     }
+
+
 
     //performs various physics related checks and calculations, should be put in FixedUpdate
     private void physicsCheck() {

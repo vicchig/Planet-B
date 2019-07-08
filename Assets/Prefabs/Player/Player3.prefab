@@ -251,11 +251,6 @@ MonoBehaviour:
   firePoint2: {fileID: 384124014}
   bulletPrefab: {fileID: -6467515310324970172, guid: 5a96f9a2f0367a143abe360ec59bf64d,
     type: 3}
-  bullet1: {fileID: -6467515310324970172, guid: 5a96f9a2f0367a143abe360ec59bf64d,
-    type: 3}
-  bullet2: {fileID: 2151307617974638938, guid: b60053369c727e248bfc6336665dc2df, type: 3}
-  bullet3: {fileID: 3374155104830705872, guid: 42ef182fcd503924288ba4a61a34b2d1, type: 3}
-  flameThrower: {fileID: 5275441158880925830}
 --- !u!114 &154046002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,8 +277,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b4b487ab814874dbdee0de37c7e774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravityUp: 0.6
-  gravityDown: 0.5
+  gravityUp: 0.5
+  gravityDown: 0.4
 --- !u!114 &300620396967336476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,12 +451,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 007c57e2df8e9b144b99f471b84f3d56, type: 3}
---- !u!1 &5275441158880925830 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1634767862067424, guid: 007c57e2df8e9b144b99f471b84f3d56,
-    type: 3}
-  m_PrefabInstance: {fileID: 5274822477508765798}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5274822478345193738
 PrefabInstance:
   m_ObjectHideFlags: 0

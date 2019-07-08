@@ -43,6 +43,6 @@ public class WaterBarLevel1 : MonoBehaviour
         pb.BarValue = pa.waterCollected;
 
         timeRemaining -= Time.deltaTime;
-        Debug.Log(timeRemaining);
+
     }
 }
