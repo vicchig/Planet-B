@@ -11,14 +11,9 @@ public class GameManagerLevel1 : GameManager, ILevelManagerWater
     public AudioClip objectiveLevelClip1_1;
     public AudioClip objectiveLevelClip1_2;
     public AudioClip objectiveLevelClip1_3;
-    public AudioClip objectiveLevelClip1_4;
     public AudioClip objectiveLevelClip1_5;
     public AudioClip objectiveLevelClip1_6;
     public AudioClip objectiveLevelClip1_7;
-    public AudioClip objectiveLevelClip1_8;
-    public AudioClip objectiveLevelClip1_9;
-    public AudioClip dontWasteWaterReminderClip;
-    public AudioClip waterPoolFoundClip;
 
     [Header("Level 1 Variables")]
     ///<summary> Amount of water needed in the pool to begin evaporation. </summary>
@@ -33,14 +28,9 @@ public class GameManagerLevel1 : GameManager, ILevelManagerWater
     EchoMessage objectiveLevelTxt1_1;
     EchoMessage objectiveLevelTxt1_2;
     EchoMessage objectiveLevelTxt1_3;
-    EchoMessage objectiveLevelTxt1_4;
     EchoMessage objectiveLevelTxt1_5;
     EchoMessage objectiveLevelTxt1_6;
     EchoMessage objectiveLevelTxt1_7;
-    EchoMessage objectiveLevelTxt1_8;
-    EchoMessage objectiveLevelTxt1_9;
-    EchoMessage dontWasteWaterReminderTxt;
-    EchoMessage waterPoolFoundTxt;
 
     RisingSteamManager steamManager;
 
@@ -64,18 +54,13 @@ public class GameManagerLevel1 : GameManager, ILevelManagerWater
 
         //LEVEL OBJECTIVES AUDIO 
         objectiveLevelTxt1_0 = new EchoMessage("If we want to colonize this planet, we will need to fix its water cycle first. The first step is to evaporate water from surface bodies of water into the atmosphere.", objectiveLevelClip1_0, 1);
-        objectiveLevelTxt1_1 = new EchoMessage("There is no water on the surface, I suggest you check the caves below us for some groundwater that we can collect and use.", objectiveLevelClip1_1, 1);
-        objectiveLevelTxt1_2 = new EchoMessage("By my calculations we will need about 14 of these to have enough water to evaporate. You can see the current amount on your HUD.", objectiveLevelClip1_2, 1);
-        objectiveLevelTxt1_3 = new EchoMessage("We should have enough water now. Head back to the surface and find a place for an artificial lake.", objectiveLevelClip1_3, 1);
-        objectiveLevelTxt1_4 = new EchoMessage("We should probably explore some more to the east.", objectiveLevelClip1_4, 1);
+        objectiveLevelTxt1_1 = new EchoMessage("This empty lake would be a perfect source of evaporation if it had water in it. We can use groundwater to fill it, explore the cave system below us. The process of groundwater seeping into lakes and rivers is known as collection. We will talk about it more later.", objectiveLevelClip1_1, 1);
+        objectiveLevelTxt1_2 = new EchoMessage("By my calculations we will need about 14 of these to have enough water to evaporate. You can see the current amount on your HUD or look at the bar that appears near you when you collect water.", objectiveLevelClip1_2, 1);
+        objectiveLevelTxt1_3 = new EchoMessage("We should have enough water now. Head back to the surface and fill the lake with it.", objectiveLevelClip1_3, 1);
         objectiveLevelTxt1_5 = new EchoMessage("Now we just need to evaporate the water. This can be done using heat energy. We will need to find a source.", objectiveLevelClip1_5, 1);
-        objectiveLevelTxt1_6 = new EchoMessage("Use the 2 key to amplify the heat energy collected and use it to heat the water.", objectiveLevelClip1_6, 1);
+        objectiveLevelTxt1_6 = new EchoMessage("Use your force shield to reflect the sunrays to heat the water.", objectiveLevelClip1_6, 1);
         objectiveLevelTxt1_7 = new EchoMessage("Congratulations! We have fixed the first stage of the water cycle. As water is heated by the sun, it evaporates in small amounts and rises in the atmosphere, which is where we are going next.", objectiveLevelClip1_7, 1);
-        objectiveLevelTxt1_8 = new EchoMessage("There is not enough water in the pool yet. We need some more.", objectiveLevelClip1_8, 1);
-        objectiveLevelTxt1_9 = new EchoMessage("There is not enough water left in the caves for us to fill the pool. We should probably restart.", objectiveLevelClip1_9, 1);
 
-        dontWasteWaterReminderTxt = new EchoMessage("Make sure you do not waste it. If you do, check the cave for some more water. If you waste all of it, we will have to restart.", dontWasteWaterReminderClip, 1);
-        waterPoolFoundTxt = new EchoMessage("This looks like a good spot to release our water.", waterPoolFoundClip, 1);
 
         amountOfWaterInPool = 0;
         amountOfEvaporatedWater = 0;
@@ -115,10 +100,9 @@ public class GameManagerLevel1 : GameManager, ILevelManagerWater
     */
     protected override void levelEchoMsgChecks() {
         //check for whether the player has collected enough water
-        if (attributes.GetCurrentWater() >= (waterNeededInPool / 4) + 4 && !echo.isBusy() && !objectiveLevelTxt1_3.maxTextShowsReached() && !dontWasteWaterReminderTxt.maxTextShowsReached())
+        if (attributes.GetCurrentWater() >= (waterNeededInPool / 4) + 4 && !echo.isBusy() && !objectiveLevelTxt1_3.maxTextShowsReached())
         {
             echo.addMessage(objectiveLevelTxt1_3);
-            echo.addMessage(dontWasteWaterReminderTxt);
         }
 
         //check for whether the pool has enough water to begin evaporation
@@ -128,17 +112,9 @@ public class GameManagerLevel1 : GameManager, ILevelManagerWater
             echo.addMessage(objectiveLevelTxt1_6);
 
         }
-        //player did not fill the pool with enough water
-        if (playerIsInPool && amountOfWaterInPool < waterNeededInPool && attributes.GetCurrentWater() == 0 && waterPControl.getFPressed() && !objectiveLevelTxt1_8.maxTextShowsReached())
-        {
-            echo.addMessage(objectiveLevelTxt1_8);
-        }
 
-        //not enough water left on level
-        if ((attributes.GetCurrentWater() + waterDropParent.transform.childCount) * 4 < (waterNeededInPool - amountOfWaterInPool) && !objectiveLevelTxt1_9.maxTextShowsReached())
-        {
-            echo.addMessage(objectiveLevelTxt1_9);
-        }
+
+
 
         //evaporated enough water
         if (amountOfWaterInPool>= waterNeededInPool && amountOfEvaporatedWater >= GameObject.Find("RisingSteam").GetComponent<RisingSteamManager>().waterThreshold && !objectiveLevelTxt1_7.maxTextShowsReached())
@@ -160,18 +136,10 @@ public class GameManagerLevel1 : GameManager, ILevelManagerWater
     protected override void checkEchoCollisions() {
         for (int i = 0; i < echoColliders.Count; i++) {
             if (echoColliders[i] != null) {
-                if (echoColliders[i].tag == "ExploreAreaEastLevel1" && attributes.GetCurrentWater() >= waterNeededInPool / 4 && !waterPoolFoundTxt.maxTextShowsReached())
-                {
-                    echo.addMessage(objectiveLevelTxt1_4);
-                    echoColliders[i].enabled = false;
-                }
-                else if (echoColliders[i].tag == "WaterPoolCollisionArea")
+                if (echoColliders[i].tag == "WaterPoolCollisionArea")
                 {
                     playerIsInPool = true;
-                    if (!waterPoolFoundTxt.maxTextShowsReached() && attributes.GetCurrentWater() >= waterNeededInPool / 4)
-                    {
-                        echo.addMessage(waterPoolFoundTxt);
-                    }
+                    
                     echoColliders[i].enabled = false;
                 }
             }

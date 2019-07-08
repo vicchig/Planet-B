@@ -50,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
     public int dir; //1 for right -1 for left
 
     private bool spacePressed;
+    private float jumpTime;
     private void Start()
     {
         input = GetComponent<PlayerInput>();
@@ -77,6 +78,13 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate() {
         physicsCheck();
         inAirMovement();
+
+        if (isInAir)
+        {
+            jumpTime += Time.fixedDeltaTime;
+        }
+
+
     }
 
     private void Update()
@@ -288,6 +296,8 @@ public class PlayerMovement : MonoBehaviour
         {
             AudioManager.playFootstepSound();
             landingSoundPlayed = true;
+            Debug.Log(jumpTime);
+            jumpTime = 0;
         }
     }
 
