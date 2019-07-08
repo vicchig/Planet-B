@@ -6,20 +6,26 @@ using UnityEngine.SceneManagement;
 public class SunRay : MonoBehaviour
 {
     Rigidbody2D rb;
-    public Transform reflectTarget;
+    public List<GameObject> iceTargets;
+    public GameObject waterTarget;
     float speed = 5f;
     GameObject iceParent;
+    public bool targetWater;
+    public bool targetIce;
+
+    private ILevelManagerWater waterManager;
+    private Transform reflectTarget;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        iceTargets = new List<GameObject>();
         rb.velocity = -transform.right.normalized * 3f;
-        Destroy(gameObject, 5f);
 
-        if (SceneManager.GetActiveScene().name == "Level 3")
-        {
-            iceParent = GameObject.Find("IceParent");
-        }
+        waterManager = GameObject.Find("GameManager").GetComponent<ILevelManagerWater>();
+
+        Destroy(gameObject, 5f);
     }
 
     // Update is called once per frame
@@ -28,18 +34,29 @@ public class SunRay : MonoBehaviour
         
     }
 
+    private void chooseTarget() {
+        if (targetIce)
+        {
+
+        }
+        else if(targetWater){
+            reflectTarget = waterTarget.transform;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Platforms") {
             Destroy(gameObject);
         }
-        if (collision.tag == "Player")
+        else if (collision.tag == "Player")
         {
-            if (SceneManager.GetActiveScene().name == "Level 3")
-            {
-                reflectTarget = iceParent.transform.GetChild(0);
-            }
+            chooseTarget();
             GoTo(reflectTarget.position);
+        }
+        else if (collision.tag == "WaterPoolCollider") {
+            waterManager.SetEvaporatedWater(waterManager.GetEvaporatedWater() + 1);
+            Destroy(gameObject, 0.1f);
         }
     }
 

@@ -98,6 +98,13 @@ public class GameManagerLevel1 : GameManager, ILevelManagerWater
             }
             amountOfWaterInPool = waterNeededInPool;
         }
+
+        //turn on bubbles
+        if (amountOfEvaporatedWater >= steamManager.waterThreshold) {
+            for (int i = 0; i < bubbleParent.transform.childCount; i++) {
+                bubbleParent.transform.GetChild(i).gameObject.SetActive(true);
+            }
+        }
     }
     
     new protected void FixedUpdate()

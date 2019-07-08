@@ -76,11 +76,11 @@ public class AudioManager : MonoBehaviour
     }
 
     public static void playVoiceClip(AudioClip clip) {
-        if (current == null || AudioManager.voiceSource.isPlaying) {
+        if (current == null || voiceSource.isPlaying) {
             return;
         }
-        AudioManager.voiceSource.clip = clip;
-        AudioManager.voiceSource.Play();
+        voiceSource.clip = clip;
+        voiceSource.Play();
     }
 
     public static void playFootstepSound() {

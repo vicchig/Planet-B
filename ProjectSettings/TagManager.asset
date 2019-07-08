@@ -37,6 +37,7 @@ TagManager:
   - TreePlantArea
   - bullet3
   - bullet1
+  - WaterPoolCollider
   layers:
   - Default
   - TransparentFX

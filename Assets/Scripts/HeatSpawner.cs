@@ -7,6 +7,9 @@ public class HeatSpawner : MonoBehaviour
     public SunRay sunRay;
     public float timer = 0.5f;
     public float timeInterval = 0.75f;
+    public bool targetWater;
+    public bool targetIce;
+    public GameObject waterTarget;
     float timeRemaining = -1f;
     // Start is called before the first frame update
     void Start()
@@ -31,6 +34,10 @@ public class HeatSpawner : MonoBehaviour
     void Spawn(int angle)
     {
         SunRay ray = Instantiate(sunRay);
+        ray.targetIce = targetIce;
+        ray.targetWater = targetWater;
+        ray.waterTarget = waterTarget;
+
         ray.transform.position = gameObject.transform.position;
         ray.transform.eulerAngles = new Vector3(0f, 0f, (float)angle);
     }
