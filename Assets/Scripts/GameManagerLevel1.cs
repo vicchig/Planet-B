@@ -45,8 +45,10 @@ public class GameManagerLevel1 : GameManager, ILevelManagerWater
 
 
     //water objects
-    GameObject waterParent;
+    GameObject waterParentL;
     GameObject bubbleParent;
+
+    private GameObject waterParentS;
 
     new protected void Start()
     {
@@ -75,7 +77,8 @@ public class GameManagerLevel1 : GameManager, ILevelManagerWater
 
 
         steamManager = GameObject.Find("RisingSteam").GetComponent<RisingSteamManager>();
-        waterParent = GameObject.Find("WaterPool");
+        waterParentL = GameObject.Find("WaterPoolL");
+        waterParentS = GameObject.Find("WaterPoolS");
         bubbleParent = GameObject.Find("BubbleParent");
     }
 
@@ -90,14 +93,29 @@ public class GameManagerLevel1 : GameManager, ILevelManagerWater
         //  }
 
         //fill pool with water
-        if (attributes.isInPool() && attributes.GetCurrentWater() >= 14) {
+        if (attributes.isInPool() && attributes.GetCurrentWater() >= 1) {
+            amountOfWaterInPool += attributes.GetCurrentWater() * 3;
+
             attributes.SetCurrentWater(0);
             AudioManager.playSplash();
-            for (int i = 0; i < 2; i++) {
-                waterParent.transform.GetChild(i).gameObject.SetActive(true);
-            }
-            amountOfWaterInPool = waterNeededInPool;
         }
+
+        //turn on small and large water pools
+        if (amountOfWaterInPool >= waterNeededInPool) {
+            for (int i = 0; i < waterParentS.transform.childCount; i++)
+            {
+                waterParentL.transform.GetChild(i).gameObject.SetActive(true);
+                waterParentS.transform.GetChild(i).gameObject.SetActive(false);
+            }
+        }
+        else if (amountOfWaterInPool >= 1) {
+            for (int i = 0; i < waterParentS.transform.childCount; i++)
+            {
+                waterParentS.transform.GetChild(i).gameObject.SetActive(true);
+            }
+        }
+
+        //turn on large pool
 
         //turn on bubbles
         if (amountOfEvaporatedWater >= steamManager.waterThreshold) {

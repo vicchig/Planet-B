@@ -144,7 +144,7 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
 
         //putting water in pool using collected water
         if (attributes.isInPool() && attributes.GetCurrentWater() >= 1) {
-            waterInPool += attributes.GetCurrentWater() * 2;
+            waterInPool += attributes.GetCurrentWater() * 4;
             attributes.SetCurrentWater(0);
             AudioManager.playSplash();
         }

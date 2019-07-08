@@ -10,6 +10,7 @@ public class HeatSpawner : MonoBehaviour
     public bool targetWater;
     public bool targetIce;
     public GameObject waterTarget;
+    public float lifeTime  = 5f;
     private GameObject[] iceTargets;
     float timeRemaining = -1f;
 
@@ -46,7 +47,6 @@ public class HeatSpawner : MonoBehaviour
         ray.targetIce = targetIce;
         ray.targetWater = targetWater;
         ray.waterTarget = waterTarget;
-
 
         for (int i = 0; i < tempIceParent.transform.childCount; i++)
         {
