@@ -6,10 +6,9 @@ using UnityEngine.SceneManagement;
 public class SunRay : MonoBehaviour
 {
     Rigidbody2D rb;
-    public List<GameObject> iceTargets;
+    public List<GameObject> iceTargets = new List<GameObject>();
     public GameObject waterTarget;
     float speed = 5f;
-    GameObject iceParent;
     public bool targetWater;
     public bool targetIce;
 
@@ -20,7 +19,6 @@ public class SunRay : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        iceTargets = new List<GameObject>();
         rb.velocity = -transform.right.normalized * 3f;
 
         waterManager = GameObject.Find("GameManager").GetComponent<ILevelManagerWater>();
@@ -31,13 +29,20 @@ public class SunRay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+        for (int i = 0; i < iceTargets.Count; i++) {
+            if (iceTargets[i].GetComponent<Level3DynamicParticleScript>().evapLeft <= 0) {
+                iceTargets.RemoveAt(i);
+            }
+        }
     }
 
     private void chooseTarget() {
         if (targetIce)
         {
-
+            int randomIceIndex = (int)(Random.Range(0, iceTargets.Count));
+            reflectTarget = iceTargets[randomIceIndex].transform;
+            
         }
         else if(targetWater){
             reflectTarget = waterTarget.transform;

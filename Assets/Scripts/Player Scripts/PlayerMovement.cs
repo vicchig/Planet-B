@@ -296,7 +296,7 @@ public class PlayerMovement : MonoBehaviour
         {
             AudioManager.playFootstepSound();
             landingSoundPlayed = true;
-            Debug.Log(jumpTime);
+            //Debug.Log(jumpTime);
             jumpTime = 0;
         }
     }

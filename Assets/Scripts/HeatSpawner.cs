@@ -10,16 +10,25 @@ public class HeatSpawner : MonoBehaviour
     public bool targetWater;
     public bool targetIce;
     public GameObject waterTarget;
+    private GameObject[] iceTargets;
     float timeRemaining = -1f;
+
+    private bool findIceTargets;
+    private GameObject tempIceParent;
     // Start is called before the first frame update
     void Start()
     {
+        tempIceParent = GameObject.Find("IceParent");
+        findIceTargets = true;
         
     }
 
     // Update is called once per frame
     void Update()
     {
+            
+        
+
         if (timeRemaining < 0f)
         {
             for (int i = 75; i < 100; i += 6)
@@ -37,6 +46,15 @@ public class HeatSpawner : MonoBehaviour
         ray.targetIce = targetIce;
         ray.targetWater = targetWater;
         ray.waterTarget = waterTarget;
+
+        
+
+            for (int i = 0; i < tempIceParent.transform.childCount; i++)
+            {
+                ray.iceTargets.Add(tempIceParent.transform.GetChild(i).gameObject);
+            }
+        
+        
 
         ray.transform.position = gameObject.transform.position;
         ray.transform.eulerAngles = new Vector3(0f, 0f, (float)angle);
