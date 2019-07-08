@@ -128,6 +128,8 @@ public class Level3DynamicParticleScript : MonoBehaviour
             {
                 stopMoving = true;
                 rb.velocity = new Vector2(0, 0);
+                manager.setWaterInPool1(manager.getWaterInPool1() + 1);
+                Destroy(gameObject);
             }
             else if (collision.gameObject.name == "WaterPoolColliderRight")
             {
