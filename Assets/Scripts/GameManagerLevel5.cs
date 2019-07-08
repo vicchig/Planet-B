@@ -149,15 +149,8 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
             AudioManager.playSplash();
         }
 
-        //turn on small water as long as there is at least some water in pool
-        if (waterInPool >= 1) {
-            for (int i = 0; i < waterParentSmall.transform.childCount; i++) {
-                waterParentSmall.transform.GetChild(i).gameObject.SetActive(true);
-            }
-        }
 
-
-        //turn on large water when full
+        //turn on large and small water pools
 
         if (waterInPool >= waterNeededInPool)
         {
@@ -165,6 +158,13 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
             {
                 waterParentSmall.transform.GetChild(i).gameObject.SetActive(false);
                 waterParentLarge.transform.GetChild(i).gameObject.SetActive(true);
+            }
+        }
+        else if (waterInPool >= 1)
+        {
+            for (int i = 0; i < waterParentSmall.transform.childCount; i++)
+            {
+                waterParentSmall.transform.GetChild(i).gameObject.SetActive(true);
             }
         }
     }
