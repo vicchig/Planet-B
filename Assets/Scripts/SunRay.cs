@@ -79,7 +79,10 @@ public class SunRay : MonoBehaviour
         if (activated) {
             if (collision.tag == "WaterPoolCollider")
             {
-                waterManager.SetEvaporatedWater(waterManager.GetEvaporatedWater() + 1);
+                if (SceneManager.GetActiveScene().name != "Level 3") {
+                    waterManager.SetEvaporatedWater(waterManager.GetEvaporatedWater() + 1);
+
+                }
                 Destroy(gameObject, 0.1f);
             }
             else if (collision.tag == "DynamicParticleL3" && collision.gameObject.GetComponent<Level3DynamicParticleScript>().isFrozen()) {

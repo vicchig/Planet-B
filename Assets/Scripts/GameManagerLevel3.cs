@@ -28,7 +28,8 @@ public class GameManagerLevel3 : GameManager
 
     private GameObject waterParent;
     private GameObject waterParent2;
-
+    private GameObject sunraySpawner;
+    private bool filledPool2;
     protected override void Start()
     {
         base.Start();
@@ -47,6 +48,10 @@ public class GameManagerLevel3 : GameManager
 
         waterParent = GameObject.Find("WaterPool");
         waterParent2 = GameObject.Find("WaterPool2");
+
+        sunraySpawner = GameObject.Find("sun2");
+
+        filledPool2 = true;
     }
 
     protected override void Update()
@@ -66,12 +71,15 @@ public class GameManagerLevel3 : GameManager
             }
         }
 
-        if (waterInPool2 >= waterNeededInPool2) {
-            waterInPool1 = waterNeededInPool2;
+        if (waterInPool2 >= waterNeededInPool2 && filledPool2) {
+            AudioManager.playSplash();
             for (int i = 0; i < waterParent2.transform.childCount; i++)
             {
                 waterParent2.transform.GetChild(i).gameObject.SetActive(true);
             }
+            sunraySpawner.GetComponent<HeatSpawner>().targetIce = false;
+            sunraySpawner.GetComponent<HeatSpawner>().targetWater = true;
+            filledPool2 = false;
         }
     }
 

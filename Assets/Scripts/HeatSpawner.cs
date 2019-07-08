@@ -47,12 +47,11 @@ public class HeatSpawner : MonoBehaviour
         ray.targetWater = targetWater;
         ray.waterTarget = waterTarget;
 
-        
 
-            for (int i = 0; i < tempIceParent.transform.childCount; i++)
-            {
-                ray.iceTargets.Add(tempIceParent.transform.GetChild(i).gameObject);
-            }
+        for (int i = 0; i < tempIceParent.transform.childCount; i++)
+        {
+            ray.iceTargets.Add(tempIceParent.transform.GetChild(i).gameObject);
+        }
         
         
 
