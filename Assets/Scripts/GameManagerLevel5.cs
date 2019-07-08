@@ -42,6 +42,9 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
 
     RisingSteamManager steamManager;
 
+    GameObject waterParentSmall;
+    GameObject waterParentLarge;
+
     protected override void Start()
     {
         base.Start();
@@ -69,6 +72,9 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
 
 
         steamManager = GameObject.Find("RisingSteam").GetComponent<RisingSteamManager>();
+
+        waterParentSmall = GameObject.Find("WaterPoolS");
+        waterParentLarge = GameObject.Find("WaterPoolL");
     }
 
     protected override void Update()
@@ -133,6 +139,33 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
         {
             echo.addMessage(objectiveLevelTxt5_4);
             AudioManager.playRain();
+        }
+
+
+        //putting water in pool using collected water
+        if (attributes.isInPool() && attributes.GetCurrentWater() >= 1) {
+            waterInPool += attributes.GetCurrentWater() * 2;
+            attributes.SetCurrentWater(0);
+            AudioManager.playSplash();
+        }
+
+        //turn on small water as long as there is at least some water in pool
+        if (waterInPool >= 1) {
+            for (int i = 0; i < waterParentSmall.transform.childCount; i++) {
+                waterParentSmall.transform.GetChild(i).gameObject.SetActive(true);
+            }
+        }
+
+
+        //turn on large water when full
+
+        if (waterInPool >= waterNeededInPool)
+        {
+            for (int i = 0; i < waterParentLarge.transform.childCount; i++)
+            {
+                waterParentSmall.transform.GetChild(i).gameObject.SetActive(false);
+                waterParentLarge.transform.GetChild(i).gameObject.SetActive(true);
+            }
         }
     }
 
