@@ -43,10 +43,10 @@ public class GameManagerLevel1 : GameManager, ILevelManagerWater
     /// <summary> Amount of water that has been evaporated from the pool.</summary>
     private int amountOfEvaporatedWater;
 
-    /// <summary> Tracks whether the player is standing inside the pool area collider or not. Uses the Echo collider.</summary>
-    private bool playerIsInPool;
 
-    private bool lastCPEnabled;
+    //water objects
+    GameObject waterParent;
+    GameObject bubbleParent;
 
     new protected void Start()
     {
@@ -73,10 +73,10 @@ public class GameManagerLevel1 : GameManager, ILevelManagerWater
         echo.addMessage(objectiveLevelTxt1_0);
         echo.addMessage(objectiveLevelTxt1_1);
 
-        lastCPEnabled = false;
 
         steamManager = GameObject.Find("RisingSteam").GetComponent<RisingSteamManager>();
-        
+        waterParent = GameObject.Find("WaterPool");
+        bubbleParent = GameObject.Find("BubbleParent");
     }
 
     new protected void Update()
@@ -84,9 +84,19 @@ public class GameManagerLevel1 : GameManager, ILevelManagerWater
         base.Update();
 
         //enabled last cp on surface (index 7)
-        if (attributes.GetCurrentWater() >= 14 && lastCPEnabled == false) {
-            checkpointTracker.checkpoints[checkpointTracker.checkpoints.Length - 1].GetComponent<CheckpointController>().active = true;
-            lastCPEnabled = true;
+        // if (attributes.GetCurrentWater() >= 14 && lastCPEnabled == false) {
+        //  checkpointTracker.checkpoints[checkpointTracker.checkpoints.Length - 1].GetComponent<CheckpointController>().active = true;
+        // lastCPEnabled = true;
+        //  }
+
+        //fill pool with water
+        if (attributes.isInPool() && attributes.GetCurrentWater() >= 14) {
+            attributes.SetCurrentWater(0);
+            AudioManager.playSplash();
+            for (int i = 0; i < 2; i++) {
+                waterParent.transform.GetChild(i).gameObject.SetActive(true);
+            }
+            amountOfWaterInPool = waterNeededInPool;
         }
     }
     
@@ -113,9 +123,6 @@ public class GameManagerLevel1 : GameManager, ILevelManagerWater
 
         }
 
-
-
-
         //evaporated enough water
         if (amountOfWaterInPool>= waterNeededInPool && amountOfEvaporatedWater >= GameObject.Find("RisingSteam").GetComponent<RisingSteamManager>().waterThreshold && !objectiveLevelTxt1_7.maxTextShowsReached())
         {
@@ -125,7 +132,7 @@ public class GameManagerLevel1 : GameManager, ILevelManagerWater
         }
 
         //first water picked up
-        if (attributes.GetCurrentWater() > 0 && !objectiveLevelTxt1_2.maxTextShowsReached() && !echo.isBusy()) {
+        if (attributes.GetCurrentWater() > 0 && !objectiveLevelTxt1_2.maxTextShowsReached() && !echo.isBusy() && attributes.GetCurrentWater() <= 1) {
             echo.addMessage(objectiveLevelTxt1_2);
         }   
     }
@@ -134,16 +141,7 @@ public class GameManagerLevel1 : GameManager, ILevelManagerWater
         Check whether Echo is colliding with any of the special collision areas and play the appropriate message. 
     */
     protected override void checkEchoCollisions() {
-        for (int i = 0; i < echoColliders.Count; i++) {
-            if (echoColliders[i] != null) {
-                if (echoColliders[i].tag == "WaterPoolCollisionArea")
-                {
-                    playerIsInPool = true;
-                    
-                    echoColliders[i].enabled = false;
-                }
-            }
-        }
+        
     }
 
     protected override void changeObjectives()

@@ -26,6 +26,7 @@ public class PlayerAttributes : MonoBehaviour
     public GameObject hudObject;
 
     private int currentHealth;
+    private bool playerInPool;
     //private float lavaColisionDuration;
     //private bool collidingWithLava;
 
@@ -36,7 +37,7 @@ public class PlayerAttributes : MonoBehaviour
 
     private void Start()
     {
-        
+        playerInPool = false;
         currentHealth = maxHealth;/*
         collidingWithLava = false;
         healthRegenTimer = healthRegenTime;
@@ -118,6 +119,9 @@ public class PlayerAttributes : MonoBehaviour
         //    currentHeat += sunRayValue;
         //    Destroy(collision.gameObject);
         //}
+        if (collision.tag == "WaterPoolCollisionArea") {
+            playerInPool = true;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -130,6 +134,10 @@ public class PlayerAttributes : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.tag == "WaterPoolCollisionArea") {
+            playerInPool = false;
+        }
+
         /*
         if (collision.transform.tag == "Lava")
         {
@@ -169,6 +177,9 @@ public class PlayerAttributes : MonoBehaviour
 
     public void SetCurrentHeat(int heat) {
         currentHeat = heat;
+    }
+    public bool isInPool() {
+        return playerInPool;
     }
     /*
     public bool isTakingDamage(){
