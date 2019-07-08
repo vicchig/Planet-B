@@ -29975,20 +29975,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1262575523}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c42c5ab279b84499799425a01b9373, type: 3}
+  m_Script: {fileID: 11500000, guid: bdd05256be7ba984fbdacdf42fdfdef0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footstepsClips:
-  - {fileID: 8300000, guid: eac2d9f21b92f41488f01c8cec72dc38, type: 3}
-  - {fileID: 8300000, guid: 079382555368ffa43acbb068e7f8f7f1, type: 3}
-  - {fileID: 8300000, guid: 8f90ad70b1102b14c879a75ff3850ef2, type: 3}
-  airSourcePop: {fileID: 8300000, guid: c85d2edb65339774cb35f68b73d04153, type: 3}
-  waterDropPop: {fileID: 8300000, guid: fd94ca626dcd24a45b5bcc7cb35ec2b1, type: 3}
   buttonClick: {fileID: 8300000, guid: 0c5a6b24250dd1942a2a78029cf33f87, type: 3}
   buttonHover: {fileID: 8300000, guid: a791c1090c6aa4b479b6520e48ead5e4, type: 3}
-  shoot: {fileID: 8300000, guid: 97edbb9ec9a16304bbc6fcfa3e282256, type: 3}
-  rain: {fileID: 8300000, guid: ddb78faca67dda848a9babb3a7a31155, type: 3}
-  waterSplash: {fileID: 8300000, guid: e062560292541884498aef7ce3f61bd5, type: 3}
   ambientGroup: {fileID: 0}
   musicGroup: {fileID: 0}
   stingGroup: {fileID: 0}

@@ -5,11 +5,11 @@ using UnityEngine;
 public class ButtonSoundPlayer : MonoBehaviour
 {
     public void playClick() {
-        AudioManager.playButtonClick();
+        AudioManagerMenu.playButtonClick();
     }
 
     public void playHover() {
-        AudioManager.playButtonHover();
+        AudioManagerMenu.playButtonHover();
     }
     
 }

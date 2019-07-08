@@ -29,6 +29,7 @@ public class AudioManager : MonoBehaviour
     public AudioMixerGroup stingGroup;  //The sting mixer group
     public AudioMixerGroup playerGroup; //The player mixer group
     public AudioMixerGroup voiceGroup;  //The voice mixer group
+    public AudioMixerGroup effectGroup;
 
     AudioSource ambientSource;			//Reference to the generated ambient Audio Source
     AudioSource musicSource;            //Reference to the generated music Audio Source
@@ -52,7 +53,6 @@ public class AudioManager : MonoBehaviour
         
         //This is the current AudioManager and it should persist between scene loads
         current = this;
-        DontDestroyOnLoad(gameObject);
         
         //Generate the Audio Source "channels" for our game's audio
         ambientSource = gameObject.AddComponent<AudioSource>() as AudioSource;
@@ -69,7 +69,7 @@ public class AudioManager : MonoBehaviour
         stingSource.outputAudioMixerGroup = stingGroup;
         playerSource.outputAudioMixerGroup = playerGroup;
         voiceSource.outputAudioMixerGroup = voiceGroup;
-
+        effectSource.outputAudioMixerGroup = effectGroup;
 
     }
 
