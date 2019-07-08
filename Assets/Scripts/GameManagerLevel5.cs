@@ -44,6 +44,8 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
 
     GameObject waterParentSmall;
     GameObject waterParentLarge;
+    GameObject bubbleParent;
+    HeatSpawner sun;
 
     protected override void Start()
     {
@@ -75,6 +77,8 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
 
         waterParentSmall = GameObject.Find("WaterPoolS");
         waterParentLarge = GameObject.Find("WaterPoolL");
+        bubbleParent = GameObject.Find("BubbleParent");
+        sun = GameObject.Find("sun2").GetComponent<HeatSpawner>();
     }
 
     protected override void Update()
@@ -93,6 +97,9 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
 
         if (evaporationAmount >= evaporationNeeded) {
             steamManager.EnableSteam();
+            for (int i = 0; i < bubbleParent.transform.childCount; i++) {
+                bubbleParent.transform.GetChild(i).gameObject.SetActive(true);
+            }
         }
 
         //change camera perspective when they are going t the clouds
@@ -101,6 +108,27 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
         }
         else {
             Camera.main.orthographic = false;
+        }
+
+        //turn on large and small water pools
+
+        if (waterInPool >= waterNeededInPool)
+        {
+            for (int i = 0; i < waterParentLarge.transform.childCount; i++)
+            {
+                waterParentSmall.transform.GetChild(i).gameObject.SetActive(false);
+                waterParentLarge.transform.GetChild(i).gameObject.SetActive(true);
+            }
+            sun.targetIce = false;
+            sun.targetWater = true;
+            
+        }
+        else if (waterInPool >= 1)
+        {
+            for (int i = 0; i < waterParentSmall.transform.childCount; i++)
+            {
+                waterParentSmall.transform.GetChild(i).gameObject.SetActive(true);
+            }
         }
     }
 
@@ -150,23 +178,7 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
         }
 
 
-        //turn on large and small water pools
 
-        if (waterInPool >= waterNeededInPool)
-        {
-            for (int i = 0; i < waterParentLarge.transform.childCount; i++)
-            {
-                waterParentSmall.transform.GetChild(i).gameObject.SetActive(false);
-                waterParentLarge.transform.GetChild(i).gameObject.SetActive(true);
-            }
-        }
-        else if (waterInPool >= 1)
-        {
-            for (int i = 0; i < waterParentSmall.transform.childCount; i++)
-            {
-                waterParentSmall.transform.GetChild(i).gameObject.SetActive(true);
-            }
-        }
     }
 
     protected override void checkEchoCollisions()

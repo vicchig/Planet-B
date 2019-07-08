@@ -147,6 +147,7 @@ public class Level3DynamicParticleScript : MonoBehaviour
             }
             else if (collision.gameObject.name == "WaterPoolColliderLeft" && !frozen) {
                 manager.setWaterInPool2(manager.getWaterInPool2() + 1);
+                AudioManager.playSplash();
                 Destroy(gameObject, 0.1f);
             }
             else if (collision.transform.tag == "FreezeCollider")
@@ -165,6 +166,8 @@ public class Level3DynamicParticleScript : MonoBehaviour
                 ILevelManagerWater manager5 = GameObject.Find("GameManager").GetComponent<ILevelManagerWater>();
                 manager5.SetWaterInPool(manager5.GetWaterInPool() + 1);
                 isInPool = true;
+                AudioManager.playSplash();
+                Destroy(gameObject);
             }
         }
     }
