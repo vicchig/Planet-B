@@ -91432,6 +91432,8 @@ MonoBehaviour:
   shoot: {fileID: 8300000, guid: 97edbb9ec9a16304bbc6fcfa3e282256, type: 3}
   rain: {fileID: 0}
   waterSplash: {fileID: 8300000, guid: 246e0ff948cae9d47a540a6e45a52b66, type: 3}
+  bubbles: {fileID: 8300000, guid: 85638fb5572c23e4bbbf6d6f4c2c3ee7, type: 3}
+  sunrayReflect: {fileID: 8300000, guid: 76ae8942544245e44aa2c813c2a3a12f, type: 3}
   ambientGroup: {fileID: 0}
   musicGroup: {fileID: 0}
   stingGroup: {fileID: 0}

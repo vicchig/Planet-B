@@ -51,6 +51,7 @@ public class SunRay : MonoBehaviour
         }
         else if (collision.tag == "Player")
         {
+            AudioManager.playSunrayReflect();
             chooseTarget();
             GoTo(reflectTarget.position);
         }

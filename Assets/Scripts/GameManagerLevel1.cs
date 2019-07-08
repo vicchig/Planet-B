@@ -178,7 +178,7 @@ public class GameManagerLevel1 : GameManager, ILevelManagerWater
 
     public void SetEvaporatedWater(int amount)
     {
-        if (amountOfWaterInPool >= waterNeededInPool) {
+        if (amountOfWaterInPool >= waterNeededInPool && amountOfEvaporatedWater < steamManager.waterThreshold) {
             amountOfEvaporatedWater = amount;
         }
        

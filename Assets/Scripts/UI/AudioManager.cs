@@ -20,6 +20,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip shoot;
     public AudioClip rain;
     public AudioClip waterSplash;
+    public AudioClip bubbles;
+    public AudioClip sunrayReflect;
 
     [Header("Mixer Groups")]
     public AudioMixerGroup ambientGroup;//The ambient mixer group
@@ -32,6 +34,7 @@ public class AudioManager : MonoBehaviour
     AudioSource musicSource;            //Reference to the generated music Audio Source
     AudioSource stingSource;            //Reference to the generated sting Audio Source
     AudioSource playerSource;           //Reference to the generated player Audio Source
+    AudioSource effectSource;
     public static AudioSource voiceSource;            //Reference to the generated voice Audio Source
 
 
@@ -57,6 +60,7 @@ public class AudioManager : MonoBehaviour
         stingSource = gameObject.AddComponent<AudioSource>() as AudioSource;
         playerSource = gameObject.AddComponent<AudioSource>() as AudioSource;
         voiceSource = gameObject.AddComponent<AudioSource>() as AudioSource;
+        effectSource = gameObject.AddComponent<AudioSource>() as AudioSource;
 
         //Assign each audio source to its respective mixer group so that it is
         //routed and controlled by the audio mixer
@@ -176,5 +180,26 @@ public class AudioManager : MonoBehaviour
         }
         current.stingSource.clip = current.waterSplash;
         current.stingSource.Play();
+    }
+
+    public static void playBubbles()
+    {
+        if (current == null || current.ambientSource.isPlaying)
+        {
+            return;
+        }
+        current.ambientSource.clip = current.bubbles;
+        current.ambientSource.Play();
+        current.ambientSource.loop = true;
+    }
+
+    public static void playSunrayReflect()
+    {
+        if (current == null)
+        {
+            return;
+        }
+        current.effectSource.clip = current.sunrayReflect;
+        current.effectSource.Play();
     }
 }
