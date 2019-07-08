@@ -297,6 +297,20 @@ MonoBehaviour:
   currentHeat: 0
   sunRayValue: 12
   hudObject: {fileID: 0}
+--- !u!114 &4169028544738128070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5274822477744961997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa328e63ff215b943aad873e273c4d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 0.4
+  rotationAngle: 90
 --- !u!114 &7420075030502873994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -538,6 +552,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1223172388863651444, guid: 3949805abe36cd3468529a93bfe8a736,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3824444740467452865, guid: 3949805abe36cd3468529a93bfe8a736,
         type: 3}
       propertyPath: m_Name

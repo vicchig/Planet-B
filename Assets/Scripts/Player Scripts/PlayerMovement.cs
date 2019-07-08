@@ -51,6 +51,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool spacePressed;
     private float jumpTime;
+
+    private Transform solarShield;
     private void Start()
     {
         input = GetComponent<PlayerInput>();
@@ -73,6 +75,8 @@ public class PlayerMovement : MonoBehaviour
         landingSoundPlayed = true;
 
         spacePressed = false;
+
+        solarShield = transform.GetChild(7);
     }
 
     private void FixedUpdate() {
@@ -281,6 +285,7 @@ public class PlayerMovement : MonoBehaviour
 
         scale.x = originalScaleX * dir;
         transform.localScale = scale;
+        solarShield.Rotate(0f, 180f, 0f);
     }
 
 
