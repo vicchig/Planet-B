@@ -147,6 +147,7 @@ public class Level3DynamicParticleScript : MonoBehaviour
             }
             else if (collision.gameObject.name == "WaterPoolColliderLeft" && !frozen) {
                 manager.setWaterInPool2(manager.getWaterInPool2() + 1);
+                Destroy(gameObject, 0.1f);
             }
             else if (collision.transform.tag == "FreezeCollider")
             {
@@ -178,12 +179,7 @@ public class Level3DynamicParticleScript : MonoBehaviour
                 bc.enabled = false;
             }
         }
-        else {
-            
-            if (collision.gameObject.name == "WaterPoolColliderLeft" && !frozen) {
-                manager.setWaterInPool2(manager.getWaterInPool2() - 1);
-            }
-        }
+
         
         if (SceneManager.GetActiveScene().name == "Level 5")
         {
@@ -193,5 +189,9 @@ public class Level3DynamicParticleScript : MonoBehaviour
                 //manager5.SetWaterInPool(manager5.GetWaterInPool() - 1);
             }
         }
+    }
+
+    public bool isFrozen() {
+        return frozen;
     }
 }

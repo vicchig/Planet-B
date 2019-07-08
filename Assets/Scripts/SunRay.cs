@@ -14,7 +14,8 @@ public class SunRay : MonoBehaviour
 
     private ILevelManagerWater waterManager;
     private Transform reflectTarget;
-
+    private bool activated;
+    private bool reflectable;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +23,8 @@ public class SunRay : MonoBehaviour
         rb.velocity = -transform.right.normalized * 3f;
 
         waterManager = GameObject.Find("GameManager").GetComponent<ILevelManagerWater>();
-
-        Destroy(gameObject, 5f);
+        reflectable = true;
+        Destroy(gameObject, 10f);
     }
 
     // Update is called once per frame
@@ -31,22 +32,28 @@ public class SunRay : MonoBehaviour
     {
 
         for (int i = 0; i < iceTargets.Count; i++) {
-            if (iceTargets[i].GetComponent<Level3DynamicParticleScript>().evapLeft <= 0) {
+            if (iceTargets[i] == null || !iceTargets[i].GetComponent<Level3DynamicParticleScript>().isFrozen()) {
                 iceTargets.RemoveAt(i);
             }
         }
     }
 
     private void chooseTarget() {
-        if (targetIce)
-        {
-            int randomIceIndex = (int)(Random.Range(0, iceTargets.Count));
-            reflectTarget = iceTargets[randomIceIndex].transform;
-            
-        }
-        else if(targetWater){
-            reflectTarget = waterTarget.transform;
-        }
+        
+            if (targetIce)
+            {
+                if (iceTargets.Count > 0)
+                {
+                    int randomIceIndex = (int)(Random.Range(0, iceTargets.Count));
+                    reflectTarget = iceTargets[randomIceIndex].transform;
+                }
+            }
+            else if (targetWater)
+            {
+                reflectTarget = waterTarget.transform;
+            }
+        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -57,13 +64,30 @@ public class SunRay : MonoBehaviour
         else if (collision.tag == "Player")
         {
             AudioManager.playSunrayReflect();
-            chooseTarget();
-            GoTo(reflectTarget.position);
+            
+
+            if (!(targetIce && iceTargets.Count <= 0) || targetWater) {
+                activated = true;
+            }
+
+            if (activated) {
+                chooseTarget();
+                GoTo(reflectTarget.position);
+            }
         }
-        else if (collision.tag == "WaterPoolCollider") {
-            waterManager.SetEvaporatedWater(waterManager.GetEvaporatedWater() + 1);
-            Destroy(gameObject, 0.1f);
+
+        if (activated) {
+            if (collision.tag == "WaterPoolCollider")
+            {
+                waterManager.SetEvaporatedWater(waterManager.GetEvaporatedWater() + 1);
+                Destroy(gameObject, 0.1f);
+            }
+            else if (collision.tag == "DynamicParticleL3" && collision.gameObject.GetComponent<Level3DynamicParticleScript>().isFrozen()) {
+                collision.gameObject.GetComponent<Level3DynamicParticleScript>().heatEnergyThreshold -= collision.gameObject.GetComponent<Level3DynamicParticleScript>().heatEnergyIncrement;
+                Destroy(gameObject, 0.1f);
+            }
         }
+        
     }
 
     private void GoTo(Vector2 pos)

@@ -27,6 +27,7 @@ public class GameManagerLevel3 : GameManager
     EchoMessage frozenBlockHintTxt;
 
     private GameObject waterParent;
+    private GameObject waterParent2;
 
     protected override void Start()
     {
@@ -45,6 +46,7 @@ public class GameManagerLevel3 : GameManager
         echo.addMessage(objectiveLevelTxt3_3);
 
         waterParent = GameObject.Find("WaterPool");
+        waterParent2 = GameObject.Find("WaterPool2");
     }
 
     protected override void Update()
@@ -58,9 +60,17 @@ public class GameManagerLevel3 : GameManager
         if (waterInPool1 >= waterNeededInPool1) {
             waterInPool1 = waterNeededInPool1;
             AudioManager.playSplash();
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < waterParent.transform.childCount; i++)
             {
                 waterParent.transform.GetChild(i).gameObject.SetActive(true);
+            }
+        }
+
+        if (waterInPool2 >= waterNeededInPool2) {
+            waterInPool1 = waterNeededInPool2;
+            for (int i = 0; i < waterParent2.transform.childCount; i++)
+            {
+                waterParent2.transform.GetChild(i).gameObject.SetActive(true);
             }
         }
     }
