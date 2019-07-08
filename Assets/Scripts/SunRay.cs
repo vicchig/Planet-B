@@ -15,7 +15,6 @@ public class SunRay : MonoBehaviour
     private ILevelManagerWater waterManager;
     private Transform reflectTarget;
     private bool activated;
-    private bool reflectable;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +22,6 @@ public class SunRay : MonoBehaviour
         rb.velocity = -transform.right.normalized * 3f;
 
         waterManager = GameObject.Find("GameManager").GetComponent<ILevelManagerWater>();
-        reflectable = true;
         Destroy(gameObject, 10f);
     }
 
@@ -66,9 +64,10 @@ public class SunRay : MonoBehaviour
             AudioManager.playSunrayReflect();
             
 
-            if (!(targetIce && iceTargets.Count <= 0) || targetWater) {
+            if ((!(targetIce && iceTargets.Count <= 0) || targetWater) && (targetIce || targetWater)) {
                 activated = true;
             }
+
 
             if (activated) {
                 chooseTarget();
