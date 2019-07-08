@@ -13,7 +13,7 @@ public class SolarShieldManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        solarShield = transform.GetChild(7);
+        solarShield = transform.GetChild(4);
         degreesPerSecond = rotationAngle / timer;
     }
 
