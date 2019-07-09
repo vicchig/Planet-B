@@ -229,7 +229,7 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
     public void SetEvaporatedWater(int amount)
     {
         if (waterInPool >= waterNeededInPool) {
-            evaporationAmount = amount;
+            evaporationAmount = amount - transpirationAmount;//get evaporation returns evaporation + transpiration, but evaporation amount is just the evaporation amount from the water pool, so had to subtract that here, probably need to change this to makeit easier to use
         }
         if (evaporationAmount > evaporationNeeded)
         {
