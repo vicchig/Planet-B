@@ -757,6 +757,7 @@ Transform:
   m_LocalPosition: {x: 14.48334, y: -0.8653251, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 451656587}
   - {fileID: 1934265226}
   - {fileID: 1175253996}
   - {fileID: 1069644649}
@@ -61227,6 +61228,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 408270713}
   m_CullTransparentMesh: 0
+--- !u!4 &451656587 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+    type: 3}
+  m_PrefabInstance: {fileID: 2081565382}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &454965780
 GameObject:
   m_ObjectHideFlags: 0
@@ -62890,7 +62897,7 @@ PrefabInstance:
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
@@ -63461,7 +63468,7 @@ PrefabInstance:
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
@@ -63615,15 +63622,15 @@ PrefabInstance:
       propertyPath: wallGrabCheckPointTransform
       value: 
       objectReference: {fileID: 1179771061}
-    - target: {fileID: 5472536764790301380, guid: 4310601504673064bac7d93c327e3117,
-        type: 3}
-      propertyPath: useRigidbodyForVelocity
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4169028544738128070, guid: 4310601504673064bac7d93c327e3117,
         type: 3}
       propertyPath: timer
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5472536764790301380, guid: 4310601504673064bac7d93c327e3117,
+        type: 3}
+      propertyPath: useRigidbodyForVelocity
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2120224077209562257, guid: 4310601504673064bac7d93c327e3117,
         type: 3}
@@ -66645,7 +66652,7 @@ PrefabInstance:
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.78
+      value: -4.21
       objectReference: {fileID: 0}
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
@@ -66680,7 +66687,7 @@ PrefabInstance:
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
@@ -67274,6 +67281,116 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2008004436}
   m_CullTransparentMesh: 0
+--- !u!1001 &2081565382
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 342167632}
+    m_Modifications:
+    - target: {fileID: 7550295173081739892, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_Name
+      value: TextDisplayCollider
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15.5066595
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.4953251
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3546228992207641018, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 1.2036648
+      objectReference: {fileID: 0}
+    - target: {fileID: 3546228992207641018, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 3.9422913
+      objectReference: {fileID: 0}
+    - target: {fileID: 3546228992207641018, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.7623215
+      objectReference: {fileID: 0}
+    - target: {fileID: 3546228992207641018, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2.524643
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: txt
+      value: You can use this force field to reflect sun rays and heat objects with
+        them like this block of ice.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: maxTxtShows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: waitUntilFree
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 418f2669f1043f34c9b3a512c6eccadd, type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 808ad436350ed3946bee4bb8377e7cc3, type: 3}
 --- !u!1 &2106644131
 GameObject:
   m_ObjectHideFlags: 0
