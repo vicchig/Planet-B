@@ -59,7 +59,7 @@ public class SunRay : MonoBehaviour
         if (collision.tag == "Platforms") {
             Destroy(gameObject);
         }
-        else if (collision.tag == "Player")
+        else if (collision.tag == "SolarShield")
         {
             AudioManager.playSunrayReflect();
             

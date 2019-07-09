@@ -38,6 +38,8 @@ TagManager:
   - bullet3
   - bullet1
   - WaterPoolCollider
+  - SolarShield
+  - Sun
   layers:
   - Default
   - TransparentFX
