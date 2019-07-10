@@ -51,7 +51,7 @@ public class GameManagerLevel2 : GameManager, ILevelManagerCondensation
     {
         base.Update();
 
-        playerInstantDeath();
+        //playerInstantDeath();
         checkWaterVapourCollisions();
 
         //enable next level marker

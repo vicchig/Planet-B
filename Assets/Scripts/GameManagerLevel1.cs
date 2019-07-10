@@ -177,7 +177,7 @@ public class GameManagerLevel1 : GameManager, ILevelManagerWater
         }
         else if (attributes.GetCurrentWater() * 4 >= waterNeededInPool && !(amountOfWaterInPool >= waterNeededInPool))
         {
-            objectiveDisplay.text = "Current Objective: Find an area on the surface to create an artificial lake in and fill it with the collected water. Press F to release water into the lake.";
+            objectiveDisplay.text = "Current Objective: Fill the empty lake with the collected water.";
         }
         else if (amountOfEvaporatedWater >= GameObject.Find("RisingSteam").GetComponent<RisingSteamManager>().waterThreshold) {
             objectiveDisplay.text = "Current Objective: Go to the marker on the far right side to proceed.";
