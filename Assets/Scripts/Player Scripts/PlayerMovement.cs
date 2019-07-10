@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
 
         spacePressed = false;
 
-        solarShield = transform.GetChild(8);
+        solarShield = transform.Find("SolarShieldManager");
     }
 
     private void FixedUpdate() {

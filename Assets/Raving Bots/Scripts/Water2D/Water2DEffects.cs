@@ -48,7 +48,15 @@ namespace RavingBots.Water2D
 		public void OnTriggerEnter2D(Collider2D other)
 		{
 			var rb = other.transform.GetComponent<Rigidbody2D>();
-			var power = SplashFXPowerScale * Vector2.Dot(rb.velocity, Vector2.down) * rb.mass;
+            float power = 0;
+
+            if (rb != null)
+            {
+                power = SplashFXPowerScale * Vector2.Dot(rb.velocity, Vector2.down) * rb.mass;
+            }
+            else {
+                return;
+            }
 
 			if (power < SplashFXPowerThreshold)
 				return;
