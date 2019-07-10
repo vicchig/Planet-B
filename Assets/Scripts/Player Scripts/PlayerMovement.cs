@@ -51,8 +51,9 @@ public class PlayerMovement : MonoBehaviour
 
     private bool spacePressed;
     private float jumpTime;
-
-    private Transform solarShield;
+    
+    [Header("Children not to flip")]
+    public Transform solarShield;
     private void Start()
     {
         input = GetComponent<PlayerInput>();
@@ -76,7 +77,6 @@ public class PlayerMovement : MonoBehaviour
 
         spacePressed = false;
 
-        solarShield = transform.Find("SolarShieldManager");
     }
 
     private void FixedUpdate() {

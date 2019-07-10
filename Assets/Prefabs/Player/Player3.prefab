@@ -834,6 +834,11 @@ PrefabInstance:
       propertyPath: gravityDown
       value: 0.6
       objectReference: {fileID: 0}
+    - target: {fileID: 3824444740467452871, guid: 3949805abe36cd3468529a93bfe8a736,
+        type: 3}
+      propertyPath: solarShield
+      value: 
+      objectReference: {fileID: 3036582517796088468}
     - target: {fileID: 3824444740467452866, guid: 3949805abe36cd3468529a93bfe8a736,
         type: 3}
       propertyPath: m_Constraints
