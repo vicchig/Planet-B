@@ -3999,13 +3999,18 @@ PrefabInstance:
       propertyPath: gravityDown
       value: 0.6
       objectReference: {fileID: 0}
+    - target: {fileID: 154046002, guid: 4310601504673064bac7d93c327e3117, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5274822478345228202, guid: 4310601504673064bac7d93c327e3117,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5274822477744961998, guid: 4310601504673064bac7d93c327e3117,
         type: 3}
       propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 154046002, guid: 4310601504673064bac7d93c327e3117, type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -14990,7 +14995,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 7.433006, y: 2.78617}
+  m_Offset: {x: 7.523575, y: 2.78617}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -15001,7 +15006,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 15.994239, y: 6.57234}
+  m_Size: {x: 15.813103, y: 6.57234}
   m_EdgeRadius: 0
 --- !u!1 &1589760410
 GameObject:
