@@ -3267,7 +3267,7 @@ MonoBehaviour:
   buttonClick: {fileID: 0}
   buttonHover: {fileID: 0}
   shoot: {fileID: 8300000, guid: 97edbb9ec9a16304bbc6fcfa3e282256, type: 3}
-  rain: {fileID: 0}
+  rain: {fileID: 8300000, guid: ddb78faca67dda848a9babb3a7a31155, type: 3}
   waterSplash: {fileID: 8300000, guid: 246e0ff948cae9d47a540a6e45a52b66, type: 3}
   bubbles: {fileID: 0}
   sunrayReflect: {fileID: 8300000, guid: 76ae8942544245e44aa2c813c2a3a12f, type: 3}
@@ -12412,12 +12412,12 @@ PrefabInstance:
     - target: {fileID: 3546228992207641018, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
       propertyPath: m_Offset.x
-      value: 6.26956
+      value: 5.609234
       objectReference: {fileID: 0}
     - target: {fileID: 3546228992207641018, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
       propertyPath: m_Size.x
-      value: 12.178158
+      value: 10.857506
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 808ad436350ed3946bee4bb8377e7cc3, type: 3}
