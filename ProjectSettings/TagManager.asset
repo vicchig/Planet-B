@@ -40,6 +40,7 @@ TagManager:
   - WaterPoolCollider
   - SolarShield
   - Sun
+  - PressurePlatform
   layers:
   - Default
   - TransparentFX

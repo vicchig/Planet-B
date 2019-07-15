@@ -308,7 +308,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col) {
 
-        if ((col.transform.CompareTag("MovingPlatform") || col.transform.CompareTag("RandomlyMovingPlatform")) && Physics2D.OverlapCircle(platCollideCheckPoint.position, 0.14f, movingPlatLayer))
+        if ((col.transform.CompareTag("MovingPlatform") || col.transform.CompareTag("RandomlyMovingPlatform") || col.transform.CompareTag("PressurePlatform")) && Physics2D.OverlapCircle(platCollideCheckPoint.position, 0.14f, movingPlatLayer))
         {
             transform.parent = col.transform;
             isOnPlatform = true;
@@ -316,6 +316,7 @@ public class PlayerMovement : MonoBehaviour
             if (col.transform.CompareTag("MovingPlatform")) {
                 col.gameObject.GetComponent<PlatformMover>().active = true;
             }
+            
         }
 
     }
@@ -343,19 +344,21 @@ public class PlayerMovement : MonoBehaviour
             collidedPlatformDir.x = col.gameObject.GetComponent<PlatformMover>().direction.x;
             collidedPlatformDir.y = col.gameObject.GetComponent<PlatformMover>().direction.y;
         }
+        else if (col.transform.tag == "PressurePlatform") {
+            collidedPlatformVelocity.x = col.gameObject.GetComponent<PressurePlatformMover>().platformSpeedX;
+            collidedPlatformVelocity.y = col.gameObject.GetComponent<PressurePlatformMover>().platformSpeedY;
+            collidedPlatformDir.x = col.gameObject.GetComponent<PressurePlatformMover>().direction.x;
+            collidedPlatformDir.y = col.gameObject.GetComponent<PressurePlatformMover>().direction.y;
+        }
     }
 
     private void OnCollisionExit2D(Collision2D col) {
         //leaving moving platforms
-        if (col.transform.tag == "MovingPlatform")
+        if (col.transform.tag == "MovingPlatform" || col.transform.tag == "RandomlyMovingPlatform" || col.transform.tag == "PressurePlatform")
         {
             transform.parent = null;
             isOnPlatform = false;
         }
-        else if (col.transform.tag == "RandomlyMovingPlatform")
-        {
-            transform.parent = null;
-            isOnPlatform = false;
-        }
+        
     }
 }
