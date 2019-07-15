@@ -2543,6 +2543,7 @@ MonoBehaviour:
   textMesh: {fileID: 1309537495}
   nextLevelMarker: {fileID: 774880765}
   objectiveClip4_1: {fileID: 8300000, guid: d0ddd5cd546630a47bc491f982f299f8, type: 3}
+  objectiveClip4_1_2: {fileID: 8300000, guid: 2b58ae23640aa1f44946df39cd4cbe51, type: 3}
   objectiveClip4_2: {fileID: 8300000, guid: 9fcc562bafa32414fb94b23094626362, type: 3}
   objectiveClip4_3: {fileID: 8300000, guid: 4a765743eb205e645b3910e2c3680317, type: 3}
   objectiveClip4_4: {fileID: 8300000, guid: cae7d0d4f2d79aa4cb3db59b5480174d, type: 3}
