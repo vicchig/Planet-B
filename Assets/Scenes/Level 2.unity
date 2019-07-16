@@ -68478,6 +68478,9 @@ MonoBehaviour:
   helperChar: {fileID: 2125781637}
   textMesh: {fileID: 1341281320}
   nextLevelMarker: {fileID: 1288973885}
+  condensedVapourNeeded: 5
+  condensationCloudParent: {fileID: 661330790}
+  precipitationParent: {fileID: 997924330}
   objectiveLevelClip2_1: {fileID: 8300000, guid: a989c16fe1a0f754da9a379029f569ee,
     type: 3}
   objectiveLevelClip2_1_2: {fileID: 8300000, guid: 831aa12627ae75a40b74c42dd76264fb,
@@ -68488,9 +68491,6 @@ MonoBehaviour:
     type: 3}
   poisonPlatformCommentClip: {fileID: 8300000, guid: 9f86d570dac2773418b555c2f893424d,
     type: 3}
-  condensedVapourNeeded: 5
-  condensationCloudParent: {fileID: 661330790}
-  rainParent: {fileID: 997924330}
 --- !u!114 &1308785663
 MonoBehaviour:
   m_ObjectHideFlags: 0

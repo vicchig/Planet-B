@@ -5,7 +5,7 @@ using UnityEngine;
 public class CondensationAreaScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameManagerLevel2 manager;
+   // public GameManagerLevel2 manager;
     void Start()
     {
         
