@@ -44,6 +44,7 @@ public class GameManagerLevel2 : GameManager, ILevelManagerCondensation
         poisonPlatformCommentTxt = new EchoMessage("I would not stay on these for too long.", poisonPlatformCommentClip, 1);
 
         echo.addMessage(objectiveLevelTxt2_1);
+        echo.addMessage(objectiveLevelTxt2_1_2);
 
         for (int i = 0; i < rainParent.transform.childCount; i++) {
             rainParent.transform.GetChild(i).GetComponent<ParticleSystem>().Pause();

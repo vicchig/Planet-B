@@ -68423,6 +68423,8 @@ MonoBehaviour:
   nextLevelMarker: {fileID: 1288973885}
   objectiveLevelClip2_1: {fileID: 8300000, guid: a989c16fe1a0f754da9a379029f569ee,
     type: 3}
+  objectiveLevelClip2_1_2: {fileID: 8300000, guid: 831aa12627ae75a40b74c42dd76264fb,
+    type: 3}
   objectiveLevelClip2_2: {fileID: 8300000, guid: 5509aaa7f8b1843489589430b73dd0af,
     type: 3}
   objectiveLevelClip2_3: {fileID: 8300000, guid: e0ef4918abd1d7742af1d15fd9116a6b,
