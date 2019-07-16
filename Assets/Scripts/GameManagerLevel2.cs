@@ -17,7 +17,6 @@ internal class GameManagerLevel2 : GameManagerCondensation
     private EchoMessage objectiveLevelTxt2_3;
     private EchoMessage poisonPlatformCommentTxt;
 
-
     protected override void Start()
     {
         base.Start();

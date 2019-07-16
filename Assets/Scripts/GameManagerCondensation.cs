@@ -32,7 +32,7 @@ internal abstract class GameManagerCondensation : GameManager, ILevelManagerCond
     {
         base.Update();
 
-        //enable next level marker
+        //enable next level marker adn precipitation
         if (condensedVapourAmnt >= condensedVapourNeeded)
         {
             nextLevelMarker.SetActive(true);
