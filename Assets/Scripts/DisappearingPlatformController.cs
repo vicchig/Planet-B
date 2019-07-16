@@ -9,13 +9,24 @@ public class DisappearingPlatformController : MonoBehaviour
     public float disappearSpeed;
     public bool disappearing;
 
+    public float startReapperingTime = 2.0f;
+    private float startReappearing;
+
+    public float reappearTime;
+    public bool reappearing;
+
     private float disappearTimer;
+    private float reappearTimer;
+
     private int activePlatforms;
     
     private void Start()
     {
         disappearTimer = disappearTime;
         activePlatforms = 3;
+        reappearing = false;
+        reappearTimer = 0;
+        startReappearing = startReapperingTime;
     }
 
     private void Update()
@@ -23,6 +34,13 @@ public class DisappearingPlatformController : MonoBehaviour
         if (activePlatforms <= 0)
         {
             disappearing = false;
+            if (startReappearing <= 0)
+            {
+                reappearing = true;
+            } else
+            {
+                startReappearing -= Time.deltaTime;
+            }
         }
         else {
             if (disappearing)
@@ -36,6 +54,23 @@ public class DisappearingPlatformController : MonoBehaviour
                 }
             }
         }
+        if (reappearing)
+        {
+            if (reappearTimer <= 0)
+            {
+                transform.GetChild(activePlatforms).gameObject.SetActive(true);
+                transform.GetChild(activePlatforms).gameObject.GetComponent<SpriteRenderer>().color = new Color(this.transform.GetChild(activePlatforms).gameObject.GetComponent<SpriteRenderer>().color.r, this.transform.GetChild(activePlatforms).gameObject.GetComponent<SpriteRenderer>().color.g, this.transform.GetChild(activePlatforms).gameObject.GetComponent<SpriteRenderer>().color.b, 255);
+                activePlatforms++;
+                reappearTimer = reappearTime;
+            }
+            if (activePlatforms >= 3)
+            {
+                reappearing = false;
+                startReappearing = 2.0f;
+            }
+            reappearTimer -= Time.deltaTime;
+        }
+        
         
     }
 
@@ -48,7 +83,7 @@ public class DisappearingPlatformController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && !reappearing)
         {
             disappearing = true;
         }
