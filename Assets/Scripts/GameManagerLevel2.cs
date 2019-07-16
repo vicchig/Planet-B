@@ -6,6 +6,7 @@ public class GameManagerLevel2 : GameManager, ILevelManagerCondensation
 {
     [Header("Level 2 Echo Dialogue")]
     public AudioClip objectiveLevelClip2_1;
+    public AudioClip objectiveLevelClip2_1_2;
     public AudioClip objectiveLevelClip2_2;
     public AudioClip objectiveLevelClip2_3;
     public AudioClip poisonPlatformCommentClip;
@@ -19,6 +20,7 @@ public class GameManagerLevel2 : GameManager, ILevelManagerCondensation
     
 
     private EchoMessage objectiveLevelTxt2_1;
+    private EchoMessage objectiveLevelTxt2_1_2;
     private EchoMessage objectiveLevelTxt2_2;
     private EchoMessage objectiveLevelTxt2_3;
     private EchoMessage poisonPlatformCommentTxt;
@@ -36,6 +38,7 @@ public class GameManagerLevel2 : GameManager, ILevelManagerCondensation
         initWaterVapours();
 
         objectiveLevelTxt2_1 = new EchoMessage("As water vapour rises through the atmosphere it cools down and condenses back into water. When enough vapour condenses, it falls back to the ground as precipitation. Our goal now is to condense enough water vapour.", objectiveLevelClip2_1, 1);
+        objectiveLevelTxt2_1 = new EchoMessage("This is two stages combined into one. First the condensation stage of the cycle occurs and then the precipitation stage. Although they are closely related, they are considered to be separate stages.", objectiveLevelClip2_1_2, 1);
         objectiveLevelTxt2_2 = new EchoMessage("Congratulations! We have successfully completed the second step in the water cycle -- precipitation. Without it, there would be no way for the water to get back from the atmosphere to the ground. ", objectiveLevelClip2_2, 1);
         objectiveLevelTxt2_3 = new EchoMessage("Make your way to the marker on the topmost platform to proceed.", objectiveLevelClip2_3, 1);
         poisonPlatformCommentTxt = new EchoMessage("I would not stay on these for too long.", poisonPlatformCommentClip, 1);
