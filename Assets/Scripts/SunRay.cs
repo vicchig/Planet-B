@@ -7,10 +7,12 @@ public class SunRay : MonoBehaviour
 {
     Rigidbody2D rb;
     public List<GameObject> iceTargets = new List<GameObject>();
+    public List<GameObject> treeTargets = new List<GameObject>();
     public GameObject waterTarget;
     float speed = 5f;
     public bool targetWater;
     public bool targetIce;
+    public bool targetTree;
 
     private ILevelManagerWater waterManager;
     private Transform reflectTarget;
@@ -28,30 +30,40 @@ public class SunRay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         for (int i = 0; i < iceTargets.Count; i++) {
             if (iceTargets[i] == null || !iceTargets[i].GetComponent<Level3DynamicParticleScript>().isFrozen()) {
                 iceTargets.RemoveAt(i);
+            }
+        }
+        for (int i = 0; i < treeTargets.Count; i++)
+        {
+            if (treeTargets[i] == null) {
+                treeTargets.RemoveAt(i);
             }
         }
     }
 
     private void chooseTarget() {
         
-            if (targetIce)
+        if (targetIce)
+        {
+            if (iceTargets.Count > 0)
             {
-                if (iceTargets.Count > 0)
-                {
-                    int randomIceIndex = (int)(Random.Range(0, iceTargets.Count));
-                    reflectTarget = iceTargets[randomIceIndex].transform;
-                }
+                int randomIceIndex = (int)(Random.Range(0, iceTargets.Count));
+                reflectTarget = iceTargets[randomIceIndex].transform;
             }
-            else if (targetWater)
+        }
+        else if (targetWater)
+        {
+            reflectTarget = waterTarget.transform;
+        } else if (targetTree)
+        {
+            if (treeTargets.Count > 0)
             {
-                reflectTarget = waterTarget.transform;
+                int randomTreeIndex = (int)(Random.Range(0, treeTargets.Count));
+                reflectTarget = treeTargets[randomTreeIndex].transform;
             }
-        
-
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -64,7 +76,7 @@ public class SunRay : MonoBehaviour
             AudioManager.playSunrayReflect();
             
 
-            if ((!(targetIce && iceTargets.Count <= 0) || targetWater) && (targetIce || targetWater)) {
+            if ((!(targetIce && iceTargets.Count <= 0) || targetWater) && (targetIce || targetWater || (targetTree && treeTargets.Count >= 1))) {
                 activated = true;
             }
 
