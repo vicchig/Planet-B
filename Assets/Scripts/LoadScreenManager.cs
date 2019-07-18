@@ -7,6 +7,7 @@ public class LoadScreenManager : MonoBehaviour
     private ProgressBar loadBar;
     private PauseMenu pMenu;
     private LoadBarRandomizer lBarRandomizer;
+    private PlayerInput input;
     private bool loaded;
 
     private void Start()
@@ -17,6 +18,8 @@ public class LoadScreenManager : MonoBehaviour
         loadBar.maxValue = 100;
 
         loaded = false;
+
+        input = GameObject.Find("Player3").GetComponent<PlayerInput>();
 
         pMenu = this.GetComponent<PauseMenu>();
         pMenu.Pause();
@@ -32,15 +35,19 @@ public class LoadScreenManager : MonoBehaviour
             loaded = true;
             pMenu.Resume();
             this.transform.GetChild(transform.childCount - 1).gameObject.SetActive(false);
+            this.enabled = false;
         }
-
+        
 
         if (pMenu.isPaused())
         {
             AudioManager.pauseVoiceSource();
+            input.setEscapeEnabled(false);
+
         }
         else {
             AudioManager.unpauseVoiceSource();
+            input.setEscapeEnabled(true);
         }
     }
 

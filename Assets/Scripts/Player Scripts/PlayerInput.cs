@@ -10,6 +10,10 @@ public class PlayerInput : MonoBehaviour
 
     bool readyToClear; //controls whether current inputs should be cleared
 
+
+    private bool escapeEnabled;
+    private bool escapePressed;
+
     // Update is called once per frame DO NOT USE THIS FOR PHYSICS
     //Update accumulates all inputs
     void Update()
@@ -35,6 +39,7 @@ public class PlayerInput : MonoBehaviour
     private void processInput() {
         horizontalIn += Input.GetAxis("horizontal");
         jumpPressed = jumpPressed || Input.GetButtonDown("Jump");
+        escapePressed = Input.GetButtonDown("Cancel");
         
     }
 
@@ -44,6 +49,20 @@ public class PlayerInput : MonoBehaviour
             jumpPressed = false;
             readyToClear = false;
         }
+
+    }
+
+    public bool isEscapePressed() {
+        return escapePressed;
+    }
+
+    public bool isEscapeEnabled() {
+        return escapeEnabled;
+    }
+
+    public void setEscapeEnabled(bool enabled)
+    {
+        escapeEnabled = enabled;
 
     }
 }
