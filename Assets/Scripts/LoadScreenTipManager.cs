@@ -7,6 +7,7 @@ public class LoadScreenTipManager : MonoBehaviour
 {
     public string level;
     public float tipDuration;
+    public bool showTip;
 
     [Header("Level 1 Tips")]
     public List<string> tips1;
@@ -40,9 +41,7 @@ public class LoadScreenTipManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(tipTimer);
-
-        if (!tipSet)
+        if (!tipSet && showTip)
         {
             if (level.Equals("1"))
             {

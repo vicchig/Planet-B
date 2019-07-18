@@ -86050,8 +86050,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57636b6481d26524a8c00e495b0f17e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 2
+  level: 3
   tipDuration: 10
+  showTip: 1
   tips1:
   - Use W, A, D to move.
   - Evaporation occurs when sunlight heats water in surface bodies of water and it
