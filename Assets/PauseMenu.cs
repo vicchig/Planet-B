@@ -29,11 +29,15 @@ public class PauseMenu : MonoBehaviour
         gameIsPaused = false;
         AudioManager.unpauseVoiceSource();
     }
-    void Pause()
+    public void Pause()
     {
+        AudioManager.pauseVoiceSource();
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
-        AudioManager.pauseVoiceSource();
+    }
+
+    public bool isPaused() {
+        return gameIsPaused;
     }
 }
