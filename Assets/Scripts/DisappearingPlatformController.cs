@@ -36,7 +36,7 @@ public class DisappearingPlatformController : MonoBehaviour
 
         if (reappearing)
         {
-            transform.GetChild(activePlatforms).gameObject.GetComponent<SpriteRenderer>().color = new Color(this.transform.GetChild(activePlatforms).gameObject.GetComponent<SpriteRenderer>().color.r, this.transform.GetChild(activePlatforms).gameObject.GetComponent<SpriteRenderer>().color.g, this.transform.GetChild(activePlatforms).gameObject.GetComponent<SpriteRenderer>().color.b, (reappearTimer * 100 / reappearTime));
+            transform.GetChild(activePlatforms).gameObject.GetComponent<SpriteRenderer>().color = new Color(this.transform.GetChild(activePlatforms).gameObject.GetComponent<SpriteRenderer>().color.r, this.transform.GetChild(activePlatforms).gameObject.GetComponent<SpriteRenderer>().color.g, this.transform.GetChild(activePlatforms).gameObject.GetComponent<SpriteRenderer>().color.b, (reappearTimer / reappearTime));
             transform.GetChild(activePlatforms).gameObject.SetActive(true);
 
 

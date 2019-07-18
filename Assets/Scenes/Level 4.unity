@@ -23856,6 +23856,7 @@ MonoBehaviour:
   timeInterval: 0.75
   targetWater: 0
   targetIce: 0
+  targetTree: 1
   waterTarget: {fileID: 0}
   lifeTime: 5
 --- !u!212 &1567644034

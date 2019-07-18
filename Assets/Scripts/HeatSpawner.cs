@@ -15,7 +15,6 @@ public class HeatSpawner : MonoBehaviour
     private GameObject[] iceTargets;
     float timeRemaining = -1f;
 
-    private bool findIceTargets;
     private GameObject tempIceParent;
     private GameObject tempTreeParent;
     // Start is called before the first frame update
@@ -23,7 +22,6 @@ public class HeatSpawner : MonoBehaviour
     {
         tempIceParent = GameObject.Find("IceParent");
         tempTreeParent = GameObject.Find("TreeParent");
-        findIceTargets = true;
     }
 
     // Update is called once per frame

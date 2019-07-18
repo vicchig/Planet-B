@@ -14,7 +14,6 @@ public class GameManagerLevel4 : GameManager, ILevelManagerTranspiration
 
     [Header("Level 4 Variables")]
     public int transpirationAmntNeeded;
-    public HeatSpawner sunraySpawner;
     
     private int transpirationAmnt;
 
@@ -39,10 +38,7 @@ public class GameManagerLevel4 : GameManager, ILevelManagerTranspiration
         echo.addMessage(objectiveLevelTxt4_2);
         echo.addMessage(objectiveLevelTxt4_3);
 
-        sunraySpawner = GameObject.Find("sun2").GetComponent<HeatSpawner>();
-        sunraySpawner.targetIce = false;
-        sunraySpawner.targetWater = false;
-        sunraySpawner.targetTree = true;
+
     }
 
     protected override void Update()
