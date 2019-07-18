@@ -14,7 +14,6 @@ public class LoadScreenManager : MonoBehaviour
         //set bar value and pause the game
         loadBar = this.transform.GetChild(transform.childCount - 1).transform.GetChild(1).GetComponent<ProgressBar>();
         lBarRandomizer = loadBar.GetComponent<LoadBarRandomizer>();
-        loadBar.BarValue = 0;
         loadBar.maxValue = 100;
 
         loaded = false;
@@ -43,5 +42,9 @@ public class LoadScreenManager : MonoBehaviour
         else {
             AudioManager.unpauseVoiceSource();
         }
+    }
+
+    public bool isLoaded() {
+        return loaded;
     }
 }
