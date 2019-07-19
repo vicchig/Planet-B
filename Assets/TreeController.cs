@@ -21,6 +21,7 @@ public class TreeController : MonoBehaviour
     private float freezeTimer;
     private int[] states; //0 - burning, 1 - transpirating, 2 - freezing
     private float healthTimer;
+    private bool activated; //only true if this has been hit with a sunray
 
     private ParticleSystem fire;
     private ParticleSystem evaporation;
@@ -119,7 +120,11 @@ public class TreeController : MonoBehaviour
             if (areas[1] == 1) {
                 heatEnergy = transpirationRange.x + 1;
             }
-            evaporation.Play();
+            if (activated)
+            {
+                evaporation.Play();
+            }
+            
             fire.Pause();
             fire.Clear();
 
@@ -192,6 +197,10 @@ public class TreeController : MonoBehaviour
         else if (collision.gameObject.name == "TreePlantAreaDry")
         {
             areas[2] = 0;
+        }
+        else if (collision.gameObject.CompareTag("Sun Ray"))
+        {
+            activated = true;
         }
     }
 
