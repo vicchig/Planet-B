@@ -82991,6 +82991,15 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 154045994, guid: 4310601504673064bac7d93c327e3117, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 743776926638957448, guid: 4310601504673064bac7d93c327e3117,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 154046002, guid: 4310601504673064bac7d93c327e3117, type: 3}
       propertyPath: m_Enabled
       value: 0
