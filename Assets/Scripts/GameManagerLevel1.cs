@@ -61,8 +61,7 @@ public class GameManagerLevel1 : GameManager, ILevelManagerWater
         objectiveLevelTxt1_3 = new EchoMessage("We should have enough water now. Head back to the surface and fill the lake with it.", objectiveLevelClip1_3, 1);
         objectiveLevelTxt1_5 = new EchoMessage("Now we just need to evaporate the water. This can be done using heat energy. We will need to find a source.", objectiveLevelClip1_5, 1);
         objectiveLevelTxt1_6 = new EchoMessage("Use your force shield to reflect the sunrays to heat the water.", objectiveLevelClip1_6, 1);
-        objectiveLevelTxt1_7 = new EchoMessage("Congratulations! We have fixed the first stage of the water cycle. As water is heated by the sun, it evaporates in small amounts and rises in the atmosphere, which is where we are going next.", objectiveLevelClip1_7, 1);
-
+        objectiveLevelTxt1_7 = new EchoMessage("Congratulations! We have fixed the first stage of the water cycle. As water is heated by the sun, it evaporates in small amounts and rises in the atmosphere.", objectiveLevelClip1_7, 1);
 
         amountOfWaterInPool = 0;
         amountOfEvaporatedWater = 0;

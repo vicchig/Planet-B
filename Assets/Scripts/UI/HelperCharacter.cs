@@ -86,8 +86,6 @@ public class HelperCharacter : MonoBehaviour
 
     private void Update()
     {
-
-        Debug.Log(sounds.Count);
         //text duration timer
         if (textTimer >= textDuration)
         {
