@@ -34,7 +34,7 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
-        Time.timeScale = 3f;
+        Time.timeScale = 1f;
         gameIsPaused = false;
         AudioManager.unpauseVoiceSource();
     }

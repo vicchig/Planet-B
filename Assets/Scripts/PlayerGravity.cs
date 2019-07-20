@@ -22,13 +22,11 @@ public class PlayerGravity : MonoBehaviour
     {
             if (!pMovement.isOnGround && rBody.velocity.y >= 0)
             {
-                Debug.Log("UP");
                 rBody.velocity = new Vector2(rBody.velocity.x, rBody.velocity.y - gravityUp);
             }
 
             else if (!pMovement.isOnGround && rBody.velocity.y < 0)
             {
-                Debug.Log("DOWN");
                 rBody.velocity = new Vector2(rBody.velocity.x, rBody.velocity.y - gravityDown);
             }
         
