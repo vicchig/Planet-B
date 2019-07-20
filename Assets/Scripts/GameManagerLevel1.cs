@@ -135,13 +135,13 @@ public class GameManagerLevel1 : GameManager, ILevelManagerWater
     */
     protected override void levelEchoMsgChecks() {
         //check for whether the player has collected enough water
-        if (attributes.GetCurrentWater() >= (waterNeededInPool / 4) + 4 && !echo.isBusy() && !objectiveLevelTxt1_3.maxTextShowsReached())
+        if (attributes.GetCurrentWater() >= (waterNeededInPool / 4) + 4 && !echo.isBusy() && !objectiveLevelTxt1_3.maxTextShowsReached() && !echo.containsMessage(objectiveLevelTxt1_3))
         {
             echo.addMessage(objectiveLevelTxt1_3);
         }
 
         //check for whether the pool has enough water to begin evaporation
-        if (amountOfWaterInPool >= waterNeededInPool && !objectiveLevelTxt1_5.maxTextShowsReached() && !objectiveLevelTxt1_6.maxTextShowsReached())
+        if (amountOfWaterInPool >= waterNeededInPool && !objectiveLevelTxt1_5.maxTextShowsReached() && !objectiveLevelTxt1_6.maxTextShowsReached() && !echo.containsMessage(objectiveLevelTxt1_6) && !echo.containsMessage(objectiveLevelTxt1_5))
         {
             echo.addMessage(objectiveLevelTxt1_5);
             echo.addMessage(objectiveLevelTxt1_6);
@@ -149,7 +149,7 @@ public class GameManagerLevel1 : GameManager, ILevelManagerWater
         }
 
         //evaporated enough water
-        if (amountOfWaterInPool>= waterNeededInPool && amountOfEvaporatedWater >= GameObject.Find("RisingSteam").GetComponent<RisingSteamManager>().waterThreshold && !objectiveLevelTxt1_7.maxTextShowsReached())
+        if (amountOfWaterInPool>= waterNeededInPool && amountOfEvaporatedWater >= GameObject.Find("RisingSteam").GetComponent<RisingSteamManager>().waterThreshold && !objectiveLevelTxt1_7.maxTextShowsReached() && !echo.containsMessage(objectiveLevelTxt1_7))
         {
             steamManager.EnableSteam();
             echo.addMessage(objectiveLevelTxt1_7);
