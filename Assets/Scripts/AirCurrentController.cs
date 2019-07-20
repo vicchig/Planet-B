@@ -10,46 +10,56 @@ public class AirCurrentController : MonoBehaviour
 
     private List<AirCurrentObj> objects;
     private PlayerGravity pGrav;
+    private PauseMenu pauseMenu;
 
     private void Start()
     {
         objects = new List<AirCurrentObj>();
         pGrav = GameObject.Find("Player3").GetComponent<PlayerGravity>();
+        pauseMenu = GameObject.Find("UI").GetComponent<PauseMenu>();
     }
 
 
     private void Update()
     {
-        for (int i = 0; i < objects.Count; i++) {
-            if (objects[i].getBody() == null || !objects[i].isInAirCurrent())
+        if (!pauseMenu.isPaused()) {
+            for (int i = 0; i < objects.Count; i++)
             {
-                objects.RemoveAt(i);
-            }
-        }
-
-        for (int  i = 0; i < objects.Count; i++) {
-            if (objects[i].isInAirCurrent())
-            {
-                if (objects[i].getBody().velocity.y >= 0)
+                if (objects[i].getBody() == null || !objects[i].isInAirCurrent())
                 {
-                    objects[i].setTempVelocityY(objects[i].getTempVelocityY() + forceUp);
+                    objects.RemoveAt(i);
+                }
+            }
 
+            for (int i = 0; i < objects.Count; i++)
+            {
+                if (objects[i].isInAirCurrent())
+                {
+                    if (objects[i].getBody().velocity.y >= 0)
+                    {
+                        objects[i].setTempVelocityY(objects[i].getTempVelocityY() + forceUp);
+
+                    }
+                    else
+                    {
+                        objects[i].setTempVelocityY(objects[i].getTempVelocityY() + forceDown);
+                    }
+                    objects[i].setVelocity();
                 }
-                else {
-                    objects[i].setTempVelocityY(objects[i].getTempVelocityY() + forceDown);
+            }
+
+            for (int i = 0; i < objects.Count; i++)
+            {
+                if (objects[i].getResetVelocityTimer() >= 0.2)
+                {
+                    objects[i].setTempVelocityY(0);
+                    objects[i].setResetVelocity(false);
+                    objects[i].setResetVelocityTimer(0);
+                    objects[i].setInAirCurrent(false);
                 }
-                objects[i].setVelocity();
             }
         }
-
-        for (int i = 0; i < objects.Count; i++) {
-            if (objects[i].getResetVelocityTimer() >= 0.2) {
-                objects[i].setTempVelocityY(0);
-                objects[i].setResetVelocity(false);
-                objects[i].setResetVelocityTimer(0);
-                objects[i].setInAirCurrent(false);
-            }
-        }
+        
     }
 
     private void FixedUpdate()
