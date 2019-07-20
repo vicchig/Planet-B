@@ -34,7 +34,7 @@ public class AudioManager : MonoBehaviour
     AudioSource ambientSource;			//Reference to the generated ambient Audio Source
     AudioSource musicSource;            //Reference to the generated music Audio Source
     AudioSource stingSource;            //Reference to the generated sting Audio Source
-    AudioSource playerSource;           //Reference to the generated player Audio Source
+    public static AudioSource playerSource;           //Reference to the generated player Audio Source
     AudioSource effectSource;
     public static AudioSource voiceSource;            //Reference to the generated voice Audio Source
 
@@ -88,15 +88,15 @@ public class AudioManager : MonoBehaviour
     }
 
     public static void playFootstepSound() {
-        if (current == null || current.playerSource.isPlaying)
+        if (current == null || playerSource.isPlaying)
         {
             return;
         }
 
         int rand = (int)Random.Range(0, 2);
 
-        current.playerSource.clip = current.footstepsClips[rand];
-        current.playerSource.Play();
+        playerSource.clip = current.footstepsClips[rand];
+        playerSource.Play();
     }
 
 
@@ -132,6 +132,17 @@ public class AudioManager : MonoBehaviour
     public static void unpauseVoiceSource() {
         voiceSource.UnPause();
     }
+
+    public static void pausePlayerSource()
+    {
+        playerSource.Pause();
+    }
+
+    public static void unpausePlayerSource()
+    {
+        playerSource.UnPause();
+    }
+
 
     public static void playButtonClick() {
         if (current == null)
