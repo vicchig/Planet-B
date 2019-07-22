@@ -4698,6 +4698,11 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 9.484733
       objectReference: {fileID: 0}
+    - target: {fileID: 253000012007304448, guid: 481cfb28fcec19343b11e4b5249c4c36,
+        type: 3}
+      propertyPath: m_ColliderMask.m_Bits
+      value: 130359
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 481cfb28fcec19343b11e4b5249c4c36, type: 3}
 --- !u!1 &836677446
@@ -39392,6 +39397,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.x
       value: 9.484733
+      objectReference: {fileID: 0}
+    - target: {fileID: 253000012007304448, guid: 481cfb28fcec19343b11e4b5249c4c36,
+        type: 3}
+      propertyPath: m_ColliderMask.m_Bits
+      value: 130359
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 481cfb28fcec19343b11e4b5249c4c36, type: 3}
