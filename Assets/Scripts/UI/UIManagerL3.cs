@@ -7,13 +7,13 @@ public class UIManagerL3 : UIManager
 
     private ProgressBar waterBar1;
     private ProgressBar waterBar2;
-    private GameManagerLevel3 manager;
+    private ILevelManagerCollection manager;
 
 
     protected override void Start()
     {
         base.Start();
-        manager = managerObj.GetComponent<GameManagerLevel3>();
+        manager = managerObj.GetComponent<ILevelManagerCollection>();
 
         waterBar1 = this.transform.GetChild(4).GetComponent<ProgressBar>();
         waterBar2 = this.transform.GetChild(6).GetComponent<ProgressBar>();

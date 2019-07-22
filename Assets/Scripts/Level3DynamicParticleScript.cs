@@ -23,7 +23,7 @@ public class Level3DynamicParticleScript : MonoBehaviour
     BoundsInt bounds;
     int[] destroyed;
     private bool stopMoving;
-    GameManagerLevel3 manager;
+    ILevelManagerCollection manager;
     private bool frozen;
 
     // Start is called before the first frame update
@@ -40,7 +40,7 @@ public class Level3DynamicParticleScript : MonoBehaviour
         destroyed = new int[3];
         stopMoving = false;
 
-        manager = GameObject.Find("GameManager").GetComponent<GameManagerLevel3>();
+        manager = GameObject.Find("GameManager").GetComponent<ILevelManagerCollection>();
     }
 
     private void Update()

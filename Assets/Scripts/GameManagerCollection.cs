@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class GameManagerCollection : GameManager
+public abstract class GameManagerCollection : GameManager, ILevelManagerCollection
 {
     [Header("Level 3 Variables")]
     public int waterNeededInPool1;
@@ -90,14 +90,14 @@ public abstract class GameManagerCollection : GameManager
         return;
     }
 
-    public int getWaterNeededInPool1()
+    public void setWaterInPool1(int amount)
     {
-        return waterNeededInPool1;
+        waterInPool1 = amount;
     }
 
-    public int getWaterNeededInPool2()
+    public void setWaterInPool2(int amount)
     {
-        return waterNeededInPool2;
+        waterInPool2 = amount;
     }
 
     public int getWaterInPool1()
@@ -110,13 +110,13 @@ public abstract class GameManagerCollection : GameManager
         return waterInPool2;
     }
 
-    public void setWaterInPool1(int waterAmnt)
+    public int getWaterNeededInPool1()
     {
-        waterInPool1 = waterAmnt;
+        return waterNeededInPool1;
     }
 
-    public void setWaterInPool2(int waterAmnt)
+    public int getWaterNeededInPool2()
     {
-        waterInPool2 = waterAmnt;
+        return waterNeededInPool2;
     }
 }
