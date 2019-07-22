@@ -1278,47 +1278,6 @@ MonoBehaviour:
   level: 1
   tipDuration: 10
   showTip: 1
-  tips1:
-  - Use W, A, D to move.
-  - Evaporation occurs when sunlight heats water in surface bodies of water and it
-    changes state into water vapour.
-  - Water vapour rises in the atmosphere since it is hotter than the surrounding air.
-  - Some water in surface bodies of water comes from groundwater (underground water
-    streams).
-  tips2:
-  - Evaporated water vapour rises in the atmosphere and cools down as it does so.
-  - Evaporated water returns to the surface of the planet through precipitation.
-  - Precipiation is the process of water (in any state) falling back down to the surface
-    of the plaent.
-  - Transpiration is not its own stage of the cycle. It is considered part of evaporation.
-  tips2_1:
-  - Precipitation and condensation, although closely related, are considered separate
-    stages of the water cycle. Firswater vapour condenses and then the water returns
-    to the ground as precipitation.
-  - Condensation occurs as evaporated water vapour cools down as it rises in the atmosphere.
-  - Once the amount of condensed water is heavy enough, it falls back to the ground.
-  tips3:
-  - Use SPACE to shoot.
-  - Precipitation has many forms in addition to rain. It includes any water that falls
-    down to the ground such as rain, snow and hail.
-  - Water vapour rises in the atmosphere and cools down, transitioning back into liquid
-    water. If temperatures are low enough, it can turn into snow or hail.
-  tips4:
-  - Use E to plant trees.
-  - Evaporation has two parts, surface water evaporation and transpiration from trees.
-  - Groundwater seeps into surface bodies of water and replenishes some of the water
-    lost to evaporation.
-  - The sun heats water on the surface of various bodies of water such as lakes, rivers,
-    ponds, seas and oceans and evaporates it into the atmosphere.
-  tips5:
-  - Transpiration is the process of water evaporating from the surface of plants.
-  - Collection is an essential part of the water cycle. It is the process of groundwater
-    and water from mountain glaciers (surface runoff) returning back to larger bodies
-    of water such as lake, rivers and oceans.
-  - Precipitation follows condensation and ensures that evaporated water returns back
-    onto the surface of the planet.
-  - Evaporation sends water vapour into the atmosphere where it is condensed before
-    being returned back to the surface of the planet by precipitation.
 --- !u!114 &262308262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4627,7 +4586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a0e1e8c587e10c448ef5530071d794d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxVal: 20
+  maxVal: 14
   timer: 2
 --- !u!1001 &830935342
 PrefabInstance:
