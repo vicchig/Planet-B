@@ -32,7 +32,7 @@ public class GameManagerLevel4 : GameManager, ILevelManagerTranspiration
         objectiveLevelTxt4_1_2 = new EchoMessage("On planets with large plant populations it can contribute a lot to the evaporation stage of the water cycle.", objectiveClip4_1_2, 1);
         objectiveLevelTxt4_2 = new EchoMessage("We brought some plants with us that we hope will not only thrive on this planet, but also contribute to transpiration. You can plant these plants using E.", objectiveClip4_2, 1);
         objectiveLevelTxt4_3 = new EchoMessage("We need to find the proper area for them to transpirate. Putting them somewhere too cold or too dry will not help us.", objectiveClip4_3, 1);
-        objectiveLevelTxt4_4 = new EchoMessage("Nice! We have successfully established the process of transpiration on the planet. Head to the marker on the far right side to proceede.", objectiveClip4_4, 1);
+        objectiveLevelTxt4_4 = new EchoMessage("Nice! We have successfully started the process of transpiration on the planet, but we will need to evaporate some more water before condensation can occur in sufficient amounts. Head to the marker on the far right side to proceede.", objectiveClip4_4, 1);
 
         echo.addMessage(objectiveLevelTxt4_1);
         echo.addMessage(objectiveLevelTxt4_2);
