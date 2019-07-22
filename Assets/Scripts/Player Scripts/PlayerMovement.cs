@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
         animator = GetComponent<Animator>();
 
-        defaultColliderSize = boxCollider.size;
+        defaultColliderSize = capsuleCollider.size;
         jumpColliderSize = new Vector2(defaultColliderSize.x, defaultColliderSize.y * 0.6f);
 
         dir = 1;
@@ -146,10 +146,10 @@ public class PlayerMovement : MonoBehaviour
     private void physicsCheck() {
         if (isInAir)
         {
-            boxCollider.size = jumpColliderSize;
+            capsuleCollider.size = jumpColliderSize;
         }
         else {
-            boxCollider.size = defaultColliderSize;
+            capsuleCollider.size = defaultColliderSize;
         }
 
         //fixes bug where player sticks to sides of platforms
