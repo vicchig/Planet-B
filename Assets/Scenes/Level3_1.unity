@@ -663,7 +663,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 137130112}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
@@ -2781,7 +2781,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &578088686
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3080,23 +3080,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 613894962}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcd08d80c44108347bf795ee6cc2418f, type: 3}
+  m_Script: {fileID: 11500000, guid: fcbcfbd6d95ea3a4db3b0f00be0694bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1259897005}
   helperChar: {fileID: 1259897003}
   textMesh: {fileID: 2076240271}
   nextLevelMarker: {fileID: 1073390530}
-  objectiveLevelClip3_1: {fileID: 8300000, guid: 7b16d792151b01a4a9bf62d2960e12d9,
-    type: 3}
-  objectiveLevelClip3_2: {fileID: 8300000, guid: 51b3550ec5125a84a97e89682825deba,
-    type: 3}
-  objectiveLevelClip3_3: {fileID: 8300000, guid: 818831c9550c3cb468664dc964a5ebdb,
-    type: 3}
-  objectiveLevelClip3_4: {fileID: 8300000, guid: 3441207530f14a04fa03872b3bcc1507,
-    type: 3}
   waterNeededInPool1: 10
   waterNeededInPool2: 5
+  objectiveLevelClip3_1: {fileID: 8300000, guid: cbad7eb290e6b134ea0627ba20315c7e,
+    type: 3}
+  objectiveLevelClip3_2: {fileID: 8300000, guid: b46b5730d11604e488a23b87f368c846,
+    type: 3}
+  objectiveLevelClip3_4: {fileID: 8300000, guid: ce31c556c7fe17542a9563281c862d7a,
+    type: 3}
 --- !u!114 &613894964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5197,15 +5195,15 @@ PrefabInstance:
       propertyPath: BarAlertColor.b
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114165064244077878, guid: 5eefba205a58c8c4a937c97b87c185a3,
-        type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 224745179381614346, guid: 5eefba205a58c8c4a937c97b87c185a3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.000015258789
+      objectReference: {fileID: 0}
+    - target: {fileID: 114165064244077878, guid: 5eefba205a58c8c4a937c97b87c185a3,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5eefba205a58c8c4a937c97b87c185a3, type: 3}
@@ -5825,6 +5823,16 @@ PrefabInstance:
       propertyPath: TitleColor.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224745179381614346, guid: 5eefba205a58c8c4a937c97b87c185a3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000015258789
+      objectReference: {fileID: 0}
+    - target: {fileID: 114165064244077878, guid: 5eefba205a58c8c4a937c97b87c185a3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1484564107729232, guid: 5eefba205a58c8c4a937c97b87c185a3, type: 3}
       propertyPath: m_Name
       value: Text
@@ -5832,16 +5840,6 @@ PrefabInstance:
     - target: {fileID: 1484564107729232, guid: 5eefba205a58c8c4a937c97b87c185a3, type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114165064244077878, guid: 5eefba205a58c8c4a937c97b87c185a3,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224745179381614346, guid: 5eefba205a58c8c4a937c97b87c185a3,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.000015258789
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5eefba205a58c8c4a937c97b87c185a3, type: 3}

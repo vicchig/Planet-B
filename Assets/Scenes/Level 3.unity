@@ -44879,6 +44879,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: maxTxtShows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: txt
+      value: We need to melt this ice and collect it in the pool we saw on our way
+        here.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
+        type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8cebf37db99acc742a6f51a256ea5bd2, type: 3}
     - target: {fileID: 3546228992207641018, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
       propertyPath: m_Offset.y
@@ -44899,22 +44915,6 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 2.1612854
       objectReference: {fileID: 0}
-    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: maxTxtShows
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: txt
-      value: We need to melt this ice and collect it in the pool we saw on our way
-        here.
-      objectReference: {fileID: 0}
-    - target: {fileID: 8570055596288946891, guid: 808ad436350ed3946bee4bb8377e7cc3,
-        type: 3}
-      propertyPath: clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 8cebf37db99acc742a6f51a256ea5bd2, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 808ad436350ed3946bee4bb8377e7cc3, type: 3}
 --- !u!1 &704629181
@@ -46015,6 +46015,8 @@ MonoBehaviour:
   helperChar: {fileID: 505193179}
   textMesh: {fileID: 420673605}
   nextLevelMarker: {fileID: 1484803103}
+  waterNeededInPool1: 10
+  waterNeededInPool2: 5
   objectiveLevelClip3_1: {fileID: 8300000, guid: 7b16d792151b01a4a9bf62d2960e12d9,
     type: 3}
   objectiveLevelClip3_2: {fileID: 8300000, guid: 51b3550ec5125a84a97e89682825deba,
@@ -46023,8 +46025,6 @@ MonoBehaviour:
     type: 3}
   objectiveLevelClip3_4: {fileID: 8300000, guid: 3441207530f14a04fa03872b3bcc1507,
     type: 3}
-  waterNeededInPool1: 10
-  waterNeededInPool2: 5
 --- !u!1 &911133814
 GameObject:
   m_ObjectHideFlags: 0
@@ -89380,14 +89380,6 @@ PrefabInstance:
       propertyPath: TitleColor.a
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1484564107729232, guid: 5eefba205a58c8c4a937c97b87c185a3, type: 3}
-      propertyPath: m_Name
-      value: Text
-      objectReference: {fileID: 0}
-    - target: {fileID: 1484564107729232, guid: 5eefba205a58c8c4a937c97b87c185a3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 224745179381614346, guid: 5eefba205a58c8c4a937c97b87c185a3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -89397,6 +89389,14 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1484564107729232, guid: 5eefba205a58c8c4a937c97b87c185a3, type: 3}
+      propertyPath: m_Name
+      value: Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 1484564107729232, guid: 5eefba205a58c8c4a937c97b87c185a3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5eefba205a58c8c4a937c97b87c185a3, type: 3}
