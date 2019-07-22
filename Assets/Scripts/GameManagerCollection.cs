@@ -44,7 +44,6 @@ public abstract class GameManagerCollection : GameManager, ILevelManagerCollecti
         if (waterInPool1 >= waterNeededInPool1)
         {
             waterInPool1 = waterNeededInPool1;
-            AudioManager.playSplash();
             for (int i = 0; i < waterParent.transform.childCount; i++)
             {
                 waterParent.transform.GetChild(i).gameObject.SetActive(true);
@@ -53,7 +52,6 @@ public abstract class GameManagerCollection : GameManager, ILevelManagerCollecti
 
         if (waterInPool2 >= waterNeededInPool2 && filledPool2)
         {
-            AudioManager.playSplash();
             for (int i = 0; i < waterParent2.transform.childCount; i++)
             {
                 waterParent2.transform.GetChild(i).gameObject.SetActive(true);
