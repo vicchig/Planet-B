@@ -42,6 +42,7 @@ namespace RavingBots.Water2D
 
 		protected void FixedUpdate()
 		{
+            
 			_buoyancyEffector2D.surfaceLevel = _surfaceLevel - FloatingRange * 0.5f * (Mathf.Sin(Mathf.PI * 2f * FloatingSpeed * Time.fixedTime) + 1f);
 		}
 
