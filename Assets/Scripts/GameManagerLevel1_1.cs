@@ -11,7 +11,6 @@ public class GameManagerLevel1_1 : GameManagerEvaporation
     public AudioClip objectiveLevelClip1_2;
     public AudioClip objectiveLevelClip1_3;
     public AudioClip objectiveLevelClip1_5;
-    public AudioClip objectiveLevelClip1_6;
     public AudioClip objectiveLevelClip1_7;
 
     //Level 1 Echo Messages
@@ -20,7 +19,6 @@ public class GameManagerLevel1_1 : GameManagerEvaporation
     EchoMessage objectiveLevelTxt1_2;
     EchoMessage objectiveLevelTxt1_3;
     EchoMessage objectiveLevelTxt1_5;
-    EchoMessage objectiveLevelTxt1_6;
     EchoMessage objectiveLevelTxt1_7;
 
     protected override void Start()
@@ -32,7 +30,6 @@ public class GameManagerLevel1_1 : GameManagerEvaporation
         objectiveLevelTxt1_1 = new EchoMessage("This empty lake would be a perfect source of evaporation if it had water in it. We can use groundwater to fill it, explore the cave system below us.", objectiveLevelClip1_1, 1);
         objectiveLevelTxt1_3 = new EchoMessage("We should have enough water now. Head back to the surface and fill the lake with it.", objectiveLevelClip1_3, 1);
         objectiveLevelTxt1_5 = new EchoMessage("Now we just need to evaporate the water. This can be done using heat energy. We will need to find a source.", objectiveLevelClip1_5, 1);
-        objectiveLevelTxt1_6 = new EchoMessage("Use your force shield to reflect the sunrays to heat the water.", objectiveLevelClip1_6, 1);
         objectiveLevelTxt1_7 = new EchoMessage("Congratulations! We have evaporated even more water into the atmosphere. As water is heated by the sun, it evaporates in small amounts and rises in the atmosphere.", objectiveLevelClip1_7, 1);
 
 
@@ -57,10 +54,9 @@ public class GameManagerLevel1_1 : GameManagerEvaporation
     protected override void levelEchoMsgChecks()
     {
         //check for whether the pool has enough water to begin evaporation
-        if (amountOfWaterInPool >= waterNeededInPool && !objectiveLevelTxt1_5.maxTextShowsReached() && !objectiveLevelTxt1_6.maxTextShowsReached() && !echo.containsMessage(objectiveLevelTxt1_6) && !echo.containsMessage(objectiveLevelTxt1_5))
+        if (amountOfWaterInPool >= waterNeededInPool && !objectiveLevelTxt1_5.maxTextShowsReached() && !echo.containsMessage(objectiveLevelTxt1_5))
         {
             echo.addMessage(objectiveLevelTxt1_5);
-            echo.addMessage(objectiveLevelTxt1_6);
         }
 
         //evaporated enough water
