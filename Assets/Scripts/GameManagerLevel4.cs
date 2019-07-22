@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManagerLevel4 : GameManager, ILevelManagerTranspiration
+public class GameManagerLevel4 : GameManagerTranspiration
 {
 
     [Header("Level 4 Echo Dialogue")]
@@ -12,10 +12,7 @@ public class GameManagerLevel4 : GameManager, ILevelManagerTranspiration
     public AudioClip objectiveClip4_3;
     public AudioClip objectiveClip4_4;
 
-    [Header("Level 4 Variables")]
-    public int transpirationAmntNeeded;
-    
-    private int transpirationAmnt;
+
 
     EchoMessage objectiveLevelTxt4_1;
     EchoMessage objectiveLevelTxt4_1_2;
@@ -26,7 +23,6 @@ public class GameManagerLevel4 : GameManager, ILevelManagerTranspiration
     protected override void Start()
     {
         base.Start();
-        transpirationAmnt = 0;
 
         objectiveLevelTxt4_1 = new EchoMessage("Surface bodies of water are not the only sources of evaporation. Transpiration is another form of evaporation that occurs when moisture evaporates from the surface of plants on the ground.", objectiveClip4_1, 1);
         objectiveLevelTxt4_1_2 = new EchoMessage("On planets with large plant populations it can contribute a lot to the evaporation stage of the water cycle.", objectiveClip4_1_2, 1);
@@ -37,36 +33,6 @@ public class GameManagerLevel4 : GameManager, ILevelManagerTranspiration
         echo.addMessage(objectiveLevelTxt4_1);
         echo.addMessage(objectiveLevelTxt4_2);
         echo.addMessage(objectiveLevelTxt4_3);
-
-
-    }
-
-    protected override void Update()
-    {
-        base.Update();
-
-        if (transpirationAmnt >= transpirationAmntNeeded){
-            nextLevelMarker.SetActive(true);
-        }
-    }
-
-    protected override void FixedUpdate()
-    {
-        base.FixedUpdate();
-    }
-
-    protected override void changeObjectives()
-    {
-        if (transpirationAmnt <= transpirationAmntNeeded) {
-            objectiveDisplay.text = "Current Objective:\nFind a good area to plant the plants in to begin transpiration.\nUse E to plant.";
-        }
-        else if (transpirationAmnt > transpirationAmntNeeded) {
-            objectiveDisplay.text = "Current Objective:\nLocate the marker on the right side to proceed.";
-        }
-    }
-
-    protected override void checkEchoCollisions()
-    {
     }
 
     protected override void levelEchoMsgChecks()
@@ -78,27 +44,7 @@ public class GameManagerLevel4 : GameManager, ILevelManagerTranspiration
         }
     }
 
-    public void SetTranspirationAmnt(int amount)
-    {
-        transpirationAmnt = amount;
-    }
 
-    public int GetTranspirationAmountNeeded()
-    {
-        return transpirationAmntNeeded;
-    }
 
-    public int GetTranspirationAmount()
-    {
-        return transpirationAmnt;
-    }
 
-    /*
-    public int getTranspirationAmnt() {
-        return transpirationAmnt;
-    }
-
-    public void setTranspirationAmnt(int amnt) {
-        transpirationAmnt = amnt;
-    }*/
 }

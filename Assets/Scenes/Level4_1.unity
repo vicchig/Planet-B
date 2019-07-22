@@ -6685,19 +6685,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1167683143}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7899471eb98d0264da672aac634be921, type: 3}
+  m_Script: {fileID: 11500000, guid: f2798959afe004140804aed72133bf02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1538870173}
   helperChar: {fileID: 1035822256}
   textMesh: {fileID: 963959257}
   nextLevelMarker: {fileID: 939870660}
-  objectiveClip4_1: {fileID: 8300000, guid: d0ddd5cd546630a47bc491f982f299f8, type: 3}
-  objectiveClip4_1_2: {fileID: 8300000, guid: 2b58ae23640aa1f44946df39cd4cbe51, type: 3}
-  objectiveClip4_2: {fileID: 8300000, guid: 9fcc562bafa32414fb94b23094626362, type: 3}
-  objectiveClip4_3: {fileID: 8300000, guid: 4a765743eb205e645b3910e2c3680317, type: 3}
-  objectiveClip4_4: {fileID: 8300000, guid: cae7d0d4f2d79aa4cb3db59b5480174d, type: 3}
   transpirationAmntNeeded: 20
+  objectiveClip4_1: {fileID: 8300000, guid: b3861686b7231024ea7ef2791dab8471, type: 3}
+  objectiveClip4_1_2: {fileID: 8300000, guid: 4339deb49072ceb4e8f53aec68862686, type: 3}
+  objectiveClip4_3: {fileID: 8300000, guid: 20541225cec35cb44877e343912c9c20, type: 3}
+  objectiveClip4_4: {fileID: 8300000, guid: 7227b09c71d660c439aac42a1ef33f10, type: 3}
 --- !u!114 &1167683145
 MonoBehaviour:
   m_ObjectHideFlags: 0
