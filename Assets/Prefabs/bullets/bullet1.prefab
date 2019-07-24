@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2357169100585017001}
   - component: {fileID: 6368815011971748545}
   - component: {fileID: 2207357275884867092}
-  - component: {fileID: 2112110409347999240}
   - component: {fileID: -6467515310324970172}
+  - component: {fileID: -8158718850783438344}
   m_Layer: 0
   m_Name: bullet1
   m_TagString: bullet1
@@ -103,22 +103,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!58 &2112110409347999240
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2329343949226194019}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.06
 --- !u!114 &-6467515310324970172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,3 +118,19 @@ MonoBehaviour:
   speed: 20
   despawnTime: 10
   playerDir: 0
+--- !u!58 &-8158718850783438344
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2329343949226194019}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0005109608, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.06868675
