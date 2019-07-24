@@ -68,7 +68,7 @@ public class LoadScreenTipManager : MonoBehaviour
                 tipMesh.text = tips3[(int)Random.Range(0, tips3.Count - 1)];
                 tips3.Remove(tipMesh.text);
             }
-            else if (level.Equals("4_1"))
+            else if (level.Equals("4_1") || level.Equals("2"))
             {
                 tipMesh.text = tips4[(int)Random.Range(0, tips4.Count - 1)];
                 tips4.Remove(tipMesh.text);
