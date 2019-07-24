@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 5153131711289088073}
   - component: {fileID: 5153131711289088072}
   - component: {fileID: 5153131711289088074}
+  - component: {fileID: 9192966583769234862}
   m_Layer: 0
   m_Name: sun2
-  m_TagString: Untagged
+  m_TagString: Sun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,3 +96,34 @@ MonoBehaviour:
   sunRay: {fileID: 5623311156595909343, guid: 601b301bc455dd541bfad32d7718ed0f, type: 3}
   timer: 1
   timeInterval: 0.75
+  targetWater: 0
+  targetIce: 1
+  targetTree: 0
+  waterTarget: {fileID: 0}
+  lifeTime: 5
+--- !u!61 &9192966583769234862
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5153131711289088079}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.4483223, y: -1.1207848}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.92, y: 2.92}
+    newSize: {x: 2.92, y: 2.92}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 11.706947, y: 5.1615696}
+  m_EdgeRadius: 0

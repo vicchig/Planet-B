@@ -786,7 +786,7 @@ Transform:
   - {fileID: 1780813987}
   - {fileID: 479231227}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &134661444
 PrefabInstance:
@@ -927,7 +927,7 @@ Transform:
   - {fileID: 1746060456}
   - {fileID: 1849353676}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &159237779
 PrefabInstance:
@@ -43757,7 +43757,7 @@ Transform:
   - {fileID: 1237341509}
   - {fileID: 1492614878}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &491153941
 GameObject:
@@ -44662,7 +44662,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &677844788
 BoxCollider2D:
@@ -44872,7 +44872,7 @@ PrefabInstance:
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 20
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8742231733998290308, guid: 808ad436350ed3946bee4bb8377e7cc3,
         type: 3}
@@ -45829,7 +45829,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &854178841
 GameObject:
@@ -45912,7 +45912,7 @@ Transform:
   - {fileID: 605414744}
   - {fileID: 1235644905}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &900632054
 PrefabInstance:
@@ -46442,7 +46442,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &993670398
 GameObject:
@@ -85611,7 +85611,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1216983751
 GameObject:
@@ -85826,133 +85826,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1 &1251856949
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1251856952}
-  - component: {fileID: 1251856951}
-  - component: {fileID: 1251856950}
-  - component: {fileID: 1251856953}
-  m_Layer: 0
-  m_Name: sun2
-  m_TagString: Sun
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1251856950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1251856949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76dc8cf4b2a9e60408b879cfa3b6e47e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sunRay: {fileID: 5623311156595909343, guid: 601b301bc455dd541bfad32d7718ed0f, type: 3}
-  timer: 1
-  timeInterval: 0.75
-  targetWater: 0
-  targetIce: 1
-  targetTree: 0
-  waterTarget: {fileID: 1575037148}
-  lifeTime: 5
---- !u!212 &1251856951
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1251856949}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 6dc619b0bcabff747b4361d79752e150, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 2.92, y: 2.92}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &1251856952
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1251856949}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -33.51, y: 6.25, z: 0}
-  m_LocalScale: {x: 1.2109584, y: 1.2109584, z: 1.2109584}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1251856953
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1251856949}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -1.0408975, y: -1.8894467}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.92, y: 2.92}
-    newSize: {x: 2.92, y: 2.92}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 7.4456196, y: 6.6988935}
-  m_EdgeRadius: 0
 --- !u!1 &1255222460
 GameObject:
   m_ObjectHideFlags: 0
@@ -86006,47 +85879,6 @@ MonoBehaviour:
   level: 3
   tipDuration: 10
   showTip: 1
-  tips1:
-  - Use W, A, D to move.
-  - Evaporation occurs when sunlight heats water in surface bodies of water and it
-    changes state into water vapour.
-  - Water vapour rises in the atmosphere since it is hotter than the surrounding air.
-  - Some water in surface bodies of water comes from groundwater (underground water
-    streams).
-  tips2:
-  - Evaporated water vapour rises in the atmosphere and cools down as it does so.
-  - Evaporated water returns to the surface of the planet through precipitation.
-  - Precipiation is the process of water (in any state) falling back down to the surface
-    of the plaent.
-  - Transpiration is not its own stage of the cycle. It is considered part of evaporation.
-  tips2_1:
-  - Precipitation and condensation, although closely related, are considered separate
-    stages of the water cycle. Firswater vapour condenses and then the water returns
-    to the ground as precipitation.
-  - Condensation occurs as evaporated water vapour cools down as it rises in the atmosphere.
-  - Once the amount of condensed water is heavy enough, it falls back to the ground.
-  tips3:
-  - Use SPACE to shoot.
-  - Precipitation has many forms in addition to rain. It includes any water that falls
-    down to the ground such as rain, snow and hail.
-  - Water vapour rises in the atmosphere and cools down, transitioning back into liquid
-    water. If temperatures are low enough, it can turn into snow or hail.
-  tips4:
-  - Use E to plant trees.
-  - Evaporation has two parts, surface water evaporation and transpiration from trees.
-  - Groundwater seeps into surface bodies of water and replenishes some of the water
-    lost to evaporation.
-  - The sun heats water on the surface of various bodies of water such as lakes, rivers,
-    ponds, seas and oceans and evaporates it into the atmosphere.
-  tips5:
-  - Transpiration is the process of water evaporating from the surface of plants.
-  - Collection is an essential part of the water cycle. It is the process of groundwater
-    and water from mountain glaciers (surface runoff) returning back to larger bodies
-    of water such as lake, rivers and oceans.
-  - Precipitation follows condensation and ensures that evaporated water returns back
-    onto the surface of the planet.
-  - Evaporation sends water vapour into the atmosphere where it is condensed before
-    being returned back to the surface of the planet by precipitation.
 --- !u!114 &1255222463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87210,7 +87042,7 @@ Transform:
   - {fileID: 7549094}
   - {fileID: 1584640348}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1584085459
 PrefabInstance:
@@ -88107,7 +87939,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1732036841
 GameObject:
@@ -89696,7 +89528,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1975098908
 BoxCollider2D:
@@ -90261,6 +90093,95 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104726596}
   m_CullTransparentMesh: 0
+--- !u!1001 &2117939972
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5153131711289088079, guid: aa2d96049b589dd40a4cacb74ca64337,
+        type: 3}
+      propertyPath: m_Name
+      value: sun2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153131711289088073, guid: aa2d96049b589dd40a4cacb74ca64337,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -32.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153131711289088073, guid: aa2d96049b589dd40a4cacb74ca64337,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153131711289088073, guid: aa2d96049b589dd40a4cacb74ca64337,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153131711289088073, guid: aa2d96049b589dd40a4cacb74ca64337,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153131711289088073, guid: aa2d96049b589dd40a4cacb74ca64337,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153131711289088073, guid: aa2d96049b589dd40a4cacb74ca64337,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153131711289088073, guid: aa2d96049b589dd40a4cacb74ca64337,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153131711289088073, guid: aa2d96049b589dd40a4cacb74ca64337,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153131711289088073, guid: aa2d96049b589dd40a4cacb74ca64337,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153131711289088073, guid: aa2d96049b589dd40a4cacb74ca64337,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153131711289088073, guid: aa2d96049b589dd40a4cacb74ca64337,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9192966583769234862, guid: aa2d96049b589dd40a4cacb74ca64337,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -1.9818945
+      objectReference: {fileID: 0}
+    - target: {fileID: 9192966583769234862, guid: aa2d96049b589dd40a4cacb74ca64337,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 6.883789
+      objectReference: {fileID: 0}
+    - target: {fileID: 9192966583769234862, guid: aa2d96049b589dd40a4cacb74ca64337,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -1.9055829
+      objectReference: {fileID: 0}
+    - target: {fileID: 9192966583769234862, guid: aa2d96049b589dd40a4cacb74ca64337,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 8.792426
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aa2d96049b589dd40a4cacb74ca64337, type: 3}
 --- !u!1 &2138635822
 GameObject:
   m_ObjectHideFlags: 0
@@ -90316,5 +90237,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

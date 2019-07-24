@@ -80860,7 +80860,7 @@ PrefabInstance:
     - target: {fileID: 397760315155012642, guid: 2d3ca68be4a2f574c8be7df703e83b9d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 73.65
+      value: 72.2
       objectReference: {fileID: 0}
     - target: {fileID: 397760315155012642, guid: 2d3ca68be4a2f574c8be7df703e83b9d,
         type: 3}
@@ -84754,40 +84754,28 @@ PrefabInstance:
       propertyPath: targetWater
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9192966583769234862, guid: aa2d96049b589dd40a4cacb74ca64337,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -1.4384527
+      objectReference: {fileID: 0}
+    - target: {fileID: 9192966583769234862, guid: aa2d96049b589dd40a4cacb74ca64337,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 5.7969055
+      objectReference: {fileID: 0}
+    - target: {fileID: 9192966583769234862, guid: aa2d96049b589dd40a4cacb74ca64337,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.22596323
+      objectReference: {fileID: 0}
+    - target: {fileID: 9192966583769234862, guid: aa2d96049b589dd40a4cacb74ca64337,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 7.704297
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa2d96049b589dd40a4cacb74ca64337, type: 3}
---- !u!1 &1986646707 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5153131711289088079, guid: aa2d96049b589dd40a4cacb74ca64337,
-    type: 3}
-  m_PrefabInstance: {fileID: 1986646706}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &1986646708
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1986646707}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.53935826, y: -1.812254}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.92, y: 2.92}
-    newSize: {x: 2.92, y: 2.92}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 7.364333, y: 6.544508}
-  m_EdgeRadius: 0
 --- !u!1 &1988566677
 GameObject:
   m_ObjectHideFlags: 0
