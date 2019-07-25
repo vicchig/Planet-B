@@ -1331,7 +1331,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 920}
+  m_SizeDelta: {x: 1920, y: 960}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &104978604
 MonoBehaviour:
@@ -50616,6 +50616,11 @@ PrefabInstance:
       propertyPath: TitleColor.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114165064244077878, guid: 5eefba205a58c8c4a937c97b87c185a3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1484564107729232, guid: 5eefba205a58c8c4a937c97b87c185a3, type: 3}
       propertyPath: m_Name
       value: Text
@@ -50623,11 +50628,6 @@ PrefabInstance:
     - target: {fileID: 1484564107729232, guid: 5eefba205a58c8c4a937c97b87c185a3, type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114165064244077878, guid: 5eefba205a58c8c4a937c97b87c185a3,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5eefba205a58c8c4a937c97b87c185a3, type: 3}
@@ -70054,47 +70054,6 @@ MonoBehaviour:
   level: 2
   tipDuration: 10
   showTip: 1
-  tips1:
-  - Use W, A, D to move.
-  - Evaporation occurs when sunlight heats water in surface bodies of water and it
-    changes state into water vapour.
-  - Water vapour rises in the atmosphere since it is hotter than the surrounding air.
-  - Some water in surface bodies of water comes from groundwater (underground water
-    streams).
-  tips2:
-  - Evaporated water vapour rises in the atmosphere and cools down as it does so.
-  - Evaporated water returns to the surface of the planet through precipitation.
-  - Precipiation is the process of water (in any state) falling back down to the surface
-    of the plaent.
-  - Transpiration is not its own stage of the cycle. It is considered part of evaporation.
-  tips2_1:
-  - Precipitation and condensation, although closely related, are considered separate
-    stages of the water cycle. Firswater vapour condenses and then the water returns
-    to the ground as precipitation.
-  - Condensation occurs as evaporated water vapour cools down as it rises in the atmosphere.
-  - Once the amount of condensed water is heavy enough, it falls back to the ground.
-  tips3:
-  - Use SPACE to shoot.
-  - Precipitation has many forms in addition to rain. It includes any water that falls
-    down to the ground such as rain, snow and hail.
-  - Water vapour rises in the atmosphere and cools down, transitioning back into liquid
-    water. If temperatures are low enough, it can turn into snow or hail.
-  tips4:
-  - Use E to plant trees.
-  - Evaporation has two parts, surface water evaporation and transpiration from trees.
-  - Groundwater seeps into surface bodies of water and replenishes some of the water
-    lost to evaporation.
-  - The sun heats water on the surface of various bodies of water such as lakes, rivers,
-    ponds, seas and oceans and evaporates it into the atmosphere.
-  tips5:
-  - Transpiration is the process of water evaporating from the surface of plants.
-  - Collection is an essential part of the water cycle. It is the process of groundwater
-    and water from mountain glaciers (surface runoff) returning back to larger bodies
-    of water such as lake, rivers and oceans.
-  - Precipitation follows condensation and ensures that evaporated water returns back
-    onto the surface of the planet.
-  - Evaporation sends water vapour into the atmosphere where it is condensed before
-    being returned back to the surface of the planet by precipitation.
 --- !u!114 &1570130493
 MonoBehaviour:
   m_ObjectHideFlags: 0
