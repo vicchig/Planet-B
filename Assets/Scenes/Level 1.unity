@@ -86301,6 +86301,11 @@ PrefabInstance:
       propertyPath: targetWater
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5153131711289088074, guid: aa2d96049b589dd40a4cacb74ca64337,
+        type: 3}
+      propertyPath: targetIce
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa2d96049b589dd40a4cacb74ca64337, type: 3}
 --- !u!1001 &5359453249446241289
