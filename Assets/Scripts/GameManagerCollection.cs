@@ -56,8 +56,8 @@ public abstract class GameManagerCollection : GameManager, ILevelManagerCollecti
             {
                 waterParent2.transform.GetChild(i).gameObject.SetActive(true);
             }
-            sunraySpawner.GetComponent<HeatSpawner>().targetIce = false;
-            sunraySpawner.GetComponent<HeatSpawner>().targetWater = true;
+            //sunraySpawner.GetComponent<HeatSpawner>().targetIce = false;
+            //sunraySpawner.GetComponent<HeatSpawner>().targetWater = true;
             filledPool2 = false;
         }
     }
