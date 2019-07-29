@@ -15,7 +15,7 @@ public class SunRay : MonoBehaviour
     public bool targetTree;
 
     private ILevelManagerWater waterManager;
-    private Transform reflectTarget;
+    private Vector2 reflectTarget;
     private bool activated;
     // Start is called before the first frame update
     void Start()
@@ -50,19 +50,23 @@ public class SunRay : MonoBehaviour
             if (iceTargets.Count > 0)
             {
                 int randomIceIndex = (int)(Random.Range(0, iceTargets.Count));
-                reflectTarget = iceTargets[randomIceIndex].transform;
+                reflectTarget = iceTargets[randomIceIndex].transform.position;
             }
         }
         else if (targetWater)
         {
-            reflectTarget = waterTarget.transform;
+            reflectTarget = waterTarget.transform.position;
         } else if (targetTree)
         {
             if (treeTargets.Count > 0)
             {
                 int randomTreeIndex = (int)(Random.Range(0, treeTargets.Count));
-                reflectTarget = treeTargets[randomTreeIndex].transform;
+                reflectTarget = treeTargets[randomTreeIndex].transform.position;
             }
+        }
+        if (treeTargets.Count <= 0 && iceTargets.Count <= 0)
+        {
+            reflectTarget = new Vector2(transform.position.x + Random.Range(-1, 1) + 0.5f, transform.position.y + Random.Range(-1, 1) + 0.5f);
         }
     }
 
@@ -80,11 +84,8 @@ public class SunRay : MonoBehaviour
                 activated = true;
             }
 
-
-            if (activated) {
-                chooseTarget();
-                GoTo(reflectTarget.position);
-            }
+            chooseTarget();
+            GoTo(reflectTarget);
         }
 
         if (activated) {
