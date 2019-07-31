@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2461613
 RectTransform:
   m_ObjectHideFlags: 0
@@ -87287,21 +87287,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5153131711289088074, guid: aa2d96049b589dd40a4cacb74ca64337,
-        type: 3}
-      propertyPath: waterTarget
-      value: 
-      objectReference: {fileID: 389933551}
-    - target: {fileID: 5153131711289088074, guid: aa2d96049b589dd40a4cacb74ca64337,
-        type: 3}
-      propertyPath: targetWater
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5153131711289088074, guid: aa2d96049b589dd40a4cacb74ca64337,
-        type: 3}
-      propertyPath: targetIce
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9192966583769234862, guid: aa2d96049b589dd40a4cacb74ca64337,
         type: 3}
       propertyPath: m_Offset.x
@@ -87321,6 +87306,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 9.715502
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153131711289088074, guid: aa2d96049b589dd40a4cacb74ca64337,
+        type: 3}
+      propertyPath: waterTarget
+      value: 
+      objectReference: {fileID: 389933551}
+    - target: {fileID: 5153131711289088074, guid: aa2d96049b589dd40a4cacb74ca64337,
+        type: 3}
+      propertyPath: targetWater
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153131711289088074, guid: aa2d96049b589dd40a4cacb74ca64337,
+        type: 3}
+      propertyPath: targetIce
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa2d96049b589dd40a4cacb74ca64337, type: 3}
