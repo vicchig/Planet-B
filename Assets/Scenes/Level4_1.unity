@@ -1530,7 +1530,7 @@ MonoBehaviour:
   rain: {fileID: 0}
   waterSplash: {fileID: 0}
   bubbles: {fileID: 0}
-  sunrayReflect: {fileID: 0}
+  sunrayReflect: {fileID: 8300000, guid: 76ae8942544245e44aa2c813c2a3a12f, type: 3}
   ambientGroup: {fileID: 0}
   musicGroup: {fileID: 0}
   stingGroup: {fileID: 0}
