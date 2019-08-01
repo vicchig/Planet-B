@@ -64,7 +64,7 @@ public class SunRay : MonoBehaviour
                 reflectTarget = treeTargets[randomTreeIndex].transform.position;
             }
         }
-        if (treeTargets.Count <= 0 && iceTargets.Count <= 0)
+        if (!targetIce && !targetWater && !targetTree)
         {
             reflectTarget = new Vector2(transform.position.x + Random.Range(-1, 1) + 0.5f, transform.position.y + Random.Range(-1, 1) + 0.5f);
         }
