@@ -9,13 +9,11 @@ internal class GameManagerLevel2 : GameManagerCondensation
     public AudioClip objectiveLevelClip2_1_2;
     public AudioClip objectiveLevelClip2_2;
     public AudioClip objectiveLevelClip2_3;
-    public AudioClip poisonPlatformCommentClip;
 
     private EchoMessage objectiveLevelTxt2_1;
     private EchoMessage objectiveLevelTxt2_1_2;
     private EchoMessage objectiveLevelTxt2_2;
     private EchoMessage objectiveLevelTxt2_3;
-    private EchoMessage poisonPlatformCommentTxt;
 
     protected override void Start()
     {
@@ -26,7 +24,6 @@ internal class GameManagerLevel2 : GameManagerCondensation
         objectiveLevelTxt2_1_2 = new EchoMessage("This is two stages combined into one. First the condensation stage of the cycle occurs and then the precipitation stage. Although they are closely related, they are considered to be separate stages.", objectiveLevelClip2_1_2, 1);
         objectiveLevelTxt2_2 = new EchoMessage("Congratulations! We have successfully completed the second step in the water cycle -- precipitation. Without it, there would be no way for the water to get back from the atmosphere to the ground. ", objectiveLevelClip2_2, 1);
         objectiveLevelTxt2_3 = new EchoMessage("Make your way to the marker on the topmost platform to proceed.", objectiveLevelClip2_3, 1);
-        poisonPlatformCommentTxt = new EchoMessage("I would not stay on these for too long.", poisonPlatformCommentClip, 1);
 
         echo.addMessage(objectiveLevelTxt2_1);
         echo.addMessage(objectiveLevelTxt2_1_2);
@@ -53,17 +50,7 @@ internal class GameManagerLevel2 : GameManagerCondensation
 
     protected override void checkEchoCollisions()
     {
-        for (int i = 0; i < echoColliders.Count; i++)
-        {
-            if (echoColliders[i] != null)
-            {
-                if (echoColliders[i].tag == "PoisonousCloud" && !echo.containsMessage(poisonPlatformCommentTxt) && !poisonPlatformCommentTxt.maxTextShowsReached() && !echo.isBusy())
-                {
-                    echo.addMessage(poisonPlatformCommentTxt);
-                }
-                
-            }
-        }
+        base.checkEchoCollisions();
     }
 
     protected override void levelEchoMsgChecks()

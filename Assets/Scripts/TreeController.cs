@@ -17,8 +17,6 @@ public class TreeController : MonoBehaviour
     private int heatEnergy;//amount of heat energy this plant has
     private int[] areas; //0 - freeze, 1 - mild, 2 - dry
     private float[] areaTimers; //current amount of time since last energy increment for each of the three areas
-    private float charTimer;
-    private float freezeTimer;
     private int[] states; //0 - burning, 1 - transpirating, 2 - freezing
     private float healthTimer;
 
@@ -32,8 +30,6 @@ public class TreeController : MonoBehaviour
         areas = new int[3];
         states = new int[areas.Length];
         areaTimers = new float[areas.Length];
-        charTimer = 0f;
-        freezeTimer = 0f;
         healthTimer = 0f;
 
         evaporation = transform.GetChild(0).GetComponent<ParticleSystem>();

@@ -47,7 +47,6 @@ public class HelperCharacter : MonoBehaviour
     private bool healthWarningTimerEnable;
     private float airWarningTimer;
     private bool airWarningTimerEnable;
-    private bool inPoolArea;
     private GameManagerScript manager;
     private WaterPourController playerWaterPourController;
     private bool startedTutorial;
@@ -68,7 +67,6 @@ public class HelperCharacter : MonoBehaviour
         portraitObj.GetComponent<Image>().enabled = false;
         busy = false;
         healthWarningTimerEnable = false;
-        inPoolArea = false;
         healthWarningTimer = 0;
         airWarningTimer = 0;
         airWarningTimerEnable = false;

@@ -8,7 +8,6 @@ public class SolarShieldManagerScript : MonoBehaviour
     public float timer = 0.4f;
     public float rotationAngle = 90f;
 
-    private float timeRemaining = 0;
     private float degreesPerSecond;
     // Start is called before the first frame update
     void Start()

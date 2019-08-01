@@ -21,7 +21,6 @@ public class DynamicParticle : MonoBehaviour
     float particleLifeTime = 3.0f, startTime;//How much time before the particle scalesdown and dies
     [Header ("Steam")]
     public GameObject ps;
-    bool isSteaming = false;
 
     private GameObject manager;
     private ILevelManagerWater managerScript;
