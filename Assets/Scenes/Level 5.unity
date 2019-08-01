@@ -276,12 +276,12 @@ PrefabInstance:
     - target: {fileID: 397760315155012642, guid: 2d3ca68be4a2f574c8be7df703e83b9d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -7.1
+      value: -40.8
       objectReference: {fileID: 0}
     - target: {fileID: 397760315155012642, guid: 2d3ca68be4a2f574c8be7df703e83b9d,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.5
+      value: 39.5
       objectReference: {fileID: 0}
     - target: {fileID: 397760315155012642, guid: 2d3ca68be4a2f574c8be7df703e83b9d,
         type: 3}
@@ -326,7 +326,7 @@ PrefabInstance:
     - target: {fileID: 4734872096466631778, guid: 2d3ca68be4a2f574c8be7df703e83b9d,
         type: 3}
       propertyPath: sceneName
-      value: Level 5
+      value: Menu
       objectReference: {fileID: 0}
     - target: {fileID: 4734872096466631778, guid: 2d3ca68be4a2f574c8be7df703e83b9d,
         type: 3}
@@ -15798,7 +15798,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1438105050
 Transform:
   m_ObjectHideFlags: 0
@@ -16155,7 +16155,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1463776330
 Transform:
   m_ObjectHideFlags: 0
