@@ -1332,7 +1332,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 960}
+  m_SizeDelta: {x: 1920, y: 1100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &104978604
 MonoBehaviour:
@@ -69029,8 +69029,6 @@ MonoBehaviour:
   objectiveLevelClip2_2: {fileID: 8300000, guid: 5509aaa7f8b1843489589430b73dd0af,
     type: 3}
   objectiveLevelClip2_3: {fileID: 8300000, guid: e0ef4918abd1d7742af1d15fd9116a6b,
-    type: 3}
-  poisonPlatformCommentClip: {fileID: 8300000, guid: 9f86d570dac2773418b555c2f893424d,
     type: 3}
 --- !u!114 &1308785663
 MonoBehaviour:
