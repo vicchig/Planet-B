@@ -41,14 +41,14 @@ public class LoadScreenManager : MonoBehaviour
 
         if (pMenu.isPaused())
         {
+            AudioManager.muteAll();
             AudioManager.pauseVoiceSource();
-            AudioManager.pausePlayerSource();
             input.setEscapeEnabled(false);
 
         }
         else {
+            AudioManager.unmuteAll();
             AudioManager.unpauseVoiceSource();
-            AudioManager.unpausePlayerSource();
             input.setEscapeEnabled(true);
         }
     }
