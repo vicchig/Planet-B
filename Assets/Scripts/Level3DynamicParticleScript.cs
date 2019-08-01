@@ -148,7 +148,7 @@ public class Level3DynamicParticleScript : MonoBehaviour
             else if (collision.gameObject.name == "WaterPoolColliderLeft" && !frozen) {
                 manager.setWaterInPool2(manager.getWaterInPool2() + 1);
                 AudioManager.playSplash();
-                Destroy(gameObject, 0.1f);
+                Destroy(gameObject);
             }
             else if (collision.transform.tag == "FreezeCollider")
             {

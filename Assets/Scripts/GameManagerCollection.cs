@@ -15,6 +15,7 @@ public abstract class GameManagerCollection : GameManager, ILevelManagerCollecti
     protected GameObject waterParent;
     protected GameObject waterParent2;
     protected GameObject sunraySpawner;
+    protected GameObject waterParentSmall;
     protected bool filledPool2;
 
     protected override void Start()
@@ -26,6 +27,7 @@ public abstract class GameManagerCollection : GameManager, ILevelManagerCollecti
 
         waterParent = GameObject.Find("WaterPool");
         waterParent2 = GameObject.Find("WaterPool2");
+        waterParentSmall = GameObject.Find("WaterPool2S");
 
         sunraySpawner = GameObject.Find("sun2");
 
@@ -49,16 +51,26 @@ public abstract class GameManagerCollection : GameManager, ILevelManagerCollecti
                 waterParent.transform.GetChild(i).gameObject.SetActive(true);
             }
         }
+        
 
         if (waterInPool2 >= waterNeededInPool2 && filledPool2)
         {
             for (int i = 0; i < waterParent2.transform.childCount; i++)
             {
                 waterParent2.transform.GetChild(i).gameObject.SetActive(true);
+                waterParentSmall.transform.GetChild(i).gameObject.SetActive(false);
+
             }
-            //sunraySpawner.GetComponent<HeatSpawner>().targetIce = false;
-            //sunraySpawner.GetComponent<HeatSpawner>().targetWater = true;
+
             filledPool2 = false;
+        }
+        
+        else if (waterInPool2 > 0 && filledPool2)
+        {
+            for (int i = 0; i < waterParentSmall.transform.childCount; i++)
+            {
+                waterParentSmall.transform.GetChild(i).gameObject.SetActive(true);
+            }
         }
     }
 

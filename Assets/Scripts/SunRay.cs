@@ -99,7 +99,7 @@ public class SunRay : MonoBehaviour
         if (activated) {
             if (collision.tag == "WaterPoolCollider")
             {
-                if (SceneManager.GetActiveScene().name != "Level 3") {
+                if (SceneManager.GetActiveScene().name != "Level 3" && SceneManager.GetActiveScene().name != "Level3_1") {
                     waterManager.SetEvaporatedWater(waterManager.GetEvaporatedWater() + 6);
 
                 }
