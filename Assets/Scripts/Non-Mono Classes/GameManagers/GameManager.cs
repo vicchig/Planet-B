@@ -11,6 +11,7 @@ public abstract class GameManager : MonoBehaviour
     public GameObject helperChar;
     public GameObject textMesh;
     public GameObject nextLevelMarker;
+    public GameObject dirArrow;
 
     protected List<Collider2D> echoColliders;
     protected PlayerAttributes attributes;

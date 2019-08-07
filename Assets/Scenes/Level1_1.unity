@@ -77957,6 +77957,113 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &732454846
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7772025308160020254, guid: d52ead19323222d4aa41158b81b514eb,
+        type: 3}
+      propertyPath: m_Name
+      value: directing_arrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772025308160020254, guid: d52ead19323222d4aa41158b81b514eb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3261508151825815960, guid: d52ead19323222d4aa41158b81b514eb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 63.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 3261508151825815960, guid: d52ead19323222d4aa41158b81b514eb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 3261508151825815960, guid: d52ead19323222d4aa41158b81b514eb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3261508151825815960, guid: d52ead19323222d4aa41158b81b514eb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3261508151825815960, guid: d52ead19323222d4aa41158b81b514eb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3261508151825815960, guid: d52ead19323222d4aa41158b81b514eb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3261508151825815960, guid: d52ead19323222d4aa41158b81b514eb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3261508151825815960, guid: d52ead19323222d4aa41158b81b514eb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3261508151825815960, guid: d52ead19323222d4aa41158b81b514eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3261508151825815960, guid: d52ead19323222d4aa41158b81b514eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3261508151825815960, guid: d52ead19323222d4aa41158b81b514eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8092620579048993570, guid: d52ead19323222d4aa41158b81b514eb,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 2075511947
+      objectReference: {fileID: 0}
+    - target: {fileID: 8092620579048993570, guid: d52ead19323222d4aa41158b81b514eb,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d52ead19323222d4aa41158b81b514eb, type: 3}
+--- !u!1 &732454847 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7772025308160020254, guid: d52ead19323222d4aa41158b81b514eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 732454846}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &732454848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732454847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5dd4dc24a2dbe745a21039613f9386c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextLevelMarker: {fileID: 1457034390}
+  player: {fileID: 1507620014}
+  levelCompleted: 0
+  radius: 5
+  renderDistance: 2
 --- !u!1 &750666246
 GameObject:
   m_ObjectHideFlags: 0
@@ -80316,6 +80423,7 @@ MonoBehaviour:
   helperChar: {fileID: 1507620016}
   textMesh: {fileID: 584533696}
   nextLevelMarker: {fileID: 1457034390}
+  dirArrow: {fileID: 732454847}
   waterNeededInPool: 24
   waterDropParent: {fileID: 0}
   movingPlatParent: {fileID: 0}
@@ -85968,6 +86076,11 @@ PrefabInstance:
         type: 3}
       propertyPath: targetWater
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5153131711289088074, guid: aa2d96049b589dd40a4cacb74ca64337,
+        type: 3}
+      propertyPath: targetIce
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9192966583769234862, guid: aa2d96049b589dd40a4cacb74ca64337,
         type: 3}

@@ -51,9 +51,10 @@ public class PlayerMovement : MonoBehaviour
 
     private bool spacePressed;
     private float jumpTime;
-    
+
     [Header("Children not to flip")]
-    public Transform solarShield;
+    public Transform[] childrenNotToFlip;
+
     private void Start()
     {
         input = GetComponent<PlayerInput>();
@@ -285,7 +286,9 @@ public class PlayerMovement : MonoBehaviour
 
         scale.x = originalScaleX * dir;
         transform.localScale = scale;
-        solarShield.Rotate(0f, 180f, 0f);
+        for (int i = 0; i < childrenNotToFlip.Length; i++) {
+            childrenNotToFlip[0].Rotate(0f, 180f, 0f);
+        }
     }
 
 

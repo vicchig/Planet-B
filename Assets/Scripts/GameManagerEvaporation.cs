@@ -99,6 +99,8 @@ public abstract class GameManagerEvaporation : GameManager, ILevelManagerWater
         else if (amountOfEvaporatedWater >= GameObject.Find("RisingSteam").GetComponent<RisingSteamManager>().waterThreshold)
         {
             objectiveDisplay.text = "Current Objective: Go to the marker on the far right side to proceed.";
+            dirArrow.GetComponent<DirectionArrowController>().levelCompleted = true;
+
         }
         else if (amountOfWaterInPool >= waterNeededInPool)
         {

@@ -87,6 +87,7 @@ public class GameManagerLevel5 : GameManager, ILevelManagerCondensation, ILevelM
         if (condensedVapourAmount >= condensationNeeded)
         {
             nextLevelMarker.SetActive(true);
+            dirArrow.GetComponent<DirectionArrowController>().levelCompleted = true;
             for (int i = 0; i < rainParent.transform.childCount; i++)
             {
                 rainParent.transform.GetChild(i).GetComponent<ParticleSystem>().Play();

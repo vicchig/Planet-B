@@ -58,6 +58,8 @@ internal abstract class GameManagerCondensation : GameManager, ILevelManagerCond
         else
         {
             objectiveDisplay.text = "Current Objective: \nGet to the blue marker at the top to proceed";
+            dirArrow.GetComponent<DirectionArrowController>().levelCompleted = true;
+
         }
     }
 

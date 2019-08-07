@@ -87,6 +87,7 @@ public abstract class GameManagerCollection : GameManager, ILevelManagerCollecti
         else
         {
             objectiveDisplay.text = "Current Objective: Proceed to the blue marker at the middle to proceed";
+            dirArrow.GetComponent<DirectionArrowController>().levelCompleted = true;
         }
     }
 
