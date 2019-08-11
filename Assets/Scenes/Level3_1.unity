@@ -3736,7 +3736,7 @@ MonoBehaviour:
   helperChar: {fileID: 1259897003}
   textMesh: {fileID: 2076240271}
   nextLevelMarker: {fileID: 1073390530}
-  dirArrow: {fileID: 0}
+  dirArrow: {fileID: 694430731}
   waterNeededInPool1: 10
   waterNeededInPool2: 5
   objectiveLevelClip3_1: {fileID: 8300000, guid: cbad7eb290e6b134ea0627ba20315c7e,
@@ -4163,8 +4163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5dd4dc24a2dbe745a21039613f9386c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevelMarker: {fileID: 0}
-  player: {fileID: 0}
+  nextLevelMarker: {fileID: 1073390530}
+  player: {fileID: 1259897005}
   levelCompleted: 0
   radius: 5
   renderDistance: 2
