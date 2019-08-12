@@ -80574,7 +80574,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 19.3, y: -15.8}
-  m_SizeDelta: {x: 2210.3, y: 1250.3}
+  m_SizeDelta: {x: 2210.3, y: 1446.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1330282589
 MonoBehaviour:
@@ -81101,7 +81101,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -138.30042, y: 12.198997, z: 25.846436, w: -98.11153}
+  m_margin: {x: -183.88501, y: 15.237938, z: 25.846436, w: -134.57918}
   m_textInfo:
     textComponent: {fileID: 1406293881}
     characterCount: 0
