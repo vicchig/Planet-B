@@ -39,6 +39,7 @@ public class GameManagerLevel4 : GameManagerTranspiration
     {
         if (transpirationAmnt >= transpirationAmntNeeded && !echo.containsMessage(objectiveLevelTxt4_4) && !objectiveLevelTxt4_4.maxTextShowsReached())
         {
+            dirArrow.GetComponent<DirectionArrowController>().levelCompleted = true;
             echo.addMessage(objectiveLevelTxt4_4);
 
         }

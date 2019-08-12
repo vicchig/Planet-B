@@ -4106,7 +4106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextLevelMarker: {fileID: 774880765}
-  player: {fileID: 774880765}
+  player: {fileID: 257998468}
   levelCompleted: 0
   radius: 5
   renderDistance: 2
