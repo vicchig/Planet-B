@@ -62482,6 +62482,7 @@ MonoBehaviour:
   helperChar: {fileID: 1250598882}
   textMesh: {fileID: 1961577068}
   nextLevelMarker: {fileID: 1373870345}
+  dirArrow: {fileID: 0}
   introClip1: {fileID: 8300000, guid: 8286ef29fe2bfa243827e5fead482bca, type: 3}
 --- !u!114 &821890870
 MonoBehaviour:
@@ -68242,8 +68243,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -33.8}
-  m_SizeDelta: {x: 1920, y: 1100}
+  m_AnchoredPosition: {x: 19.2, y: -37.3}
+  m_SizeDelta: {x: 2126.3, y: 1260.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2125871668
 MonoBehaviour:
