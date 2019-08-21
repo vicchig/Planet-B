@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - MovingPlatform
+  - Interactive
+  - DynamicParticle
+  - EvapArea
+  - SpawnWaterArea
+  - Destructibles
+  - Platforms
+  - Lava
+  - WaterDrop
+  - AirSource
+  - FallingRocks
+  - AirSourceTextArea
+  - WaterTextArea
+  - bullet2
+  - ExploreAreaEastLevel1
+  - WaterPoolCollisionArea
+  - FallingRockArea
+  - Sun Ray
+  - WaterPool
+  - WaterDisappear
+  - RegenExplainArea
+  - RandomlyMovingPlatform
+  - PoisonousCloud
+  - EchoCollider
+  - WaterVapour
+  - DeathOnTouch
+  - CondensationArea
+  - Vapor
+  - FreezeCollider
+  - DynamicParticleL3
+  - TreePlantArea
+  - bullet3
+  - bullet1
+  - WaterPoolCollider
+  - SolarShield
+  - Sun
+  - PressurePlatform
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Platforms
+  - Player
+  - Background
+  - MovingPlatforms
+  - PickupObjects
+  - EnviroHazards
+  - CondensationArea
+  - SeepingParticle
+  - SeepingCollider
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 662942447
+    locked: 0
+  - name: BackgroundDetail
+    uniqueID: 3559272783
+    locked: 0
+  - name: Platforms
+    uniqueID: 2372841883
+    locked: 0
+  - name: Player
+    uniqueID: 2075511947
+    locked: 0
+  - name: EnviroEffects
+    uniqueID: 141163957
+    locked: 0
+  - name: EnviroHazards
+    uniqueID: 743712853
+    locked: 0
+  - name: PickupObjects
+    uniqueID: 1582176671
+    locked: 0
+  - name: Water
+    uniqueID: 2803956531
+    locked: 0
