@@ -49,8 +49,8 @@ The player controls a character who was tasked with fixing the water cycle on a 
 *Level 5*
 
 ![Level5Gif](./Screenshots/Level2Gif.gif)</br>
-*Gif of level 5 with all particle systems enabled*
-**_Note: Gif framerate is significantly lower than the game framerate_ **
+*Gif of level 5 with all particle systems enabled*</br>
+**Note: Gif framerate is significantly lower than the game framerate**
 
 ### Levels 7-8
 * These two levels deal with collection, the final stage of the water cycle where water collects in surface bodies of water.
