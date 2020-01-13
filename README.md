@@ -1,6 +1,10 @@
 # Planet B
 An educational 2D platformer about the Water Cycle. This game was made as part of a research project studying the design and implementation of educational games in high school classrooms. The study focused on identifying best design practices for educational video games and the effects of various learning strategies (repetition, zone of proximal development, situated cognition, social learning, etc.) when they are implemented in video games. 
 
+## Contributors' GitHub:
+* vicchig
+* faarisali
+
 ## Summary:
 The player controls a character who was tasked with fixing the water cycle on a potentially habitable planet. The player then goes through a series of puzzle like levels with the help of Echo (NPC that helps the player throughout the game by having a voice over that gives players hints and the necessary information for completing tasks) that teach the player about each separate stage of the water cycle. The last level tests the player's knowledge by asking them to implement the entire cycle on their own, with minimal hints.
 
